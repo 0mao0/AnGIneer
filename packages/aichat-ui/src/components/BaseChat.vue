@@ -327,6 +327,7 @@
               :dropdown-match-select-width="false"
               :dropdown-style="{ minWidth: '200px' }"
               @update:value="onLibrarySelectChange"
+              @dropdown-visible-change="(v: boolean) => v && emit('libraryDropdownOpen')"
             >
               <!-- 多库收口（用户定式 2026-10-04）：勾选 >1 库时不逐个出 tag，折叠占位统一显示「N 个知识库」；
                    单库仍显示库名 tag。maxTagCount=0 经 vc-overflow 确认渲染 0 tag + 1 rest（4.2.6）。 -->
@@ -652,6 +653,9 @@ const emit = defineEmits<{
   selectCitation: [citation: BaseChatCitation]
   'update:libraryValue': [libraryId: string]
   'update:libraryValues': [libraryIds: string[]]
+  /** 库选择下拉展开（2026-10-26）：宿主借此在数据源仍为空时补拉一次——
+   *  页面加载窗口内后端不可达时，选择器不再卡「其他+原始 id」兜底态直到刷新 */
+  libraryDropdownOpen: []
   /** 删除一条待发送消息 */
   removeQueued: [id: string]
   /** 插队：打断当前生成并立即发送该条 */

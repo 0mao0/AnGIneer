@@ -46,6 +46,7 @@
     @select-citation="handleSelectCitation"
     @update:library-value="emit('update:libraryValue', $event)"
     @update:library-values="emit('update:libraryValues', $event)"
+    @library-dropdown-open="emit('libraryDropdownOpen')"
   >
     <template #hero><slot name="hero" /></template>
     <template v-if="$slots['hero-below']" #hero-below><slot name="hero-below" /></template>
@@ -159,6 +160,8 @@ const emit = defineEmits<{
   messagesChange: [messages: AIChatMessage[]]
   'update:libraryValue': [libraryId: string]
   'update:libraryValues': [libraryIds: string[]]
+  /** 库选择下拉展开（透传 BaseChat）：宿主补拉库名/分组数据 */
+  libraryDropdownOpen: []
 }>()
 
 const sessionIdRef = computed(() => props.sessionId)

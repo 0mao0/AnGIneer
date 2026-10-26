@@ -29,6 +29,7 @@
           @messages-change="onMessagesChange"
           @select-citation="handleCitationSelect"
           @update:library-values="onLibraryChange"
+          @library-dropdown-open="ensureLibraryData"
         >
           <template #hero>
             <h1 class="hero-title">今天，想查点什么？</h1>
@@ -282,6 +283,28 @@ const loadLibraryNames = async () => {
   } else {
     console.warn('[ChatHome] 知识库分组加载失败，选择器回退平铺库名', groupsRes.reason)
   }
+  pruneEvalsFromSelection()
+}
+
+/** 评测库不进勾选集合（§8-B2 展示口径延伸到勾选，2026-10-26）：V2 关时派生集=平铺清单、
+ *  含 evals 组库（管理员亦然），登录全选会把评测语料带进选择集合；下拉按设计不显示它们，
+ *  徽章却按全量计数——表现即「只见 1 个、徽章写 12」。evals 名册只有拉到库清单才知道，
+ *  故剪除挂在清单加载成功后（V2 开时服务端已源头排除，这里是第二层纸，命中 0 条则不动集合） */
+function pruneEvalsFromSelection() {
+  if (!evalsLibraryIds.value.size || authStore.guestMode) return
+  const hit = authStore.activeLibraryIds.filter((id) => evalsLibraryIds.value.has(id))
+  if (!hit.length) return
+  authStore.setActiveLibraries(authStore.activeLibraryIds.filter((id) => !evalsLibraryIds.value.has(id)))
+}
+
+/** 下拉展开时补拉（2026-10-26）：数据加载只发生在挂载/登录切换两处、失败零重试，
+ *  加载窗口内后端不可达即整页卡「其他+原始 id」兜底态直到刷新；展开时数据源仍为空则再拉一次 */
+const ensureLibraryData = () => {
+  if (authStore.guestMode) {
+    if (!authStore.guestConfig) void authStore.loadGuestConfig()
+    return
+  }
+  if (!Object.keys(libraryNames.value).length || !libraryGroups.value.length) void loadLibraryNames()
 }
 onMounted(() => {
   // 未登录（游客态）：补签游客 cookie，保证首轮问答即落在 g: 桶（幂等，已登录是安全的 no-op）
