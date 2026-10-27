@@ -429,7 +429,12 @@ const handleCitationSelect = async (citation: AIChatCitation) => {
   panelLibraryId.value = citation.library_id || libraryId.value
   // 预热过则秒返回；未预热（用户极快点引用）则在这里补齐，保证组件挂载后再定位
   await documentViewLoader()
-  await nextTick()
+  // 异步组件在 v-if 下挂载比 loader resolve 晚若干拍：单发 nextTick 接不住，
+  // 可选链会把首次点引用静默吞掉（2026-10-26 本地复现：首击跳首页、二次点击才跳对）
+  for (let attempt = 0; attempt < 20 && !docViewRef.value; attempt += 1) {
+    await new Promise(resolve => setTimeout(resolve, 50))
+    await nextTick()
+  }
   // DocumentView 内部有 pending 队列：先于文档加载完成调用也安全
   docViewRef.value?.focusCitation?.(citation as any)
 }

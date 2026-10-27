@@ -289,6 +289,12 @@ watch(() => graphDataFullLoaded.value, () => {
   void flushPendingCitation()
 })
 
+// 工作区（含 PDF 画布）挂载可能晚于 loadDocument 收尾的 flush 一拍：
+// 组件一出现就把积压的 pending 放出来，首击定位不再依赖图谱是否就绪
+watch(pdfWorkspaceRef, workspace => {
+  if (workspace) void flushPendingCitation()
+})
+
 watch(
   () => [props.docId, props.libraryId],
   () => {
