@@ -380,9 +380,10 @@ export function filterCitationsByMarkers(
   answer: string
 ): AIChatCitation[] {
   const used = new Set<string>()
-  const re = /\[([KTE]\d+)\]/g
+  // 容忍括号内空格（`[ K32]`）：漏判会让该引用被整条滤掉，tag 无从挂载
+  const re = /\[\s*([KTE]\s*\d+)\s*\]/g
   let match: RegExpExecArray | null
-  while ((match = re.exec(answer || '')) !== null) used.add(match[1])
+  while ((match = re.exec(answer || '')) !== null) used.add(match[1].replace(/\s+/g, ''))
   return (citations || []).filter(c => c.marker && used.has(c.marker))
 }
 

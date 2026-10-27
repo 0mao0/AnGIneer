@@ -105,6 +105,24 @@ export const parseMarkerNumber = (marker?: string | null): number | undefined =>
   return match ? Number(match[1]) : undefined
 }
 
+/**
+ * 正文引用标记匹配（带 g 标志，每次调用返回新实例，避免 lastIndex 串扰）。
+ * 容忍括号内空白：模型输出不保证无空格（如 `[ K32]`、`[K 32]`），
+ * 只认紧形式 `[K32]` 的正则会把带空格标记整个漏判成纯文本。
+ */
+export const citationMarkerRe = (): RegExp => /\[\s*([KTE]\s*\d+)\s*\]/g
+
+/** `[ K32]` → `K32`：归一化后才与 citation.marker 比对。 */
+export const normalizeCitationMarker = (marker: string): string => marker.replace(/\s+/g, '')
+
+/** 正文里是否写了该标记（同样容忍括号内空白）。 */
+export const hasCitationMarker = (content: string, marker?: string | null): boolean => {
+  const letter = String(marker || '').match(/[KTE]/)?.[0]
+  const num = String(marker || '').match(/\d+/)?.[0]
+  if (!letter || !num) return false
+  return new RegExp(`\\[\\s*${letter}\\s*${num}\\s*\\]`).test(content)
+}
+
 export const buildInlineCitationTagHtml = (
   citation: BaseChatCitation,
   index: number,

@@ -257,6 +257,24 @@ class QaConfigTests(unittest.TestCase):
         self.assertIn("吃水加富裕深度", new_answer)
         self.assertEqual(code, "markers_cleaned")
 
+    def test_guard_normalizes_spaced_markers(self):
+        """`[ K3 ]` 空格形态归一为 `[K3]`：不归一则清理、渲染、过滤三处同漏。"""
+        guard = make_final_answer_guard(enforce_evidence=False)
+        added = [AgentMessage(role="tool", content='{"items": [{"item_id":"a","text":"x","metadata":{"cite":"K1"}}]}')]
+        new_answer, note, code = guard([*added, AgentMessage(role="assistant", content="依据 [ K1 ] 作答")])
+        self.assertEqual(new_answer, "依据 [K1] 作答")
+        self.assertEqual(code, "marker_whitespace_normalized")
+        self.assertIn("空格已归一", note)
+
+    def test_guard_strips_spaced_invalid_markers(self):
+        """带空格的编造标记 `[ K9 ]` 归一后必须照样被清掉（旧实现漏网）。"""
+        guard = make_final_answer_guard(enforce_evidence=False)
+        added = [AgentMessage(role="tool", content='{"items": [{"item_id":"a","text":"x","metadata":{"cite":"K1"}}]}')]
+        new_answer, note, code = guard([*added, AgentMessage(role="assistant", content="依据 [K1] 和 [ K9 ] 作答")])
+        self.assertNotIn("K9", new_answer)
+        self.assertIn("[K1]", new_answer)
+        self.assertEqual(code, "markers_cleaned")
+
 
 class HalfRefusalStripTests(unittest.TestCase):
     """P1：半拒答只删开头那句「没有检索到足够证据支持最终结论」，保留带引用的正文。

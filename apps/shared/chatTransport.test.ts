@@ -114,6 +114,16 @@ test('filterCitationsByMarkers 只保留答案中出现的标记', () => {
   assert.equal(filtered[0].marker, 'K1')
 })
 
+test('filterCitationsByMarkers 容忍括号内空格（[ K32] 形态）', () => {
+  const citations = [
+    { marker: 'K32', doc_id: 'd1', doc_title: '航道养护规程.pdf', page_idx: 0, section_path: '3.1', snippet: 'x', score: 1, target_id: 't1' },
+    { marker: 'K99', doc_id: 'd2', doc_title: '未引用', page_idx: 0, section_path: '9', snippet: 'x', score: 1, target_id: 't2' },
+  ]
+  const filtered = filterCitationsByMarkers(citations, '依据 [ K32] 与 [T 7 ]，需要定期养护。')
+  assert.equal(filtered.length, 1)
+  assert.equal(filtered[0].marker, 'K32')
+})
+
 test('工具消息 items 带 cite 时进入思考轨迹 citations.marker', () => {
   const steps = buildThinkingTrace([
     { role: 'user', content: 'x' },

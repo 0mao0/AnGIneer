@@ -26,6 +26,9 @@ from angineer_core.tool_codec import TextToolCallCodec
 
 
 _MARKER_RE = re.compile(r"\[([KTE]\d+)\]")
+# 括号内空格形态（`[ K32]`、`[K 32 ]`）：不先归一，_MARKER_RE 漏匹配，
+# 伪造标记清理、前端标记→tag、引用过滤会一起漏（2026-10-26 Kxx 纯文本回归）
+_MARKER_SPACED_RE = re.compile(r"\[\s*([KTE])\s*(\d+)\s*\]")
 
 
 def effective_qa_prompt_version() -> str:
@@ -223,6 +226,13 @@ def make_final_answer_guard(enforce_evidence: bool = True, followup_question: bo
         envelope_unwrapped = unwrapped is not None
         if envelope_unwrapped:
             answer = unwrapped or ""
+        # 括号内空格形态归一为紧形式（`[ K32]` → `[K32]`）：后续无效标记清理、
+        # 前端标记→tag 映射、引用过滤都只认紧形式，不归一则三处同漏
+        normalized_answer = _MARKER_SPACED_RE.sub(
+            lambda m: f"[{m.group(1)}{m.group(2)}]", answer
+        )
+        marker_whitespace_normalized = normalized_answer != answer
+        answer = normalized_answer
         # 守卫内共用：证据内生效的标记集合（无工具消息时为空集，所有标记视为编造）。
         # 所有保留正文的分支（half_refusal_stripped / refusal_kept / markers_cleaned）
         # 都必须过无效标记清理——refusal_kept 此前早退跳过清理，L2→L1 回退段
@@ -356,6 +366,12 @@ def make_final_answer_guard(enforce_evidence: bool = True, followup_question: bo
                 answer,
                 "边界规则：最终回答为单键 {\"answer\"} 信封，已拆封取内文",
                 "answer_envelope_unwrapped",
+            )
+        if marker_whitespace_normalized:
+            return (
+                answer,
+                "边界规则：引用标记括号内空格已归一（如 `[ K3]` → `[K3]`）",
+                "marker_whitespace_normalized",
             )
         return None
 

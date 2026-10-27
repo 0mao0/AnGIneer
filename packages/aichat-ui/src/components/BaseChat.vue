@@ -535,8 +535,11 @@ import type {
 import {
   buildInlineCitationTagHtml,
   buildCitationSegments,
+  citationMarkerRe,
   getCitationLastSegment,
+  hasCitationMarker,
   mapReferenceToBaseChatCitation,
+  normalizeCitationMarker,
   parseMarkerNumber,
 } from '../utils/citation'
 import {
@@ -956,16 +959,17 @@ const renderContent = (content: string, streamingCitations?: BaseChatCitation[])
     : escapeHtml(content).replace(/\n/g, '<br />')
   if (streamingCitations?.length) {
     // 标记 → tag：流式期间即可显示引用框（与完成态一致，避免结束后跳变）
-    const markerHtml = html.replace(/\[([KTE]\d+)\]/g, (raw, marker: string) => {
-      const index = streamingCitations.findIndex(citation => citation.marker === marker)
+    const markerHtml = html.replace(citationMarkerRe(), (raw, marker: string) => {
+      const normalized = normalizeCitationMarker(marker)
+      const index = streamingCitations.findIndex(citation => citation.marker === normalized)
       if (index < 0) return raw
-      return buildInlineCitationTagHtml(streamingCitations[index], index, parseMarkerNumber(marker))
+      return buildInlineCitationTagHtml(streamingCitations[index], index, parseMarkerNumber(normalized))
     })
     return markerHtml
   }
-  // 流式占位：只替换已完整出现的 [K1]/[T1]/[E1]，未闭合的 [K 保持原样
-  return html.replace(/\[([KTE]\d+)\]/g, (_raw, marker: string) =>
-    `<span class="stream-citation-marker">${parseMarkerNumber(marker) ?? 0}</span>`)
+  // 流式占位：只替换已完整出现的 [K1]/[T1]/[E1]（含括号内空格形态），未闭合的 [K 保持原样
+  return html.replace(citationMarkerRe(), (_raw, marker: string) =>
+    `<span class="stream-citation-marker">${parseMarkerNumber(normalizeCitationMarker(marker)) ?? 0}</span>`)
 }
 
 /**
@@ -981,9 +985,9 @@ const renderAssistantContent = (message: BaseChatMessage): string => {
     // 第一轮：优先匹配“文档 + 章节”的完整短语，避免同名文档挂错引用
     const matchedIndexes = new Set<number>()
     citations.forEach((citation, index) => {
-      // 正文已经写了 [Kx] 标记时，交给“标记 → 内联 tag”替换，
+      // 正文已经写了 [Kx] 标记时（含 `[ Kx]` 空格形态），交给“标记 → 内联 tag”替换，
       // 不再把文档名/章节名单独做成链接，避免同一处出现两个可点元素
-      if (citation.marker && content.includes(`[${citation.marker}]`)) return
+      if (hasCitationMarker(content, citation.marker)) return
       const spanCandidates = buildSectionCitationCandidates(citation)
       for (const needle of spanCandidates) {
         const positions: number[] = []
@@ -1007,7 +1011,7 @@ const renderAssistantContent = (message: BaseChatMessage): string => {
     // 第二轮：正文只写了文档名时，兜底把文档名变成链接
     citations.forEach((citation, index) => {
       if (matchedIndexes.has(index)) return
-      if (citation.marker && content.includes(`[${citation.marker}]`)) return
+      if (hasCitationMarker(content, citation.marker)) return
       const spanCandidates = buildDocOnlyCitationCandidates(citation)
       for (const needle of spanCandidates) {
         const positions: number[] = []
@@ -1033,10 +1037,11 @@ const renderAssistantContent = (message: BaseChatMessage): string => {
     : escapeHtml(content).replace(/\n/g, '<br />')
 
   // 标记 → tag 放在最后：tag 内包含“《文档》· 章节”文本，若先替换会被旧匹配二次命中
-  const markerHtml = html.replace(/\[([KTE]\d+)\]/g, (raw, marker: string) => {
-    const index = citations.findIndex(citation => citation.marker === marker)
+  const markerHtml = html.replace(citationMarkerRe(), (raw, marker: string) => {
+    const normalized = normalizeCitationMarker(marker)
+    const index = citations.findIndex(citation => citation.marker === normalized)
     if (index < 0) return raw
-    return buildInlineCitationTagHtml(citations[index], index, parseMarkerNumber(marker))
+    return buildInlineCitationTagHtml(citations[index], index, parseMarkerNumber(normalized))
   })
 
   return markerHtml.replace(/__INLINE_CIT_(\d+)__/g, (_, rawIndex) => {
