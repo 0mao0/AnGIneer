@@ -162,8 +162,8 @@ const parseButtonText = computed(() => {
 })
 const structuredItemsValue = computed(() => props.structuredItems || [])
 const hasParsedContent = computed(() => Boolean((props.content || '').trim()))
-// 只要宿主支持按需拉整图，展开键就必须存在：content.md 还没传完/失败时，
-// 用户也要能点开解析面板（点开即触发图谱加载），否则大文档会永远没有入口
+// 只要宿主支持按需拉文本块数据（doc_blocks_graph），展开键就必须存在：content.md 还没传完/失败时，
+// 用户也要能点开解析面板（点开树/图页签即触发加载），否则大文档会永远没有入口
 const showSidePanelToggle = computed(() => (
   hasParsedContent.value || Boolean(props.graphData?.nodes?.length) || Boolean(props.onLoadFullGraphData)
 ))
@@ -302,9 +302,9 @@ watch(() => props.graphData?.nodes?.length || 0, (count, previousCount) => {
   }
 })
 
-// 整图（带 bbox，单篇可达十几 MB、大书要几十秒）不再随「面板展开」自动拉：
-// 展开只是打开容器，Markdown 不需要整图；真正的按需加载由下方 activeTab watch 触发——
-// 用户点开树形/图谱视图才算需要图谱。
+// 文本块数据（doc_blocks_graph，带 bbox，单篇可达十几 MB、大书要几十秒）不再随「面板展开」自动拉：
+// 展开只是打开容器，Markdown 不需要它；真正的按需加载由下方 activeTab watch 触发——
+// 用户点开树形/图谱页签才算需要文本块数据（术语定版 2026-10-27：叫文本块，不叫块图谱）。
 watch(activeTab, (tab) => {
   if ((tab === 'Preview_IndexTree' || tab === 'Preview_IndexGraph' || tab === 'Preview_KnowledgeGraph') && !props.graphDataFullLoaded && props.onLoadFullGraphData) {
     props.onLoadFullGraphData()
@@ -326,7 +326,7 @@ const setActiveLinkedItem = (
   options: LinkedItemOptions = {}
 ) => {
   // 高亮框取的是图谱节点的 bbox；数据尚未加载时先按页兜底跳转（不阻塞），
-  // 同时后台补拉整图——点引用＝需要高亮框，图谱是框的数据源；
+  // 同时后台补拉文本块数据——点引用＝需要高亮框，bbox 坐标只有它存了；
   // 数据到位后 watch 回放精确定位，高亮框自动补现。打开 PDF／展开面板仍不拉图。
   if (itemId && !props.graphData?.nodes?.length) {
     pendingLinkedItem.value = { id: itemId, options }

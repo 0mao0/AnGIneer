@@ -20,8 +20,8 @@ export const knowledgeApi = {
     }),
 
   getDocBlocksGraph: (libraryId: string, docId: string) =>
-    // 大文档的整本块图谱可达十几 MB，默认 30s 闸门会误杀（用户点开解析面板才拉这一份）；
-    // 按请求放宽到 3 分钟，失败仍可收起再展开重试
+    // 大文档的整本文本块数据（doc_blocks_graph）可达十几 MB，默认 30s 闸门会误杀；
+    // 只在用户点开树形/图谱页签或点引用角标时才拉这一份。按请求放宽到 3 分钟，失败可重试
     docsApiClient.post('/knowledge/parse/doc-blocks-graph', { library_id: libraryId, doc_id: docId }, { timeout: 180000 })
 }
 

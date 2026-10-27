@@ -284,7 +284,7 @@ const props = defineProps<{
   activeLineRange: { start: number; end: number } | null
   sourceFilePath?: string
   graphData?: DocBlocksGraphType | null
-  /** 整图按需加载中（宿主状态）：树视图的转圈只跟它走，不再跟「有没有数据」走 */
+  /** 文本块数据按需加载中（宿主状态）：树视图的转圈只跟它走，不再跟「有没有数据」走 */
   graphDataLoading?: boolean
   onLoadFullGraphData?: () => Promise<void>
   libraryId?: string

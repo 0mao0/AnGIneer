@@ -284,7 +284,7 @@ watch(() => [props.pageIdx, props.targetId, props.sectionPath, props.snippet], (
   }
 })
 
-// 完整图谱就绪后再定位，保证目标块在 linkedHighlights 中可解析
+// 文本块数据（doc_blocks_graph）就绪后再定位，保证目标块在 linkedHighlights 中可解析
 watch(() => graphDataFullLoaded.value, () => {
   void flushPendingCitation()
 })
