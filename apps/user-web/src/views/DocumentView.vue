@@ -22,10 +22,11 @@
         :render-pdf-path="pdfFilePath"
         :graph-data="graphData"
         :graph-data-full-loaded="graphDataFullLoaded"
+        :graph-data-loading="graphDataLoading"
         :on-load-full-graph-data="loadGraphData"
         :side-panel-open="sidePanelOpen"
-        :side-panel-default-open="true"
-        :default-parsed-tab="'Preview_IndexTree'"
+        :side-panel-default-open="false"
+        :default-parsed-tab="'Preview_Markdown'"
         @update:side-panel-open="onSidePanelOpenChange"
       />
       <Preview_Markdown
@@ -56,7 +57,9 @@ import { EmptyState, useTheme } from '@angineer/ui-kit'
 import { knowledgeApi } from '@/api/knowledge'
 import { useAuthStore } from '@/stores/auth'
 
-const props = defineProps<{
+// sidePanelOpen 必须显式默认 undefined：Vue 对 Boolean 类型 prop 缺省会强转 false，
+// 「宿主没传（想本地受控）」会被误判成「宿主强制关闭」→ 展开键永远点不开（2026-10-27 实踩）
+const props = withDefaults(defineProps<{
   libraryId?: string
   docId?: string
   title?: string
@@ -65,7 +68,9 @@ const props = defineProps<{
   pageIdx?: number
   snippet?: string
   sidePanelOpen?: boolean
-}>()
+}>(), {
+  sidePanelOpen: undefined,
+})
 
 const { isDark } = useTheme()
 const authStore = useAuthStore()
@@ -84,8 +89,11 @@ const currentDocId = ref('')
 const pdfWorkspaceRef = ref<InstanceType<typeof PDFParsedWorkspace> | null>(null)
 const { resolveCitationTargetNode, applyCitationToWorkspace } = useKnowledgeCitation()
 
-/** 右侧解析对比面板：宿主未受控时用户收起后本地保持收起 */
-const localSidePanelOpen = ref(true)
+/**
+ * 右侧解析对比面板默认收起：整本文档图谱（单篇可达十几 MB、大书要几十秒）
+ * 只在用户点工具栏「展开解析对比」后才拉；打开 PDF 本身不触发图谱加载。
+ */
+const localSidePanelOpen = ref(false)
 const sidePanelOpen = computed(() => props.sidePanelOpen ?? localSidePanelOpen.value)
 const onSidePanelOpenChange = (value: boolean) => {
   if (props.sidePanelOpen !== undefined) return
@@ -239,8 +247,8 @@ const loadGraphData = async () => {
     graphData.value = payload?.nodes?.length ? payload : null
     graphDataFullLoaded.value = true
   } catch (error) {
+    // 失败不能记成「已加载完」：否则收起再展开也不会重试，面板永远缺定位框
     console.warn('[DocumentView] 加载文档图谱数据失败:', error)
-    graphDataFullLoaded.value = true
   } finally {
     graphDataLoading.value = false
   }

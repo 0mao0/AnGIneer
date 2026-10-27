@@ -1429,8 +1429,8 @@ async def get_doc_blocks_graph_summary(request: DocBlocksGraphSummaryRequest) ->
 # 每个字典触发一个新分块，13MB 的文件要整份下完才出首屏（JTS 165-2013 实测）。
 # 重排成对象流后页字典聚拢，同一文件首屏只需 1.2MB。
 _PDF_WEB_MIN_BYTES = 1024 * 1024
-_pdf_web_locks: Dict[str, threading.Lock] = {}
 _pdf_web_locks_guard = threading.Lock()
+_pdf_web_building: set = set()  # 正在后台构建的 cache_path，防同一文件重复起线程
 
 
 def _pdf_web_optimize_enabled() -> bool:
@@ -1478,10 +1478,43 @@ def _prune_pdf_web_cache(cache_dir: Path) -> None:
             break
 
 
-def _get_or_build_web_pdf(source_path: str) -> Optional[str]:
-    """返回重排成对象流的预览副本路径；不满足条件或失败一律返回 None（回退原文件）。
+def _build_web_pdf(source_path: str, cache_path: str) -> bool:
+    """生成重排成对象流的预览副本；校验页数一致才落缓存（os.replace 原子替换）。"""
+    tmp_path: Optional[str] = None
+    try:
+        import fitz  # PyMuPDF
 
-    只用于在线预览（下载走 raw=1 拿原件）。生成后校验页数一致才落缓存。
+        os.makedirs(os.path.dirname(cache_path), exist_ok=True)
+        tmp_path = f"{cache_path}.{os.getpid()}.{threading.get_ident()}.tmp.pdf"
+        with fitz.open(source_path) as source_doc:
+            page_count = source_doc.page_count
+            source_doc.save(tmp_path, garbage=4, deflate=True, use_objstms=1)
+        with fitz.open(tmp_path) as check_doc:
+            if check_doc.page_count != page_count:
+                raise ValueError(f"页数不一致: {check_doc.page_count} != {page_count}")
+        os.replace(tmp_path, cache_path)
+        tmp_path = None
+        _prune_pdf_web_cache(Path(os.path.dirname(cache_path)))
+        logger.info("[Preview] 已生成 PDF 预览副本: %s", os.path.basename(source_path))
+        return True
+    except Exception as error:  # 优化失败绝不影响预览本身
+        logger.warning("[Preview] PDF 预览副本生成失败，回退原文件: %s (%s)", source_path, error)
+        if tmp_path:
+            try:
+                os.unlink(tmp_path)
+            except OSError:
+                pass
+        return False
+
+
+def _get_or_build_web_pdf(source_path: str) -> Optional[str]:
+    """返回重排成对象流的预览副本路径；不满足条件或副本未就绪一律返回 None（回退原文件）。
+
+    只用于在线预览（下载走 raw=1 拿原件）。
+    缓存未命中时**不再同步等待转码**：大 PDF（几百页 / 几十 MB）重写对象流要几十秒到分钟级，
+    同步构建会让首开用户在收到第一字节前就等满这段时间（459 页实踩 >30s）。
+    现改为后台线程构建、本次直接回原件——原件同样支持 Range 按需加载，只是首屏稍慢；
+    同一文档下一次打开自动命中副本。
     """
     if not _pdf_web_optimize_enabled():
         return None
@@ -1498,38 +1531,19 @@ def _get_or_build_web_pdf(source_path: str) -> Optional[str]:
         return cache_path
 
     with _pdf_web_locks_guard:
-        lock = _pdf_web_locks.setdefault(cache_path, threading.Lock())
-    with lock:
-        if os.path.isfile(cache_path):
-            return cache_path
-        tmp_path: Optional[str] = None
-        try:
-            import fitz  # PyMuPDF
-
-            os.makedirs(os.path.dirname(cache_path), exist_ok=True)
-            tmp_path = f"{cache_path}.{os.getpid()}.{threading.get_ident()}.tmp.pdf"
-            with fitz.open(source_path) as source_doc:
-                page_count = source_doc.page_count
-                source_doc.save(tmp_path, garbage=4, deflate=True, use_objstms=1)
-            with fitz.open(tmp_path) as check_doc:
-                if check_doc.page_count != page_count:
-                    raise ValueError(f"页数不一致: {check_doc.page_count} != {page_count}")
-            os.replace(tmp_path, cache_path)
-            tmp_path = None
-            _prune_pdf_web_cache(Path(os.path.dirname(cache_path)))
-            logger.info("[Preview] 已生成 PDF 预览副本: %s", os.path.basename(source_path))
-            return cache_path
-        except Exception as error:  # 优化失败绝不影响预览本身
-            logger.warning("[Preview] PDF 预览副本生成失败，回退原文件: %s (%s)", source_path, error)
-            if tmp_path:
-                try:
-                    os.unlink(tmp_path)
-                except OSError:
-                    pass
+        if cache_path in _pdf_web_building:
             return None
+        _pdf_web_building.add(cache_path)
+
+    def _background_build() -> None:
+        try:
+            _build_web_pdf(source_path, cache_path)
         finally:
             with _pdf_web_locks_guard:
-                _pdf_web_locks.pop(cache_path, None)
+                _pdf_web_building.discard(cache_path)
+
+    threading.Thread(target=_background_build, name="pdf-web-cache-build", daemon=True).start()
+    return None
 
 
 @preview_router.get("/files")

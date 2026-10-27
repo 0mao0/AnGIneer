@@ -1682,6 +1682,8 @@ function usePdfDocument(
     displayPdfPageCount: ComputedRef<number>
     estimatedPageHeight: Ref<number>
     seedRealPageHeights: (rawHeights: number[], scale: number) => void
+    applyingExternalPdfScroll: Ref<boolean>
+    scrollToPdfPage: (page: number, behavior: ScrollBehavior) => void
   },
   zoom: {
     clampScale: (v: number) => number
@@ -1766,6 +1768,16 @@ function usePdfDocument(
       zoom.isScaleTransitioning.value = false
       zoom.hasAppliedInitialFit.value = true
     })
+    // 外部预置页（路由参数/引用定位常在文档加载完成前就写入 currentPdfPage）：
+    // 加载期间的 source 重置会把视图拉回第 1 页，而页号值本身没变化、watch 不再触发，
+    // 必须在这里主动落到目标页，否则表现为「点引用只停在首页」
+    const requestedPage = Number(props.currentPdfPage || 0)
+    if (requestedPage > 1) {
+      lastReportedPdfPage = requestedPage
+      scroll.applyingExternalPdfScroll.value = true
+      scroll.scrollToPdfPage(requestedPage, 'auto')
+      requestAnimationFrame(() => { scroll.applyingExternalPdfScroll.value = false })
+    }
     shared.onDocumentLoaded?.()
   }
 

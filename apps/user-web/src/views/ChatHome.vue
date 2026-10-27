@@ -60,7 +60,6 @@
             :doc-id="panelDocId"
             :library-id="panelLibraryId"
             :title="panelTitle"
-            :side-panel-open="false"
           />
         </div>
       </aside>

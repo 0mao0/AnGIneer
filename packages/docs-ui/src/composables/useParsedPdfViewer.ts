@@ -29,6 +29,8 @@ export interface ParsedPdfViewerStateProps {
   activeLinkedItemId: string | null
   sourceFilePath?: string
   graphData?: DocBlocksGraph | null
+  /** 宿主支持按需拉整图时，允许在图谱未就绪时切入树形/图谱视图（切入即触发加载） */
+  onLoadFullGraphData?: () => Promise<void>
 }
 
 export interface ParsedPdfViewerStateEmit {
@@ -139,7 +141,8 @@ export function useParsedPdfViewer(
       || value === 'Preview_IndexGraph'
       || value === 'Preview_KnowledgeGraph'
     ) {
-      if ((value === 'Preview_IndexTree' || value === 'Preview_IndexGraph') && !hasGraphData.value) {
+      if ((value === 'Preview_IndexTree' || value === 'Preview_IndexGraph') && !hasGraphData.value && !props.onLoadFullGraphData) {
+        // 没有按需加载能力的宿主：保持原回退，避免空白树
         emit('update:activeTab', 'Preview_Markdown')
         return
       }

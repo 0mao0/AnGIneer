@@ -998,7 +998,15 @@ export function useWorkspaceLinkage(options: UseWorkspaceLinkageOptions) {
       { preferLast: setOptions.preferLastHighlight }
     )
     applyResolvedHighlight(target, itemId)
-    if (!target) return
+    if (!target) {
+      // 图谱未就绪（或该文档没有高亮框数据）时的兜底：按已知目标页先跳 PDF，
+      // 不能整次定位被吞掉；数据到位后调用方的挂起回放机制会补精确高亮
+      const fallbackPage = setOptions.preferredPage
+      if (options.isPdf.value && fallbackPage && fallbackPage > 0 && fallbackPage !== options.pdfPage.value) {
+        options.pdfPage.value = fallbackPage
+      }
+      return
+    }
     if (isDocumentPreviewActive.value && target.lineStart !== null && target.lineEnd !== null) {
       scrollRightByLine(target.lineStart)
     }
