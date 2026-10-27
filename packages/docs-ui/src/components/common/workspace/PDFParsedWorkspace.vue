@@ -325,12 +325,15 @@ const setActiveLinkedItem = (
   itemId: string | null,
   options: LinkedItemOptions = {}
 ) => {
-  // 高亮框取的是图谱节点的 bbox；数据尚未加载时只挂起本次定位并立刻按页兜底跳转，
-  // 等图谱到位（用户展开解析面板触发加载）再由 watch 回放精确定位。
-  // 此处不主动拉整图：图谱体积大（单篇可达十几 MB），按产品约定只在展开解析面板时才加载。
+  // 高亮框取的是图谱节点的 bbox；数据尚未加载时先按页兜底跳转（不阻塞），
+  // 同时后台补拉整图——点引用＝需要高亮框，图谱是框的数据源；
+  // 数据到位后 watch 回放精确定位，高亮框自动补现。打开 PDF／展开面板仍不拉图。
   if (itemId && !props.graphData?.nodes?.length) {
     pendingLinkedItem.value = { id: itemId, options }
     setWorkspaceLinkedItem(itemId, options)
+    void Promise.resolve(props.onLoadFullGraphData?.()).catch(() => {
+      // 拉取失败静默：兜底跳页已完成，宿主 loadGraphData 自带告警日志
+    })
     return
   }
   setWorkspaceLinkedItem(itemId, options)
