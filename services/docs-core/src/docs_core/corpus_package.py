@@ -12,7 +12,7 @@
          ├─ registry/rows.json       # 本库 registry 行（原 sqlite_file/collection 供追溯）+ 其组行
          ├─ meta/rows.json           # 本库 nodes/tree_node + meta libraries 行（修 F10 缺口）
          ├─ index/index.sqlite       # 组 sqlite 按库切片（corpus_slicing）
-         ├─ files/…                  # 文档树（排除 parsed/{mineru_raw,popo} 与 lib 根 index.sqlite）
+         ├─ files/…                  # 文档树（排除 parsed/{mineru_raw,popo} 与 lib 根 index/graph sqlite 及边车）
          ├─ qdrant/vectors.snapshot  # 本库向量快照（临时 collection 拷贝或独占直取）
          └─ graph/graph.sqlite       # 本库图谱闭包切片（corpus_slicing）
 
@@ -142,6 +142,13 @@ def _iter_doc_files(lib_root: Path, exclude_dirs: Sequence[str]) -> Iterator[Tup
                         yield Path(entry.path), rel, entry.stat(follow_symlinks=False).st_size
         except OSError:
             continue
+
+
+def _is_lib_root_sqlite(rel_in_lib: str) -> bool:
+    """lib 根的 index.sqlite*/graph.sqlite*——专条切片通道已进包（index/、graph/），
+    原样再进 files/ 既重复计数、WAL/SHM 边车又会在流式拷贝中途蒸发炸断
+    （2026-10-28 生产实踩 FileNotFoundError graph.sqlite-wal）。"""
+    return "/" not in rel_in_lib and rel_in_lib.startswith(("index.sqlite", "graph.sqlite"))
 
 
 def checkpoint_sqlite(path: Path) -> None:
@@ -309,8 +316,8 @@ def scan_selection(data_root: Path, libs: Sequence[str], *,
         file_count = 0
         if lib_root.is_dir():
             for _path, rel_in_lib, size in _iter_doc_files(lib_root, exclude_dirs):
-                if rel_in_lib == "index.sqlite":
-                    continue  # lib 根旧切片不进包
+                if _is_lib_root_sqlite(rel_in_lib):
+                    continue  # lib 根 index/graph sqlite 及边车走专条切片，不进 files/
                 files_bytes += size
                 file_count += 1
         points = count_points_filtered(str(row["collection"]), lib_id, qdrant_url)
@@ -450,8 +457,8 @@ def iter_bundle_zip(libs: List[str], *, exclude_dirs: Sequence[str] = DEFAULT_EX
         entries: List[Tuple[Path, str, int]] = []
         if lib_root.is_dir():
             for path, rel_in_lib, size in _iter_doc_files(lib_root, exclude):
-                if rel_in_lib == "index.sqlite":
-                    continue  # lib 根旧切片不进包（防再导导入库时把旧切片带进包）
+                if _is_lib_root_sqlite(rel_in_lib):
+                    continue  # 专条切片/边车不进 files/（防再导带旧切片、防 WAL 蒸发断流）
                 entries.append((path, f"files/{path.relative_to(data_root).as_posix()}", size))
                 est_files += size
         per_lib_files[lib_id] = entries

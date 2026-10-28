@@ -415,10 +415,27 @@ class KbCorpusBundleV2Tests(unittest.TestCase):
         lib_a_g = self.root / "knowledge" / "libraries" / "lib-a" / "graph.sqlite"
         lib_a_g.write_bytes(global_g.read_bytes())  # 模拟拆分迁移：图谱已入本库文件
         global_g.rename(self.root / "knowledge" / "graph.sqlite.migrated-tmp")
+        # WAL/SHM 边车同场（生产实踩：files/ 扫描把它们收进条目清单，流式拷贝中途
+        # 边车被 checkpoint 回收 → FileNotFoundError 整包 failed）。
+        (lib_a_g.parent / "graph.sqlite-wal").write_bytes(b"WAL")
+        (lib_a_g.parent / "graph.sqlite-shm").write_bytes(b"SHM")
         outer = self._bundle(["lib-a"])
-        inner, _names, iman = self._assert_inner_single_lib(outer, "lib-a")
+        inner, names, iman = self._assert_inner_single_lib(outer, "lib-a")
         self.assertEqual(iman["counts"]["graph_relations"], 2)
         self.assertGreater(iman["counts"]["graph_tables"].get("graph_entities", 0), 0)
+        # lib 根 sqlite（index/graph 及边车）必须整组被 files/ 扫描跳过：
+        # 图谱只经 graph/graph.sqlite 专条切片进包，重复条目既胀体积又留悬空引用。
+        stray = [n for n in names if n.startswith("files/") and (
+            "graph.sqlite" in n or "index.sqlite" in n)]
+        self.assertEqual(stray, [])
+        # 预览 files_bytes 同样不得把根 sqlite 边车算进预估体积
+        with ExitStack() as stack:
+            for p in self._qdrant_patches():
+                stack.enter_context(p)
+            preview = corpus_package.scan_selection(self.root, ["lib-a"])
+        pdf_bytes = (self.root / "knowledge/libraries/lib-a/documents/d1/source/a.pdf").stat().st_size
+        parsed_bytes = (self.root / "knowledge/libraries/lib-a/documents/d1/parsed/text.json").stat().st_size
+        self.assertEqual(preview["libraries"][0]["files_bytes"], pdf_bytes + parsed_bytes)
 
     def test_evals_group_files_follow_group_root(self):
         _seed_evals_library(self.root)
