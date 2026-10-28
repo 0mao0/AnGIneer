@@ -2,6 +2,12 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.3.5
+
+- 语料包导出三修（2026-10-28 生产实跑实踩，容器内存验证出真包）：无图谱库导出整包 failed——`closing(...).close()` 在 Py3.11 无此方法，图谱按库拆分改名全局文件后该分支首次可达；有图谱库关系静默清零——导出自查拿注册表 sqlite_file 父目录找图谱、组路由后必落空，改走全站唯一解析器 `resolve_graph_db_for_library`（生产 707 关系/63 实体/FK 0 实出包）；库根 graph/index sqlite 及 WAL/SHM 边车不再随 files/ 扫描进包——流式拷贝中途边车被 checkpoint 回收即 FileNotFoundError 断流
+- agent 循环幻觉工具名熔断（2026-10-25 FinanceBench 实锤）：模型自造工具名重试 6 次烧光轮次预算一题未答，连续 `ANGINEER_TOOL_HALLUCINATION_TURNS`（默认 2，0=关）轮全部未注册即转无工具直答收尾（reason=tool_hallucination_breaker）；轮内混入真实工具计数清零、换段复位，不误伤正常重试，预算耗尽路径行为与 reason 逐字不变
+- 测试与文档：清账 8 处红测试（只改测试不改产品：users/aichat 订阅 v2 环境泄漏钉 False、PoPo 守卫补文档级 API 用例、GPU 闸到达序、citations v0.3.3 语义、prompt v20 同步）；budget stopper 显式 threshold＝真实 token 线仅 usage 路径——改测试锁现状＋docstring 纠偏对齐 10-18 实现；chart 计划 §8 缺陷表回写
+
 ## v0.3.4
 
 - 图谱存储按库拆分（plan-graph-per-library-split）：全局一张 `knowledge/graph.sqlite` 改为每库一文件 `knowledge/libraries/<库>/graph.sqlite`，启动首跑自动拆分迁移（备份改名 `graph.sqlite.migrated-<时间戳>`、逐表对账、空 library_id 行归一、幂等可重跑，迁移失败不阻塞启动、读写回退全局文件）；图谱页签与 API、维护任务、查询端口与导出产物查找全部改按库解析；拆并适配跨文件迁移（独占实体移动、共享实体复制、重名冲突保留源行、FK 外来端点实体按外键需要随迁）
