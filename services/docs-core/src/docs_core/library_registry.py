@@ -163,12 +163,28 @@ def resolve_registry_db_path() -> Path:
 # ---- 连接与 schema ----
 
 
+def _pg_stack() -> bool:
+    """KB_STACK=pg 时注册表落在 PG（同库，见 pg_support.iter_pg_ddl）。"""
+    from .pg_support import is_pg
+
+    return is_pg()
+
+
 def _connect() -> sqlite3.Connection:
+    if _pg_stack():
+        from .pg_support import pg_connect
+
+        return pg_connect()
     return create_connection(resolve_registry_db_path())
 
 
 def ensure_schema(db_path: Optional[Path] = None) -> Path:
     """建库建表（幂等）。注册表只能显式初始化——纯读取不得顺手建文件（读缺失=回退，非错误）。"""
+    if _pg_stack():
+        from .pg_support import PG_SENTINEL_DB_PATH, ensure_pg_ready
+
+        ensure_pg_ready()
+        return PG_SENTINEL_DB_PATH
     path = db_path or resolve_registry_db_path()
     conn = create_connection(path)
     try:
@@ -179,6 +195,8 @@ def ensure_schema(db_path: Optional[Path] = None) -> Path:
 
 
 def _registry_exists() -> bool:
+    if _pg_stack():
+        return True
     return resolve_registry_db_path().exists()
 
 
@@ -385,6 +403,11 @@ def _groups_table_missing(conn: sqlite3.Connection) -> bool:
     """旧版 registry.sqlite 只有 library_registry 表（library_groups 随建组首写才出现）。
     读路径视「表不存在」= 无自定义组——不得顺手建表（显式初始化契约），
     2026-10-07 发版实踩：直查未建表的生产库让总览 500。"""
+    if _pg_stack():
+        return conn.execute(
+            "SELECT 1 FROM information_schema.tables WHERE table_schema='public' "
+            "AND table_name='library_groups'"
+        ).fetchone() is None
     return conn.execute(
         "SELECT 1 FROM sqlite_master WHERE type='table' AND name='library_groups'"
     ).fetchone() is None
@@ -442,6 +465,10 @@ def resolve_index_db_path(library_id: str) -> Path:
     KNOWLEDGE_BASE_DIR 隔离实例时不经 ANGINEER_DATA_ROOT（2026-10-03 实踩：
     两套口径分叉致组路由把隔离实例的 default 库写到另一份 tmp 文件）。
     """
+    if _pg_stack():
+        # PG 档位：meta/index/canonical 共库（表自带 library_id 列），组文件概念退化为
+        # 恒等回退——docs_service 的组路由比较 Path 相等后直接归一到本体单例
+        return resolve_knowledge_index_db_path()
     record = get_library(library_id)
     if record is not None and record.sqlite_file != _DEFAULT_SQLITE_FILE:
         return resolve_data_root() / record.sqlite_file

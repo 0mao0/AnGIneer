@@ -473,5 +473,40 @@ class QdrantVectorStore(VectorStore):
             "dimension_distribution": {dim: total},
         }
 
+    # ---- 中性导出通道（corpus_export_neutral 用；逐点带向量与 payload）----
+    def iter_records(self, collection: Optional[str] = None):
+        from ..models.vector_io import record_from_point_payload
+
+        name = self._collection_name(collection, self._collection)
+        if self._collection_dim(name) == 0:
+            return
+        client = self._get_client()
+        offset = None
+        while True:
+            points, offset = client.scroll(
+                collection_name=name,
+                limit=256,
+                offset=offset,
+                with_payload=True,
+                with_vectors=True,
+            )
+            if not points:
+                return
+            for point in points:
+                payload = dict(point.payload or {})
+                vector = point.vector
+                if isinstance(vector, dict):
+                    vector = next((v for v in vector.values() if v), [])
+                yield record_from_point_payload(payload, list(vector or []))
+            if offset is None:
+                return
+
+    def count_records(self, collection: Optional[str] = None) -> int:
+        name = self._collection_name(collection, self._collection)
+        if self._collection_dim(name) == 0:
+            return 0
+        client = self._get_client()
+        return int(client.count(collection_name=name, exact=True).count)
+
 
 __all__ = ["QdrantVectorStore"]

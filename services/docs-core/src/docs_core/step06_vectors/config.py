@@ -23,6 +23,12 @@ def get_embedding_provider_name() -> str:
 # 必填：未配置直接抛错。旧默认 chroma 会让漏配环境静默连一个空库
 # （素材体检向量假警报的病根），qdrant 定版后该默认已无意义。
 def get_vectorstore_provider_name() -> str:
+    from ..pg_support import STACK_PG, kb_stack
+
+    if kb_stack() == STACK_PG:
+        # KB_STACK=pg 档位：向量层固定 pgvector，DOCS_VECTORSTORE_PROVIDER 不参与装配
+        #（半迁移不可能发生——关系层与向量层由同一档位键决定）；保留返回值供 /health 显示
+        return "pgvector"
     name = get_env_str("DOCS_VECTORSTORE_PROVIDER", "").lower()
     if not name:
         raise RuntimeError(

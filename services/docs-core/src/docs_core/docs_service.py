@@ -265,22 +265,44 @@ class DocsService:
         self.parse_tasks: List[ParseTask] = []
         self.db_path = self._resolve_db_path()
         self.index_db_path = self._resolve_index_db_path()
-        self.meta_store = KnowledgeMetaStore(
-            db_path=self.db_path,
-            schema_version=SCHEMA_VERSION,
-        )
-        self.index_store = KnowledgeIndexStore(
-            db_path=self.index_db_path,
-            schema_version=SCHEMA_VERSION,
-        )
-        self.canonical_store = CanonicalSQLiteStore(db_path=self.index_db_path)
-        self.vector_store = self._create_vector_store()
+        # KB_STACK 档位装配（原子开关，见 pg_support 模块文档）：
+        # pg=PostgreSQL+pgvector 全套；legacy=SQLite+Qdrant/sqlite/chroma（原行为）。
+        if self._pg_stack_active():
+            from docs_core.step05_sqlite_fts.store.pg_stores import (
+                PgCanonicalSQLiteStore,
+                PgKnowledgeIndexStore,
+                PgKnowledgeMetaStore,
+            )
+            self.meta_store = PgKnowledgeMetaStore(schema_version=SCHEMA_VERSION)
+            self.index_store = PgKnowledgeIndexStore(schema_version=SCHEMA_VERSION)
+            self.canonical_store = PgCanonicalSQLiteStore()
+            self.vector_store = self._create_vector_store()
+        else:
+            self.meta_store = KnowledgeMetaStore(
+                db_path=self.db_path,
+                schema_version=SCHEMA_VERSION,
+            )
+            self.index_store = KnowledgeIndexStore(
+                db_path=self.index_db_path,
+                schema_version=SCHEMA_VERSION,
+            )
+            self.canonical_store = CanonicalSQLiteStore(db_path=self.index_db_path)
+            self.vector_store = self._create_vector_store()
         # 组文件 store 缓存（阶段二：path → store；默认文件走 self.canonical_store/index_store 本体）
         self._canonical_stores: Dict[str, CanonicalSQLiteStore] = {}
         self._index_stores: Dict[str, KnowledgeIndexStore] = {}
         self._load_from_db()
         if not self.libraries:
             self.create_library("default", "默认知识库", "系统自动创建的默认知识库")
+
+    @staticmethod
+    def _pg_stack_active() -> bool:
+        from docs_core.pg_support import STACK_PG, ensure_pg_ready, kb_stack
+
+        if kb_stack() == STACK_PG:
+            ensure_pg_ready()
+            return True
+        return False
 
     # 解析元数据库路径
     def _resolve_db_path(self) -> Path:
@@ -310,6 +332,11 @@ class DocsService:
 
     def _canonical_store_for(self, library_id: Optional[str]) -> CanonicalSQLiteStore:
         default_path = getattr(self, "index_db_path", None)
+        from docs_core.pg_support import STACK_PG, kb_stack
+
+        if kb_stack() == STACK_PG:
+            # PG 档位共库：全部库路由到本体单例（表自带 library_id 列）
+            return self.canonical_store
         if not library_id or default_path is None:
             return self.canonical_store
         # 未注册库回退本服务默认 store（self.index_db_path 是什么就用什么——测试隔离实例
@@ -331,6 +358,10 @@ class DocsService:
 
     def _index_store_for(self, library_id: Optional[str]) -> KnowledgeIndexStore:
         default_path = getattr(self, "index_db_path", None)
+        from docs_core.pg_support import STACK_PG, kb_stack
+
+        if kb_stack() == STACK_PG:
+            return self.index_store
         if not library_id or default_path is None:
             return self.index_store
         record = library_registry.get_library(library_id)
@@ -383,6 +414,13 @@ class DocsService:
 
     # 按配置创建当前默认向量存储实现
     def _create_vector_store(self):
+        from docs_core.pg_support import STACK_PG, kb_stack
+
+        if kb_stack() == STACK_PG:
+            from docs_core.step06_vectors.pg_vector_store import PgVectorStore
+            vector_store = PgVectorStore()
+            logger.info("docs_core 启用向量 provider=%s, backend=%s", "pgvector", type(vector_store).__name__)
+            return vector_store
         provider_name = get_vectorstore_provider_name()
         if provider_name == "sqlite":
             vector_store = SQLiteVectorStore(db_path=self.index_db_path)
@@ -519,6 +557,11 @@ class DocsService:
     # 清理该文档在其库图谱文件中的产物（plan-graph-per-library-split：一库一文件）。
     def _delete_document_graph_data(self, library_id: str, doc_id: str) -> None:
         try:
+            from docs_core.pg_support import STACK_PG, kb_stack
+
+            if kb_stack() == STACK_PG:
+                # PG 档位：图谱暂不落库（方案 §4.4 图可后置），无文件图谱可清理
+                return
             from docs_core.step07_graph.graph_files import resolve_graph_db_for_library
             from docs_core.step07_graph.graph_store import GraphStore
             graph_db = resolve_graph_db_for_library(library_id)

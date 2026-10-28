@@ -94,6 +94,13 @@ class KbMigrator:
                  libraries_root: Optional[Path] = None, vector_store: Any = None,
                  store: Optional[KbMigrationStore] = None,
                  source_library_id: Optional[str] = None) -> None:
+        from docs_core.pg_support import STACK_PG, kb_stack
+
+        if kb_stack() == STACK_PG:
+            # 组间搬运是 legacy 组文件拓扑的运维工具；PG 档位单库共存，无组可迁
+            raise NotImplementedError(
+                "KB_STACK=pg 档位不支持库迁移（kb_migrator 只服务 legacy 组文件拓扑）；"
+                "如需按库操作请用语料包导出/导入")
         # source_library_id：生产模式按注册表解析组文件；测试注入 group_db 直给。
         self.meta_db = Path(meta_db) if meta_db else paths.resolve_knowledge_meta_db_path()
         self._group_db_override = Path(group_db) if group_db else None

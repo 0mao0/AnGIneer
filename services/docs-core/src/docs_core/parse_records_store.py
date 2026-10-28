@@ -44,6 +44,13 @@ def db_path() -> str:
 
 
 def connect() -> sqlite3.Connection:
+    from docs_core.pg_support import is_pg
+
+    if is_pg():
+        # PG 档位：parse_records 落 dredge_knowledge 同库（表见 pg_support.iter_pg_ddl）
+        from docs_core.pg_support import pg_connect
+
+        return pg_connect()
     os.makedirs(os.path.dirname(db_path()), exist_ok=True)
     conn = sqlite3.connect(db_path())
     conn.row_factory = sqlite3.Row
@@ -53,6 +60,10 @@ def connect() -> sqlite3.Connection:
 
 def init_schema(conn: sqlite3.Connection) -> None:
     """建表 + 补列 + 建索引（幂等）。docs-api 侧同名函数复用本实现，避免两处 DDL 漂移。"""
+    from docs_core.pg_support import is_pg
+
+    if is_pg():
+        return  # PG 表由 pg_support.ensure_pg_ready 统一建立
     conn.execute("""
         CREATE TABLE IF NOT EXISTS parse_records (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
