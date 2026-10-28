@@ -43,27 +43,8 @@ from .step05_sqlite_fts.store.sqlite_utils import create_connection
 
 logger = logging.getLogger(__name__)
 
-GRAPH_ORDER = (
-    "graph_entities",
-    "graph_principles",
-    "graph_examples",
-    "graph_warnings",
-    "graph_frameworks",
-    "principle_entities",
-    "example_entities",
-    "warning_entities",
-    "graph_entity_deletions",
-    "graph_relations",
-)
-
 # 包内 library_id 直接决定目标目录/collection 名；现网有 lib-DredgeAI-a5e1 这类大写。
 _LIBRARY_ID_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$")
-
-_JUNCTION_KEYS = {
-    "principle_entities": ("principle_id", "entity_id"),
-    "example_entities": ("example_id", "entity_id"),
-    "warning_entities": ("warning_id", "entity_id"),
-}
 
 
 class ImportApplyError(BundleError):
@@ -235,84 +216,6 @@ def _insert_rows(conn: sqlite3.Connection, table: str, rows: Sequence[dict]) -> 
     values = [[row.get(c) for c in columns] for row in rows]
     conn.executemany(f'INSERT INTO "{table}" ({col_list}) VALUES ({marks})', values)
     return len(values)
-
-
-def _fk_signatures(conn: sqlite3.Connection) -> set:
-    """PRAGMA foreign_key_check 的稳定签名（rowid → 主键）。"""
-    sigs = set()
-    for table, rowid, _parent, _fkid in conn.execute("PRAGMA foreign_key_check"):
-        try:
-            if table == "graph_relations":
-                key = conn.execute(
-                    "SELECT relation_id FROM graph_relations WHERE rowid=?", (rowid,)
-                ).fetchone()
-                sigs.add(("graph_relations", str(key[0]) if key else f"rowid:{rowid}"))
-            elif table in _JUNCTION_KEYS:
-                cols = _JUNCTION_KEYS[table]
-                key = conn.execute(
-                    f'SELECT {",".join(cols)} FROM "{table}" WHERE rowid=?', (rowid,)
-                ).fetchone()
-                sigs.add((table, *(str(x) for x in key)) if key else (table, f"rowid:{rowid}"))
-            else:
-                sigs.add((table, f"rowid:{rowid}"))
-        except sqlite3.Error:
-            sigs.add((table, f"rowid:{rowid}"))
-    return sigs
-
-
-def _merge_graph(package_graph: Path, target_graph: Path) -> Dict[str, int]:
-    import gc
-
-    from .step07_graph.graph_store import GraphStore
-
-    if not target_graph.exists():
-        GraphStore(str(target_graph)).close()
-        gc.collect()  # GraphStore 初始化连接进引用循环；Windows 不 gc 会锁住新库文件
-    src = sqlite3.connect(str(package_graph))
-    dst = sqlite3.connect(str(target_graph))
-    try:
-        dst.execute("PRAGMA foreign_keys=OFF")
-        dst.execute("BEGIN IMMEDIATE")
-        before = _fk_signatures(dst)
-        package_dangling = _fk_signatures(src)
-        src_tables = {r[0] for r in src.execute(
-            "SELECT name FROM sqlite_master WHERE type='table'")}
-        counts: Dict[str, int] = {}
-        for table in GRAPH_ORDER:
-            if table not in src_tables:
-                continue
-            src_cols = [r[1] for r in src.execute(f'PRAGMA table_info("{table}")')]
-            dst_cols = {r[1] for r in dst.execute(f'PRAGMA table_info("{table}")')}
-            cols = [c for c in src_cols if c in dst_cols]
-            if not cols:
-                continue
-            col_sql = ",".join(f'"{c}"' for c in cols)
-            rows = src.execute(f'SELECT {col_sql} FROM "{table}"').fetchall()
-            if rows:
-                marks = ",".join("?" * len(cols))
-                dst.executemany(
-                    f'INSERT OR IGNORE INTO "{table}" ({col_sql}) VALUES ({marks})',
-                    rows,
-                )
-            counts[table] = len(rows)
-        after = _fk_signatures(dst)
-        new = after - before - package_dangling
-        if new:
-            dst.rollback()
-            sample = sorted(new)[0]
-            raise ImportApplyError(
-                f"图谱合并引入 {len(new)} 条新悬空（样例 {sample}）；已回滚")
-        dst.commit()
-        return counts
-    except Exception:
-        try:
-            dst.rollback()
-        except sqlite3.Error:
-            pass
-        raise
-    finally:
-        src.close()
-        dst.close()
 
 
 def _list_qdrant_collections(qdrant_url: Optional[str]) -> Optional[set]:
@@ -547,7 +450,6 @@ def import_bundle(
 
             plans: List[Dict[str, Any]] = []
             all_node_ids: List[str] = []
-            package_entities: List[dict] = []
             for lb in selected:
                 _validate_library_id(lb.library_id)
                 target_group = group_name or lb.group_name or library_registry.DEFAULT_GROUP
@@ -573,18 +475,6 @@ def import_bundle(
                 meta = _read_json_entry(lb, "meta/rows.json")
                 rows = _rows_for_lib(meta, lb.library_id)
                 all_node_ids.extend(str(r.get("id")) for r in rows["nodes"] if r.get("id"))
-                if "graph/graph.sqlite" in lb.files_index:
-                    graph_path = scratch / lb.library_id / "graph.sqlite"
-                    _extract_entry(lb, "graph/graph.sqlite", graph_path)
-                    conn = sqlite3.connect(str(graph_path))
-                    try:
-                        if conn.execute("SELECT 1 FROM sqlite_master WHERE name='graph_entities'").fetchone():
-                            package_entities.extend(
-                                {"entity_id": r[0], "name": r[1], "library_id": r[2]}
-                                for r in conn.execute(
-                                    "SELECT entity_id, name, library_id FROM graph_entities"))
-                    finally:
-                        conn.close()
                 plans.append({
                     "library_id": lb.library_id,
                     "name": lb.name,
@@ -609,19 +499,6 @@ def import_bundle(
                     target_node_ids = {str(r[0]) for r in conn.execute("SELECT id FROM nodes")}
                 finally:
                     conn.close()
-            target_entities: Dict[tuple, str] = {}
-            graph_target = data_root / "knowledge" / "graph.sqlite"
-            if graph_target.exists():
-                conn = sqlite3.connect(str(graph_target))
-                try:
-                    if conn.execute("SELECT 1 FROM sqlite_master WHERE name='graph_entities'").fetchone():
-                        target_entities = {
-                            (str(r[1]), str(r[2])): str(r[0])
-                            for r in conn.execute("SELECT entity_id, name, library_id FROM graph_entities")
-                        }
-                finally:
-                    conn.close()
-
             gate = check_conflict_gate(
                 package_libs=[{"library_id": p["library_id"]} for p in plans],
                 package_node_ids=all_node_ids,
@@ -629,13 +506,9 @@ def import_bundle(
                 target_node_ids=target_node_ids,
                 target_collections=target_collections,
                 existing_index_files=[p["library_id"] for p in plans if p["index_path"].exists()],
-                package_entities=package_entities,
-                target_entities=target_entities,
             )
             if gate["clashes"]:
                 raise BundleError("冲突闸拒绝: " + "；".join(gate["clashes"][:10]))
-            if gate["warnings"]:
-                raise BundleError("闭包实体冲突，首版阻断: " + "；".join(gate["warnings"][:5]))
 
             if not apply:
                 return {
@@ -665,11 +538,14 @@ def import_bundle(
                     stage("index", f"{lib_id}: 独立桶 index.sqlite")
                     completed.append(f"{lib_id}:index")
                     _copy_entry(lb, "index/index.sqlite", p["index_path"])
-                    stage("graph", f"{lib_id}: 合并图谱")
+                    stage("graph", f"{lib_id}: 图谱文件落位")
                     completed.append(f"{lib_id}:graph")
+                    # 一库一文件（plan-graph-per-library-split）：包内图谱整文件落位，
+                    # 不再并入全局图谱；新库与目标既有图谱零交集，无合并无撞名。
                     if "graph/graph.sqlite" in lb.files_index:
-                        _merge_graph(scratch / lib_id / "graph.sqlite",
-                                     data_root / "knowledge" / "graph.sqlite")
+                        graph_target = data_root / p["target_root"] / "graph.sqlite"
+                        graph_target.parent.mkdir(parents=True, exist_ok=True)
+                        _extract_entry(lb, "graph/graph.sqlite", graph_target)
                     stage("meta", f"{lib_id}: 写入 meta")
                     completed.append(f"{lib_id}:meta")
                     _insert_meta(meta_path, p["meta"], lib_id)
@@ -692,7 +568,7 @@ def import_bundle(
                     completed.append(f"{lib_id}:verify")
                     _verify_library(lib_id, p["index_path"], lib_id, p["counts"],
                                     qdrant_url, with_vectors,
-                                    data_root / "knowledge" / "graph.sqlite")
+                                    data_root / p["target_root"] / "graph.sqlite")
             except Exception as exc:
                 raise ImportApplyError(
                     f"导入失败（已完成: {completed[-8:]}）: {exc}") from exc

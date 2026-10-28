@@ -1,7 +1,7 @@
 # 语料包导入导出：剩余事项
 
 **日期：** 2026-10-21（P3-4 两项演练当日收口；2026-10-25 复核发布状态；2026-10-28 生产真包复测完成）
-**当前状态：** 复测项全部收口（含 2026-10-28 生产真包上传复测）；**唯一遗留＝闭包实体重名「首版阻断」放行策略待拍板**（见 §10，复测新发现：跨环境导入带图谱的真实语料包必被预检拦下）。
+**当前状态：** 复测项全部收口（含 2026-10-28 生产真包上传复测）；闭包实体「首版阻断」问题已按 **A 方案**（图谱改一库一文件）施工完成，闸门实体比对整段移除——施工单见 [plan-graph-per-library-split.md](plan-graph-per-library-split.md)。
 **主计划：** [plan-kb-per-library-package.md](plan-kb-per-library-package.md)
 
 ---
@@ -207,6 +207,6 @@
 - 判据（`corpus_package.check_conflict_gate` docstring）：小包实体**归属他库**（闭包切片天然带上如 `default` 的共享种子实体）且与目标同 `(name, library_id)` 不同 `entity_id` → **告警不阻断**，对账 + FK 检查兜底；逐条 warning 文案也自称「不阻断；按对账/merge 处理」。
 - 实现（`corpus_import_apply.py:638`）：`if gate["warnings"]: raise BundleError("闭包实体冲突，首版阻断: …")`——warning 一律拦死。
 - 放行为什么现在不安全：`_merge_graph` 是按主键 `INSERT OR IGNORE`，**没有按名合并**——放行会产出重复实体（如「船舶荷载」×2）。v1 阻断是安全兜底，但后果是：只要目标实例图谱里已有任何同名词实体（生产 `knowledge/graph.sqlite` 是全局读取、不分组），任何跨环境导出的工程语料包都过不了预检。**空 data 根恢复 / 无图谱语料（法律域种子门控 `graph_entities=0`）不受影响。**
-- 两条出路（拍板后另立施工单，不属本清单收尾范围）：① 实现 `_merge_graph` 按名对账合并（同 (name, library_id) 映射到目标 entity_id 再插入），然后放行 warning；② 维持阻断，把「跨环境导入」口径收窄为「空根恢复」并在文档/UI 明示。
+- **处置（2026-10-28 用户拍板 A 方案、「不该全局一张表」）：图谱改一库一文件，已施工完成**（施工单 [plan-graph-per-library-split.md](plan-graph-per-library-split.md)）——导入实体闸整段移除、包内图谱整文件落位、跨环境导入带图谱语料不再被拦；原备选 ②（维持阻断收窄为「空根恢复」）作废。
 
 **复测证据与遗留物：** `data/scratch/kb-pkg-retest2/standards-20261028.zip`（41MB 无冲突测试包，拍板后复测直接可用，可留可删）；服务器 `data/scratch/imports/` 三连测后为空；临时会话已注销（`DEL_SESSION: True`），生产侧临时文件已删。

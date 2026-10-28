@@ -86,6 +86,19 @@ def _reconcile_stale_parse_tasks_on_startup() -> None:
 
 
 @app.on_event("startup")
+def _split_graph_per_library_on_startup() -> None:
+    """图谱一库一文件拆分（plan-graph-per-library-split）：全局 graph.sqlite 存在即拆，
+    幂等；失败不阻断启动，业务经 resolve_graph_db_for_library 回退全局文件。"""
+    try:
+        from docs_core.step07_graph.graph_files import split_global_graph_if_present
+        report = split_global_graph_if_present(log=logger)
+        if report:
+            logger.info("启动迁移: 图谱按库拆分完成 backup=%s", report.get("backup"))
+    except Exception:
+        logger.exception("启动迁移: 图谱按库拆分失败——继续用全局文件（回退生效）")
+
+
+@app.on_event("startup")
 def _bootstrap_admin_on_startup() -> None:
     try:
         user = ensure_admin_user()

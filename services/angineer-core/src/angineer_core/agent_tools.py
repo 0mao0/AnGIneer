@@ -1352,8 +1352,9 @@ class RetrieverAdapter:
             if entities is None:
                 from angineer_core import ports
 
-                # KG_DB_PATH 回退留在编排层；端口只吃解析好的 db_path
-                graph_db = db_path or os.environ.get("KG_DB_PATH") or None
+                # 图谱已按库分文件（plan-graph-per-library-split）：缺省由端口按
+                # library_id 解析库文件；仅显式传入的 db_path 才覆盖。
+                graph_db = db_path or None
                 local_entities = ports.get_entity_local_search()
                 if local_entities is None:
                     logger.warning("entity_local_search 端口未注册（组装层应注入 docs-core 适配器）")

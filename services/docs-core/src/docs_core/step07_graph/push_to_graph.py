@@ -30,14 +30,14 @@ def _run_push(
     ignored_entity_names: Optional[List[str]] = None,
     on_step: Optional[Callable[[str, str, str], None]] = None,
 ) -> Dict[str, Any]:
-    from docs_core.paths import resolve_graph_db_path
     from docs_core.step04_structure.shared.jsonl_io import get_doc_blocks_graph
     from docs_core.docs_file_io import file_storage
     from docs_core.step07_graph.evidence_builder import build_evidence_packets
     from docs_core.step07_graph.graph_orchestrator import GraphOrchestrator
+    from docs_core.step07_graph.graph_files import resolve_graph_db_for_library
     from docs_core.step07_graph.graph_store import GraphStore
 
-    db_path = graph_db_path or str(resolve_graph_db_path())
+    db_path = graph_db_path or str(resolve_graph_db_for_library(library_id))
     content = file_storage.read_markdown(library_id, doc_id) or ""
     graph = get_doc_blocks_graph(library_id, doc_id)
     structured_items = (

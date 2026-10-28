@@ -163,10 +163,10 @@ def create_app() -> FastAPI:
 
     @app.post("/api/knowledge/internal/entity-search", dependencies=[Depends(_token_guard)])
     def entity_search_internal(request: EntitySearchInternalRequest) -> Dict[str, Any]:
-        from docs_core.paths import resolve_graph_db_path
+        from docs_core.step07_graph.graph_files import resolve_graph_db_for_library
         from docs_core.step07_graph.graph_store import GraphStore
 
-        store = GraphStore(str(resolve_graph_db_path()))
+        store = GraphStore(str(resolve_graph_db_for_library(request.library_id)))
         entities = store.search_entities(
             request.query, limit=request.limit, library_id=request.library_id
         )

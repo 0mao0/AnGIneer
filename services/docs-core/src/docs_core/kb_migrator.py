@@ -494,9 +494,16 @@ class KbMigrator:
         return None
 
     def _move_doc_graph(self, doc_id: str, from_lib: str, to_lib: str) -> None:
-        if not self.graph_db.exists():
+        """移库图谱面：一库一文件（plan-graph-per-library-split）下按源/目标文件分发；
+        迁移前两端仍在同一全局文件时走同文件原实现。"""
+        from docs_core.step07_graph import graph_files
+        from docs_core.step07_graph.graph_store import move_doc_graph_between_files
+
+        src = graph_files.resolve_graph_db_for_library(from_lib)
+        dst = graph_files.resolve_graph_db_for_library(to_lib)
+        if not src.exists() and not dst.exists():
             return
-        self._graph_store().move_doc_graph(from_lib, to_lib, [doc_id])
+        move_doc_graph_between_files(src, dst, from_lib, to_lib, [doc_id])
 
     # ---- 主循环（设计 §5.3 全局两阶段 + 评审 P0-3 显式回滚分支）----
     def run_task(self, task_id: str, *, operator: str = "admin") -> None:

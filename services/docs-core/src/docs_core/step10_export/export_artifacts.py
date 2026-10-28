@@ -167,7 +167,9 @@ def list_doc_artifacts(library_id: str, doc_id: str) -> List[Dict[str, object]]:
     ):
         items.append({"name": "index.sqlite", "kind": "index", "size": None})
 
-    graph_db = paths.resolve_graph_db_path()
+    from docs_core.step07_graph.graph_files import resolve_graph_db_for_library
+
+    graph_db = resolve_graph_db_for_library(library_id)
     if _has_rows(graph_db, "graph_relations", "library_id = ? AND doc_id = ?", [library_id, doc_id]):
         items.append({"name": "graph.sqlite", "kind": "graph", "size": None})
 
@@ -226,7 +228,9 @@ def export_index_db(library_id: str, doc_id: str) -> Path:
 
 def export_graph_db(library_id: str, doc_id: str) -> Path:
     """导出该文档的图谱数据（关系 + 相关实体 + 原则/示例/警告/框架）到独立 sqlite。"""
-    src_db = paths.resolve_graph_db_path()
+    from docs_core.step07_graph.graph_files import resolve_graph_db_for_library
+
+    src_db = resolve_graph_db_for_library(library_id)
     if not src_db.exists():
         raise FileNotFoundError(f"图谱库不存在: {src_db}")
 

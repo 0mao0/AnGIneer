@@ -194,7 +194,8 @@ class ApplyImportTests(unittest.TestCase):
             self.assertEqual(row[3], ".txt")
         finally:
             records.close()
-        graph = sqlite3.connect(self.data / "knowledge/graph.sqlite")
+        # 一库一文件（plan-graph-per-library-split）：图谱整文件落在库目录
+        graph = sqlite3.connect(self.data / "knowledge/libraries/lib-x/graph.sqlite")
         try:
             self.assertEqual(graph.execute("SELECT COUNT(*) FROM graph_entities").fetchone()[0], 1)
             self.assertEqual(graph.execute("SELECT COUNT(*) FROM graph_relations").fetchone()[0], 1)
@@ -262,7 +263,7 @@ class ApplyImportTests(unittest.TestCase):
         result = apply_import(str(pkg), data_root=self.data, group_name="system",
                               apply=True, with_vectors=False)
         self.assertEqual(result["mode"], "applied")
-        conn = sqlite3.connect(self.data / "knowledge/graph.sqlite")
+        conn = sqlite3.connect(self.data / "knowledge/libraries/lib-x/graph.sqlite")
         try:
             self.assertEqual(len(conn.execute("PRAGMA foreign_key_check").fetchall()), 1)
         finally:

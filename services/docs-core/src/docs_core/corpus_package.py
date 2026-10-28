@@ -503,7 +503,15 @@ def iter_bundle_zip(libs: List[str], *, exclude_dirs: Sequence[str] = DEFAULT_EX
             try:
                 index_info = corpus_slicing.build_library_sqlite_slice(
                     data_root, row, staging / "index.sqlite")
-                graph_db = data_root / "knowledge" / "graph.sqlite"
+                # 图谱一库一文件（plan-graph-per-library-split）：优先本库文件，
+                # 迁移前回退全局文件（旧过滤切片语义对两者均正确）。
+                per_lib_graph = (
+                    data_root / Path(str(row["sqlite_file"])).parent / "graph.sqlite"
+                    if row.get("sqlite_file") else None
+                )
+                legacy_graph = data_root / "knowledge" / "graph.sqlite"
+                graph_db = per_lib_graph if (per_lib_graph is not None and per_lib_graph.exists()) \
+                    else legacy_graph
                 if graph_db.exists():
                     graph_info = corpus_slicing.build_library_graph_slice(
                         graph_db, lib_id, staging / "graph.sqlite")
@@ -977,19 +985,17 @@ def check_embed_gate(manifest: Dict[str, Any], env_model: str) -> None:
 def check_conflict_gate(*, package_libs: Sequence[dict], package_node_ids: Sequence[str] = (),
                         target_library_ids: Sequence[str] = (), target_node_ids: Sequence[str] = (),
                         target_collections: Sequence[str] = (), existing_index_files: Sequence[str] = (),
-                        package_entities: Sequence[dict] = (),
-                        target_entities: Optional[Dict[Tuple[str, str], str]] = None) -> Dict[str, list]:
-    """冲突闸（v2 扩展）：调用方采集目标侧四类占用与闭包实体谱，本函数纯判据。
+                        ) -> Dict[str, list]:
+    """冲突闸（v2 扩展）：调用方采集目标侧四类占用，本函数纯判据。
 
     - ``target_collections``：目标 registry 行 collection 值 ∪ qdrant 现存集合名。
       qdrant 实测（P2-0）：目标集合已存在时 snapshot upload **不报错**（覆盖）——
       本闸是唯一防线，不能指望 qdrant 拒绝。
     - ``existing_index_files``：目标已存在的 ``knowledge/libraries/<lib>/index.sqlite``（相对 data 根的库 id 列表）。
-    - ``package_entities`` / ``target_entities``：闭包实体对账（小包实体归属他库时与目标
-      同 (name, library_id) 不同 entity_id → 告警不阻断，对账+FK 检查兜底）。
+    - 实体重名检查已于 2026-10-28 移除（plan-graph-per-library-split）：图谱一库一文件，
+      导入的新库整文件落位，与目标既有图谱零交集，不存在跨库实体撞名面。
     """
     clashes: List[str] = []
-    warnings: List[str] = []
     lib_ids = [str(l.get("library_id")) for l in package_libs]
     for x in sorted(set(lib_ids) & set(target_library_ids)):
         clashes.append(f"library_id 已存在: {x}")
@@ -1000,15 +1006,7 @@ def check_conflict_gate(*, package_libs: Sequence[dict], package_node_ids: Seque
     existing = set(existing_index_files)
     for x in sorted(set(lib_ids) & existing):
         clashes.append(f"目标已有 index.sqlite: knowledge/libraries/{x}/index.sqlite")
-    tgt = target_entities or {}
-    for row in package_entities:
-        key = (str(row.get("name")), str(row.get("library_id")))
-        tid = tgt.get(key)
-        if tid and tid != row.get("entity_id"):
-            warnings.append(
-                f"闭包实体重名：{key[1]} 的「{key[0]}」目标已有 entity_id={tid}，"
-                f"包内为 {row.get('entity_id')}（不阻断；按对账/merge 处理）")
-    return {"clashes": clashes, "warnings": warnings}
+    return {"clashes": clashes}
 
 
 def apply_import(*args, **kwargs):

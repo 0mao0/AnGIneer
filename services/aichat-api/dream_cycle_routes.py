@@ -106,14 +106,22 @@ async def confirm_dedup_merge(
     entity_b_id: str,
     canonical_name: Optional[str] = Query(default=None),
 ):
-    """确认合并两个疑似重复实体。"""
+    """确认合并两个疑似重复实体（图谱一库一文件：两实体须在同一库文件）。"""
     try:
+        from docs_core.step07_graph.graph_files import find_graph_db_for_entity
         from docs_core.step08_maintain.config import get_config
         from docs_core.step08_maintain.runner import DreamCycleRunner
 
+        loc_a = find_graph_db_for_entity(entity_a_id)
+        loc_b = find_graph_db_for_entity(entity_b_id)
+        if loc_a is None or loc_b is None:
+            raise HTTPException(status_code=404, detail="实体不存在")
+        if loc_a[1] != loc_b[1]:
+            raise HTTPException(status_code=400, detail="两实体分属不同库文件，不支持跨库合并")
+
         cfg = get_config()
         runner = DreamCycleRunner(cfg)
-        conn = runner._connect_graph_db()
+        conn = runner._connect_graph_db(str(loc_a[1]))
         if not conn:
             raise HTTPException(status_code=500, detail="无法连接知识图谱数据库")
 
@@ -176,9 +184,12 @@ async def orphan_keep(entity_id: str):
     except HTTPException:
         raise
     try:
-        from docs_core.step08_maintain.config import get_config
-        cfg = get_config()
-        conn = sqlite3.connect(cfg.graph_db_path)
+        from docs_core.step07_graph.graph_files import find_graph_db_for_entity
+
+        located = find_graph_db_for_entity(entity_id)
+        if located is None:
+            raise HTTPException(status_code=404, detail="实体不存在")
+        conn = sqlite3.connect(str(located[1]))
         conn.execute(
             "UPDATE graph_entities SET description = COALESCE(description||' ','') || ? WHERE entity_id = ?",
             (marker, entity_id),
@@ -186,6 +197,8 @@ async def orphan_keep(entity_id: str):
         conn.commit()
         conn.close()
         return {"status": "kept", "message": f"实体 {entity_id} 已标记为保留"}
+    except HTTPException:
+        raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
@@ -210,9 +223,12 @@ async def orphan_delete(entity_id: str):
     except HTTPException:
         raise
     try:
-        from docs_core.step08_maintain.config import get_config
-        cfg = get_config()
-        conn = sqlite3.connect(cfg.graph_db_path)
+        from docs_core.step07_graph.graph_files import find_graph_db_for_entity
+
+        located = find_graph_db_for_entity(entity_id)
+        if located is None:
+            raise HTTPException(status_code=404, detail="实体不存在")
+        conn = sqlite3.connect(str(located[1]))
         conn.execute(
             "UPDATE graph_entities SET description = COALESCE(description||' ','') || ? WHERE entity_id = ?",
             (marker, entity_id),
@@ -220,6 +236,8 @@ async def orphan_delete(entity_id: str):
         conn.commit()
         conn.close()
         return {"status": "deleted", "message": f"实体 {entity_id} 已标记为不活跃"}
+    except HTTPException:
+        raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 

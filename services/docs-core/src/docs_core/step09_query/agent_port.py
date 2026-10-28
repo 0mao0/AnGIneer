@@ -404,13 +404,12 @@ def entity_local_search(
     db_path: Optional[str] = None,
     limit: int = 20,
 ) -> List[Any]:
-    """图谱本地直查（GraphStore 分支）。db_path 缺省按仓库根解析
-    （容器里 cwd 是 services/aichat-api，不能用 cwd 相对）。平移自
-    RetrieverAdapter.entity_search 本地分支，逻辑零改动。"""
-    from ..paths import resolve_graph_db_path
+    """图谱本地直查（GraphStore 分支）。db_path 缺省按 **library_id 的库文件**解析
+    （plan-graph-per-library-split；迁移期自动回退全局文件）。"""
+    from ..step07_graph.graph_files import resolve_graph_db_for_library
     from ..step07_graph.graph_store import GraphStore
 
-    graph_db = db_path or str(resolve_graph_db_path())
+    graph_db = db_path or str(resolve_graph_db_for_library(library_id))
     store = GraphStore(db_path=graph_db)
     return store.search_entities(query, limit=limit, library_id=library_id)
 

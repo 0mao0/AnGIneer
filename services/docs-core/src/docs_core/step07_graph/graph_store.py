@@ -3,6 +3,7 @@ import sqlite3
 import uuid
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
+from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from docs_core.step07_graph.config import Confidence, EntityLayer, EntityStatus, RelationType
@@ -1180,3 +1181,203 @@ class GraphStore:
             # 会屏蔽活实体再抽取；独占改标场景墓碑留源库属可接受残留，回滚随实体改标一并消失）
             conn.commit()
         return stats
+
+
+def move_doc_graph_between_files(
+    src_path: str | Path,
+    dst_path: str | Path,
+    source_library_id: str,
+    target_library_id: str,
+    doc_ids: List[str],
+) -> Dict[str, int]:
+    """跨文件版图谱移库（plan-graph-per-library-split 适配拆并）。
+
+    语义对齐 ``GraphStore.move_doc_graph``（D3 独占改标 / 共享复制 / D4 撞名），
+    跨文件不可避免的两处差异：
+    - 撞名收敛（D4）时**源行保留**：跨文件无法让源文件 FK 指向目标文件实体，
+      两文件各自持有同名实体，与 ``UNIQUE(name, library_id)`` 语义一致；
+    - 墓碑表 ``graph_entity_deletions`` 不迁移（同 v1 口径，墓碑留源库）。
+    幂等：按 doc 集合重算，已迁移的行在源文件查不到即跳过。
+    """
+    src_path, dst_path = Path(src_path), Path(dst_path)
+    stats = {"entities_moved": 0, "entities_copied": 0, "entities_merged": 0,
+             "relations_moved": 0, "artifacts_moved": 0}
+    if not doc_ids or not src_path.exists():
+        return stats
+    if src_path == dst_path:
+        GraphStore(str(src_path)).move_doc_graph(source_library_id, target_library_id, list(doc_ids))
+        return stats
+
+    import gc
+
+    GraphStore(str(dst_path)).close()
+    gc.collect()  # GraphStore 初始化连接进引用循环；不 gc 会锁住新库文件（Windows）
+
+    doc_set = set(doc_ids)
+    ph = ",".join("?" for _ in doc_ids)
+    conn = sqlite3.connect(str(dst_path))
+    conn.row_factory = sqlite3.Row
+    try:
+        conn.execute("ATTACH DATABASE ? AS src", (str(src_path),))
+        conn.execute("BEGIN IMMEDIATE")
+        relations = conn.execute(
+            f'SELECT relation_id, source_id, target_id FROM src.graph_relations '
+            f'WHERE library_id=? AND doc_id IN ({ph})',
+            [source_library_id, *doc_ids],
+        ).fetchall()
+        entity_ids = {r["source_id"] for r in relations} | {r["target_id"] for r in relations}
+        entity_map: Dict[str, str] = {}
+        entity_cols = [c[1] for c in conn.execute("PRAGMA table_info(graph_entities)")]
+
+        def _insert_entity(row: sqlite3.Row, overrides: Dict[str, object]) -> None:
+            values = {c: row[c] for c in entity_cols if c not in overrides}
+            values.update(overrides)
+            cols = list(values.keys())
+            conn.execute(
+                f'INSERT OR REPLACE INTO graph_entities ({", ".join(cols)}) '
+                f'VALUES ({", ".join("?" for _ in cols)})',
+                [values[c] for c in cols],
+            )
+
+        for eid in entity_ids:
+            row = conn.execute(
+                'SELECT * FROM src.graph_entities WHERE entity_id=?', (eid,)
+            ).fetchone()
+            if row is None:
+                continue
+            if str(row["library_id"]) != source_library_id:
+                # 他库端点：目标文件须有同 id 副本（同文件 FK 支撑）
+                if conn.execute(
+                    'SELECT 1 FROM graph_entities WHERE entity_id=?', (eid,)
+                ).fetchone() is None:
+                    _insert_entity(row, {})
+                continue
+            refs = conn.execute(
+                'SELECT DISTINCT doc_id FROM src.graph_relations '
+                "WHERE (source_id=? OR target_id=?) AND library_id=? AND doc_id != ''",
+                (eid, eid, source_library_id),
+            ).fetchall()
+            exclusive = all(r["doc_id"] in doc_set for r in refs)
+            existing = conn.execute(
+                'SELECT entity_id FROM graph_entities WHERE name=? AND library_id=?',
+                (row["name"], target_library_id),
+            ).fetchone()
+            if exclusive and existing is None:
+                _insert_entity(row, {"library_id": target_library_id})
+                entity_map[eid] = eid
+                stats["entities_moved"] += 1
+            elif exclusive and existing is not None:
+                entity_map[eid] = str(existing["entity_id"])
+                stats["entities_merged"] += 1  # 源行保留（见函数注释）
+            elif existing is not None:
+                entity_map[eid] = str(existing["entity_id"])
+            else:
+                new_id = _generate_id()
+                _insert_entity(row, {"entity_id": new_id, "library_id": target_library_id})
+                entity_map[eid] = new_id
+                stats["entities_copied"] += 1
+
+        rel_cols = [c[1] for c in conn.execute("PRAGMA table_info(graph_relations)")]
+        for rel in relations:
+            row = conn.execute(
+                'SELECT * FROM src.graph_relations WHERE relation_id=?', (rel["relation_id"],)
+            ).fetchone()
+            if row is None:
+                continue
+            values = {c: row[c] for c in rel_cols}
+            values["library_id"] = target_library_id
+            values["source_id"] = entity_map.get(str(row["source_id"]), row["source_id"])
+            values["target_id"] = entity_map.get(str(row["target_id"]), row["target_id"])
+            cols = list(values.keys())
+            try:
+                conn.execute(
+                    f'INSERT OR IGNORE INTO graph_relations ({", ".join(cols)}) '
+                    f'VALUES ({", ".join("?" for _ in cols)})',
+                    [values[c] for c in cols],
+                )
+                stats["relations_moved"] += 1
+            except sqlite3.IntegrityError:
+                pass
+
+        for table in GraphStore._ARTIFACT_TABLES:
+            try:
+                dst_cols = [c[1] for c in conn.execute(f'PRAGMA table_info("{table}")')]
+                src_cols = {c[1] for c in conn.execute(f'PRAGMA src.table_info("{table}")')}
+                cols = [c for c in dst_cols if c in src_cols and c != "library_id"]
+                if not cols:
+                    continue
+                select_cols = ",".join(f'"{c}"' for c in cols)
+                cur = conn.execute(
+                    f'INSERT OR REPLACE INTO "{table}" ({select_cols}, library_id) '
+                    f'SELECT {select_cols}, ? FROM src."{table}" '
+                    f'WHERE library_id=? AND doc_id IN ({ph})',
+                    [target_library_id, source_library_id, *doc_ids],
+                )
+                stats["artifacts_moved"] += cur.rowcount
+            except sqlite3.Error:
+                continue
+
+        for junction, (parent, pk) in GraphStore._JUNCTION_TABLES.items():
+            try:
+                parent_ids = [
+                    str(r[0]) for r in conn.execute(
+                        f'SELECT {pk} FROM src."{parent}" WHERE library_id=? AND doc_id IN ({ph})',
+                        [source_library_id, *doc_ids],
+                    )
+                ]
+            except sqlite3.Error:
+                continue
+            if not parent_ids:
+                continue
+            pmarks = ",".join("?" for _ in parent_ids)
+            rows = conn.execute(
+                f'SELECT {pk}, entity_id FROM src."{junction}" WHERE {pk} IN ({pmarks})',
+                parent_ids,
+            ).fetchall()
+            for jrow in rows:
+                mapped = entity_map.get(str(jrow["entity_id"]), jrow["entity_id"])
+                if mapped != jrow["entity_id"] and conn.execute(
+                    'SELECT 1 FROM graph_entities WHERE entity_id=?', (mapped,)
+                ).fetchone() is None:
+                    mapped = jrow["entity_id"]  # 映射目标不在目标文件（撞名保源行时）→ 保原指
+                try:
+                    conn.execute(
+                        f'INSERT OR IGNORE INTO "{junction}" ({pk}, entity_id) VALUES (?, ?)',
+                        (jrow[pk], mapped),
+                    )
+                except sqlite3.IntegrityError:
+                    pass
+            conn.execute(f'DELETE FROM src."{junction}" WHERE {pk} IN ({pmarks})', parent_ids)
+
+        conn.execute(
+            f'DELETE FROM src.graph_relations WHERE library_id=? AND doc_id IN ({ph})',
+            [source_library_id, *doc_ids],
+        )
+        for table in GraphStore._ARTIFACT_TABLES:
+            try:
+                conn.execute(
+                    f'DELETE FROM src."{table}" WHERE library_id=? AND doc_id IN ({ph})',
+                    [source_library_id, *doc_ids],
+                )
+            except sqlite3.Error:
+                continue
+        # 独占搬移（entity_map[eid]==eid 且目标文件在场）→ 删源行；
+        # 撞名收敛与共享复制的源行保留（跨文件 FK 约束，见函数注释）
+        moved_same_id = [
+            eid for eid, mapped in entity_map.items()
+            if mapped == eid and conn.execute(
+                'SELECT 1 FROM graph_entities WHERE entity_id=?', (eid,)
+            ).fetchone() is not None
+        ]
+        for eid in moved_same_id:
+            conn.execute('DELETE FROM src.graph_entities WHERE entity_id=?', (eid,))
+        conn.commit()
+        return stats
+    except Exception:
+        try:
+            conn.rollback()
+        except sqlite3.Error:
+            pass
+        raise
+    finally:
+        conn.close()

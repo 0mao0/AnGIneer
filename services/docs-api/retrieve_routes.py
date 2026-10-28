@@ -78,10 +78,10 @@ def _serialize_entity(entity: Any) -> Dict[str, Any]:
 
 @retrieve_router.post("/internal/entity-search")
 def entity_search_internal(request: EntitySearchInternalRequest) -> Dict[str, Any]:
-    from docs_core.paths import resolve_graph_db_path
+    from docs_core.step07_graph.graph_files import resolve_graph_db_for_library
     from docs_core.step07_graph.graph_store import GraphStore
 
-    store = GraphStore(str(resolve_graph_db_path()))
+    store = GraphStore(str(resolve_graph_db_for_library(request.library_id)))
     entities = store.search_entities(
         request.query, limit=request.limit, library_id=request.library_id
     )
@@ -119,13 +119,16 @@ class GraphAppendNoteRequest(BaseModel):
 @retrieve_router.post("/internal/graph-append-note")
 def graph_append_note_internal(request: GraphAppendNoteRequest) -> Dict[str, Any]:
     """向图谱实体 description 追加标记（dream_cycle 孤儿实体人工保留/删除的收编入口）。"""
-    from docs_core.paths import resolve_graph_db_path
+    from docs_core.step07_graph.graph_files import find_graph_db_for_entity
     from docs_core.step07_graph.graph_store import GraphStore
 
     marker = str(request.marker or "").strip()
     if not marker:
         return {"error": "marker 不能为空"}
-    store = GraphStore(str(resolve_graph_db_path()))
+    located = find_graph_db_for_entity(request.entity_id)
+    if located is None:
+        return {"error": f"实体不存在: {request.entity_id}"}
+    store = GraphStore(str(located[1]))
     entity = store.get_entity(request.entity_id)
     if entity is None:
         return {"error": f"实体不存在: {request.entity_id}"}

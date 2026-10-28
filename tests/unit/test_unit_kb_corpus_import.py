@@ -223,7 +223,7 @@ class V2GateTests(unittest.TestCase):
         joined = " | ".join(result["clashes"])
         self.assertIn("lib-a", joined)        # 同名库
         self.assertIn("lib-b", joined)        # collection 名冲突 + index.sqlite 已存在
-        self.assertEqual(result["warnings"], [])
+        self.assertEqual(set(result), {"clashes"})  # 2026-10-28 起不再产出 warnings
 
     def test_conflict_gate_clean_passes(self):
         result = check_conflict_gate(
@@ -236,18 +236,16 @@ class V2GateTests(unittest.TestCase):
         )
         self.assertEqual(result["clashes"], [])
 
-    def test_conflict_gate_entity_name_warning(self):
-        result = check_conflict_gate(
-            package_libs=[{"library_id": "lib-new"}],
-            package_node_ids=[],
-            target_library_ids=set(), target_node_ids=set(),
-            target_collections=set(), existing_index_files=[],
-            package_entities=[{"entity_id": "e-pkg", "name": "码头前沿", "library_id": "lib-other"}],
-            target_entities={("码头前沿", "lib-other"): "e-target"},
-        )
-        self.assertEqual(result["clashes"], [])
-        self.assertEqual(len(result["warnings"]), 1)
-        self.assertIn("码头前沿", result["warnings"][0])
+    def test_conflict_gate_entity_check_removed(self):
+        """回归（plan-graph-per-library-split）：图谱一库一文件后实体撞名面消失，
+        闸门不再接受/产出实体对账参数——传实体参数须 TypeError。"""
+        with self.assertRaises(TypeError):
+            check_conflict_gate(
+                package_libs=[{"library_id": "lib-new"}],
+                package_node_ids=[],
+                package_entities=[{"entity_id": "e-pkg", "name": "码头前沿", "library_id": "lib-other"}],
+                target_entities={("码头前沿", "lib-other"): "e-target"},
+            )
 
 
 if __name__ == "__main__":

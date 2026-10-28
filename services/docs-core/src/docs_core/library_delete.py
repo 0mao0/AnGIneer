@@ -23,7 +23,7 @@ from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional
 
 from . import library_registry
-from .paths import resolve_graph_db_path, resolve_knowledge_base_dir
+from .paths import resolve_knowledge_base_dir
 from .step05_sqlite_fts.store.sqlite_utils import create_connection, run_with_write_lock
 from .step06_vectors.qdrant_vector_store import QdrantVectorStore
 from .step07_graph.graph_store import GraphStore
@@ -375,9 +375,22 @@ def _remove_library_dirs(library_id: str) -> None:
 
 
 def _delete_graph(library_id: str) -> None:
-    graph_db = resolve_graph_db_path()
-    if graph_db.exists():
-        GraphStore(str(graph_db)).delete_library(library_id)
+    """删库图谱数据：按库文件整文件删（迁移后）；迁移前全局文件仍在则按行删。"""
+    from docs_core.step07_graph.graph_files import (
+        global_graph_db_path,
+        library_graph_db_path,
+    )
+
+    per_lib = library_graph_db_path(library_id)
+    if per_lib.exists():
+        per_lib.unlink()
+        for suffix in ("-wal", "-shm"):
+            stale = per_lib.parent / f"{per_lib.name}{suffix}"
+            if stale.exists():
+                stale.unlink()
+    legacy = global_graph_db_path()
+    if legacy.exists():
+        GraphStore(str(legacy)).delete_library(library_id)
 
 
 def _registry_refcounts(library_id: str, sqlite_file: str, collection: str) -> tuple[int, int]:

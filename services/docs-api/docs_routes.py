@@ -1707,7 +1707,9 @@ def _stage_output_files(stage_key: str, node) -> Optional[Dict[str, Any]]:
         ]}
 
     if stage_key == "graph":
-        graph_db = paths.resolve_graph_db_path()
+        from docs_core.step07_graph.graph_files import resolve_graph_db_for_library
+
+        graph_db = resolve_graph_db_for_library(library_id)
         return {"dir": str(graph_db.parent), "items": [{
             "name": graph_db.name, "exists": graph_db.exists(), "isDir": False, "isNew": False,
         }]}

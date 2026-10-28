@@ -514,14 +514,14 @@ class DocsService:
                 node.id, collection=self._collection_for_library(node.library_id)
             )
             file_storage.delete_document(node.library_id, node.id)
-            self._delete_document_graph_data(node.id)
+            self._delete_document_graph_data(node.library_id, node.id)
 
-    # 清理 knowledge_graph.sqlite 中该文档的图谱产物（entities 为全局共享，保留）。
-    def _delete_document_graph_data(self, doc_id: str) -> None:
+    # 清理该文档在其库图谱文件中的产物（plan-graph-per-library-split：一库一文件）。
+    def _delete_document_graph_data(self, library_id: str, doc_id: str) -> None:
         try:
-            from docs_core.paths import resolve_graph_db_path
+            from docs_core.step07_graph.graph_files import resolve_graph_db_for_library
             from docs_core.step07_graph.graph_store import GraphStore
-            graph_db = resolve_graph_db_path()
+            graph_db = resolve_graph_db_for_library(library_id)
             if graph_db.exists():
                 GraphStore(str(graph_db)).delete_document(doc_id)
         except Exception as exc:

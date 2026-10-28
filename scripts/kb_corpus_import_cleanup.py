@@ -107,8 +107,19 @@ def _meta_rows(data_root: Path, library_id: str) -> Dict[str, int]:
     return counts
 
 
+def _library_graph_file(data_root: Path, library_id: str) -> Optional[Path]:
+    """按库图谱文件（一库一文件，plan-graph-per-library-split；两套库根都认）。"""
+    for parts in LIBRARY_DIR_ROOTS:
+        candidate = data_root.joinpath(*parts) / library_id / "graph.sqlite"
+        if candidate.exists():
+            return candidate
+    return None
+
+
 def _graph_rows(data_root: Path, library_id: str) -> Dict[str, int]:
-    conn = _connect(data_root / "knowledge" / "graph.sqlite")
+    per_lib = _library_graph_file(data_root, library_id)
+    conn = _connect(per_lib) if per_lib is not None else _connect(
+        data_root / "knowledge" / "graph.sqlite")
     if conn is None:
         return {}
     counts: Dict[str, int] = {}
@@ -209,19 +220,33 @@ def _delete_parse_records(data_root: Path, library_id: str) -> int:
 
 
 def _delete_graph_rows(data_root: Path, library_id: str) -> Dict[str, int]:
+    """删半成品库的图谱数据：按库文件整文件删；迁移前全局文件仍在则按行删。"""
     from docs_core.step07_graph.graph_store import GraphStore
 
-    graph = data_root / "knowledge" / "graph.sqlite"
-    if not graph.exists():
-        return {}
-    store = GraphStore(str(graph))
-    try:
-        return store.delete_library(library_id)
-    finally:
+    removed: Dict[str, int] = {}
+    per_lib = _library_graph_file(data_root, library_id)
+    if per_lib is not None:
+        removed = _graph_rows(data_root, library_id)
+        for path in (per_lib, per_lib.parent / (per_lib.name + "-wal"),
+                     per_lib.parent / (per_lib.name + "-shm")):
+            if path.exists():
+                try:
+                    path.unlink()
+                except OSError:
+                    pass
+    legacy = data_root / "knowledge" / "graph.sqlite"
+    if legacy.exists():
+        store = GraphStore(str(legacy))
         try:
-            store.close()
-        except Exception:  # noqa: BLE001
-            pass
+            legacy_counts = store.delete_library(library_id)
+            for table, count in (legacy_counts or {}).items():
+                removed[table] = removed.get(table, 0) + int(count)
+        finally:
+            try:
+                store.close()
+            except Exception:  # noqa: BLE001
+                pass
+    return removed
 
 
 def _delete_qdrant_collection(library_id: str, qdrant_url: str) -> bool:

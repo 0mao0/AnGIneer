@@ -1,7 +1,6 @@
 """Knowledge Graph API routes."""
 
 import logging
-import os
 from typing import Any, Dict, List, Optional
 
 from fastapi import APIRouter, HTTPException
@@ -14,16 +13,48 @@ logger = logging.getLogger(__name__)
 
 graph_router = APIRouter()
 
-ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 
-
-def _get_store():
+def _store_for_library(library_id: str):
+    """按库取图谱 store（plan-graph-per-library-split：一库一文件，迁移期回退全局）。"""
+    from docs_core.step07_graph.graph_files import resolve_graph_db_for_library
     from docs_core.step07_graph.graph_store import GraphStore
-    db_path = os.environ.get(
-        "KG_DB_PATH",
-        os.path.join(ROOT_DIR, "data", "knowledge", "graph.sqlite"),
+
+    return GraphStore(str(resolve_graph_db_for_library(library_id)))
+
+
+def _iter_stores():
+    """聚合读：遍历各库图谱文件；迁移前全局文件仍在时一并纳入（与 resolve 回退一致）。"""
+    from docs_core.step07_graph.graph_files import (
+        global_graph_db_path,
+        iter_library_graph_paths,
     )
-    return GraphStore(db_path)
+    from docs_core.step07_graph.graph_store import GraphStore
+
+    paths = [p for _, p in iter_library_graph_paths()]
+    legacy = global_graph_db_path()
+    if legacy.exists() and legacy not in paths:
+        paths.append(legacy)
+    for path in paths:
+        yield GraphStore(str(path))
+
+
+def _find_store_for_entity(entity_id: str):
+    from docs_core.step07_graph.graph_files import find_graph_db_for_entity
+    from docs_core.step07_graph.graph_store import GraphStore
+
+    located = find_graph_db_for_entity(entity_id)
+    if located is None:
+        return None
+    return GraphStore(str(located[1]))
+
+
+def _find_store_for_relation(relation_id: str):
+    from docs_core.step07_graph.graph_store import GraphStore
+
+    for store in _iter_stores():
+        if store.get_relation(relation_id) is not None:
+            return store
+    return None
 
 
 def _doc_name_map(library_id: str) -> dict:
@@ -78,29 +109,43 @@ class ExtractorsRunRequest(BaseModel):
 
 @graph_router.get("/stats")
 async def get_graph_stats():
-    store = _get_store()
-    return store.get_stats()
+    stats: Dict[str, Any] = {
+        "entity_count": 0, "relation_count": 0, "entities_by_layer": {}, "relations_by_type": {},
+    }
+    for store in _iter_stores():
+        part = store.get_stats()
+        stats["entity_count"] += part["entity_count"]
+        stats["relation_count"] += part["relation_count"]
+        for key in ("entities_by_layer", "relations_by_type"):
+            for k, v in part[key].items():
+                stats[key][k] = stats[key].get(k, 0) + v
+    return stats
 
 
 @graph_router.get("/entities")
 async def list_entities(layer: Optional[str] = None):
-    store = _get_store()
-    if layer:
-        from docs_core.step07_graph.config import EntityLayer
-        entities = store.list_entities_by_layer(EntityLayer(layer))
-    else:
-        entities = store.list_all_entities()
+    from docs_core.step07_graph.config import EntityLayer
+
+    seen: Dict[str, Any] = {}
+    for store in _iter_stores():
+        entities = (
+            store.list_entities_by_layer(EntityLayer(layer))
+            if layer else store.list_all_entities()
+        )
+        for e in entities:
+            if e.entity_id not in seen:
+                seen[e.entity_id] = e
     return [
         {"entity_id": e.entity_id, "name": e.name, "layer": e.layer.value, "aliases": e.aliases,
          "status": e.status.value}
-        for e in entities
+        for e in seen.values()
         if e.status == EntityStatus.APPROVED
     ]
 
 
 @graph_router.get("/entities/all")
 async def list_all_library_entities(library_id: str = "default"):
-    store = _get_store()
+    store = _store_for_library(library_id)
     entities = store.list_library_entities(library_id)
     name_map = _doc_name_map(library_id)
     return [
@@ -126,7 +171,7 @@ async def create_entity(req: EntityCreateRequest):
     from docs_core.step07_graph.config import EntityLayer
     from docs_core.step07_graph.graph_store import GraphEntity
 
-    store = _get_store()
+    store = _store_for_library(req.library_id)
     try:
         layer = EntityLayer(req.layer)
     except ValueError:
@@ -160,20 +205,27 @@ async def create_entity(req: EntityCreateRequest):
 
 @graph_router.get("/entities/search")
 async def search_entities(q: str, library_id: Optional[str] = None):
-    store = _get_store()
-    results = store.search_entities(
-        q, status=EntityStatus.APPROVED,
-        library_id=library_id or None,
-    )
-    return [
-        {"entity_id": e.entity_id, "name": e.name, "layer": e.layer.value, "status": e.status.value}
-        for e in results
-    ]
+    if library_id:
+        stores = [_store_for_library(library_id)]
+    else:
+        stores = list(_iter_stores())  # 未指定库 = 跨库检索（跨文件聚合去重）
+    seen: Dict[str, Dict[str, str]] = {}
+    for store in stores:
+        results = store.search_entities(
+            q, status=EntityStatus.APPROVED,
+            library_id=library_id or None,
+        )
+        for e in results:
+            seen.setdefault(e.entity_id, {
+                "entity_id": e.entity_id, "name": e.name,
+                "layer": e.layer.value, "status": e.status.value,
+            })
+    return list(seen.values())
 
 
 @graph_router.get("/entities/pending")
 async def list_pending_entities(library_id: str = "default"):
-    store = _get_store()
+    store = _store_for_library(library_id)
     entities = store.list_entities_by_status(library_id, EntityStatus.PENDING)
     name_map = _doc_name_map(library_id)
     return [
@@ -195,9 +247,8 @@ async def list_pending_entities(library_id: str = "default"):
 
 @graph_router.post("/entities/{entity_id}/approve")
 async def approve_entity(entity_id: str, req: EntityReviewRequest):
-    store = _get_store()
-    entity = store.get_entity(entity_id)
-    if entity is None:
+    store = _find_store_for_entity(entity_id)
+    if store is None:
         raise HTTPException(status_code=404, detail="Entity not found")
     store.approve_entity(entity_id, reviewer=req.reviewer)
     return {"status": "ok"}
@@ -205,7 +256,9 @@ async def approve_entity(entity_id: str, req: EntityReviewRequest):
 
 @graph_router.post("/entities/{entity_id}/reject")
 async def reject_entity(entity_id: str, req: EntityReviewRequest):
-    store = _get_store()
+    store = _find_store_for_entity(entity_id)
+    if store is None:
+        raise HTTPException(status_code=404, detail="Entity not found")
     entity = store.get_entity(entity_id)
     if entity is None:
         raise HTTPException(status_code=404, detail="Entity not found")
@@ -220,7 +273,9 @@ async def reject_entity(entity_id: str, req: EntityReviewRequest):
 
 @graph_router.delete("/entities/{entity_id}")
 async def delete_entity(entity_id: str):
-    store = _get_store()
+    store = _find_store_for_entity(entity_id)
+    if store is None:
+        raise HTTPException(status_code=404, detail="Entity not found")
     entity = store.get_entity(entity_id)
     if entity is None:
         raise HTTPException(status_code=404, detail="Entity not found")
@@ -235,13 +290,13 @@ async def delete_entity(entity_id: str):
 
 @graph_router.get("/entities/deleted")
 async def list_deleted_entities(library_id: str = "default"):
-    store = _get_store()
+    store = _store_for_library(library_id)
     return store.list_deleted_entities(library_id)
 
 
 @graph_router.post("/entities/deleted/restore")
 async def restore_deleted_entity(req: EntityRestoreRequest):
-    store = _get_store()
+    store = _store_for_library(req.library_id)
     restored = store.restore_deleted_entity(req.library_id, req.name)
     if not restored:
         raise HTTPException(status_code=404, detail="Deleted entity not found")
@@ -250,29 +305,29 @@ async def restore_deleted_entity(req: EntityRestoreRequest):
 
 @graph_router.get("/relations/{entity_id}")
 async def get_entity_relations(entity_id: str, direction: str = "both"):
-    store = _get_store()
-    relations = store.get_relations_by_entity(entity_id, direction)
-    return [
-        {
-            "relation_id": r.relation_id,
-            "source_id": r.source_id,
-            "target_id": r.target_id,
-            "type": r.relation_type,
-            "confidence": r.confidence,
-            "evidence": r.evidence_text,
-            "clause": r.source_clause,
-            "conflict_note": r.conflict_note,
-            "library_id": r.library_id,
-            "doc_id": r.doc_id,
-        }
-        for r in relations
-    ]
+    # 聚合各文件：实体自有文件 + 引用方文件的拷贝件都可能带关系（拆分前跨库关系）
+    seen: Dict[str, Dict[str, Any]] = {}
+    for store in _iter_stores():
+        for r in store.get_relations_by_entity(entity_id, direction):
+            seen.setdefault(r.relation_id, {
+                "relation_id": r.relation_id,
+                "source_id": r.source_id,
+                "target_id": r.target_id,
+                "type": r.relation_type,
+                "confidence": r.confidence,
+                "evidence": r.evidence_text,
+                "clause": r.source_clause,
+                "conflict_note": r.conflict_note,
+                "library_id": r.library_id,
+                "doc_id": r.doc_id,
+            })
+    return list(seen.values())
 
 
 @graph_router.get("/frameworks")
 async def list_frameworks(library_id: str, doc_id: str):
     """按文档列 framework 层实体（SOP 路径来源；plan-sop-api-l4 阶段 2）。"""
-    frameworks = _get_store().get_frameworks_by_doc(library_id, doc_id)
+    frameworks = _store_for_library(library_id).get_frameworks_by_doc(library_id, doc_id)
     return [
         {"framework_id": fw.framework_id, "name": fw.name, "steps_json": fw.steps_json,
          "source_section": fw.source_section}
@@ -286,7 +341,7 @@ async def get_sop_generation_bundle(library_id: str, doc_id: str):
 
     enrichments 按 entity_id 组装（与 get_*_by_entity_ids 逐实体调用语义一致）。
     """
-    store = _get_store()
+    store = _store_for_library(library_id)
     entities = store.list_entities_by_doc(library_id, doc_id)
     enrichments = {}
     for e in entities:
@@ -331,10 +386,37 @@ async def get_sop_generation_bundle(library_id: str, doc_id: str):
 
 @graph_router.get("/snapshot")
 async def get_full_snapshot(library_id: Optional[str] = None, doc_id: Optional[str] = None):
-    store = _get_store()
     from docs_core.step07_graph.graph_orchestrator import GraphOrchestrator
-    orchestrator = GraphOrchestrator(store)
-    return orchestrator.get_graph_snapshot(library_id=library_id, doc_id=doc_id)
+
+    if library_id:
+        orchestrator = GraphOrchestrator(_store_for_library(library_id))
+        return orchestrator.get_graph_snapshot(library_id=library_id, doc_id=doc_id)
+    # 未指定库 = 跨库聚合：实体按 id 去重（拷贝件），关系按 relation_id 去重，stats 求和
+    merged: Dict[str, Any] = {"stats": None, "entities": [], "relations": []}
+    seen_entities: set = set()
+    seen_relations: set = set()
+    for store in _iter_stores():
+        part = GraphOrchestrator(store).get_graph_snapshot(library_id=None, doc_id=None)
+        for e in part.get("entities", []):
+            if e.get("id") not in seen_entities:
+                seen_entities.add(e.get("id"))
+                merged["entities"].append(e)
+        for r in part.get("relations", []):
+            if r.get("relation_id") not in seen_relations:
+                seen_relations.add(r.get("relation_id"))
+                merged["relations"].append(r)
+        part_stats = part.get("stats") or {}
+        if merged["stats"] is None:
+            merged["stats"] = {
+                "entity_count": 0, "relation_count": 0,
+                "entities_by_layer": {}, "relations_by_type": {},
+            }
+        merged["stats"]["entity_count"] += part_stats.get("entity_count", 0)
+        merged["stats"]["relation_count"] += part_stats.get("relation_count", 0)
+        for key in ("entities_by_layer", "relations_by_type"):
+            for k, v in (part_stats.get(key) or {}).items():
+                merged["stats"][key][k] = merged["stats"][key].get(k, 0) + v
+    return merged
 
 
 @graph_router.post("/build/from-doc")
@@ -359,7 +441,7 @@ async def build_graph_from_doc(req: PushDocRequest):
         doc_blocks_graph=graph,
     )
 
-    store = _get_store()
+    store = _store_for_library(req.library_id)
     orchestrator = GraphOrchestrator(store)
     orchestrator.load_seed_entities()
     result = orchestrator.expand_all_packets(packets, enable_llm=req.enable_llm_extraction)
@@ -369,9 +451,11 @@ async def build_graph_from_doc(req: PushDocRequest):
 
 @graph_router.post("/validate/questions")
 async def validate_with_questions(req: QuestionBatchRequest):
-    store = _get_store()
-    all_entities = store.list_all_entities()
-    entity_names = [e.name for e in all_entities]
+    seen: Dict[str, str] = {}
+    for store in _iter_stores():
+        for e in store.list_all_entities():
+            seen.setdefault(e.entity_id, e.name)
+    entity_names = list(seen.values())
 
     from docs_core.step07_graph.question_mapper import QuestionMapper, StructuredQuestion
     mapper = QuestionMapper()
@@ -405,10 +489,10 @@ async def validate_with_questions(req: QuestionBatchRequest):
 
 @graph_router.post("/review")
 async def human_review(req: HumanReviewRequest):
-    store = _get_store()
-    relation = store.get_relation(req.relation_id)
-    if relation is None:
+    store = _find_store_for_relation(req.relation_id)
+    if store is None:
         raise HTTPException(status_code=404, detail="Relation not found")
+    relation = store.get_relation(req.relation_id)
 
     if req.confidence < 0:
         store.mark_relation_conflict(req.relation_id, req.note or "人工标记矛盾")
@@ -428,7 +512,7 @@ async def run_extractors(req: ExtractorsRunRequest):
     from docs_core.docs_file_io import file_storage
     from docs_core.step07_graph.graph_orchestrator import GraphOrchestrator
 
-    store = _get_store()
+    store = _store_for_library(req.library_id)
     content = file_storage.read_markdown(req.library_id, req.doc_id) or ""
     orchestrator = GraphOrchestrator(store)
     doc_entities = store.list_entities_by_doc(req.library_id, req.doc_id)
@@ -439,7 +523,10 @@ async def run_extractors(req: ExtractorsRunRequest):
 
 @graph_router.get("/entities/{entity_id}/enrichment")
 async def get_entity_enrichment(entity_id: str):
-    store = _get_store()
+    store = _find_store_for_entity(entity_id)
+    if store is None:
+        from fastapi import HTTPException
+        raise HTTPException(status_code=404, detail="Entity not found")
     entity = store.get_entity(entity_id)
     if not entity:
         from fastapi import HTTPException
@@ -461,7 +548,7 @@ async def get_entity_enrichment(entity_id: str):
 
 @graph_router.get("/docs-with-graph")
 async def get_docs_with_graph(library_id: str = "default"):
-    store = _get_store()
+    store = _store_for_library(library_id)
     docs = store.get_docs_with_graph(library_id)
     try:
         from docs_core.docs_file_io import file_storage
