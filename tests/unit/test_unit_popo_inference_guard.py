@@ -8,10 +8,13 @@ import json
 import sys
 from pathlib import Path
 
+import pytest
+
 REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO / "services" / "docs-core" / "src"))
 
 from docs_core.step03_mineru_parse.popo_enhance import (  # noqa: E402
+    PopoEndpointUnavailableError,
     PoPoPipelineRunner,
     _count_popo_verdicts,
     _popo_endpoint_failures,
@@ -74,8 +77,13 @@ def _prepare_doc(tmp_path: Path) -> tuple[Path, Path]:
     return raw, pdf
 
 
-def _runner_with_stub(monkeypatch, infer_output: str, verdict_blocks) -> PoPoPipelineRunner:
-    """把三个子脚本调用短路：label 归一化产文件、推理返回给定输出、树构建产产物。"""
+def _stages_runner(monkeypatch, infer_output: str, verdict_blocks) -> PoPoPipelineRunner:
+    """把三个子脚本调用短路：label 归一化产文件、推理返回给定输出、树构建产产物。
+
+    必须摘掉 POPO_DOC_API_URL：宿主 .env 设了该变量时 run_full_pipeline 会走
+    文档级 API 模式，本组测试钉的是未设该变量时的子进程回落链。
+    """
+    monkeypatch.delenv("POPO_DOC_API_URL", raising=False)
     runner = PoPoPipelineRunner()
 
     def fake_run_script(args, *, env, timeout, stage, cancel_check=None):
@@ -111,10 +119,12 @@ def _run(runner, raw: Path, pdf: Path, out: Path, steps: list):
 
 
 class TestStageGuard:
-    def test_stage_fails_on_endpoint_failure(self, monkeypatch, tmp_path):
-        """端点失败必须让阶段显式失败，而不是产出空判定还报 done。"""
+    """子进程回落链（未设 POPO_DOC_API_URL）的判定闸，10-16「以产物计数判成败」口径。"""
+
+    def test_stage_fails_on_zero_verdicts(self, monkeypatch, tmp_path):
+        """端点失败且产物零块必须显式失败，而不是静默产出空判定还报 done。"""
         raw, pdf = _prepare_doc(tmp_path)
-        runner = _runner_with_stub(monkeypatch, FAIL_LINE, [{"contd": -1, "level": -1, "image": -1}])
+        runner = _stages_runner(monkeypatch, FAIL_LINE, [])
         steps: list = []
         try:
             _run(runner, raw, pdf, tmp_path / "o1", steps)
@@ -124,16 +134,101 @@ class TestStageGuard:
         assert raised, "端点失败没有被提升为阶段失败"
         assert any(s[0] == "PoPo 4B 推理" and s[1] == "failed" for s in steps), steps
 
+    def test_endpoint_noise_with_verdicts_passes(self, monkeypatch, tmp_path):
+        """10-16 误杀事故的回归钉板：stdout 有端点失败噪音、但产物有判定 = 成功。
+
+        多端点容错下 company 连不上、DGX 正常产出是常态；旧版见一条失败行就判整篇
+        失败，当天 PoPo 零产出 12h。判成败以产物计数为准。
+        """
+        raw, pdf = _prepare_doc(tmp_path)
+        blocks = [{"contd": 47, "level": -1, "image": -1}]
+        runner = _stages_runner(monkeypatch, FAIL_LINE, blocks)
+        steps: list = []
+        _run(runner, raw, pdf, tmp_path / "o1b", steps)
+        done = [s for s in steps if s[0] == "PoPo 4B 推理"]
+        assert done and done[0][1] == "done", steps
+
     def test_stage_passes_and_reports_verdicts(self, monkeypatch, tmp_path):
         """正常返回时必须通过，并把判定计数写进步骤详情（可观测性）。"""
         raw, pdf = _prepare_doc(tmp_path)
         blocks = [{"contd": 47, "level": -1, "image": -1}, {"contd": -1, "level": 2, "image": 23}]
-        runner = _runner_with_stub(monkeypatch, "<|src_id|>45<|tgt_id|>47\n", blocks)
+        runner = _stages_runner(monkeypatch, "<|src_id|>45<|tgt_id|>47\n", blocks)
         steps: list = []
         _run(runner, raw, pdf, tmp_path / "o2", steps)
         done = [s for s in steps if s[0] == "PoPo 4B 推理"]
         assert done and done[0][1] == "done", steps
         assert "contd 1" in done[0][2] and "level 1" in done[0][2] and "image 1" in done[0][2], done
+
+
+class _FakeResp:
+    def __init__(self, payload, status_code: int = 200):
+        self._payload = payload
+        self.status_code = status_code
+        self.text = json.dumps(payload, ensure_ascii=False)
+
+    def json(self):
+        return self._payload
+
+
+_OK_PAYLOAD = {
+    "enriched_blocks": [
+        {"contd": 47, "level": -1, "image": -1},
+        {"contd": -1, "level": 2, "image": 23},
+    ],
+    "document_tree": {"title": "doc-x", "children": []},
+    "seconds": 1.2,
+}
+
+
+class TestDocApiGuard:
+    """文档级 API 模式（M5，2026-10-26 起 set POPO_DOC_API_URL）：一次 HTTP 拿判定+树。"""
+
+    def _use_doc_api(self, monkeypatch, post_impl):
+        import requests
+
+        monkeypatch.setenv("POPO_DOC_API_URL", "http://fake-popo")
+        monkeypatch.setattr(requests, "post", post_impl)
+        return PoPoPipelineRunner()
+
+    def test_unreachable_raises_explicitly(self, monkeypatch, tmp_path):
+        """连接失败必须转 PopoEndpointUnavailableError（瞬时类，可重试）并报 failed 步。"""
+        import requests
+
+        def boom(*args, **kwargs):
+            raise requests.ConnectionError("Connection refused")
+
+        raw, pdf = _prepare_doc(tmp_path)
+        runner = self._use_doc_api(monkeypatch, boom)
+        steps: list = []
+        with pytest.raises(PopoEndpointUnavailableError, match="不可达"):
+            _run(runner, raw, pdf, tmp_path / "d1", steps)
+        assert any(s[0] == "PoPo 4B 推理" and s[1] == "failed" for s in steps), steps
+
+    def test_success_writes_artifacts_and_reports_verdicts(self, monkeypatch, tmp_path):
+        def fake_post(*args, **kwargs):
+            return _FakeResp(_OK_PAYLOAD)
+
+        raw, pdf = _prepare_doc(tmp_path)
+        runner = self._use_doc_api(monkeypatch, fake_post)
+        steps: list = []
+        result = _run(runner, raw, pdf, tmp_path / "d2", steps)
+        done = [s for s in steps if s[0] == "PoPo 4B 推理"]
+        assert done and done[0][1] == "done", steps
+        assert "contd 1" in done[0][2] and "level 1" in done[0][2] and "image 1" in done[0][2], done
+        assert json.loads(Path(result["enriched_blocks_path"]).read_text(encoding="utf-8")) == _OK_PAYLOAD["enriched_blocks"]
+        assert json.loads(Path(result["document_tree_path"]).read_text(encoding="utf-8")) == _OK_PAYLOAD["document_tree"]
+
+    def test_zero_blocks_fails(self, monkeypatch, tmp_path):
+        """200 但零判定块＝服务端空转，必须显式失败，不能静默落空产物。"""
+
+        def fake_post(*args, **kwargs):
+            return _FakeResp({"enriched_blocks": [], "document_tree": {}, "seconds": 0.1})
+
+        raw, pdf = _prepare_doc(tmp_path)
+        runner = self._use_doc_api(monkeypatch, fake_post)
+        steps: list = []
+        with pytest.raises(PopoEndpointUnavailableError, match="零判定块"):
+            _run(runner, raw, pdf, tmp_path / "d3", steps)
 
 
 class TestTransientClassification:

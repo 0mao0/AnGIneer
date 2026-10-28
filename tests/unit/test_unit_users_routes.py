@@ -23,6 +23,33 @@ class UsersRoutesTests(unittest.TestCase):
         patcher.start()
         self.addCleanup(patcher.stop)
         user_model.init_db()
+        # 钉住 V1：宿主 .env 设了 ANGINEER_KB_SUBSCRIPTION_V2=1 时 create/update 走 v2 分支，
+        # MagicMock 的 direct_library_ids 真值但迭代为空 → set_user_access(id, [], []) 抹掉镜像。
+        # v2 形态另有专测显式开开关验形状（test_create_writes_v2_access）。
+        v2 = patch("users_routes.subscription_v2_enabled", return_value=False)
+        v2.start()
+        self.addCleanup(v2.stop)
+
+    def test_create_writes_v2_access(self):
+        """v2 开关打开时的形状：组订阅+直选按原样透传 set_user_access（镜像由其统一回写）。"""
+        from users_routes import create_user_route
+        req = MagicMock()
+        req.username = "dave"
+        req.display_name = "Dave"
+        req.password = "secret123"
+        req.library_ids = ["lib-a"]
+        req.is_admin = False
+        req.group_subscriptions = [{"group": "g1"}]
+        req.direct_library_ids = ["lib-a"]
+        with patch("users_routes.subscription_v2_enabled", return_value=True), \
+                patch("users_routes.get_docs_service") as mock_ks, \
+                patch("users_routes.set_user_access") as mock_set:
+            mock_ks.return_value._known_group.return_value = True
+            mock_ks.return_value.get_library.return_value = MagicMock()
+            asyncio.run(create_user_route(req))
+        _user_id, subs, direct = mock_set.call_args[0]
+        self.assertEqual(subs, [{"group": "g1"}])
+        self.assertEqual(direct, ["lib-a"])
 
     def _create(self, library_ids=("lib-a",), is_admin=False):
         from users_routes import create_user_route

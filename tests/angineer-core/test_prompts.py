@@ -133,12 +133,20 @@ class PromptMigrationContractTests(unittest.TestCase):
         self.assertIn("禁止用「根据《X》」把相邻片段包装成确定结论", QA)
         self.assertNotIn("以下相关信息供参考", QA_V9)  # v9 无第三档
 
-    def test_qa_prompt_latest_is_v19(self):
-        """latest 必须解析到最新版——字符串 max 会把 latest 钉死在旧版（"v9" > "v10" 字典序）。"""
-        from angineer_core.prompts.agent_configs import QA_AGENT_SYSTEM_PROMPT_V19
+    def test_qa_prompt_latest_is_v20(self):
+        """latest 必须解析到最新版——字符串 max 会把 latest 钉死在旧版（"v9" > "v10" 字典序）。
 
-        self.assertEqual(load("agent_configs.qa_system_prompt"), QA_AGENT_SYSTEM_PROMPT_V19)
-        self.assertEqual(versions()["agent_configs.qa_system_prompt"], "v19")
+        升版流程钉板：注册 vN+1 时必须同步本断言（5a01f57f 升 v20 时未同步此测试，一直红到 10-28 对账）。
+        """
+        from angineer_core.prompts.agent_configs import (
+            QA_AGENT_SYSTEM_PROMPT_V19,
+            QA_AGENT_SYSTEM_PROMPT_V20,
+        )
+
+        self.assertEqual(load("agent_configs.qa_system_prompt"), QA_AGENT_SYSTEM_PROMPT_V20)
+        self.assertEqual(versions()["agent_configs.qa_system_prompt"], "v20")
+        self.assertIn("图表化交付", QA_AGENT_SYSTEM_PROMPT_V20)
+        self.assertNotIn("图表化交付", QA_AGENT_SYSTEM_PROMPT_V19)
 
     def test_qa_prompt_v19_allows_one_table_query_rewrite(self):
         """v19（2026-10-21）：表格 query 允许一次改写——financebench 财务比率题原文与表头

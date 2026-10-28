@@ -24,6 +24,11 @@ class AichatSessionTests(unittest.TestCase):
         patcher.start()
         self.addCleanup(patcher.stop)
         user_model.init_db()
+        # 钉住 V1：宿主 .env 设了 ANGINEER_KB_SUBSCRIPTION_V2=1 时 resolve_session_principal
+        # 走派生分支，无订阅用户的 derive 为空 → bound_library_id=''。与 users_routes 同族。
+        v2 = patch("chat_auth.subscription_v2_enabled", return_value=False)
+        v2.start()
+        self.addCleanup(v2.stop)
         self.user = user_model.create_user("alice", "Alice", "secret123", ["lib-a", "lib-b"])
         self.token = user_model.create_session(self.user.id)
 

@@ -1,4 +1,4 @@
-"""单测：MinerU GPU 闸门按提交序号严格先来先服务。"""
+"""单测：GPU 闸门按「到达本闸门」先后排队（2026-10-14 语义修订，v0.2.98 上线；任务序号仅作身份键）。"""
 import sys
 import threading
 import time
@@ -13,28 +13,33 @@ from docs_core.parse_pipeline import ParseTaskCancelledError, _FifoGpuGate
 
 
 class FifoGpuGateTest(unittest.TestCase):
-    def test_acquires_in_submission_order_even_with_reverse_thread_start(self):
+    def test_serves_by_arrival_at_gate_not_submission_seq(self):
+        """新语义钉板：先到本闸门者先获槽，任务序号不参与排序（旧契约「按序号放行」已废）。
+
+        到达顺序固定 3 → 2 → 1（序号与到达相反），放行后必须按到达序 2、1 服务。
+        """
         gate = _FifoGpuGate(max_concurrency=1)
         order = []
         lock = threading.Lock()
-        ready = threading.Event()
 
         def worker(seq):
-            ready.wait()
             gate.acquire(seq)
             with lock:
                 order.append(seq)
             time.sleep(0.05)
             gate.release()
 
-        threads = [threading.Thread(target=worker, args=(seq,)) for seq in (1, 2, 3)]
-        # 倒序启动线程：线程 3 最先抢，但闸门必须按序号放行
-        for t in reversed(threads):
-            t.start()
-        ready.set()
-        for t in threads:
-            t.join(timeout=5)
-        self.assertEqual(order, [1, 2, 3])
+        gate.acquire(3)  # 最早到达者持槽
+        t2 = threading.Thread(target=worker, args=(2,))
+        t2.start()
+        time.sleep(0.2)  # 确保 2 先于 1 领到排队号（到达序确定）
+        t1 = threading.Thread(target=worker, args=(1,))
+        t1.start()
+        time.sleep(0.2)
+        gate.release()  # 3 让位 → 按到达序轮到 2，序号最小的 1 不得插队
+        t1.join(timeout=5)
+        t2.join(timeout=5)
+        self.assertEqual(order, [2, 1])
 
     def test_cancelled_waiter_is_skipped(self):
         gate = _FifoGpuGate(max_concurrency=1)
@@ -66,10 +71,9 @@ class FifoGpuGateTest(unittest.TestCase):
 
     def test_should_wait_reflects_turn_and_tokens(self):
         gate = _FifoGpuGate(max_concurrency=1)
-        self.assertFalse(gate.should_wait(1))  # 轮到它且有空闲令牌
-        self.assertTrue(gate.should_wait(2))  # 序号靠后
+        self.assertFalse(gate.should_wait(1))  # 空闸：新到者即队首，不按任务序号排队（新语义）
         gate.acquire(1)
-        self.assertTrue(gate.should_wait(2))  # 令牌被占
+        self.assertTrue(gate.should_wait(2))  # 队首轮到但令牌被占
         gate.release()
         self.assertFalse(gate.should_wait(2))
 

@@ -175,4 +175,8 @@ def test_relevant_citations_port_contract(monkeypatch):
     monkeypatch.setattr(ports, "_relevant_citations", fake_citations)
     out = agent_tools._build_relevant_citations("船闸规范", [object(), object()])
     assert out == [{"marker": "K1"}]
-    assert seen == [("船闸规范", 2, 5)]
+    # v0.3.3 语义：默认 limit=None＝返回全部带 cite 的条目（10-22 实踩：limit=5 时
+    # 答案引用 K6+ 前端回退显示 doc_id）；显式正数 limit 保留展示截断旧语义。
+    assert seen == [("船闸规范", 2, None)]
+    agent_tools._build_relevant_citations("船闸规范", [object(), object()], limit=5)
+    assert seen[1] == ("船闸规范", 2, 5)
