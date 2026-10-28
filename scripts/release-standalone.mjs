@@ -69,7 +69,9 @@ if (!SUPPORTED.includes(pkg)) {
 }
 const repo = REPO_NAME_OVERRIDES[pkg] || `angineer-${pkg}`;
 const srcPath = SOURCE_PATH_OVERRIDES[pkg] || `packages/${pkg}`;
-const worktree = resolve(ROOT, '.worktrees', repo);
+// worktree 目录名按 AGENTS.md 约定永远是 angineer-<pkg>（sync-standalone.ps1 同规则），
+// overrides 只作用于独立仓库名/remote——smartree 0.1.4 实踩：按 repo 名找 worktree 必 miss
+const worktree = resolve(ROOT, '.worktrees', `angineer-${pkg}`);
 const remoteUrl = `git@github.com:0mao0/${repo}.git`;
 const splitBranch = `split/${pkg}`;
 const localTag = `${pkg}@${bare}`;
