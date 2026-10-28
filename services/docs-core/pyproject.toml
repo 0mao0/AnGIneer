@@ -26,12 +26,12 @@ dependencies = [
     # 仓库内底座与兄弟包
     "angineer-tree-core>=0.1.0,<0.2.0",
     "angineer-ai-inference>=0.2.2,<0.3.0",
-    # popo 客户端（dgx-spark-popo 公开仓）：核心只约束包名+版本——容器构建由 vendor wheel
-    # 先装即满足、离线不触网；git 直引移到 [popo] extra（外部安装用）。
-    # 教训（2026-10-28 v0.3.4 deploy 实踩）：核心依赖写 PEP 508 git 直引时 pip 无视已装
-    # wheel、必调 git，构建容器无 git 即必败（v0.3.3 wheel 改名坑同批首爆）。
-    # 升级纪律：公开仓 bump 版本当日同步换 vendor wheel 并核版本一致。
-    "popo-client>=0.1.0",
+    # popo 客户端（dgx-spark-popo 公开仓）不进核心依赖：docs_core 源码零 import（popo 三段链
+    # 为子进程运行时依赖）——主仓容器由 vendor wheel 独立安装，外部用户走 [popo] extra。
+    # 教训一（2026-10-28 v0.3.4 deploy 实踩）：核心依赖写 PEP 508 git 直引时 pip 无视已装
+    # wheel、必调 git，构建容器无 git 即必败。
+    # 教训二（2026-10-29 docs-core 0.1.5 发布实踩）：核心裸声明 popo-client>=0.1.0 而 PyPI 无
+    # 此包，独立仓 CI 与 PyPI 用户 pip install 必炸「No matching distribution」——已挪 [popo] extra。
     # 运行期硬依赖（顶层 import，缺一即 import 失败）
     "pydantic>=2.0.0,<3.0.0",
     "python-dotenv>=1.0.0",
@@ -49,6 +49,12 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+# KB_STACK=pg 档位（PostgreSQL+pgvector）：psycopg3 连接 + 中性包 parquet 向量文件。
+# legacy 档位无需安装本 extra（模块内全部惰性 import）。
+pg = [
+    "psycopg[binary]>=3.2",
+    "pyarrow>=15.0",
+]
 # 外部安装想连 popo 客户端一起拿（PyPI 无 popo-client，走公开仓 git 直引）：
 #   pip install "docs-core[popo]"；本仓容器用 vendor wheel，不装本 extra。
 popo = ["popo-client @ git+https://github.com/0mao0/dgx-spark-popo@v0.1.1"]
