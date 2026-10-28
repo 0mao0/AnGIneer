@@ -843,7 +843,9 @@ def make_budget_stopper(threshold: Optional[int] = None):
     """P4.3 闸门二：turn 结束超预算 → 循环优雅停止（reason=should_stop）。
 
     优先用本轮真实 prompt_tokens（模型窗口口径）；拿不到 usage 时回落到 chars//2 估算。
-    threshold 显式传参时按估算口径生效（测试/特殊档位用）。"""
+    threshold 显式传参＝真实 token 停止线，仅作用在 usage 路径（2026-10-18 改造起；
+    旧「按估算口径生效」已废——估算兜底线恒由 env/默认决定，threshold 不介入，
+    钉板见 tests/angineer-core/test_budget_gates.py 的 explicit_threshold_does_not_reach_est_fallback）。"""
     est_limit = _budget_stopper_est()
     token_limit = threshold if threshold is not None else _budget_stopper_tokens()
 
