@@ -1,7 +1,7 @@
 # 语料包导入导出：剩余事项
 
-**日期：** 2026-10-21（P3-4 两项演练当日收口）
-**当前状态：** v2 导出、CLI/HTTP 导入、admin-web 上传弹框、P4 拆并/改组/删库保护、P3-4 检索探针与 apply 中途 kill 演练、P3-3 宿主机 nginx 放行已完成；**只剩真实小/大包上传复测（需生产管理员会话）与发版收尾**。
+**日期：** 2026-10-21（P3-4 两项演练当日收口；2026-10-25 复核发布状态；2026-10-28 生产真包复测完成）
+**当前状态：** 复测项全部收口（含 2026-10-28 生产真包上传复测）；**唯一遗留＝闭包实体重名「首版阻断」放行策略待拍板**（见 §10，复测新发现：跨环境导入带图谱的真实语料包必被预检拦下）。
 **主计划：** [plan-kb-per-library-package.md](plan-kb-per-library-package.md)
 
 ---
@@ -12,11 +12,12 @@
 |---|---|---|---|
 | P0 | P3-4 真实检索探针 | **已完成** | 真实包 `system-20261018.zip`（9 文档/701 chunk/973 向量）导入临时根：FTS 20 命中、向量 20 命中、`doc_title` 正确、PDF 200 |
 | P0 | P3-4 apply 中途 kill 演练 | **已完成** | 2s 处杀 docs-api：任务表丢、暂存包留、半成品 default 落盘、重导被 index 冲突拦住；清理 CLI 已补并验证 |
-| P0 | P3-3 宿主机 nginx 放行 | **已放行**（2026-10-21） | 备份+插入 `^~ /api/knowledge/imports/`，nginx -t/reload 通过；300MB 头探针由 413 变为转发；真实包上传复测待管理员会话 |
-| P1 | P4-4 CHANGELOG/README/版本 | 待发版 | 版本号需用户确认；不自动 tag/push |
+| P0 | P3-3 宿主机 nginx 放行 | **已放行 + 已复测**（2026-10-28） | 真实 body 三连测：36.9MB 真包、41.3MB 真包、220MB 非法 zip 全部经 `https://angineer.cn` 过 nginx→frontend→docs-api 全链路，无 413；详见 §10 |
+| P1 | P4-4 CHANGELOG/README/版本 | **已随 v0.3.2 / v0.3.3 发布** | `b16457b1`（清理 CLI/404 指引）在 v0.3.2，`78f34597`（存量补齐记录 + 镜像补脚本 + CHANGELOG 条目）在 v0.3.3 |
+| P1 | **闭包实体重名放行策略**（复测新发现） | **待拍板** | 预检对「同 (name, library_id) 不同 entity_id」按 `首版阻断` 处理；docstring 设计是「告警不阻断、对账兜底」，但 `_merge_graph` 只 `INSERT OR IGNORE` 无按名合并——放行会产出重复实体，维持阻断则跨环境导入图承载语料必被拦。见 §10 |
 | P2 | 克隆导入（同实例并存） | 可选，未立项 | 需全量 ID 重映射，不是加 `(2)` 后缀 |
-| P2 | 测试产物清理 | 部分完成 | 已补 `scripts/kb_corpus_import_cleanup.py`；`data/scratch/p3-ui-target*` 等旧临时根仍待人确认 |
-| P2 | 宿主机大文件复测 | 待管理员会话 | 上传 >200MB 小/大包各一次（nginx 层已放行） |
+| P2 | 测试产物清理 | **已清理** | `p3-ui-target*`、`p2-5`、`p2-cli-target`、`p2-cli`、`qdrant-local` 已删；保留 `p3-5-probe` 证据（约 25MB） |
+| P2 | 宿主机大文件复测 | **已完成**（2026-10-28 生产实测） | 220MB 非法 zip → 400「上传内容不是合法 zip」（39.5s、无 413、暂存自清）；与本地 10-21 结论一致 |
 
 ---
 
@@ -110,7 +111,7 @@
 - 改前基线：`POST /api/knowledge/imports/upload` + `Content-Length: 300000000`（无 body）→ **413**；
 - 改后同一探针：nginx 不再 413，请求被转发（8s 内无响应，因等待声明的 body；服务器回环 HTTP/2 同请求得 400）；
 - 小请求仍 `401`（`{"detail":"Missing X-API-Key or session token"}`），证明 **host → frontend 容器 → docs-api 两跳都通**；
-- 真实小包/>200MB 包各上传一次**未做**：需要生产管理员会话（本轮 `.env` 的 admin 口令对线上无效），留给发版窗口由用户执行；
+- 真实小包/>200MB 包各上传一次**已完成（2026-10-28，见 §10）**：三次真实 body 经公网全链路实测，nginx 无 413、暂存自清；
 - **本地补测（2026-10-21，不经 nginx）**：本地 docs-api 8790 上传 210MB 非法 zip → `400 上传内容不是合法 zip`（1.3s，无 413，暂存自动清）；再传真实小包 `lib-import-test2.zip` → `200 previewed`，`DELETE /imports/<id>` → 200。证明 app 侧大 body 与上传/预检/清暂存链路正常；生产仍差真包一次。
 
 **回滚：** `cp -a /etc/nginx/ai-proxy-locations.conf.bak-20261021-imports /etc/nginx/ai-proxy-locations.conf && nginx -t && systemctl reload nginx`。
@@ -167,7 +168,8 @@
 - **时间检索随包走的前提是导出前回填**：`doc_date/date_source/date_confidence` 在 `doc_catalog` 里，切片整表带走；
   但源库没回填时包内为空，源库没跑过懒 ALTER 时包内连三列都没有（导入侧只补空列）。导入不保留 mtime，
   导入后再跑 `backfill_doc_dates.py` 会把 mtime 档写成导入时间——回填必须在导出前；
-- 上传支持 multipart，不支持断点续传。
+- 上传支持 multipart，不支持断点续传；
+- **跨环境导入带图谱的语料包，目标实例图谱已有同名词实体时预检必被拦**（闭包实体首版阻断，见 §10）——目前跨环境导入实际只适用「空 data 根恢复」与无图谱语料。
 
 ---
 
@@ -184,4 +186,27 @@
 - 删库 Windows 锁/重试：`34183442`
 - retired 同 id 恢复：`d02d8c04`
 - P3-4 断点测试：`66ff9ada`
-- 本轮（未提交）：清理 CLI `scripts/kb_corpus_import_cleanup.py` + 单测、404 文案补强
+- 清理 CLI `scripts/kb_corpus_import_cleanup.py` + 单测、404 文案补强：`b16457b1`（v0.3.2）
+
+---
+
+## 10. 2026-10-28 生产真包复测（含新发现）
+
+**会话通道：** 免改密铸会话（`docker exec` 进 docs-api 容器 `create_session(admin)`，不动密码、不清既有会话，测完即 `delete_session`）。
+
+**三次真实 body 上传（全部经 `https://angineer.cn` 公网链路：宿主 nginx `^~ /api/knowledge/imports/` → frontend 容器 → docs-api）：**
+
+| # | 包 | 结果 | 结论 |
+|---|---|---|---|
+| 1 | `system-20261018.zip`（36.9MB，内容已在生产） | 400 冲突闸拒绝：`library_id 已存在: default` + 3 个节点 id | 传输链 + 上传落盘 + 预检全链路工作正常，同内容重导按设计拦下，暂存自清 |
+| 2 | `standards-20261028.zip`（41.3MB，`std-municipal` 本地新导出，5 docs/820 chunk/1185 向量，ID 与生产零冲突） | 400 `闭包实体冲突，首版阻断`（5 条重名，逐条标注「不阻断；按对账/merge 处理」） | **新发现，见下** |
+| 3 | 220MB 非法 zip | 400「上传内容不是合法 zip」（39.5s，无 413，暂存自清） | 大 body 过 nginx 无 413，与本地 10-21 结论一致 |
+
+**新发现：闭包实体「首版阻断」与设计意图相悖，跨环境导入图承载语料必被拦。**
+
+- 判据（`corpus_package.check_conflict_gate` docstring）：小包实体**归属他库**（闭包切片天然带上如 `default` 的共享种子实体）且与目标同 `(name, library_id)` 不同 `entity_id` → **告警不阻断**，对账 + FK 检查兜底；逐条 warning 文案也自称「不阻断；按对账/merge 处理」。
+- 实现（`corpus_import_apply.py:638`）：`if gate["warnings"]: raise BundleError("闭包实体冲突，首版阻断: …")`——warning 一律拦死。
+- 放行为什么现在不安全：`_merge_graph` 是按主键 `INSERT OR IGNORE`，**没有按名合并**——放行会产出重复实体（如「船舶荷载」×2）。v1 阻断是安全兜底，但后果是：只要目标实例图谱里已有任何同名词实体（生产 `knowledge/graph.sqlite` 是全局读取、不分组），任何跨环境导出的工程语料包都过不了预检。**空 data 根恢复 / 无图谱语料（法律域种子门控 `graph_entities=0`）不受影响。**
+- 两条出路（拍板后另立施工单，不属本清单收尾范围）：① 实现 `_merge_graph` 按名对账合并（同 (name, library_id) 映射到目标 entity_id 再插入），然后放行 warning；② 维持阻断，把「跨环境导入」口径收窄为「空根恢复」并在文档/UI 明示。
+
+**复测证据与遗留物：** `data/scratch/kb-pkg-retest2/standards-20261028.zip`（41MB 无冲突测试包，拍板后复测直接可用，可留可删）；服务器 `data/scratch/imports/` 三连测后为空；临时会话已注销（`DEL_SESSION: True`），生产侧临时文件已删。
