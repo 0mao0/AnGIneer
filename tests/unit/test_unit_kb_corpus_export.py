@@ -407,6 +407,19 @@ class KbCorpusBundleV2Tests(unittest.TestCase):
         finally:
             con.close()
 
+    def test_bundle_finds_per_library_graph_file(self):
+        """回归（2026-10-28 生产实踩）：图谱按 library_root 存库文件、注册表 sqlite_file
+        却指 groups/*.sqlite，旧导出拿 sqlite_file 父目录找图谱 → 本库 707 条 relations
+        静默清零出包。修后解析器与运行时读写同源，必须切出真实闭包。"""
+        global_g = self.root / "knowledge" / "graph.sqlite"
+        lib_a_g = self.root / "knowledge" / "libraries" / "lib-a" / "graph.sqlite"
+        lib_a_g.write_bytes(global_g.read_bytes())  # 模拟拆分迁移：图谱已入本库文件
+        global_g.rename(self.root / "knowledge" / "graph.sqlite.migrated-tmp")
+        outer = self._bundle(["lib-a"])
+        inner, _names, iman = self._assert_inner_single_lib(outer, "lib-a")
+        self.assertEqual(iman["counts"]["graph_relations"], 2)
+        self.assertGreater(iman["counts"]["graph_tables"].get("graph_entities", 0), 0)
+
     def test_evals_group_files_follow_group_root(self):
         _seed_evals_library(self.root)
         with ExitStack() as stack:

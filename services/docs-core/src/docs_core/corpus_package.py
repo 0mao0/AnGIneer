@@ -503,15 +503,14 @@ def iter_bundle_zip(libs: List[str], *, exclude_dirs: Sequence[str] = DEFAULT_EX
             try:
                 index_info = corpus_slicing.build_library_sqlite_slice(
                     data_root, row, staging / "index.sqlite")
-                # 图谱一库一文件（plan-graph-per-library-split）：优先本库文件，
-                # 迁移前回退全局文件（旧过滤切片语义对两者均正确）。
-                per_lib_graph = (
-                    data_root / Path(str(row["sqlite_file"])).parent / "graph.sqlite"
-                    if row.get("sqlite_file") else None
-                )
-                legacy_graph = data_root / "knowledge" / "graph.sqlite"
-                graph_db = per_lib_graph if (per_lib_graph is not None and per_lib_graph.exists()) \
-                    else legacy_graph
+                # 图谱一库一文件（plan-graph-per-library-split）：用全站唯一解析器
+                # resolve_graph_db_for_library（库文件 > 全局迁移源 > 库文件新建）。
+                # 旧写法拿 sqlite_file 的父目录找 graph.sqlite——组路由后 sqlite_file 指向
+                # knowledge/groups/*.sqlite，父目录下没有 graph 文件，本库真实图谱被漏掉，
+                # 导出包静默 0 relations（2026-10-28 生产实跑实踩）。
+                from docs_core.step07_graph.graph_files import resolve_graph_db_for_library
+
+                graph_db = resolve_graph_db_for_library(lib_id)
                 if graph_db.exists():
                     graph_info = corpus_slicing.build_library_graph_slice(
                         graph_db, lib_id, staging / "graph.sqlite")
