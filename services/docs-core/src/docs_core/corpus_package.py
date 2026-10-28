@@ -516,7 +516,10 @@ def iter_bundle_zip(libs: List[str], *, exclude_dirs: Sequence[str] = DEFAULT_EX
                     graph_info = corpus_slicing.build_library_graph_slice(
                         graph_db, lib_id, staging / "graph.sqlite")
                 else:
-                    closing(sqlite3.connect(staging / "graph.sqlite")).close()
+                    # closing 只是上下文管理器，没有 .close()（Py3.11 实跑炸过）：
+                    # 这里只为在 zip 里留一份空 graph.sqlite 保持包结构一致，用 with 落盘即走。
+                    with closing(sqlite3.connect(staging / "graph.sqlite")):
+                        pass
                     graph_info = {"relations": 0, "tables": {}, "fk_violations": 0}
 
                 snap = snaps.get(lib_id)

@@ -388,6 +388,25 @@ class KbCorpusBundleV2Tests(unittest.TestCase):
         self.assertEqual(iman["counts"]["vectors"], 0)
         self.assertEqual(self.snap_calls, [])
 
+    def test_bundle_library_without_graph_succeeds(self):
+        """回归（2026-10-28 生产实踩）：图谱拆分迁移把全局 graph.sqlite 改名后，
+        无本库 graph 文件的库导出走 else 分支——旧代码 closing(...).close() 在
+        Py3.11 直接 AttributeError，整包导出 failed。修后须照常出包（空 graph 占位）。"""
+        (self.root / "knowledge" / "graph.sqlite").rename(
+            self.root / "knowledge" / "graph.sqlite.migrated-tmp")
+        outer = self._bundle(["lib-a"])
+        inner, names, iman = self._assert_inner_single_lib(outer, "lib-a")
+        self.assertIn("graph/graph.sqlite", names)
+        self.assertEqual(iman["counts"]["graph_relations"], 0)
+        # 占位文件必须是有效 sqlite（0 字节约会拖垮导入侧）
+        gpath = self.tmp / "empty-graph-check.sqlite"
+        gpath.write_bytes(inner.read("graph/graph.sqlite"))
+        con = sqlite3.connect(gpath)
+        try:
+            self.assertEqual(con.execute("select count(*) from sqlite_master").fetchone()[0], 0)
+        finally:
+            con.close()
+
     def test_evals_group_files_follow_group_root(self):
         _seed_evals_library(self.root)
         with ExitStack() as stack:
