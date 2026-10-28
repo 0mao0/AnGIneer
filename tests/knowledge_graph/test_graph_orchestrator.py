@@ -28,6 +28,14 @@ class TestGraphOrchestrator(unittest.TestCase):
         stats = self.store.get_stats()
         self.assertGreater(stats["entity_count"], 0)
 
+    def test_snapshot_without_doc_id_regress(self):
+        """回归（2026-10-28 生产 500 实踩）：不带 doc_id 走 else 分支，历史裸名 store 直接 NameError。"""
+        self.orchestrator.load_seed_entities()
+        self.assertGreater(len(self.orchestrator.get_graph_snapshot()["entities"]), 0)
+        self.assertGreater(
+            len(self.orchestrator.get_graph_snapshot(library_id="default", doc_id=None)["entities"]), 0
+        )
+
     def test_expand_from_packet_with_matching_entities(self):
         self.orchestrator.load_seed_entities()
         text = "航道通航宽度（W）应根据设计船型、设计船速、风流条件确定。边坡稳定验算时应考虑设计低水位最不利工况。"

@@ -328,7 +328,7 @@ class GraphOrchestrator:
             relations = self.store.get_relations_by_doc(library_id, doc_id)
             stats = self.store.get_stats(library_id=library_id, doc_id=doc_id)
         else:
-            entities = [e for e in store.list_all_entities() if e.status == EntityStatus.APPROVED]
+            entities = [e for e in self.store.list_all_entities() if e.status == EntityStatus.APPROVED]
             relations = []
             for e in entities:
                 for rel in self.store.get_relations_by_entity(e.entity_id, direction="outgoing"):
