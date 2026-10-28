@@ -2,6 +2,16 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.3.4
+
+- 图谱存储按库拆分（plan-graph-per-library-split）：全局一张 `knowledge/graph.sqlite` 改为每库一文件 `knowledge/libraries/<库>/graph.sqlite`，启动首跑自动拆分迁移（备份改名 `graph.sqlite.migrated-<时间戳>`、逐表对账、空 library_id 行归一、幂等可重跑，迁移失败不阻塞启动、读写回退全局文件）；图谱页签与 API、维护任务、查询端口与导出产物查找全部改按库解析；拆并适配跨文件迁移（独占实体移动、共享实体复制、重名冲突保留源行、FK 外来端点实体按外键需要随迁）
+- 导入侧闭包实体闸移除：带图谱语料包跨环境导入不再被目标实例同名词实体阻断（首版拦断废除，冲突闸只查库/组/文档/索引文件碰撞），图谱阶段改整文件按库落位；真数据拆分关系行数与源逐表一致（本地 182,467 行对账），CLI 导出→导入闭环实测（实体 84/关系 124、零外键违规）
+- 回答图表化 v1（angineer 块协议）：markdown 渲染拦截 angineer-chart/angineer-map 代码块（占位/回退/普通代码块隔离），chartBlock 以 ECharts 按需渲染（bar/line/pie、暗色双选择器、脱离文档实例回收），BaseChat debounce 接线；QA prompt v20 规则 18（数据题表格后附图表块、数值必须来自证据、title/categories/图例写纯文本禁 LaTeX 与 $ 记号）；判分副本剥图表块、prediction 原文留痕；量级悬殊 ≥5 倍自动挂双 y 轴（大小两方向都判 + 防除零）
+- PoPo 解耦收官：调用方切 dgx-spark-popo 独立库 git 直引（外部可装）、文档级 HTTP API，删除 docs-core/src/popo 内化副本
+- 评测与 nightly：评测 worker 完成即退＋心跳回收（修「跑完不退/悬死」两形态）；nightly 立即运行支持多选测试集/通知群/模型，修运行行标题错配
+- 引用与预览体验：引用一跳即跳页、图谱按需到点树才拉、PDF 副本后台构建；Kxx 引用标记容忍括号内空格（渲染、过滤、守卫三层同修）；修首次点引用角标静默丢失（异步 DocumentView 未挂载即可选链落空）；点角标后台补拉图谱、高亮框自动补现；user-web 库选择器评测库不进勾选集、下拉打开补拉
+- 构建与文档：PyMuPDF 钉 1.28.2（修容器重建拉到 2.0）并把 pip 源切腾讯云镜像；doc_blocks_graph 中文口径定名「文本块」、注释去「块图谱/整图」混称；语料包生产真包上传复测三连过 nginx 全链路收口入档
+
 ## v0.3.3
 
 - 引用解析表覆盖全部证据标记：`relevant_citations` 默认返回全部 items（短语命中优先排序），显式正数 limit 保留展示截断语义，docs-core 请求模型与 HTTP 客户端同步可空；修答案引用第 6 条以后证据时前端解析不到、回退显示 doc_id（10-22 生产实踩：检索 15 条全员分配 K1–K15，citations 只发 K1–K5，且 10-16 修「误剥」后标记恢复保留才暴露）；docs-core 增 2 例测试（默认覆盖全部标记 / 显式 limit 旧语义）

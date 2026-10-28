@@ -123,7 +123,7 @@ flowchart LR
 
 ## 模块化插件版本
 
-**当前版本：0.3.3** ——引用解析表覆盖全部证据标记，答案引用第 6 条以后不再回退显示 doc_id；评测题面进链路前剥外部 harness 收尾指令，修模型回显题面；枚举/结构化实验臂（P4/P4b/P5，开关默认关）落地闭集约束、代码预读与引文校验渲染；nightly 集间等 worker 退出与内存过闸（修附加集连环 EvalBusyError），调度器改固定 60s 轮询；deploy 企微通知标题按 job.status 输出，.dockerignore 放行补结论脚本；Harvey 枚举实验记录 §14–§17、时间维度存量补齐与 harness2 内化方案入档。详见 [CHANGELOG.md](CHANGELOG.md)。
+**当前版本：0.3.4** ——图谱存储按库拆分（一库一文件），启动首跑自动拆分迁移并留备份，读写、拆并与导出全部按库解析；导入闭包实体闸移除，带图谱语料包跨环境导入打通；回答图表化 v1 上线（angineer-chart/map 块协议、ECharts 按需渲染、prompt 规则 18 与判分剥块、量级悬殊自动双 y 轴）；PoPo 解耦收官（切 dgx-spark-popo 独立库 git 直引、内化副本删除）；评测 worker 完成即退＋心跳回收，nightly 立即运行支持多选测试集/通知群/模型；引用一跳跳页与点角标补拉图谱、Kxx 标记容忍括号内空格；PyMuPDF 钉版并切腾讯云镜像源，doc_blocks_graph 中文口径定名「文本块」，语料包生产复测收口入档。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 各模块独立仓库各自用 git tag 发布（发版时同步更新本表）：
 
