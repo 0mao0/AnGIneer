@@ -76,9 +76,11 @@ class TestQaToolboxHasStats:
         names = {t.name for t in config.tools}
         # calculator 于 2026-10-07 进 QA 档（数值题不再心算，配套 tool_codec 计算纪律）；
         # doc_search/doc_read 于 2026-10-18 进 L1（枚举题按文档归并 + 批量读页）
+        # tool_schema 于 10-2x 进 L1 首位（QA 工具 schema 懒加载注入）
         assert names == {
             "knowledge_search", "table_search", "entity_search",
             "knowledge_stats", "calculator", "doc_search", "doc_read",
+            "tool_schema",
         }
 
     def test_qa_table_first_toolbox_keeps_stats(self):
@@ -86,7 +88,8 @@ class TestQaToolboxHasStats:
 
         config = build_qa_config(llm=object(), config_name="t", task_type="table_qa")
         assert {t.name for t in config.tools} >= {"knowledge_stats"}
-        assert config.tools[0].name == "table_search"  # 查表首位语义不被 stats 下沉破坏
+        assert config.tools[0].name == "tool_schema"  # 懒加载注入占首位（锁现状）
+        assert "table_search" in {t.name for t in config.tools}  # 查表仍在箱、不被 stats 下沉挤掉
 
 
 class TestBuildAttemptsLegacyMetaValue:

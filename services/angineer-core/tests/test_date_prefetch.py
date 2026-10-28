@@ -46,6 +46,7 @@ def test_library_gate(monkeypatch):
 
 
 def test_collect_drops_mtime_and_keeps_newest(monkeypatch):
+    pytest.importorskip("docs_core")  # 该用例打桩 docs_core.search_documents，monorepo 外无此依赖
     from docs_core.step09_query import doc_search as ds
 
     calls = []
@@ -99,6 +100,7 @@ def test_no_cards_degrades(monkeypatch):
 
 
 def test_search_error_degrades(monkeypatch):
+    pytest.importorskip("docs_core")  # 该用例打桩 docs_core.search_documents，monorepo 外无此依赖
     monkeypatch.setenv("ANGINEER_DATE_PREFETCH", "1")
     monkeypatch.setenv("ANGINEER_DATE_PREFETCH_LIBRARIES", "*")
     monkeypatch.setattr(dp, "rewrite_queries", lambda *a, **k: ["q"])
