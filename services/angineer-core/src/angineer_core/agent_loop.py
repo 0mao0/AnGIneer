@@ -196,6 +196,20 @@ def _first_token_liveness_default() -> float:
         return 90.0
 
 
+def _tool_hallucination_turns_limit() -> int:
+    """幻觉工具名熔断门槛（ANGINEER_TOOL_HALLUCINATION_TURNS，默认 2，0=关）。
+
+    2026-10-25 FinanceBench 实锤：模型自造工具名（空名/「销量」），“工具未注册”
+    错误结果喂回后仍原样重试 6 次，烧光轮次预算、一题未答。连续 N 轮
+    「本轮全部调用未注册」→ 复用预算耗尽的无工具收尾轮，直接基于已有证据作答。
+    混入真实工具的轮把计数清零——只拦纯幻觉空转，不误伤正常重试。
+    """
+    try:
+        return max(0, int(os.getenv("ANGINEER_TOOL_HALLUCINATION_TURNS", "2") or "2"))
+    except (TypeError, ValueError):
+        return 2
+
+
 def _iter_with_liveness(
     source_iter: Iterator[Dict[str, Any]],
     limit_s: float,
@@ -1517,6 +1531,9 @@ def run_agent_loop(
             _add_note("用户取消，停止生成")
         else:
             prev_len = start_idx
+            # 幻觉工具名熔断：连续「本轮调用全部未注册」的轮数 + 已熔断锁（2026-10-25）
+            invalid_tool_turns = 0
+            tools_locked = False
             while True:
                 # 决策点：steer 注入 / should_stop / cancel / max_turns
                 if provider is not None:
@@ -1535,8 +1552,24 @@ def run_agent_loop(
                         _add_note("用户取消，停止生成")
                         break
                     budget = machine.active_config.max_turns if machine.attempts else config.max_turns
-                    if machine.attempt_turn >= budget:
+                    # 无工具收尾轮有两个触发口：轮次预算耗尽 / 幻觉工具名熔断（2026-10-25）——
+                    # 均先追加一条引导 user 消息，再给最后一次 allow_tools=False 的回答轮
+                    halluc_limit = _tool_hallucination_turns_limit()
+                    if halluc_limit and not tools_locked and invalid_tool_turns >= halluc_limit:
+                        tools_locked = True
+                    closing_reason: Optional[str] = None
+                    if tools_locked:
+                        closing_reason = "tool_hallucination_breaker"
+                        _add_note(
+                            f"幻觉工具名熔断：连续 {invalid_tool_turns} 轮调用的工具名均未注册，转入无工具直答"
+                        )
+                        machine.path_trace.append("tool_hallucination_breaker")
+                        messages.append(
+                            AgentMessage(role="user", content="你调用的工具名均未注册，工具已停用。请基于已有证据直接给出最终答案")
+                        )
+                    elif machine.attempt_turn >= budget:
                         # 段预算耗尽：不硬断，追加预算提示后给最后一次无工具收尾 turn
+                        closing_reason = "max_turns"
                         _add_note(
                             f"轮次预算已用完（max_turns={budget}），进入无工具收尾回答"
                         )
@@ -1544,6 +1577,7 @@ def run_agent_loop(
                         messages.append(
                             AgentMessage(role="user", content="轮次预算已用完，请基于已有证据直接给出最终答案")
                         )
+                    if closing_reason:
                         new_prompt = messages[prev_len:]
                         prev_len = len(messages)
                         turn += 1
@@ -1568,11 +1602,14 @@ def run_agent_loop(
                         if machine.attempts:
                             status = machine.advance()
                             if status == "next":
+                                # 下一段是另一套工具/提示词：熔断锁与计数复位，给新段正常用工具的活路
+                                tools_locked = False
+                                invalid_tool_turns = 0
                                 continue
                             if status in ("exhausted", "retry"):
                                 reason = machine.finalize_refusal()
                             break  # completed / exhausted 均已收尾，reason 已维护
-                        reason = "max_turns"
+                        reason = closing_reason
                         break
 
                 turn += 1
@@ -1622,6 +1659,12 @@ def run_agent_loop(
                         reason = "terminated"
                         _add_note("工具返回终止信号，提前结束（terminate）")
                         break
+                    # 幻觉工具名熔断计数：只数「本轮全部调用未注册」的轮；混入真实工具即清零
+                    if not tools_locked:
+                        if all(call.name not in machine.tools_by_name for call in calls):
+                            invalid_tool_turns += 1
+                        else:
+                            invalid_tool_turns = 0
                     continue
 
                 # 无工具调用：模型主动给出最终答案，正常停
