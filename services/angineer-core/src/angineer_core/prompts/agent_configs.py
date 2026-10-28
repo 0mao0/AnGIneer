@@ -356,6 +356,8 @@ _QA_RULE18_CHART = (
     '"series":[{"name":"吞吐量","data":[120,156]}],"unit":"万吨","source":"K1"}\n'
     "字段约定：chartType 取 bar/line/pie；bar/line 必填 categories 与 series[].data；"
     "pie 时 series 用 {\"name\",\"value\"} 形式；source 填对应证据的 cite 标记值（逐字照抄，同规则 8）。"
+    "图表的 title、categories、series.name 一律写纯文本（如「总长(m)」），"
+    "禁止 LaTeX 公式、上下标与 $ 记号（图表渲染不走公式引擎，图例会照抄原文）；"
     "禁止编造证据中不存在的数值；图表数值必须与表格和正文一致；每次回答最多 2 个图表块。"
     "证据含坐标/空间分布数据时，可另用语言标记 angineer-map 的代码块输出 "
     "{\"title\":\"...\",\"description\":\"...\",\"points\":[{\"name\":\"...\",\"lon\":121.5,\"lat\":31.2}]}。"

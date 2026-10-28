@@ -15,6 +15,8 @@ def test_latest_is_v20_and_contains_chart_rule():
     assert "angineer-chart" in text
     assert "angineer-map" in text
     assert "18." in text
+    # 图表文本禁 LaTeX：echarts 不走公式引擎，图例会照抄 $...$ 原文（std-water 实测）
+    assert "禁止 LaTeX" in text
 
 
 def test_v20_starts_with_v19_and_rule18_is_new():

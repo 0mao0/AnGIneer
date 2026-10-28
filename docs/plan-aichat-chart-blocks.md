@@ -160,3 +160,23 @@
 - 验证：aichat-ui 单测 59 绿（含 9 个块协议用例）；全仓 typecheck/test 绿；双端 build 绿（echarts 按需 ~320KB 源模块）；evals-core 277 绿；angineer-core 239 pass + 2 HEAD 既有失败（test_meta_query 工具清单 fixture 漂移，与本改动无关，stash 复测确认）。
 - E2E（本地 dev，FinanceBench 库 MGM 财报题）：数值对比题模型稳定输出 markdown 表格（规则 11）；**明确「图表」意图时输出完全合法的 angineer-chart 块**（数值与表格一致、source=T1 逐字真实）；间接问法（仅「对比列出数值」）首轮未触发块——prompt 遵从为概率性，与 2026-09-21 失败留档的预期一致，后续靠措辞迭代或 S2 施工收口。
 - echarts 依赖加在 aichat-ui（独立包规范内 dependencies，同 katex 先例）；独立仓同步/发版另行走 `pnpm release:standalone`。
+
+## 8. 规范库实测（std-water）与缺陷收口（2026-10-25）
+
+实测题：「用柱状图对比 GB 38030.1-2019 长江水系过闸船舶各船型系列总长/总宽」→ 出合法块、无拒答、数值逐字核验真（CG-B5=110、CZ-J7=16.3 命中解析原文）。
+
+**图表层缺陷已修**（commit 80f4d57a8）：
+
+| 缺陷 | 修法 |
+|---|---|
+| 图例照抄 LaTeX（`$L_{OA}$`） | prompt 规则 18 补「title/categories/series.name 纯文本、禁 $ 记号」（并发会话改动，见工作区） |
+| 量级悬殊挤同轴（总长 110 vs 总宽 16.3 贴地板） | chartBlock 自动双 y 轴：`needsSecondaryAxis`（≥5 倍判定+防除零）+ `secondaryAxisIndexes`（大/小两个方向都判——SSR 实测抓过只判「大 5 倍」单方向漏挂的错） |
+
+**链路其它层缺陷（立项不动，非图表层）**：
+
+| 缺陷 | 现场 | 归属 |
+|---|---|---|
+| 题面自带数据无直答路径 | 销量题被逼检索→拒答（2026-10-25 用户实测） | 意图分类快路径，可并入 S2（plan-ls-routing P1）设计 |
+| 幻觉工具名重试无熔断 | 「工具未注册： 销量」×6 耗尽轮次预算 | agent_loop 工具层熔断（连续未注册 ≥2 次转直答） |
+| 中间轮正确答案被最终轮拒答顶替 | 中间 7 轮有完整图表块、最终拒答顶替 | 拒答守卫对比中间轮（有合法图表块/表格时保留中间版） |
+| 规范库大题慢 | 每轮 TTFT 224–255s、prompt 19 万 token 逐轮涨 | 网关/上下文层，与图表无关 |
