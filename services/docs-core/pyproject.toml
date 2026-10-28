@@ -26,10 +26,12 @@ dependencies = [
     # 仓库内底座与兄弟包
     "angineer-tree-core>=0.1.0,<0.2.0",
     "angineer-ai-inference>=0.2.2,<0.3.0",
-    # popo 客户端（dgx-spark-popo 公开仓）：git 直引供外部安装（DredgeAI 等）；
-    # 本仓容器不受影响——vendor wheel 先装且版本一致，pip 比对后跳过不触网。
-    # 升级纪律：公开仓 bump 版本当日必须同步换 vendor wheel，否则容器构建会尝试走 git。
-    "popo-client @ git+https://github.com/0mao0/dgx-spark-popo@v0.1.1",
+    # popo 客户端（dgx-spark-popo 公开仓）：核心只约束包名+版本——容器构建由 vendor wheel
+    # 先装即满足、离线不触网；git 直引移到 [popo] extra（外部安装用）。
+    # 教训（2026-10-28 v0.3.4 deploy 实踩）：核心依赖写 PEP 508 git 直引时 pip 无视已装
+    # wheel、必调 git，构建容器无 git 即必败（v0.3.3 wheel 改名坑同批首爆）。
+    # 升级纪律：公开仓 bump 版本当日同步换 vendor wheel 并核版本一致。
+    "popo-client>=0.1.0",
     # 运行期硬依赖（顶层 import，缺一即 import 失败）
     "pydantic>=2.0.0,<3.0.0",
     "python-dotenv>=1.0.0",
@@ -47,6 +49,9 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+# 外部安装想连 popo 客户端一起拿（PyPI 无 popo-client，走公开仓 git 直引）：
+#   pip install "docs-core[popo]"；本仓容器用 vendor wheel，不装本 extra。
+popo = ["popo-client @ git+https://github.com/0mao0/dgx-spark-popo@v0.1.1"]
 # 旧向量后端：DOCS_VECTORSTORE_PROVIDER=chroma 时才需要
 chroma = ["chromadb>=0.5.5"]
 # text2sql（step09）加载领域关键词 YAML 时才需要
