@@ -92,13 +92,18 @@ class BudgetTransformerTests(unittest.TestCase):
 
 
 class BudgetStopperTests(unittest.TestCase):
+    """2026-10-18 真实 token 口径契约（Harvey LAB 实踩后改）：
+    usage 有 prompt_tokens → 按 token 停止线判（显式 threshold 即此线）；
+    拿不到 usage → 回落 chars//2 估算线（env ANGINEER_BUDGET_STOPPER_EST/默认 120k），
+    估算兜底路径不受显式 threshold 影响。"""
+
     def test_stops_when_over_threshold(self):
         stopper = make_budget_stopper(threshold=500)
         context = TurnContext(
             turn=2,
             messages=[AgentMessage(role="tool", content="X" * 2000)],
             tool_results=[],
-            usage={},
+            usage={"prompt_tokens": 600},
         )
         self.assertTrue(stopper(context))
 
@@ -108,12 +113,12 @@ class BudgetStopperTests(unittest.TestCase):
             turn=1,
             messages=[AgentMessage(role="tool", content="x" * 100)],
             tool_results=[],
-            usage={},
+            usage={"prompt_tokens": 400},
         )
         self.assertFalse(stopper(context))
 
     def test_default_threshold_reads_env(self):
-        """plan-evidence-admission D：停止线 env 化（ANGINEER_BUDGET_STOPPER_EST），显式传参仍优先。"""
+        """plan-evidence-admission D：无 usage 时估算线 env 化（ANGINEER_BUDGET_STOPPER_EST）。"""
         context = TurnContext(
             turn=1,
             messages=[AgentMessage(role="tool", content="x" * 300)],  # est=150
@@ -121,8 +126,31 @@ class BudgetStopperTests(unittest.TestCase):
             usage={},
         )
         with mock.patch.dict(os.environ, {"ANGINEER_BUDGET_STOPPER_EST": "100"}):
-            self.assertTrue(make_budget_stopper()(context))
-            self.assertFalse(make_budget_stopper(threshold=10_000)(context))  # 显式参数优先
+            self.assertTrue(make_budget_stopper()(context))  # 150 > env 估算线 100
+
+    def test_real_tokens_over_env_est_line_but_under_token_line_pass(self):
+        """有 usage 时估算线让位：同一低 env 估算线 100，prompt_tokens=150 走 token 线不掐。"""
+        context = TurnContext(
+            turn=1,
+            messages=[AgentMessage(role="tool", content="x" * 300)],
+            tool_results=[],
+            usage={"prompt_tokens": 150},
+        )
+        with mock.patch.dict(os.environ, {"ANGINEER_BUDGET_STOPPER_EST": "100"}):
+            self.assertFalse(make_budget_stopper()(context))  # 150 < 默认 token 线 120k
+            self.assertTrue(make_budget_stopper(threshold=100)(context))  # 显式 threshold＝token 线
+
+    def test_explicit_threshold_does_not_reach_est_fallback(self):
+        """锁现状：无 usage 的估算兜底路径只看 env/默认估算线，显式 threshold 不参与。
+        （旧测试「显式参数优先」在 10-18 改造后不再成立；本例钉住新边界，防止无意回退。）"""
+        context = TurnContext(
+            turn=1,
+            messages=[AgentMessage(role="tool", content="x" * 300)],  # est=150
+            tool_results=[],
+            usage={},
+        )
+        with mock.patch.dict(os.environ, {"ANGINEER_BUDGET_STOPPER_EST": "100"}):
+            self.assertTrue(make_budget_stopper(threshold=10_000)(context))
 
     def test_default_without_env_is_120k(self):
         with mock.patch.dict(os.environ, {}, clear=True):
