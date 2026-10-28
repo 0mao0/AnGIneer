@@ -430,6 +430,13 @@ def import_neutral_bundle(
                     {k: v for k, v in r.items() if k != "id"}
                     for r in lib.jsonl_rows("index/doc_blocks.jsonl.gz")
                 ]
+                # SQLite 允许 TEXT PRIMARY KEY 存 NULL：源里 id 为空的 segment 行补稳定 id
+                segments_rows = []
+                for r in lib.jsonl_rows("index/document_segments.jsonl.gz"):
+                    if not r.get("id"):
+                        r["id"] = ":".join(str(r.get(k) or "") for k in
+                                           ("doc_id", "strategy", "item_type", "order_index"))
+                    segments_rows.append(r)
                 # block_uid 是唯一索引而非主键，REPLACE 语义覆盖不到：先按包内 doc 清旧行
                 for doc_id in dict.fromkeys(
                         str(r.get("doc_id") or "") for r in doc_blocks):
@@ -438,8 +445,7 @@ def import_neutral_bundle(
                 conn = index_store.connect()
                 try:
                     _upsert_rows(conn, "doc_blocks", doc_blocks)
-                    _upsert_rows(conn, "document_segments",
-                                 list(lib.jsonl_rows("index/document_segments.jsonl.gz")))
+                    _upsert_rows(conn, "document_segments", segments_rows)
                     _sync_pg_sequences(conn)
                     conn.commit()
                 except Exception:
@@ -476,6 +482,17 @@ def import_neutral_bundle(
                 expect_vectors = int(p["counts"].get("vectors") or 0)
                 if with_vectors and expect_vectors > 0:
                     stage("vectors", f"{lib_id}: 写入向量（{expect_vectors} 点）")
+                    hnsw_dropped = False
+                    if _is_pg_stack():
+                        from .pg_support import drop_vector_hnsw_index
+
+                        _c = svc.vector_store._conn()
+                        try:
+                            hnsw_dropped = drop_vector_hnsw_index(_c)
+                        finally:
+                            _c.close()
+                        if hnsw_dropped:
+                            logger.info("[%s] 已摘 HNSW 索引，导完重建", lib_id)
                     written = 0
                     batch: List[VectorRecord] = []
                     for record in _iter_parquet_records(lib, f"vectors/{lib_id}.parquet"):
@@ -487,6 +504,15 @@ def import_neutral_bundle(
                             batch = []
                     if batch:
                         written += svc.vector_store.upsert_records(batch, collection=lib_id)
+                    if _is_pg_stack() and hnsw_dropped:
+                        from .pg_support import recreate_vector_hnsw_index
+
+                        _c = svc.vector_store._conn()
+                        try:
+                            recreate_vector_hnsw_index(_c)
+                        finally:
+                            _c.close()
+                        logger.info("[%s] HNSW 索引已重建", lib_id)
                     if written != expect_vectors:
                         raise NeutralImportError(
                             f"[{lib_id}] 向量写入数不符: {written} != {expect_vectors}"

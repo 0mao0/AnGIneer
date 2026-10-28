@@ -299,14 +299,21 @@ def export_neutral_bundle(
                 vector_arc = f"vectors/{lib_id}.parquet"
                 add_bytes(vector_arc, parquet_bytes)
 
-                # files/：库目录树（跳过 lib 根 sqlite 与排除目录，同 legacy 口径）
+                # files/：库目录树（跳过 lib 根 sqlite 与排除目录，同 legacy 口径）。
+                # arc 用 **data 根相对路径**（knowledge/libraries/<lib>/...，与旧 bundle
+                # _source_library_root 的 marker 解析兼容），导入按 data_root/rel 落位。
                 from .corpus_package import _iter_doc_files, _is_lib_root_sqlite
 
                 lib_root = library_registry.resolve_libraries_dir(lib_id) / lib_id
+                try:
+                    lib_root_rel = lib_root.resolve().relative_to(
+                        library_registry.resolve_data_root().resolve()).as_posix()
+                except ValueError:
+                    lib_root_rel = f"knowledge/libraries/{lib_id}"
                 for path, rel_in_lib, size in _iter_doc_files(lib_root, exclude_dirs):
                     if _is_lib_root_sqlite(rel_in_lib):
                         continue
-                    arc = f"files/libraries/{lib_id}/{rel_in_lib}"
+                    arc = f"files/{lib_root_rel}/{rel_in_lib}"
                     with zf.open(arc, "w", force_zip64=True) as dst, path.open("rb") as src:
                         shutil.copyfileobj(src, dst, READ_CHUNK)
                     lib_manifest_files[arc] = {

@@ -260,8 +260,16 @@ def create_app() -> FastAPI:
             report["registry"] = {"path": str(reg), "exists": reg.exists()}
         except Exception as exc:  # noqa: BLE001
             report["registry"] = {"error": str(exc)}
+        try:
+            from docs_core.step06_vectors.config import get_vectorstore_provider_name
+
+            # KB_STACK=pg 档位下向量层固定 pgvector（provider 键不参与装配），显示口径同步
+            provider_label = get_vectorstore_provider_name()
+        except Exception:  # noqa: BLE001 - provider 未配置等启动期问题照实上报
+            provider_label = (os.getenv("DOCS_VECTORSTORE_PROVIDER") or "").strip() or None
         report["vectorstore"] = {
-            "provider": (os.getenv("DOCS_VECTORSTORE_PROVIDER") or "").strip() or None,
+            "provider": provider_label,
+            "kb_stack": (os.getenv("KB_STACK") or "legacy").strip(),
             "qdrant_url": (os.getenv("QDRANT_URL") or "").strip() or None,
         }
         report["auth"] = {"token_required": bool(_env_token())}

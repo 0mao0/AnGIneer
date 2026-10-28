@@ -96,6 +96,32 @@ def vector_dimension() -> int:
     return dim if dim > 0 else DEFAULT_VECTOR_DIM
 
 
+HNSW_INDEX_NAME = "idx_vector_records_hnsw"
+
+
+def drop_vector_hnsw_index(conn: "PgConnection") -> bool:
+    """摘掉 HNSW 索引（批量导入前）：逐行维护 HNSW 的成本会把远程实例打到
+    连接超时（2026-10-29 实测）；导完由 recreate_vector_hnsw_index 一次重建。
+    返回 True=已确保摘除（调用方据此决定是否重建；DDL 的 rowcount 恒 -1 不可用）。"""
+    try:
+        conn.execute("DROP INDEX IF EXISTS " + HNSW_INDEX_NAME)
+        conn.commit()
+        return True
+    except Exception:  # noqa: BLE001
+        conn.rollback()
+        return False
+
+
+def recreate_vector_hnsw_index(conn: "PgConnection") -> None:
+    """重建 HNSW 索引（批量导入完成后调用；万级点数秒级）。"""
+    dim = vector_dimension()
+    conn.execute(
+        f"CREATE INDEX IF NOT EXISTS {HNSW_INDEX_NAME} "
+        f"ON vector_records USING hnsw (embedding vector_cosine_ops)"
+    )
+    conn.commit()
+
+
 def parse_pg_dsn(value: Optional[str] = None) -> Dict[str, Any]:
     """把三类 DSN 写法解析成 psycopg3 connect kwargs。"""
     raw = (value or os.getenv(PG_DSN_ENV) or "").strip()
@@ -127,11 +153,11 @@ def parse_pg_dsn(value: Optional[str] = None) -> Dict[str, Any]:
             kwargs[norm] = val.strip()
     if "host" not in kwargs or "dbname" not in kwargs:
         raise RuntimeError(f"{PG_DSN_ENV} 解析失败（缺 host/database）: {raw[:64]}…")
-    timeout = (os.getenv("ANGINEER_PG_CONNECT_TIMEOUT") or "10").strip()
+    timeout = (os.getenv("ANGINEER_PG_CONNECT_TIMEOUT") or "30").strip()
     try:
         kwargs["connect_timeout"] = max(1, int(timeout))
     except ValueError:
-        kwargs["connect_timeout"] = 10
+        kwargs["connect_timeout"] = 30
     return kwargs
 
 
@@ -434,6 +460,16 @@ class PgConnection:
         self._pk_cache: Dict[str, List[str]] = {}
         self._last_returning_id: Optional[int] = None
         self._total_changes = 0
+        # 会话级禁并行：小盘实例 /dev/shm 不足时，并行 worker 的动态共享内存
+        # 分配直接报 DiskFull（2026-10-29 test.bim-ace.com 实测，64MB 都分不出）；
+        # 本工作负载（点查/批量写/HNSW）无并行收益，会话内关掉零成本规避
+        try:
+            cur = self._conn.cursor()
+            cur.execute("SET max_parallel_workers_per_gather = 0")
+            cur.execute("SET max_parallel_maintenance_workers = 0")
+            cur.close()
+        except Exception:  # noqa: BLE001 - 老版本无此参数时忽略
+            pass
 
     # -- sqlite3 兼容面 ----------------------------------------------------
 
@@ -612,15 +648,29 @@ class _ValueCursor:
 
 _CONNECT_LOCK = threading.Lock()
 _READY_DONE = False
+# thread-local 长连接：导入期每方法新建短连接会撞远程实例的连接建立抖动
+# （2026-10-29 实测 ConnectionTimeout @ 7505 点第 3328 个），复用 + ping 失败重建
+_THREAD_CONN = threading.local()
 
 
 def _pg_connect_raw(dsn_kwargs: Dict[str, Any], dbname: Optional[str] = None) -> Any:
+    import time
+
     import psycopg
 
     kwargs = dict(dsn_kwargs)
     if dbname is not None:
         kwargs["dbname"] = dbname
-    return psycopg.connect(**kwargs)
+    last_exc: Optional[Exception] = None
+    for attempt in range(3):
+        try:
+            return psycopg.connect(**kwargs)
+        except Exception as exc:  # noqa: BLE001 - 远程实例网络抖动重试
+            last_exc = exc
+            if attempt < 2:
+                time.sleep(1.5 * (attempt + 1))
+    assert last_exc is not None
+    raise last_exc
 
 
 def ensure_pg_ready(force: bool = False) -> None:
@@ -664,6 +714,13 @@ def ensure_pg_ready(force: bool = False) -> None:
         try:
             conn.autocommit = True
             with conn.cursor() as cur:
+                # 建表含 CREATE INDEX：并行 build 要动态共享内存，小盘实例 DiskFull
+                #（见 PgConnection.__init__ 同款规避；ensure 走原生连接需单独 SET）
+                try:
+                    cur.execute("SET max_parallel_workers_per_gather = 0")
+                    cur.execute("SET max_parallel_maintenance_workers = 0")
+                except Exception:  # noqa: BLE001
+                    pass
                 cur.execute("CREATE EXTENSION IF NOT EXISTS vector")
                 cur.execute("CREATE EXTENSION IF NOT EXISTS pg_trgm")
                 for ddl in iter_pg_ddl():
@@ -677,10 +734,29 @@ def ensure_pg_ready(force: bool = False) -> None:
 
 
 def pg_connect(db_path: Optional[object] = None) -> PgConnection:
-    """PG 档位统一连接入口（db_path 参数仅为兼容调用方签名，忽略）。"""
+    """PG 档位统一连接入口（db_path 参数仅为兼容调用方签名，忽略）。
+
+    thread-local 长连接复用：close() 后再取会自动重建；取回前 ping 失败也重建。
+    事务语义不变（commit/rollback 仍由调用方控制）。
+    """
     if not _READY_DONE:
         ensure_pg_ready()
-    return PgConnection(parse_pg_dsn())
+    cached: Optional[PgConnection] = getattr(_THREAD_CONN, "conn", None)
+    if cached is not None:
+        try:
+            cur = cached.raw.cursor()
+            cur.execute("SELECT 1")
+            cur.close()
+            return cached
+        except Exception:  # noqa: BLE001 - 连接已死，重建
+            try:
+                cached.close()
+            except Exception:  # noqa: BLE001
+                pass
+            _THREAD_CONN.conn = None
+    fresh = PgConnection(parse_pg_dsn())
+    _THREAD_CONN.conn = fresh
+    return fresh
 
 
 # ---------------------------------------------------------------------------
@@ -978,8 +1054,10 @@ def iter_pg_ddl() -> Iterator[str]:
     """
     yield ("CREATE INDEX IF NOT EXISTS idx_canonical_chunks_doc_type "
            "ON canonical_chunks(doc_id, chunk_type, page_start)")
+    # text_clean 可能超 PG btree 单行上限（1/3 页 ≈ 2704 字节，长条款 chunk 实测 4376）：
+    # 改前缀函数索引（500 字 ≈ 1500 字节 UTF8），保住 doc 内按 text_clean 前缀定位的用途
     yield ("CREATE INDEX IF NOT EXISTS idx_canonical_chunks_doc_text "
-           "ON canonical_chunks(doc_id, text_clean)")
+           "ON canonical_chunks(doc_id, (substring(text_clean for 500)))")
     yield ("CREATE INDEX IF NOT EXISTS idx_canonical_chunks_clause_id "
            "ON canonical_chunks(doc_id, clause_id)")
     # FTS：text_ngrams 由 Python 写入侧展开（与 SQLite 同一 build_cjk_ngram_text），
