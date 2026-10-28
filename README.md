@@ -123,7 +123,7 @@ flowchart LR
 
 ## 模块化插件版本
 
-**当前版本：0.3.5** ——语料包导出三修（无图谱库崩、有图谱库静默清零、WAL 边车断流，生产实跑实踩＋容器内存验证出真包）；agent 循环幻觉工具名熔断（连续未注册调用转无工具直答，防烧光轮次预算）；清账 8 处红测试并对齐 budget stopper 语义与文档。详见 [CHANGELOG.md](CHANGELOG.md)。
+**当前版本：0.3.5** ——语料包导出三修（无图谱库崩、有图谱库静默清零、WAL 边车断流，生产实跑实踩＋容器内存验证出真包）；agent 循环幻觉工具名熔断（连续未注册调用转无工具直答，防烧光轮次预算）；图谱 snapshot 无 doc_id 500 修复（历史裸名 store 改 self.store）；popo 依赖撤 git 直引与 wheel 改名两修（deploy 构建实踩）；清账 8 处红测试并对齐 budget stopper 语义与文档。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 各模块独立仓库各自用 git tag 发布（发版时同步更新本表）：
 

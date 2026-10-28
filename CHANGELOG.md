@@ -6,6 +6,8 @@ All notable changes to AnGIneer are documented here.
 
 - 语料包导出三修（2026-10-28 生产实跑实踩，容器内存验证出真包）：无图谱库导出整包 failed——`closing(...).close()` 在 Py3.11 无此方法，图谱按库拆分改名全局文件后该分支首次可达；有图谱库关系静默清零——导出自查拿注册表 sqlite_file 父目录找图谱、组路由后必落空，改走全站唯一解析器 `resolve_graph_db_for_library`（生产 707 关系/63 实体/FK 0 实出包）；库根 graph/index sqlite 及 WAL/SHM 边车不再随 files/ 扫描进包——流式拷贝中途边车被 checkpoint 回收即 FileNotFoundError 断流
 - agent 循环幻觉工具名熔断（2026-10-25 FinanceBench 实锤）：模型自造工具名重试 6 次烧光轮次预算一题未答，连续 `ANGINEER_TOOL_HALLUCINATION_TURNS`（默认 2，0=关）轮全部未注册即转无工具直答收尾（reason=tool_hallucination_breaker）；轮内混入真实工具计数清零、换段复位，不误伤正常重试，预算耗尽路径行为与 reason 逐字不变
+- 图谱 snapshot 无 doc_id 必 500 修复（生产 v0.3.4 冒烟实锤 NameError）：`get_graph_snapshot` else 分支沿用历史裸名 `store` 改 `self.store`，补回归测试钉住带/不带 doc_id 两形态
+- popo 依赖与镜像构建两修（v0.3.4 deploy 实踩）：docs-core 的 popo-client 依赖撤 git 直引、降为 `[popo]` extra——PEP 508 git 直引下 pip 无视已装 vendor wheel 必调 git，构建容器无 git 即必败；Dockerfile 的 popo_client wheel 不再改名——pip 按文件名解析元数据，改名即 Invalid wheel filename 必败
 - 测试与文档：清账 8 处红测试（只改测试不改产品：users/aichat 订阅 v2 环境泄漏钉 False、PoPo 守卫补文档级 API 用例、GPU 闸到达序、citations v0.3.3 语义、prompt v20 同步）；budget stopper 显式 threshold＝真实 token 线仅 usage 路径——改测试锁现状＋docstring 纠偏对齐 10-18 实现；chart 计划 §8 缺陷表回写
 
 ## v0.3.4
