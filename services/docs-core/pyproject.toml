@@ -55,9 +55,9 @@ pg = [
     "psycopg[binary]>=3.2",
     "pyarrow>=15.0",
 ]
-# 外部安装想连 popo 客户端一起拿（PyPI 无 popo-client，走公开仓 git 直引）：
-#   pip install "docs-core[popo]"；本仓容器用 vendor wheel，不装本 extra。
-popo = ["popo-client @ git+https://github.com/0mao0/dgx-spark-popo@v0.1.1"]
+# [popo] extra 已退役（2026-10-29 docs-core 0.1.5 发布实踩）：PyPI 禁止元数据含 git 直引
+# 依赖（400 Can't have direct dependency），popo-client 又未上 PyPI——两端都不成立。
+# popo 客户端获取：主仓容器 vendor wheel；外部用户自行从 dgx-spark-popo 公开仓安装。
 # 旧向量后端：DOCS_VECTORSTORE_PROVIDER=chroma 时才需要
 chroma = ["chromadb>=0.5.5"]
 # text2sql（step09）加载领域关键词 YAML 时才需要
