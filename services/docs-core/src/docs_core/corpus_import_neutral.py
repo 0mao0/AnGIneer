@@ -525,6 +525,19 @@ def import_neutral_bundle(
                 actual = _verify(lib_id, lib, svc, expect_vector_count)
                 completed.append(f"{lib_id}:verify")
                 p["actual"] = actual
+            # 9) ANALYZE：批量导入后 planner 无统计会选错 plan（检索 1.5s→16s 实测），且报告要新鲜
+            if _is_pg_stack():
+                from .pg_support import pg_connect
+
+                stage("analyze", "ANALYZE 更新 planner 统计")
+                _c = pg_connect()
+                try:
+                    _c.execute("SET max_parallel_maintenance_workers = 0")
+                    _c.execute("ANALYZE")
+                    _c.commit()
+                finally:
+                    _c.close()
+                completed.append("analyze")
         finally:
             shutil.rmtree(scratch, ignore_errors=True)
         return {
