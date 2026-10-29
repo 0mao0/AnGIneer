@@ -474,19 +474,29 @@ class QdrantVectorStore(VectorStore):
         }
 
     # ---- 中性导出通道（corpus_export_neutral 用；逐点带向量与 payload）----
-    def iter_records(self, collection: Optional[str] = None):
+    def iter_records(self, collection: Optional[str] = None, library_id: Optional[str] = None):
         from ..models.vector_io import record_from_point_payload
 
         name = self._collection_name(collection, self._collection)
         if self._collection_dim(name) == 0:
             return
         client = self._get_client()
+        scroll_filter = None
+        if library_id:
+            # 按库过滤在引擎侧完成：组 collection 共享时（如 standards 59.5 万点），
+            # 全量 scroll 带向量代价极高，filter 后只传目标库的点
+            from qdrant_client import models
+
+            scroll_filter = models.Filter(
+                must=[models.FieldCondition(key="library_id", match=models.MatchValue(value=library_id))]
+            )
         offset = None
         while True:
             points, offset = client.scroll(
                 collection_name=name,
                 limit=256,
                 offset=offset,
+                scroll_filter=scroll_filter,
                 with_payload=True,
                 with_vectors=True,
             )

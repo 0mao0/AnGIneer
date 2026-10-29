@@ -140,8 +140,12 @@ def _table_columns(conn: Any, table: str) -> List[str]:
 
 
 def _upsert_rows(conn: Any, table: str, rows: Sequence[Dict[str, Any]],
-                 strip: Sequence[str] = ()) -> int:
-    """INSERT OR REPLACE（SQLite 原生；PG 由适配器改写 ON CONFLICT）。"""
+                 strip: Sequence[str] = (), commit_every: int = 0) -> int:
+    """INSERT OR REPLACE（SQLite 原生；PG 由适配器改写 ON CONFLICT）。
+
+    ``commit_every``：每 N 行提交一次（大库 48 万行单事务在远程实例上会被断连殃及全局，
+    2026-10-29 实测）；0 = 不中途提交。失败前已提交的批次靠调用方的幂等清理覆盖。
+    """
     if not rows:
         return 0
     existing = set(_table_columns(conn, table))
@@ -160,6 +164,8 @@ def _upsert_rows(conn: Any, table: str, rows: Sequence[Dict[str, Any]],
             [row.get(c) for c in columns],
         )
         count += 1
+        if commit_every and count % commit_every == 0:
+            conn.commit()
     return count
 
 
@@ -302,6 +308,9 @@ def _verify(lib_id: str, lib: _LibPackage, svc: Any, expect_vectors: int) -> Dic
     return actual
 
 
+_ALL_STAGES = ("registry", "files", "canonical", "index", "meta", "records", "vectors", "verify", "analyze")
+
+
 def import_neutral_bundle(
     package_path: str | Path,
     *,
@@ -310,9 +319,20 @@ def import_neutral_bundle(
     data_root: Optional[Path] = None,
     with_vectors: bool = True,
     on_stage: Optional[Callable[[str, str], None]] = None,
+    stages: Optional[Sequence[str]] = None,
+    allow_existing: bool = False,
 ) -> Dict[str, Any]:
-    """预检（apply=False）或应用（apply=True）中性 v2 包。目标档位由 KB_STACK 决定。"""
+    """预检（apply=False）或应用（apply=True）中性 v2 包。目标档位由 KB_STACK 决定。
+
+    ``stages``：只跑指定阶段（断点续跑，如 index,meta,records,vectors,verify,analyze），缺省全部；
+    ``allow_existing``：目标已有同 id 库时不拒绝（各阶段幂等：canonical clear+insert、
+    块按 doc 清后重插、segments 主键 REPLACE、向量 upsert、文件存在即跳过）。
+    """
     data_root = Path(data_root).resolve() if data_root else library_registry.resolve_data_root()
+    _sections = set(stages) if stages else set(_ALL_STAGES)
+
+    def _want(name: str) -> bool:
+        return name in _sections
 
     def stage(name: str, message: str) -> None:
         if on_stage is not None:
@@ -333,9 +353,10 @@ def import_neutral_bundle(
         registered = {r.library_id for r in library_registry.list_libraries(include_retired=False)
                       if r.status != library_registry.STATUS_RETIRED}
         clashes = sorted({lb.library_id for lb in selected} & registered)
-        if clashes:
+        if clashes and not allow_existing:
             raise NeutralImportError(
-                f"目标已存在同 id 库: {clashes}；重导请先按库删除（kb_corpus_delete --library-id）")
+                f"目标已存在同 id 库: {clashes}；重导请先按库删除（kb_corpus_delete --library-id），"
+                "或加 allow_existing 走断点续跑（各阶段幂等）")
         plans: List[Dict[str, Any]] = []
         for lb in selected:
             for arc in lb.files_index:
@@ -377,110 +398,117 @@ def import_neutral_bundle(
                                 or library_registry.DEFAULT_GROUP)
                 libraries_dir = _target_libraries_dir(target_group)
 
-                # 1) registry 先写（组路由依赖注册行）：collection=library_id 独立桶
-                stage("registry", f"{lib_id}: 写注册表")
-                sqlite_file = library_registry._DEFAULT_SQLITE_FILE if _is_pg_stack() \
-                    else libraries_dir.rstrip("/") + f"/{lib_id}/index.sqlite"
-                library_registry.register_library(
-                    lib_id,
-                    name=str(source_row.get("name") or lib_id),
-                    description=str(source_row.get("description") or ""),
-                    group_name=target_group,
-                    sqlite_file=sqlite_file,
-                    collection=lib_id,
-                    status=library_registry.STATUS_ACTIVE,
-                )
-                completed.append(f"{lib_id}:registry")
+                if _want("registry"):
+                    # 1) registry 先写（组路由依赖注册行）：collection=library_id 独立桶
+                    stage("registry", f"{lib_id}: 写注册表")
+                    sqlite_file = library_registry._DEFAULT_SQLITE_FILE if _is_pg_stack() \
+                        else libraries_dir.rstrip("/") + f"/{lib_id}/index.sqlite"
+                    library_registry.register_library(
+                        lib_id,
+                        name=str(source_row.get("name") or lib_id),
+                        description=str(source_row.get("description") or ""),
+                        group_name=target_group,
+                        sqlite_file=sqlite_file,
+                        collection=lib_id,
+                        status=library_registry.STATUS_ACTIVE,
+                    )
+                    completed.append(f"{lib_id}:registry")
 
-                # 2) files：按 data 根相对路径落盘（原文 + 解析产物不进 PG）
-                stage("files", f"{lib_id}: 复制文档树")
-                for arc in lib.files_index:
-                    if not arc.startswith("files/"):
-                        continue
-                    rel = arc[6:]
-                    if _is_lib_root_sqlite(rel):
-                        continue
-                    dst = data_root / rel
-                    if dst.exists():
-                        continue  # 幂等重导：文件树已存在不覆盖
-                    dst.parent.mkdir(parents=True, exist_ok=True)
-                    with lib.open_entry(arc) as src, dst.open("wb") as out:
-                        shutil.copyfileobj(src, out, READ_CHUNK)
-                completed.append(f"{lib_id}:files")
+                if _want("files"):
+                    # 2) files：按 data 根相对路径落盘（原文 + 解析产物不进 PG）
+                    stage("files", f"{lib_id}: 复制文档树")
+                    for arc in lib.files_index:
+                        if not arc.startswith("files/"):
+                            continue
+                        rel = arc[6:]
+                        if _is_lib_root_sqlite(rel):
+                            continue
+                        dst = data_root / rel
+                        if dst.exists():
+                            continue  # 幂等重导：文件树已存在不覆盖
+                        dst.parent.mkdir(parents=True, exist_ok=True)
+                        with lib.open_entry(arc) as src, dst.open("wb") as out:
+                            shutil.copyfileobj(src, out, READ_CHUNK)
+                    completed.append(f"{lib_id}:files")
 
-                # 3) canonical：逐文档重建 CanonicalDocument 走既有 save_document 写路径
-                stage("canonical", f"{lib_id}: 写 canonical + FTS")
-                rows: Dict[str, List[Dict[str, Any]]] = {}
-                for table in ("documents", "pages", "blocks", "outlines",
-                              "chunks", "tables", "citation_targets"):
-                    rows[table] = list(lib.jsonl_rows(f"canonical/{table}.jsonl.gz"))
-                canonical_store = svc._canonical_store_for(lib_id)
-                for doc_row in rows["documents"]:
-                    doc_id = str(doc_row.get("doc_id") or "")
-                    if not doc_id:
-                        continue
-                    document = _build_canonical_document(doc_row, rows, doc_id)
-                    canonical_store.save_document(document)
-                completed.append(f"{lib_id}:canonical")
+                if _want("canonical"):
+                    # 3) canonical：逐文档重建 CanonicalDocument 走既有 save_document 写路径
+                    stage("canonical", f"{lib_id}: 写 canonical + FTS")
+                    rows: Dict[str, List[Dict[str, Any]]] = {}
+                    for table in ("documents", "pages", "blocks", "outlines",
+                                  "chunks", "tables", "citation_targets"):
+                        rows[table] = list(lib.jsonl_rows(f"canonical/{table}.jsonl.gz"))
+                    canonical_store = svc._canonical_store_for(lib_id)
+                    for doc_row in rows["documents"]:
+                        doc_id = str(doc_row.get("doc_id") or "")
+                        if not doc_id:
+                            continue
+                        document = _build_canonical_document(doc_row, rows, doc_id)
+                        canonical_store.save_document(document)
+                    completed.append(f"{lib_id}:canonical")
 
-                # 4) index：doc_blocks / document_segments 行级 upsert（id 剥离自增）
-                stage("index", f"{lib_id}: 写块索引与片段投影")
-                index_store = svc._index_store_for(lib_id)
-                doc_blocks = [
-                    {k: v for k, v in r.items() if k != "id"}
-                    for r in lib.jsonl_rows("index/doc_blocks.jsonl.gz")
-                ]
-                # SQLite 允许 TEXT PRIMARY KEY 存 NULL：源里 id 为空的 segment 行补稳定 id
-                segments_rows = []
-                for r in lib.jsonl_rows("index/document_segments.jsonl.gz"):
-                    if not r.get("id"):
-                        r["id"] = ":".join(str(r.get(k) or "") for k in
-                                           ("doc_id", "strategy", "item_type", "order_index"))
-                    segments_rows.append(r)
-                # block_uid 是唯一索引而非主键，REPLACE 语义覆盖不到：先按包内 doc 清旧行
-                for doc_id in dict.fromkeys(
-                        str(r.get("doc_id") or "") for r in doc_blocks):
-                    if doc_id:
-                        index_store.clear_doc_blocks(doc_id)
-                conn = index_store.connect()
-                try:
-                    _upsert_rows(conn, "doc_blocks", doc_blocks)
-                    _upsert_rows(conn, "document_segments", segments_rows)
-                    _sync_pg_sequences(conn)
-                    conn.commit()
-                except Exception:
-                    conn.rollback()
-                    raise
-                finally:
-                    conn.close()
-                completed.append(f"{lib_id}:index")
+                if _want("index"):
+                    # 4) index：doc_blocks / document_segments 行级 upsert（id 剥离自增）
+                    #    分批提交：大库 48 万行塞一个事务，远程实例断连即全盘失败（2026-10-29 实测）
+                    stage("index", f"{lib_id}: 写块索引与片段投影")
+                    index_store = svc._index_store_for(lib_id)
+                    doc_blocks = [
+                        {k: v for k, v in r.items() if k != "id"}
+                        for r in lib.jsonl_rows("index/doc_blocks.jsonl.gz")
+                    ]
+                    # SQLite 允许 TEXT PRIMARY KEY 存 NULL：源里 id 为空的 segment 行补稳定 id
+                    segments_rows = []
+                    for r in lib.jsonl_rows("index/document_segments.jsonl.gz"):
+                        if not r.get("id"):
+                            r["id"] = ":".join(str(r.get(k) or "") for k in
+                                               ("doc_id", "strategy", "item_type", "order_index"))
+                        segments_rows.append(r)
+                    # block_uid 是唯一索引而非主键，REPLACE 语义覆盖不到：先按包内 doc 清旧行
+                    for doc_id in dict.fromkeys(
+                            str(r.get("doc_id") or "") for r in doc_blocks):
+                        if doc_id:
+                            index_store.clear_doc_blocks(doc_id)
+                    conn = index_store.connect()
+                    try:
+                        _upsert_rows(conn, "doc_blocks", doc_blocks, commit_every=2000)
+                        _upsert_rows(conn, "document_segments", segments_rows, commit_every=2000)
+                        _sync_pg_sequences(conn)
+                        conn.commit()
+                    except Exception:
+                        conn.rollback()
+                        raise
+                    finally:
+                        conn.close()
+                    completed.append(f"{lib_id}:index")
 
-                # 5) meta：nodes / tree_node / libraries 行级 upsert
-                stage("meta", f"{lib_id}: 写业务元数据")
-                meta_nodes = [r for r in meta_rows.get("nodes", []) if str(r.get("library_id") or "") == lib_id]
-                meta_tree = [r for r in meta_rows.get("tree_nodes", []) if str(r.get("scope_id") or "") == lib_id]
-                meta_libs = [r for r in meta_rows.get("libraries", []) if str(r.get("id") or "") == lib_id]
-                conn = svc.meta_store.connect()
-                try:
-                    _upsert_rows(conn, "nodes", meta_nodes)
-                    _upsert_rows(conn, "tree_node", meta_tree)
-                    _upsert_rows(conn, "libraries", meta_libs)
-                    conn.commit()
-                except Exception:
-                    conn.rollback()
-                    raise
-                finally:
-                    conn.close()
-                completed.append(f"{lib_id}:meta")
+                if _want("meta"):
+                    # 5) meta：nodes / tree_node / libraries 行级 upsert
+                    stage("meta", f"{lib_id}: 写业务元数据")
+                    meta_nodes = [r for r in meta_rows.get("nodes", []) if str(r.get("library_id") or "") == lib_id]
+                    meta_tree = [r for r in meta_rows.get("tree_nodes", []) if str(r.get("scope_id") or "") == lib_id]
+                    meta_libs = [r for r in meta_rows.get("libraries", []) if str(r.get("id") or "") == lib_id]
+                    conn = svc.meta_store.connect()
+                    try:
+                        _upsert_rows(conn, "nodes", meta_nodes)
+                        _upsert_rows(conn, "tree_node", meta_tree)
+                        _upsert_rows(conn, "libraries", meta_libs)
+                        conn.commit()
+                    except Exception:
+                        conn.rollback()
+                        raise
+                    finally:
+                        conn.close()
+                    completed.append(f"{lib_id}:meta")
 
-                # 6) 台账：按 nodes 重建 parse_records
-                stage("records", f"{lib_id}: 补上传台账")
-                _insert_parse_records(data_root, lib_id, meta_nodes)
-                completed.append(f"{lib_id}:records")
+                if _want("records"):
+                    # 6) 台账：按 nodes 重建 parse_records
+                    stage("records", f"{lib_id}: 补上传台账")
+                    _insert_parse_records(data_root, lib_id, meta_nodes)
+                    completed.append(f"{lib_id}:records")
 
-                # 7) vectors：parquet → VectorRecord → upsert（不经快照、不经 reembed）
                 expect_vectors = int(p["counts"].get("vectors") or 0)
-                if with_vectors and expect_vectors > 0:
+                if with_vectors and expect_vectors > 0 and _want("vectors"):
+                    # 7) vectors：parquet → VectorRecord → upsert（不经快照、不经 reembed）
                     stage("vectors", f"{lib_id}: 写入向量（{expect_vectors} 点）")
                     hnsw_dropped = False
                     if _is_pg_stack():
@@ -519,14 +547,15 @@ def import_neutral_bundle(
                             "（空向量被跳过? 检查包内 parquet）")
                 completed.append(f"{lib_id}:vectors")
 
-                # 8) 对账
-                stage("verify", f"{lib_id}: 逐表对账")
-                expect_vector_count = int(p["counts"].get("vectors") or 0) if with_vectors else 0
-                actual = _verify(lib_id, lib, svc, expect_vector_count)
-                completed.append(f"{lib_id}:verify")
-                p["actual"] = actual
+                if _want("verify"):
+                    # 8) 对账
+                    stage("verify", f"{lib_id}: 逐表对账")
+                    expect_vector_count = int(p["counts"].get("vectors") or 0) if with_vectors else 0
+                    actual = _verify(lib_id, lib, svc, expect_vector_count)
+                    completed.append(f"{lib_id}:verify")
+                    p["actual"] = actual
             # 9) ANALYZE：批量导入后 planner 无统计会选错 plan（检索 1.5s→16s 实测），且报告要新鲜
-            if _is_pg_stack():
+            if _is_pg_stack() and _want("analyze"):
                 from .pg_support import pg_connect
 
                 stage("analyze", "ANALYZE 更新 planner 统计")

@@ -901,6 +901,15 @@ class DocsService:
 
     # 获取节点
     def get_node(self, node_id: str) -> Optional[KnowledgeNode]:
+        # 读穿 meta（2026-10-30）：list_nodes 已是读穿口径（真相源=meta 表），
+        # get_node 仍走内存会导致「导入完成后不重启壳 → 回源/引用 404」。
+        # 内存列表仅作 meta 读不到时的兜底（隔离测试/旧调用方注入场景）。
+        try:
+            for row in self.meta_store.list_nodes():
+                if str(row["id"]) == node_id and not row["deleted"]:
+                    return self._node_from_row(row)
+        except Exception:  # noqa: BLE001 — meta 读失败退回内存
+            logger.warning("get_node 读穿 meta 失败，退回内存: %s", node_id, exc_info=True)
         for node in self.nodes:
             if node.id == node_id:
                 return node

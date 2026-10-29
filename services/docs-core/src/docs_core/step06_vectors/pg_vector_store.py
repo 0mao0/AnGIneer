@@ -395,21 +395,27 @@ class PgVectorStore(VectorStore):
 
     # ---- 中性导出通道（corpus_export_neutral 用；Qdrant 版同名方法由 scroll 实现）----
 
-    def iter_records(self, collection: Optional[str] = None) -> Iterator[VectorRecord]:
-        """按 collection 全量遍历（含 embedding），供导出侧生成中性包。"""
+    def iter_records(self, collection: Optional[str] = None, library_id: Optional[str] = None) -> Iterator[VectorRecord]:
+        """按 collection（可再按 library_id）遍历（含 embedding），供导出侧生成中性包。"""
         name = _collection_name(collection, self._collection)
         batch = 512
         last_record_id = ""
+        library_clause = " AND library_id = ?" if library_id else ""
         conn = self._conn()
         try:
             while True:
-                rows = conn.execute(
+                sql = (
                     "SELECT record_id, doc_id, entity_type, entity_id, content, content_hash, "
                     "metadata_json, embedding::text AS embedding_text, library_id "
                     "FROM vector_records WHERE collection_name = ? AND record_id > ? "
-                    "ORDER BY record_id ASC LIMIT ?",
-                    (name, last_record_id, batch),
-                ).fetchall()
+                    + library_clause +
+                    " ORDER BY record_id ASC LIMIT ?"
+                )
+                params = [name, last_record_id]
+                if library_id:
+                    params.append(library_id)
+                params.append(batch)
+                rows = conn.execute(sql, params).fetchall()
                 if not rows:
                     return
                 for row in rows:
