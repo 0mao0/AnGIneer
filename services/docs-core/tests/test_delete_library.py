@@ -41,11 +41,15 @@ def test_delete_library_cascade(tmp_path, monkeypatch) -> None:
         assert conn.execute("SELECT COUNT(*) FROM nodes WHERE library_id=?", (lib_id,)).fetchone()[0] == 0
 
 
-def test_delete_default_library_rejected(tmp_path, monkeypatch) -> None:
+def test_delete_default_library_allowed(tmp_path, monkeypatch) -> None:
+    # 2026-10-29 产品拍板：系统不再自动创建默认库，default 不再是受保护的
+    # 回退库——新建一个 default 库后应当可以正常删除
     monkeypatch.setenv("KNOWLEDGE_BASE_DIR", str(tmp_path))
     ks = get_docs_service()
-    assert ks.delete_library("default") is False
-    assert ks.get_library("default") is not None
+    assert ks.get_library("default") is None  # 空注册表不再自动建 default
+    ks.create_library("default", "历史默认库", "为验证删除路径手工创建")
+    assert ks.delete_library("default") is True
+    assert ks.get_library("default") is None
 
 
 def test_delete_missing_library_returns_false(tmp_path, monkeypatch) -> None:

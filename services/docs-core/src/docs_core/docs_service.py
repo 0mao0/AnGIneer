@@ -292,8 +292,8 @@ class DocsService:
         self._canonical_stores: Dict[str, CanonicalSQLiteStore] = {}
         self._index_stores: Dict[str, KnowledgeIndexStore] = {}
         self._load_from_db()
-        if not self.libraries:
-            self.create_library("default", "默认知识库", "系统自动创建的默认知识库")
+        # 不再自动创建「默认知识库」（2026-10-29 产品拍板：默认库是噪音，
+        # 空注册表保持空清单；库一律由语料包导入产生，检索缺省由调用方显式给库）
 
     @staticmethod
     def _pg_stack_active() -> bool:

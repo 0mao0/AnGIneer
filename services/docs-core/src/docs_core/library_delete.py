@@ -153,8 +153,7 @@ class LibraryDeleteRunner:
 
     def start(self, library_id: str) -> DeleteTask:
         service = self._service_factory()
-        if library_id == "default":
-            raise LibraryDeleteError("默认知识库不允许删除")
+        # default 不再特殊（2026-10-29：系统不再自动创建默认库，任何注册库都可删）
         record = library_registry.get_library(library_id)
         if record is None and service.get_library(library_id) is None:
             raise LibraryNotFound(f"知识库不存在: {library_id}")
@@ -213,6 +212,22 @@ def _notify(progress: Optional[Progress], stage: str, done: int = 0, total: int 
 
 def _node_ids(service: Any, library_id: str) -> List[str]:
     """优先读 meta 库（服务内存可能不是全量）；读不到再退回内存。"""
+    from .pg_support import is_pg
+
+    if is_pg():
+        meta_store = getattr(service, "meta_store", None)
+        if meta_store is not None:
+            try:
+                conn = meta_store.connect()
+                try:
+                    return [str(r[0]) for r in conn.execute(
+                        "SELECT id FROM nodes WHERE library_id = ?", (library_id,)
+                    ).fetchall()]
+                finally:
+                    conn.close()
+            except Exception:  # noqa: BLE001
+                logger.warning("PG 读取 meta nodes 失败，退回内存: library=%s", library_id, exc_info=True)
+        return [str(n.id) for n in getattr(service, "nodes", []) if str(getattr(n, "library_id", "")) == library_id]
     db_path = getattr(getattr(service, "meta_store", None), "db_path", None)
     if db_path and Path(db_path).exists():
         try:
@@ -244,7 +259,45 @@ def _clear_vectors(service: Any, library_id: str, collection: str, node_ids: Lis
             logger.warning("清理文档向量失败: library=%s doc=%s", library_id, doc_id, exc_info=True)
 
 
-def _clear_index_rows(library_id: str, node_ids: List[str]) -> None:
+def _clear_index_rows(service: Any, library_id: str, node_ids: List[str]) -> None:
+    from .pg_support import is_pg
+
+    if is_pg():
+        # PG 共库：canonical/doc_blocks/segments 按 library_id/doc_id 清（单事务）
+        index_store = getattr(service, "index_store", None)
+        canonical_store = getattr(service, "canonical_store", None)
+        if index_store is None or canonical_store is None:
+            return
+        conn = canonical_store.connect()
+        try:
+            conn.execute(
+                "CREATE TEMP TABLE IF NOT EXISTS _lib_del_ids(doc_id TEXT PRIMARY KEY)"
+            )
+            conn.execute("TRUNCATE _lib_del_ids")
+            if node_ids:
+                conn.executemany(
+                    "INSERT INTO _lib_del_ids(doc_id) VALUES (?)",
+                    [(doc_id,) for doc_id in node_ids],
+                )
+                for table in INDEX_CHILD_TABLES:
+                    if table == "canonical_vectors":  # SQLite 专属（PG 向量在 vector_records）
+                        continue
+                    conn.execute(
+                        f'DELETE FROM "{table}" WHERE doc_id IN (SELECT doc_id FROM _lib_del_ids)'
+                    )
+            for table in ("doc_blocks", "document_segments", "doc_block_corrections"):
+                if node_ids:
+                    conn.execute(
+                        f'DELETE FROM "{table}" WHERE doc_id IN (SELECT doc_id FROM _lib_del_ids)'
+                    )
+            conn.execute("DELETE FROM canonical_documents WHERE library_id = ?", (library_id,))
+            conn.commit()
+        except Exception:
+            conn.rollback()
+            raise
+        finally:
+            conn.close()
+        return
     db_path = library_registry.resolve_index_db_path(library_id)
     if not db_path.exists():
         return
@@ -286,6 +339,21 @@ def _clear_index_rows(library_id: str, node_ids: List[str]) -> None:
 
 def _clear_parse_records(library_id: str) -> None:
     """删除上传台账（parse_records）中该库的行；台账独立于 meta/index。"""
+    from .pg_support import is_pg
+
+    if is_pg():
+        from .parse_records_store import connect as pr_connect
+
+        conn = pr_connect()
+        try:
+            conn.execute("DELETE FROM parse_records WHERE library_id = ?", (library_id,))
+            conn.commit()
+        except Exception:
+            conn.rollback()
+            raise
+        finally:
+            conn.close()
+        return
     from .parse_records_store import db_path
 
     path = Path(db_path())
@@ -304,7 +372,38 @@ def _clear_parse_records(library_id: str) -> None:
 
 
 def _clear_meta_rows(service: Any, library_id: str, node_ids: List[str]) -> None:
+    from .pg_support import is_pg
+
     meta_store = getattr(service, "meta_store", None)
+    if is_pg():
+        if meta_store is None:
+            return
+        conn = meta_store.connect()
+        try:
+            conn.execute(
+                "CREATE TEMP TABLE IF NOT EXISTS _lib_del_ids(doc_id TEXT PRIMARY KEY)"
+            )
+            conn.execute("TRUNCATE _lib_del_ids")
+            if node_ids:
+                conn.executemany(
+                    "INSERT INTO _lib_del_ids(doc_id) VALUES (?)",
+                    [(doc_id,) for doc_id in node_ids],
+                )
+                for table in ("parse_task_steps", "parse_stage_steps", "doc_parse_stages"):
+                    conn.execute(
+                        f'DELETE FROM "{table}" WHERE doc_id IN (SELECT doc_id FROM _lib_del_ids)'
+                    )
+            conn.execute("DELETE FROM parse_tasks WHERE library_id = ?", (library_id,))
+            conn.execute("DELETE FROM nodes WHERE library_id = ?", (library_id,))
+            conn.execute("DELETE FROM tree_node WHERE scope_id = ?", (library_id,))
+            conn.execute("DELETE FROM libraries WHERE id = ?", (library_id,))
+            conn.commit()
+        except Exception:
+            conn.rollback()
+            raise
+        finally:
+            conn.close()
+        return
     db_path = getattr(meta_store, "db_path", None)
     if not db_path or not Path(db_path).exists():
         return
@@ -450,8 +549,7 @@ def delete_library_data(
     service: Any, library_id: str, *, progress: Optional[Progress] = None
 ) -> Dict[str, Any]:
     """同步执行删库（runner 与单测共用）；返回 {docs, container_deleted}。"""
-    if library_id == "default":
-        raise LibraryDeleteError("默认知识库不允许删除")
+    # default 不再特殊（2026-10-29：系统不再自动创建默认库，任何注册库都可删）
     record = library_registry.get_library(library_id)
     # 失败重试：meta 快照可能已清、service 看不到该库，但 registry 还在（deleting）
     if record is None and service.get_library(library_id) is None:
@@ -470,7 +568,7 @@ def delete_library_data(
 
     _clear_vectors(service, library_id, collection, node_ids)
     _notify(progress, "index", total, total)
-    _clear_index_rows(library_id, node_ids)
+    _clear_index_rows(service, library_id, node_ids)
     _notify(progress, "meta", total, total)
     _clear_parse_records(library_id)
     _clear_meta_rows(service, library_id, node_ids)
