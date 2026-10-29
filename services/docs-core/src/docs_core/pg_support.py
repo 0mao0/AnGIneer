@@ -53,6 +53,14 @@ logger = logging.getLogger(__name__)
 
 KB_STACK_ENV = "KB_STACK"
 PG_DSN_ENV = "KNOWLEDGE_PG_DSN"
+# 知识库表所在 schema（2026-10-29 起并入业务同一 database，用独立 schema 隔离，
+# EF 迁移只碰 dredge_business/dredge_base，互不越界）
+KNOWLEDGE_PG_SCHEMA_ENV = "KNOWLEDGE_PG_SCHEMA"
+DEFAULT_PG_SCHEMA = "dredge_knowledge"
+
+
+def pg_schema() -> str:
+    return (os.getenv(KNOWLEDGE_PG_SCHEMA_ENV) or DEFAULT_PG_SCHEMA).strip() or DEFAULT_PG_SCHEMA
 PG_VECTOR_DIM_ENV = "KNOWLEDGE_PG_VECTOR_DIM"
 DEFAULT_VECTOR_DIM = 1024
 STACK_LEGACY = "legacy"
@@ -130,10 +138,11 @@ def parse_pg_dsn(value: Optional[str] = None) -> Dict[str, Any]:
             f"KB_STACK=pg 需要设置 {PG_DSN_ENV}（如 "
             "Host=test.bim-ace.com;Port=10111;Database=dredge_knowledge;Uid=postgres;Pwd=***）"
         )
+    search_path_option = f"-c search_path={pg_schema()},public"
     if raw.startswith("postgres://") or raw.startswith("postgresql://"):
-        return {"conninfo": raw}
+        return {"conninfo": raw, "options": search_path_option}
     if "=" in raw and ";" not in raw:
-        return {"conninfo": raw}
+        return {"conninfo": raw, "options": search_path_option}
     # Npgsql / 分号键值风格（与业务后端 appsettings 同写法，直接复用连接串）
     alias = {
         "host": "host", "server": "host", "data source": "host",
@@ -153,6 +162,7 @@ def parse_pg_dsn(value: Optional[str] = None) -> Dict[str, Any]:
             kwargs[norm] = val.strip()
     if "host" not in kwargs or "dbname" not in kwargs:
         raise RuntimeError(f"{PG_DSN_ENV} 解析失败（缺 host/database）: {raw[:64]}…")
+    kwargs["options"] = f"-c search_path={pg_schema()},public"
     timeout = (os.getenv("ANGINEER_PG_CONNECT_TIMEOUT") or "30").strip()
     try:
         kwargs["connect_timeout"] = max(1, int(timeout))
@@ -349,7 +359,8 @@ def translate_sql(
             "SELECT ordinal_position - 1 AS cid, column_name AS name, data_type AS type, "
             "CASE WHEN is_nullable = 'NO' THEN 1 ELSE 0 END AS notnull, "
             "NULL AS dflt_value, 0 AS pk "
-            "FROM information_schema.columns WHERE table_name = ? ORDER BY ordinal_position"
+            "FROM information_schema.columns WHERE table_name = ? "
+            "AND table_schema = ANY(current_schemas(false)) ORDER BY ordinal_position"
         )
         notes["pragma_info"] = table
         return _sub_outside_quotes(re.compile(r"\?"), "%s", pg), params, notes
@@ -492,6 +503,7 @@ class PgConnection:
               ON tc.constraint_name = kcu.constraint_name
              AND tc.table_schema = kcu.table_schema
             WHERE tc.table_name = %s AND tc.constraint_type = 'PRIMARY KEY'
+              AND tc.table_schema = ANY(current_schemas(false))
             ORDER BY kcu.ordinal_position
             """,
             (table,),
@@ -721,8 +733,10 @@ def ensure_pg_ready(force: bool = False) -> None:
                     cur.execute("SET max_parallel_maintenance_workers = 0")
                 except Exception:  # noqa: BLE001
                     pass
-                cur.execute("CREATE EXTENSION IF NOT EXISTS vector")
-                cur.execute("CREATE EXTENSION IF NOT EXISTS pg_trgm")
+                # 知识库独立 schema（同库并存业务 schema；扩展装入 public 全局共用）
+                cur.execute(f'CREATE SCHEMA IF NOT EXISTS "{pg_schema()}"')
+                cur.execute("CREATE EXTENSION IF NOT EXISTS vector SCHEMA public")
+                cur.execute("CREATE EXTENSION IF NOT EXISTS pg_trgm SCHEMA public")
                 for ddl in iter_pg_ddl():
                     cur.execute(ddl)
             conn.commit()
