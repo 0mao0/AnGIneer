@@ -532,7 +532,9 @@ export function useAIChat(options?: {
         retrieved_items: payload.retrieved_items,
         gap_analysis: payload.gap_analysis,
         confidence_breakdown: payload.confidence_breakdown,
-        thinking_trace: payload.thinking_trace || [],
+        thinking_trace: payload.thinking_trace?.length
+          ? payload.thinking_trace
+          : (liveThinkingSteps.value.length ? [...liveThinkingSteps.value] : undefined),
         sop_flows: payload.sop_flows?.length ? payload.sop_flows : (liveSopFlows.value.length ? [...liveSopFlows.value] : undefined),
         interim_answers: interimAnswers.value.length ? [...interimAnswers.value] : undefined,
         debug: payload.debug
