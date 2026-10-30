@@ -88,6 +88,27 @@ jobs:
             exit 1
           fi
 
+      - name: Free disk if low
+        run: |
+          # 磁盘水位守卫（2026-10-30 实踩：根分区 100%、57G/59G，构建阶段报
+          # "No space left on device"，部署挂在 Build images，新代码上不去而旧容器继续跑）。
+          # 真凶是 build cache 涨到 13GB —— 下面两条 until=336h / keep-storage=4GB 的清理
+          # 对新鲜缓存不生效，只按「14 天前」淘汰，正常发版周期内等于不清。
+          # 策略：水位 < 85% 时保留缓存（依赖层重装一次约 39 分钟，不能每次都清）；
+          # ≥ 85% 时全清 cache（含新鲜层）+ 清 24h 未用镜像，把空间一次让出来。
+          USE=$(df --output=pcent / | tail -1 | tr -dc '0-9')
+          AVAIL=$(df -h --output=avail / | tail -1 | tr -d ' ')
+          echo "root usage: ${USE}% (avail ${AVAIL})"
+          if [ "${USE:-0}" -ge 85 ]; then
+            echo "::warning::磁盘使用率 ${USE}% ≥ 85%，清空构建缓存与 24h 未用镜像"
+            docker builder prune -af
+            docker image prune -af --filter "until=24h"
+            echo "清理后："
+            df -h /
+          else
+            echo "磁盘充足，保留构建缓存（下次部署免重装依赖）"
+          fi
+
       - name: Build images
         run: |
           cd /home/runner/AnGIneer/docker
