@@ -123,7 +123,7 @@ flowchart LR
 
 ## 模块化插件版本
 
-**当前版本：0.3.5** ——语料包导出三修（无图谱库崩、有图谱库静默清零、WAL 边车断流，生产实跑实踩＋容器内存验证出真包）；agent 循环幻觉工具名熔断（连续未注册调用转无工具直答，防烧光轮次预算）；图谱 snapshot 无 doc_id 500 修复（历史裸名 store 改 self.store）；popo 依赖撤 git 直引与 wheel 改名两修（deploy 构建实踩）；清账 8 处红测试并对齐 budget stopper 语义与文档。详见 [CHANGELOG.md](CHANGELOG.md)。
+**当前版本：0.3.6** ——docs-core 新增 `KB_STACK=pg` 档位（PostgreSQL+pgvector 三面同库，一个开关原子切换）；知识库并入业务同库独立 schema `dredge_knowledge`，去掉默认库自动创建与 default 删库保护；中性语料包 v2 全链（导出/导入经存储抽象、断点续跑、收尾 ANALYZE 让无统计检索从 16s 回到 1.5s）；PG 导入链四连修（btree 前缀索引/长连接/禁并行/HNSW 重建判据）；自定义库组查表按 search_path 并让导出向量按库直筛；公路库实战四连修（断点续跑/引擎侧库过滤/读穿 get_node/删库保护放开）；docs-core 依赖两修（popo-client 挪出核心依赖进 `[popo]` extra、mineru 两例时序断言标 skip）；aichat-ui 落定消息兜底流式思考轨迹（done 帧缺字段不再丢思考卡片）。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 各模块独立仓库各自用 git tag 发布（发版时同步更新本表）：
 
@@ -131,13 +131,13 @@ flowchart LR
 | :--- | :--- | :--- |
 | [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.3.1` | 主仓库（产品迭代基线） |
 | [angineer-docs-ui](https://github.com/0mao0/angineer-docs-ui) | `v0.3.2` | 知识库前端组件库（npm: @angineer/docs-ui） |
-| [angineer-aichat-ui](https://github.com/0mao0/angineer-aichat-ui) | `v0.2.3` | 对话前端组件库（npm: @angineer/aichat-ui） |
+| [angineer-aichat-ui](https://github.com/0mao0/angineer-aichat-ui) | `v0.2.4` | 对话前端组件库（npm: @angineer/aichat-ui） |
 | [angineer-smartree-ui](https://github.com/0mao0/angineer-smartree-ui) | `v0.1.4` | 通用树组件库 SmartTree（npm: @angineer/smartree） |
 | [angineer-table-ui](https://github.com/0mao0/angineer-table-ui) | `v0.1.4` | 通用表格组件库 DataTable（npm: @angineer/table-ui） |
 | [angineer-ai-inference](https://github.com/0mao0/angineer-ai-inference) | `v0.2.3` | Python AI 推理客户端库 |
-| [angineer-core](https://github.com/0mao0/angineer-core) | `v0.1.5` | Python 问答编排内核（Agent Harness：意图分级 / 工具调用 / 证据守卫；可选 `[server]` 壳） |
+| [angineer-core](https://github.com/0mao0/angineer-core) | `v0.1.6` | Python 问答编排内核（Agent Harness：意图分级 / 工具调用 / 证据守卫；可选 `[server]` 壳） |
 | [angineer-tree-core](https://github.com/0mao0/angineer-tree-core) | `v0.1.0` | Python 树节点存储层（sqlite：CRUD / 移动重排 / 作用域隔离） |
-| [angineer-docs-core](https://github.com/0mao0/angineer-docs-core) | `v0.1.4` | Python 文档解析入库引擎（九阶段管线 + 五路检索 + 导出；PoPo 随包；可选 `[server]` 壳） |
+| [angineer-docs-core](https://github.com/0mao0/angineer-docs-core) | `v0.1.6` | Python 文档解析入库引擎（九阶段管线 + 五路检索 + 导出；PoPo 随包；可选 `[server]` 壳） |
 | [angineer-sop-core](https://github.com/0mao0/angineer-sop-core) | `v0.1.0` | Python SOP 编写库（加载 / 解析 / 校验 / 生成；执行器在 angineer-core） |
 
 ***

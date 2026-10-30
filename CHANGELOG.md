@@ -2,6 +2,17 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.3.6
+
+- docs-core 新增 `KB_STACK=pg` 档位（PostgreSQL+pgvector 存储后端，DredgeAI 迁移）：`pg_support` 把 sqlite3 连接协议翻译成 PG 方言（占位符 / `INSERT OR REPLACE`→`ON CONFLICT` / `LIKE`→`ILIKE` / `PRAGMA`→information_schema / `AUTOINCREMENT`→`BIGSERIAL`），`KB_STACK=legacy|pg` 一个键原子切换、禁半迁移；新增 `PgVectorStore`（`collection_name` 复刻组隔离、`score=1-<=>`）；meta/index/canonical PG 子类，FTS 对等走 bigram 写入侧展开 + tsvector 生成列；registry / parse_records / 壳 `/health` 按档位分支；legacy 全量 586 例零回归
+- 知识库并入业务库同 database、独立 schema `dredge_knowledge`：所有连接注入 `-c search_path=dredge_knowledge,public`，核心代码裸表名零改写（`KNOWLEDGE_PG_SCHEMA` 可覆盖）；`information_schema` 主键/列清单查询加 `current_schemas(false)` 过滤，同库业务表不被误命中；同批去掉「默认知识库」自动创建（空注册表保持空清单）与 default 删库保护，PG 档位删库清理补全 canonical/块表/台账/meta
+- 中性语料包 v2（`format=neutral-v2`）：canonical 模型形状 jsonl.gz + doc_blocks/segments 行级 + vectors parquet + sha256/计数 manifest，导出/导入经存储抽象支持 legacy/pg 双源双目标；导入阶段 gating 断点续跑 + `allow_existing` + index 段每 2000 行分批提交（48 万行单事务远程断连即全盘失败）；收尾自动 ANALYZE——批量导入后 planner 无统计会让检索慢 10 倍（1.5s→16s 实测）
+- PG 档位导入链路四连修（实测）：长 chunk 触发 PG btree 单行 2704 字节上限（改 `substring(text_clean for 500)` 前缀函数索引）；远程实例短连接在第 3328 个点撞超时（thread-local 长连接 + ping 失败重建 + 连接重试 3 次）；小盘实例并行查询/建索引动态共享内存 DiskFull（会话禁 `max_parallel_workers_per_gather` 与 maintenance workers）；HNSW 索引删除判据不再依赖 DDL rowcount（恒 -1 致删而不建）
+- 自定义库组 PG 查表按 `search_path`：`information_schema` 写死 `table_schema='public'` 让「表是否存在」判据恒真——建组写入成功后回读判不存在，`create_group` 断言必挂、`list_custom_groups` 恒空（组下拉丢自定义组）、往自定义组建库/改组被判「未知库组」；同批导出向量改按库直筛 `iter_records(library_id=...)`，不再整 collection 扫描后过滤
+- 公路库实战反馈四连修（std-highway 204 册/276,289 向量点实跑）：导入断点续跑与分批提交；引擎侧库过滤（58 万点共享 collection 全量 scroll 带向量代价极高）；`get_node` 改读穿 meta（导入后不重启壳，回源/引用不再 404）；删库保护放开与 PG 档位清理补全
+- docs-core 依赖与测试两修：popo-client 挪出核心依赖进 `[popo]` extra——PyPI 元数据禁 git 直引依赖（400 Can't have direct dependency），裸声明致独立仓 CI 与外部 `pip install` 必炸；mineru 闸门两例时序断言标 skip（v0.2.98 到达序改造历史债，待按新时序重写）；core 独立仓自包含（跨包用例 importorskip）
+- aichat-ui 落定消息兜底流式思考轨迹：宿主 `done` 帧不带 `thinking_trace` 时不再丢思考卡片
+
 ## v0.3.5
 
 - 语料包导出三修（2026-10-28 生产实跑实踩，容器内存验证出真包）：无图谱库导出整包 failed——`closing(...).close()` 在 Py3.11 无此方法，图谱按库拆分改名全局文件后该分支首次可达；有图谱库关系静默清零——导出自查拿注册表 sqlite_file 父目录找图谱、组路由后必落空，改走全站唯一解析器 `resolve_graph_db_for_library`（生产 707 关系/63 实体/FK 0 实出包）；库根 graph/index sqlite 及 WAL/SHM 边车不再随 files/ 扫描进包——流式拷贝中途边车被 checkpoint 回收即 FileNotFoundError 断流
