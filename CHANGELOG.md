@@ -2,6 +2,14 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.3.7
+
+- 引用集真相源上移到服务端：`run_end` 帧新增 `citations`（跨轮跨工具按 `target_id + marker` 去重），装配逻辑收口到 `agent_messages.aggregate_tool_citations` 一处、policy_query 与聊天共用；聊天落库把它写进本轮 assistant 消息 meta，历史回放读同一份（此前靠前端 patch 回写快照）；前端 `filterCitationsByMarkers` 收窄为「这条引用有没有被正文点名」，修「模型没写 `[K1]` 时 30 条来源被全滤、页面只给答案不给出处」（10-30 实拍同题同模型两次：一次 4 个标记、一次 0 个；10-04 提示词、10-22 limit 两次修都在下游）
+- aichat-ui 新增块级「参考依据」：正文零标记时按服务端引用集归并成文档 chip（最多 6 个，样式对齐思考轨迹的命中引用），点击走同一条原文定位；正文有标记时不重复展示
+- docs-core 库清单支持 `retired` 过滤，新增文档结构化端点（管理端原文抽屉「展开解析对比」），`structure` 补 `graph_data`（文本块树，供「树形」页签）
+- docs-ui 依赖收口：smartree 改指 npm 包 0.1.4（0.3.3 发版登记回写主仓库）
+- 开发体验：新增本地后端看门狗 `pnpm backend:watch`，修 vite 代理 `ECONNREFUSED` 刷屏（后端静默死亡而 vite 常驻，页面一进即三连报错）
+
 ## v0.3.6
 
 - docs-core 新增 `KB_STACK=pg` 档位（PostgreSQL+pgvector 存储后端，DredgeAI 迁移）：`pg_support` 把 sqlite3 连接协议翻译成 PG 方言（占位符 / `INSERT OR REPLACE`→`ON CONFLICT` / `LIKE`→`ILIKE` / `PRAGMA`→information_schema / `AUTOINCREMENT`→`BIGSERIAL`），`KB_STACK=legacy|pg` 一个键原子切换、禁半迁移；新增 `PgVectorStore`（`collection_name` 复刻组隔离、`score=1-<=>`）；meta/index/canonical PG 子类，FTS 对等走 bigram 写入侧展开 + tsvector 生成列；registry / parse_records / 壳 `/health` 按档位分支；legacy 全量 586 例零回归

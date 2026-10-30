@@ -123,14 +123,14 @@ flowchart LR
 
 ## 模块化插件版本
 
-**当前版本：0.3.6** ——docs-core 新增 `KB_STACK=pg` 档位（PostgreSQL+pgvector 三面同库，一个开关原子切换）；知识库并入业务同库独立 schema `dredge_knowledge`，去掉默认库自动创建与 default 删库保护；中性语料包 v2 全链（导出/导入经存储抽象、断点续跑、收尾 ANALYZE 让无统计检索从 16s 回到 1.5s）；PG 导入链四连修（btree 前缀索引/长连接/禁并行/HNSW 重建判据）；自定义库组查表按 search_path 并让导出向量按库直筛；公路库实战四连修（断点续跑/引擎侧库过滤/读穿 get_node/删库保护放开）；docs-core 依赖两修（popo-client 挪出核心依赖进 `[popo]` extra、mineru 两例时序断言标 skip）；aichat-ui 落定消息兜底流式思考轨迹（done 帧缺字段不再丢思考卡片）。详见 [CHANGELOG.md](CHANGELOG.md)。
+**当前版本：0.3.7** ——引用集真相源上移到服务端（`run_end` 新增 `citations`、装配收口一处并随 assistant meta 落库，来源不再取决于模型是否照抄标记）；aichat-ui 新增块级「参考依据」（正文零标记时按文档归并 chip、点击跳原文）；docs-core 库清单支持 `retired` 过滤并新增文档结构化端点与 `structure` 的 `graph_data`（文本块树）；docs-ui 依赖收口 smartree 改指 npm 0.1.4；开发体验新增本地后端看门狗修 vite 代理报错刷屏。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 各模块独立仓库各自用 git tag 发布（发版时同步更新本表）：
 
 | 仓库 | 版本 | 说明 |
 | :--- | :--- | :--- |
 | [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.3.1` | 主仓库（产品迭代基线） |
-| [angineer-docs-ui](https://github.com/0mao0/angineer-docs-ui) | `v0.3.2` | 知识库前端组件库（npm: @angineer/docs-ui） |
+| [angineer-docs-ui](https://github.com/0mao0/angineer-docs-ui) | `v0.3.3` | 知识库前端组件库（npm: @angineer/docs-ui） |
 | [angineer-aichat-ui](https://github.com/0mao0/angineer-aichat-ui) | `v0.2.4` | 对话前端组件库（npm: @angineer/aichat-ui） |
 | [angineer-smartree-ui](https://github.com/0mao0/angineer-smartree-ui) | `v0.1.4` | 通用树组件库 SmartTree（npm: @angineer/smartree） |
 | [angineer-table-ui](https://github.com/0mao0/angineer-table-ui) | `v0.1.4` | 通用表格组件库 DataTable（npm: @angineer/table-ui） |
