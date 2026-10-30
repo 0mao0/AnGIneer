@@ -158,7 +158,10 @@
           </div>
         </div>
         <div class="index-body">
-          <Preview_IndexTree
+          <!-- KeepAlive：树形/图谱切走时缓存实例，切回不重建——数据已在内存，
+               重建才是慢的根源（1896 节点建树 + 图渲染每次重来，2026-10-31 用户实拍） -->
+          <KeepAlive>
+            <Preview_IndexTree
             v-if="activeTab === 'Preview_IndexTree'"
             :loading="props.graphDataLoading"
             :dark="props.dark"
@@ -177,14 +180,17 @@
             @toggle-check="toggleNodeSelection"
             @context-action="handleTreeContextAction"
           />
-          <Preview_KnowledgeGraph
-    v-else-if="activeTab === 'Preview_KnowledgeGraph' || activeTab === 'Preview_IndexGraph'"
-    ref="knowledgeGraphRef"
-    :library-id="props.libraryId"
-    :doc-id="props.docId"
-    :load-snapshot="props.onLoadGraphSnapshot"
-    :build-graph="props.onBuildGraph"
-  />
+          </KeepAlive>
+          <KeepAlive>
+            <Preview_KnowledgeGraph
+              v-if="activeTab === 'Preview_KnowledgeGraph' || activeTab === 'Preview_IndexGraph'"
+              ref="knowledgeGraphRef"
+              :library-id="props.libraryId"
+              :doc-id="props.docId"
+              :load-snapshot="props.onLoadGraphSnapshot"
+              :build-graph="props.onBuildGraph"
+            />
+          </KeepAlive>
         </div>
       </div>
       <a-empty

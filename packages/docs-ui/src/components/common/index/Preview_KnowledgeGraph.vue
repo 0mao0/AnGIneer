@@ -103,7 +103,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onBeforeUnmount, nextTick, watch } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount, onActivated, nextTick, watch } from 'vue'
 
 interface GraphEntity {
   id: string
@@ -451,13 +451,29 @@ onMounted(async () => {
   await fetchGraph()
   if (!(window as any).vis) {
     const script = document.createElement('script')
-    script.src = 'https://unpkg.com/vis-network@9.1.9/dist/vis-network.min.js'
+    // 本地资产优先（2026-10-31）：unpkg.com 国内访问慢且不稳，首次打开图谱会卡在等脚本；
+    // 宿主 public/vis/vis-network.min.js 缺失时回退 CDN（资产随 user-web/admin-web public 下发）
+    script.src = `${import.meta.env.BASE_URL}vis/vis-network.min.js`
+    script.onerror = () => {
+      const fallback = document.createElement('script')
+      fallback.src = 'https://unpkg.com/vis-network@9.1.9/dist/vis-network.min.js'
+      fallback.onload = () => nextTick(() => initNetwork())
+      document.head.appendChild(fallback)
+    }
     script.onload = () => nextTick(() => initNetwork())
     document.head.appendChild(script)
   } else {
     await nextTick()
     initNetwork()
   }
+})
+
+// KeepAlive 缓存实例后 onMounted 只跑一次：切走时 DOM 被移出文档，vis 的 canvas 尺寸失效，
+// 切回需要重绘一次，否则图谱空白（2026-10-31 KeepAlive 配套）
+onActivated(() => {
+  nextTick(() => {
+    try { (network.value as any)?.redraw?.() } catch { /* 实例未初始化时忽略 */ }
+  })
 })
 
 onBeforeUnmount(() => {
