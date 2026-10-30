@@ -137,6 +137,23 @@ function Start-ServiceProcess {
 
     Stop-ServiceProcess -ServiceName $ServiceName -PidPath $PidPath
 
+    # 日志轮转（2026-10-30 实踩：backend.log 涨到 919MB，无限追加重定向没有上限）
+    # 单个日志超过 64MB 时改名留档一份，只保留最近一份历史；文件被占用则跳过，不阻断启动。
+    $logMaxBytes = 64MB
+    if ((Test-Path -LiteralPath $LogPath) -and ((Get-Item -LiteralPath $LogPath).Length -gt $logMaxBytes)) {
+        $rotatedPath = "$LogPath.$((Get-Date -Format 'yyyyMMdd-HHmmss'))"
+        try {
+            Move-Item -LiteralPath $LogPath -Destination $rotatedPath -Force
+            Get-ChildItem -Path "$LogPath.*" -File -ErrorAction SilentlyContinue |
+                Sort-Object LastWriteTime -Descending |
+                Select-Object -Skip 1 |
+                Remove-Item -Force -ErrorAction SilentlyContinue
+            Write-Host "      Rotated oversized log -> $(Split-Path $rotatedPath -Leaf)" -ForegroundColor DarkGray
+        } catch {
+            Write-Host "      日志轮转跳过（文件被占用）：$LogPath" -ForegroundColor DarkYellow
+        }
+    }
+
     $escapedRootDir = $rootDir.Replace("'", "''")
     $escapedLogPath = $LogPath.Replace("'", "''")
     $startupBanner = "[$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')] starting: $ServiceCommand"
