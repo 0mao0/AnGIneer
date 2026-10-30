@@ -1,5 +1,6 @@
 param(
-    [switch]$TailLogs
+    [switch]$TailLogs,
+    [switch]$NoWatch
 )
 
 # AnGIneer Startup Script
@@ -287,6 +288,25 @@ if (-not $docsHealthy -or -not $aichatHealthy -or -not $sopHealthy) {
     Write-Host ""
     Write-Host "Press any key to continue starting Frontend anyway, or Ctrl+C to abort..." -ForegroundColor Yellow
     $null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown')
+}
+
+# 5b. Backend watchdog: restarts any API whose /health keeps failing (dev backends
+# die silently from hot-reload crashes / reboots while vite keeps running, which
+# shows up as endless vite proxy ECONNREFUSED). -NoWatch opts out; stop later with
+# "pnpm backend:watch:stop" (or delete logs\dev-watchdog.stop semantics via flag).
+if (-not $NoWatch) {
+    Remove-Item (Join-Path $logsDir "dev-watchdog.stop") -Force -ErrorAction SilentlyContinue
+    $watchdogScript = Join-Path $rootDir "scripts\dev-watchdog.ps1"
+    if (Test-Path $watchdogScript) {
+        $watchdog = Start-Process -FilePath "powershell.exe" `
+            -ArgumentList @("-NoProfile", "-ExecutionPolicy", "Bypass", "-File", $watchdogScript) `
+            -WindowStyle Hidden -PassThru
+        Write-Host ""
+        Write-Host "      Backend watchdog PID: $($watchdog.Id)  (log: logs\dev-watchdog.log)" -ForegroundColor DarkGray
+        Write-Host "      Pause watchdog: pnpm backend:watch:stop" -ForegroundColor DarkGray
+    } else {
+        Write-Warning "scripts\dev-watchdog.ps1 not found - watchdog not started"
+    }
 }
 
 # 6. Start Frontend in current window

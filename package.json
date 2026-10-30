@@ -12,6 +12,8 @@
     "dev:aichat-api": "python services/aichat-api/main.py",
     "dev:sop-api": "python services/sop-api/main.py",
     "dev:backend": "pnpm run --parallel --include-workspace-root /dev:.*-api$/",
+    "backend:watch": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/dev-watchdog.ps1",
+    "backend:watch:stop": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/dev-watchdog.ps1 -Stop",
     "build": "pnpm -r build",
     "build:frontend": "pnpm --filter @angineer/user-web build",
     "build:admin": "pnpm --filter @angineer/admin-web build",
