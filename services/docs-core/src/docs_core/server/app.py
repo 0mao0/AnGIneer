@@ -23,6 +23,7 @@
 启动：``uvicorn docs_core.server:app --host 127.0.0.1 --port 8310``
 """
 import hmac
+import json
 import logging
 import mimetypes
 import os
@@ -278,6 +279,28 @@ def create_app() -> FastAPI:
         except Exception:  # noqa: BLE001 — 块读失败返回空清单（前端只隐藏结构化页签）
             logger.warning("读取 canonical blocks 失败: %s", doc_id, exc_info=True)
 
+        # graph_data：文本块树（doc_blocks_graph.jsonl，解析产物 step04）。
+        # 管理端「树形」页签的唯一数据源（docs-ui DocBlocksGraph = {nodes, edges}）。
+        graph_data = None
+        try:
+            from docs_core.paths import get_graph_jsonl_path
+
+            graph_path = get_graph_jsonl_path(node.library_id, doc_id)
+            if graph_path.is_file():
+                nodes: List[Dict[str, Any]] = []
+                with graph_path.open(encoding="utf-8", errors="replace") as fh:
+                    for line in fh:
+                        line = line.strip()
+                        if not line:
+                            continue
+                        try:
+                            nodes.append(json.loads(line))
+                        except ValueError:
+                            continue
+                graph_data = {"nodes": nodes, "edges": []}
+        except Exception:  # noqa: BLE001 — 树数据读失败不影响其余
+            logger.warning("读取 doc_blocks_graph 失败: %s", doc_id, exc_info=True)
+
         return {
             "doc_id": doc_id,
             "title": getattr(node, "title", "") or "",
@@ -285,6 +308,7 @@ def create_app() -> FastAPI:
             "markdown": markdown,
             "structured_items": items,
             "index_stats": stats,
+            "graph_data": graph_data,
         }
 
     @app.get(
