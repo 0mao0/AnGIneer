@@ -272,7 +272,7 @@ def export_neutral_bundle(
             collection = library_registry.resolve_collection(lib_id)
             vector_store = svc.vector_store
             parquet_bytes, vector_count = _vectors_to_parquet(
-                (r for r in vector_store.iter_records(collection)
+                (r for r in vector_store.iter_records(collection, library_id=lib_id)
                  if (r.library_id or "") == lib_id or not (r.library_id or "")),
             )
             dimension = vector_store.get_existing_dimension(collection)
