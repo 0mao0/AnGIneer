@@ -404,8 +404,12 @@ def _groups_table_missing(conn: sqlite3.Connection) -> bool:
     读路径视「表不存在」= 无自定义组——不得顺手建表（显式初始化契约），
     2026-10-07 发版实踩：直查未建表的生产库让总览 500。"""
     if _pg_stack():
+        # 表落在 search_path 首 schema（KNOWLEDGE_PG_SCHEMA，默认 dredge_knowledge），
+        # 写死 public 会让本判据恒真——建组回读断言必挂、自定义组列表恒空
+        #（2026-10-30 实测：行已写入 dredge_knowledge.library_groups，仅回读判据错）
         return conn.execute(
-            "SELECT 1 FROM information_schema.tables WHERE table_schema='public' "
+            "SELECT 1 FROM information_schema.tables "
+            "WHERE table_schema = ANY(current_schemas(false)) "
             "AND table_name='library_groups'"
         ).fetchone() is None
     return conn.execute(

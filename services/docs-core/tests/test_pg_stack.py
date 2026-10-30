@@ -113,6 +113,28 @@ def test_registry_roundtrip(ready):
     assert any(r.library_id == "lib-pg-a" for r in library_registry.list_libraries())
 
 
+def test_custom_group_in_knowledge_schema(ready):
+    """自定义组必须按 search_path 找表（默认 schema=dredge_knowledge）。
+
+    2026-10-30 回归：_groups_table_missing 写死 table_schema='public'，
+    建组写入成功后回读判「表不存在」→ create_group 断言必挂、list_custom_groups 恒空。
+    """
+    from docs_core import library_registry
+
+    created = library_registry.create_group("bridge", "桥梁组")
+    assert created.group_name == "bridge" and created.display_name == "桥梁组"
+    assert library_registry.get_custom_group("bridge") is not None
+    assert "bridge" in {g.group_name for g in library_registry.list_custom_groups()}
+    # 幂等 upsert：同组重建成更新 display_name
+    assert library_registry.create_group("bridge", "桥梁工程").display_name == "桥梁工程"
+    # 组内挂库 + 改组：自定义组合法性判据同样走 get_custom_group
+    record = library_registry.register_library(
+        "lib-pg-bridge", name="桥梁库", group_name="bridge")
+    assert record.group_name == "bridge" and record.collection == "bridge"
+    library_registry.register_library("lib-pg-move", name="待迁库", group_name="system")
+    assert library_registry.set_group("lib-pg-move", "bridge").group_name == "bridge"
+
+
 def test_meta_store_roundtrip(ready):
     from docs_core.step05_sqlite_fts.store.pg_stores import PgKnowledgeMetaStore
     from datetime import datetime
