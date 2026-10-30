@@ -2,6 +2,15 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.3.8
+
+- 引用来源两修：正文零标记时「参考依据」只认**正文真的提到的文档**（标准编号变体归一 `JTG_T↔JTGT`、`DB51_T↔DB51/T`，匹配不上不显示）——修「不要写标记」的指令被模型当成检索词后无关文档被当出处展示；`doc_title` 契约收紧为永远是文档名——表格/章节类条目的章节名（如《5、渗水量测定》）不再顶替文档名传到预览面板标题（metadata 缺失时按 doc_id 反查节点标题）
+- PDF 预览副本切换锁定：首次打开大 PDF 时预览副本在加载途中生成完成，后端从原件切到副本（字节布局全不同），pdf.js 拼出损坏文件不报错地永久挂住（23.5MB 实拍停在第 1 块 0.5MB）；进程内 TTL 锁定（`PDF_SERVED_PIN_SECONDS` 默认 600s），窗口期内同一文档只给同一个文件
+- 引用定位页级切片：高亮框 bbox 只存于整本 doc_blocks_graph（单篇十几 MB），点引用整本拉取是「换报告 3-5 秒」的根因；新增页级切片接口（目标页 ±2，实测 21KB/185ms 替代整本 8MB），树形/图谱页签仍走整本；侧面板收起时不再后台拉整本（修「没看到树形打开却在耗资源」）
+- 预览页签切换 KeepAlive：树形/知识图谱视图 v-if 销毁重建（1896 节点建树每次重来）+ 知识图谱每次挂载重新拉快照 + vis-network 走 unpkg CDN；套 KeepAlive 后切回实测 1-2ms，vis-network 9.1.9 落本地资产 `public/vis/`（加载失败回退 CDN，Graph 补 onActivated 重绘）
+- PDF 加载文案改按需语义：去掉误导的百分比进度条（range 模式下进度天然长期停个位数），改「已取 X / Y MB」+「按需分块加载」；超 4 秒提示「大文件首次打开需生成预览副本，可能稍慢；再次打开会更快」
+- 运维两则：deploy 加磁盘水位守卫（根分区 ≥85% 时清 build cache，修 `No space left on device` 部署中断；原有 until=336h 清理对新鲜缓存无效，实拍涨到 13GB）；start.ps1 日志轮转（单文件 64MB 阈值留档一份，backend.log 曾涨到 919MB）
+
 ## v0.3.7
 
 - 引用集真相源上移到服务端：`run_end` 帧新增 `citations`（跨轮跨工具按 `target_id + marker` 去重），装配逻辑收口到 `agent_messages.aggregate_tool_citations` 一处、policy_query 与聊天共用；聊天落库把它写进本轮 assistant 消息 meta，历史回放读同一份（此前靠前端 patch 回写快照）；前端 `filterCitationsByMarkers` 收窄为「这条引用有没有被正文点名」，修「模型没写 `[K1]` 时 30 条来源被全滤、页面只给答案不给出处」（10-30 实拍同题同模型两次：一次 4 个标记、一次 0 个；10-04 提示词、10-22 limit 两次修都在下游）

@@ -123,7 +123,7 @@ flowchart LR
 
 ## 模块化插件版本
 
-**当前版本：0.3.7** ——引用集真相源上移到服务端（`run_end` 新增 `citations`、装配收口一处并随 assistant meta 落库，来源不再取决于模型是否照抄标记）；aichat-ui 新增块级「参考依据」（正文零标记时按文档归并 chip、点击跳原文）；docs-core 库清单支持 `retired` 过滤并新增文档结构化端点与 `structure` 的 `graph_data`（文本块树）；docs-ui 依赖收口 smartree 改指 npm 0.1.4；开发体验新增本地后端看门狗修 vite 代理报错刷屏。详见 [CHANGELOG.md](CHANGELOG.md)。
+**当前版本：0.3.8** ——引用来源两修（零标记只认正文提到的文档、`doc_title` 契约永不为章节名）；PDF 预览副本切换 TTL 锁定（修大文件首开卡死在第 1 块）；引用定位页级切片（21KB 替代整本 8MB，换报告秒级定位）；树形/图谱页签 KeepAlive 与 vis-network 本地化（切回 1-2ms）；PDF 加载文案改按需语义并提示首开副本构建；deploy 磁盘水位守卫与 start.ps1 日志轮转。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 各模块独立仓库各自用 git tag 发布（发版时同步更新本表）：
 
