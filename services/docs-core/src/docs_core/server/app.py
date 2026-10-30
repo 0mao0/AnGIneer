@@ -194,13 +194,98 @@ def create_app() -> FastAPI:
 
     @app.get("/api/knowledge/libraries", dependencies=[Depends(_token_guard)])
     def list_knowledge_libraries():
-        """库清单（含组/展示名；与内部服务同序列化）。"""
-        return get_docs_service().list_libraries()
+        """库清单（含组/展示名；与内部服务同序列化）。
+
+        过滤 `retired`（已删除/下架）库：删除动作会在注册表留 retired 审计行，
+        而 meta.libraries 行可能仍在——不经过滤会把下架库显示在管理端左树里
+        （2026-10-30 实测：删库后左树仍可见）。registry 不可读时退回原行为。
+        """
+        libs = get_docs_service().list_libraries()
+        try:
+            from docs_core import library_registry
+
+            active = {
+                r.library_id for r in library_registry.list_libraries()
+                if (r.status or "active") != library_registry.STATUS_RETIRED
+            }
+            if active:
+                libs = [lib for lib in libs if str(lib.get("id") or "") in active]
+        except Exception:  # noqa: BLE001 — 注册表异常时保留原清单（不因过滤打死列表）
+            logger.warning("库清单 retired 过滤失败，返回原清单", exc_info=True)
+        return libs
 
     @app.get("/api/knowledge/stats", dependencies=[Depends(_token_guard)])
     def get_knowledge_stats(library_id: Optional[str] = None):
         """知识库统计聚合（实现同 docs-api：docs_core.knowledge_stats 单一真相源）。"""
         return compute_knowledge_stats(library_id)
+
+    @app.get(
+        "/api/knowledge/documents/{doc_id}/structure", dependencies=[Depends(_token_guard)]
+    )
+    def get_document_structure(doc_id: str):
+        """文档结构化内容（管理端原文抽屉「展开解析对比」用）。
+
+        返回：markdown（解析产物 content.md，文件系统）、structured_items（canonical
+        块列表，PG/SQLite 经存储抽象同口径）、index_stats（按块类型的索引统计）。
+        数据不存在时 404；块表为空时 structured_items 为空数组（前端隐藏结构化页签）。
+        """
+        ks = get_docs_service()
+        node = ks.get_node(doc_id)
+        if not node:
+            raise HTTPException(status_code=404, detail=f"文档不存在: {doc_id}")
+
+        # markdown：解析产物（content.md），文件缺失时返回空串
+        markdown = ""
+        try:
+            from docs_core.paths import get_parsed_markdown_path
+
+            md_path = get_parsed_markdown_path(node.library_id, doc_id)
+            if md_path.is_file():
+                markdown = md_path.read_text(encoding="utf-8", errors="replace")
+        except Exception:  # noqa: BLE001 — 文件读失败不影响结构化清单
+            logger.warning("读取解析 markdown 失败: %s", doc_id, exc_info=True)
+
+        # structured_items：canonical_blocks → docs-ui StructuredIndexItem 形状
+        items: List[Dict[str, Any]] = []
+        stats = {"total": 0, "paragraph": 0, "title": 0, "formula": 0,
+                 "table": 0, "figure": 0, "headerFooter": 0, "other": 0, "maxLevel": 0}
+        try:
+            blocks = ks._canonical_store_for(node.library_id).list_blocks(doc_id, limit=20000)
+            type_map = {"text": "paragraph", "paragraph": "paragraph", "title": "title",
+                        "heading": "title", "formula": "formula", "equation": "formula",
+                        "table": "table", "figure": "figure", "image": "figure",
+                        "header": "headerFooter", "footer": "headerFooter"}
+            for idx, b in enumerate(blocks):
+                kind = type_map.get(str(b.block_type or "").lower(), "other")
+                stats[kind] += 1
+                stats["total"] += 1
+                if kind == "title" and b.title_level:
+                    stats["maxLevel"] = max(stats["maxLevel"], int(b.title_level))
+                items.append({
+                    "id": b.block_id,
+                    "item_type": kind,
+                    "title": (b.section_path or "").split(" / ")[-1] if b.section_path else None,
+                    "content": b.text or "",
+                    "order_index": idx,
+                    "meta": {
+                        "page_idx": b.page_idx,
+                        "section_path": b.section_path or "",
+                        "clause_id": b.clause_id,
+                        "title_level": b.title_level,
+                        "block_type": b.block_type,
+                    },
+                })
+        except Exception:  # noqa: BLE001 — 块读失败返回空清单（前端只隐藏结构化页签）
+            logger.warning("读取 canonical blocks 失败: %s", doc_id, exc_info=True)
+
+        return {
+            "doc_id": doc_id,
+            "title": getattr(node, "title", "") or "",
+            "library_id": node.library_id,
+            "markdown": markdown,
+            "structured_items": items,
+            "index_stats": stats,
+        }
 
     @app.get(
         "/api/knowledge/documents/{doc_id}/download", dependencies=[Depends(_token_guard)]
