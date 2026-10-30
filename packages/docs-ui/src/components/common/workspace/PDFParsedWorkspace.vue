@@ -101,7 +101,13 @@ interface Props {
   onUpdateStructuredNode?: (payload: StructuredNodeUpdatePayload) => Promise<void>
   onBatchStructuredOperation?: (payload: StructuredBatchOperationPayload) => Promise<void>
   onUndoLastOperation?: () => Promise<void>
-  onLoadFullGraphData?: () => Promise<void>
+  /**
+   * 拉取文本块数据。reason 区分场景（2026-10-30 页级切片）：
+   * 'locate'＝引用定位（宿主应拉目标页 ±2 页的切片，几十 KB）；
+   * 'tab'＝用户点开树形/图谱页签（需要整本，十几 MB）。
+   * 不传 reason 视为 'tab'（旧宿主兼容）。
+   */
+  onLoadFullGraphData?: (reason?: 'locate' | 'tab') => Promise<void>
   onLoadGraphSnapshot?: (params: {
     libraryId?: string
     docId?: string
@@ -307,7 +313,7 @@ watch(() => props.graphData?.nodes?.length || 0, (count, previousCount) => {
 // 用户点开树形/图谱页签才算需要文本块数据（术语定版 2026-10-27：叫文本块，不叫块图谱）。
 watch(activeTab, (tab) => {
   if ((tab === 'Preview_IndexTree' || tab === 'Preview_IndexGraph' || tab === 'Preview_KnowledgeGraph') && !props.graphDataFullLoaded && props.onLoadFullGraphData) {
-    props.onLoadFullGraphData()
+    props.onLoadFullGraphData('tab')
   }
 })
 
@@ -331,7 +337,7 @@ const setActiveLinkedItem = (
   if (itemId && !props.graphData?.nodes?.length) {
     pendingLinkedItem.value = { id: itemId, options }
     setWorkspaceLinkedItem(itemId, options)
-    void Promise.resolve(props.onLoadFullGraphData?.()).catch(() => {
+    void Promise.resolve(props.onLoadFullGraphData?.('locate')).catch(() => {
       // 拉取失败静默：兜底跳页已完成，宿主 loadGraphData 自带告警日志
     })
     return

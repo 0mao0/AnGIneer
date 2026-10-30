@@ -208,6 +208,7 @@ const loadDocument = async () => {
   currentDocId.value = docId
   graphData.value = null
   graphDataFullLoaded.value = false
+  graphSource.value = 'none'
   graphDataLoading.value = false
   loadError.value = ''
   try {
@@ -236,15 +237,36 @@ const loadDocument = async () => {
   }
 }
 
-const loadGraphData = async () => {
+/**
+ * 文本块数据的两种取法（2026-10-30 页级切片）：
+ * - 'locate'：引用定位只需要目标页 ±2 页的 bbox（几十 KB），切片秒回；
+ * - 'tab'：树形/图谱页签要整本层级（十几 MB），保持旧的全量加载。
+ * graphSource 记录当前给 Workspace 的是哪份：全量已就绪时定位直接复用，不再重复请求。
+ */
+const graphSource = ref<'none' | 'slice' | 'full'>('none')
+
+const loadGraphData = async (reason: 'locate' | 'tab' = 'tab') => {
   const docId = currentDocId.value
-  if (!docId || graphDataLoading.value || graphDataFullLoaded.value) return
+  if (!docId || graphDataLoading.value) return
+  if (reason === 'locate' && graphSource.value === 'full') return
+  if (reason === 'tab' && graphDataFullLoaded.value) return
   graphDataLoading.value = true
   try {
     const libraryId = props.libraryId || authStore.libraryId || 'default'
+    if (reason === 'locate') {
+      // 目标页：citation 的 page_idx（0-based），文档还没给出时退回第 1 页
+      const page = Math.max(0, Number(props.pageIdx || 0))
+      const result = await knowledgeApi.getDocBlocksGraphPages(libraryId, docId, Math.max(0, page - 2), page + 2) as any
+      const payload = result?.data || result || null
+      if (currentDocId.value !== docId) return
+      graphData.value = payload?.nodes?.length ? payload : null
+      graphSource.value = 'slice'
+      return
+    }
     const result = await knowledgeApi.getDocBlocksGraph(libraryId, docId) as any
     const payload = result?.data || result || null
     graphData.value = payload?.nodes?.length ? payload : null
+    graphSource.value = 'full'
     graphDataFullLoaded.value = true
   } catch (error) {
     // 失败不能记成「已加载完」：否则收起再展开也不会重试，面板永远缺定位框

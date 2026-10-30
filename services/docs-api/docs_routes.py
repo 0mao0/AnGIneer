@@ -5,6 +5,7 @@ import mimetypes
 import os
 import sqlite3
 import threading
+import time
 import uuid
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -27,6 +28,7 @@ from docs_core.step04_structure.shared.jsonl_io import (
     extract_build_id_from_markdown,
     extract_build_id_from_meta,
     get_doc_blocks_graph,
+    get_doc_blocks_graph_pages,
 )
 from docs_core.step04_structure.solo2json_pipeline import (
     build_structured_index_for_doc,
@@ -148,9 +150,15 @@ class KnowledgeParseOptions(BaseModel):
 
 
 class DocBlocksGraphRequest(BaseModel):
-    """文档块图谱请求。"""
+    """文档块图谱请求。
+
+    page_from/page_to（0-based 含端点）给出时返回页级切片——引用定位只需要
+    目标页 bbox（几十 KB），整本数据（十几 MB）只留给树形/图谱页签。
+    """
     library_id: str
     doc_id: str
+    page_from: Optional[int] = None
+    page_to: Optional[int] = None
 
 
 class DocBlocksGraphSummaryRequest(BaseModel):
@@ -1355,9 +1363,14 @@ async def create_parse_task(request: KnowledgeParseRequest) -> Dict[str, Any]:
 
 @docs_router.post("/parse/doc-blocks-graph")
 async def get_doc_blocks_graph_view(request: DocBlocksGraphRequest) -> Dict[str, Any]:
-    """获取文档的块图谱视图。"""
+    """获取文档的块图谱视图（带页参数时为页级切片）。"""
     try:
-        graph = get_doc_blocks_graph(request.library_id, request.doc_id)
+        if request.page_from is not None and request.page_to is not None:
+            graph = get_doc_blocks_graph_pages(
+                request.library_id, request.doc_id, request.page_from, request.page_to
+            )
+        else:
+            graph = get_doc_blocks_graph(request.library_id, request.doc_id)
         if not graph:
             raise HTTPException(status_code=404, detail="Graph data not found. Please run structured-index first.")
         import docs_core.paths as paths
@@ -1431,6 +1444,50 @@ async def get_doc_blocks_graph_summary(request: DocBlocksGraphSummaryRequest) ->
 _PDF_WEB_MIN_BYTES = 1024 * 1024
 _pdf_web_locks_guard = threading.Lock()
 _pdf_web_building: set = set()  # 正在后台构建的 cache_path，防同一文件重复起线程
+
+# 「本次预览用原件还是副本」的进程内锁定（2026-10-30 实拍修复）。
+# 副本是 PyMuPDF 重写产物，字节布局与原件不同（实测 24,690,787 vs 24,483,749，
+# 首块/末块字节全不一致）。若在用户加载途中构建完成，后端下一次请求就会从原件切到
+# 副本，pdf.js 同一次加载里前半读原件、后半读副本 → 拼出的文件结构错乱，
+# 表现为「停在第 1 块 0.5MB 不动、不报错也不降级」。锁定后同一文档在窗口期内
+# 只会给出同一个文件；窗口过期后的新会话才可能切到副本（那时从头读，安全）。
+_pdf_served_guard = threading.Lock()
+_pdf_served_pins: Dict[str, tuple] = {}
+
+
+def _pdf_served_pin_seconds() -> float:
+    try:
+        return float(os.getenv("PDF_SERVED_PIN_SECONDS", "600"))
+    except ValueError:
+        return 600.0
+
+
+def _pin_served_path(source_path: str, allow_optimize: bool) -> str:
+    """返回本次预览要服务的文件，并在窗口期内固定住这个选择。
+
+    allow_optimize=False（非 PDF 或 raw=1 下载）直接回原件，不参与锁定。
+    """
+    if not allow_optimize:
+        return source_path
+    now = time.monotonic()
+    ttl = _pdf_served_pin_seconds()
+    with _pdf_served_guard:
+        pinned = _pdf_served_pins.get(source_path)
+        if pinned and now - pinned[1] < ttl:
+            return pinned[0]
+
+    served = source_path
+    optimized = _get_or_build_web_pdf(source_path)
+    if optimized:
+        served = optimized
+
+    with _pdf_served_guard:
+        _pdf_served_pins[source_path] = (served, now)
+        if len(_pdf_served_pins) > 512:
+            for key, (_path, ts) in list(_pdf_served_pins.items()):
+                if now - ts >= ttl:
+                    _pdf_served_pins.pop(key, None)
+    return served
 
 
 def _pdf_web_optimize_enabled() -> bool:
@@ -1576,11 +1633,12 @@ def get_file_for_preview(path: str, raw: int = 0):
     if not mime_type:
         mime_type = "application/octet-stream"
 
-    served_path = normalized_path
-    if mime_type == "application/pdf" and not raw:
-        optimized_path = _get_or_build_web_pdf(normalized_path)
-        if optimized_path:
-            served_path = optimized_path
+    # 选择原件/副本并在窗口期内锁定：构建在加载途中完成时不得中途切换文件
+    # （否则 pdf.js 拼出前后不一致的字节，卡死在第 1 块）
+    served_path = _pin_served_path(
+        normalized_path,
+        allow_optimize=(mime_type == "application/pdf" and not raw),
+    )
 
     base_headers = {
         "Accept-Ranges": "bytes",

@@ -101,6 +101,52 @@ def get_doc_blocks_graph(library_id: str, doc_id: str) -> Optional[Dict[str, Any
     return _read_doc_blocks_graph_split(jsonl_path, meta_path)
 
 
+def get_doc_blocks_graph_pages(
+    library_id: str, doc_id: str, page_from: int, page_to: int
+) -> Optional[Dict[str, Any]]:
+    """页级切片：只返回 [page_from, page_to]（0-based，含端点）内的块与块间边。
+
+    动机（2026-10-30）：引用定位只需要目标页的 bbox 坐标（几 KB），旧链路却要整本
+    doc_blocks_graph（单篇十几 MB），大书点引用要 3-5 秒。页签（树形/图谱）仍走整本。
+    边只保留两端都在窗口内的（跨页父子关系属树形展示，定位不需要）。
+    """
+    if page_from > page_to:
+        page_from, page_to = page_to, page_from
+    jsonl_path = paths.get_graph_jsonl_path(library_id, doc_id)
+    meta_path = paths.get_graph_meta_path(library_id, doc_id)
+    if not jsonl_path.exists():
+        return None
+    nodes = []
+    kept_ids = set()
+    with open(jsonl_path, "r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            node = json.loads(line)
+            page_idx = node.get("page_idx")
+            if not isinstance(page_idx, int) or not (page_from <= page_idx <= page_to):
+                continue
+            nodes.append(node)
+            node_id = str(node.get("id") or "")
+            if node_id:
+                kept_ids.add(node_id)
+    edges: list = []
+    if meta_path.exists() and kept_ids:
+        try:
+            with open(meta_path, "r", encoding="utf-8") as f:
+                meta = json.load(f)
+            edges = [
+                edge
+                for edge in meta.get("edges", [])
+                if str(edge.get("from") or "") in kept_ids
+                and str(edge.get("to") or "") in kept_ids
+            ]
+        except (OSError, json.JSONDecodeError):
+            edges = []
+    return {"nodes": nodes, "edges": edges}
+
+
 def _read_doc_blocks_graph_split(jsonl_path: Path, meta_path: Path) -> Dict[str, Any]:
     nodes = []
     with open(jsonl_path, "r", encoding="utf-8") as f:

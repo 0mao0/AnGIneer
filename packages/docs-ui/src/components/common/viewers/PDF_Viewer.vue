@@ -159,20 +159,20 @@
     </div>
     <div class="file-preview">
       <div v-if="isPdf" class="pdf-preview-wrap">
-        <!-- PDF加载进度指示器 -->
+        <!-- PDF 加载指示（2026-10-30 改按需语义）：原先显示「加载中 6%」，
+             pdf.js 在 range 模式下只按需拉分块（首块 512KB，后续翻页才继续），
+             进度天然长期停在个位数，用户会误判成卡死 -->
         <div v-if="isPdfLoading" class="pdf-loading-overlay">
           <Spin size="large" />
           <div class="pdf-loading-text">
-            <span v-if="pdfLoadingProgress > 0">加载中 {{ pdfLoadingProgress }}%<template v-if="pdfLoadingBytesLabel"> · {{ pdfLoadingBytesLabel }}</template></span>
-            <span v-else>正在加载PDF文档...</span>
+            <span v-if="pdfLoadingBytesLabel">正在加载 PDF（已取 {{ pdfLoadingBytesLabel }}）</span>
+            <span v-else>正在加载 PDF 文档...</span>
           </div>
-          <Progress
-            v-if="pdfLoadingProgress > 0"
-            :percent="pdfLoadingProgress"
-            :show-info="false"
-            size="small"
-            class="pdf-loading-progress"
-          />
+          <div class="pdf-loading-hint">按需分块加载，后续页面在翻阅时继续获取</div>
+          <!-- 首开慢的真实原因：后端要重写一遍文件生成预览副本（PyMuPDF），耗时与文件大小成正比 -->
+          <div v-if="pdfSlowHintVisible" class="pdf-loading-hint">
+            大文件首次打开需生成预览副本，可能稍慢；再次打开会更快
+          </div>
         </div>
         <div v-if="useNativePdfPreview" class="office-frame-wrap">
           <iframe
@@ -357,7 +357,7 @@
 import { computed, ref, shallowRef, watch, onMounted, onBeforeUnmount, nextTick, reactive, useSlots } from 'vue'
 import type { Ref, ComputedRef } from 'vue'
 import { LeftOutlined, RightOutlined, ZoomInOutlined, ZoomOutOutlined, CompressOutlined, BulbOutlined, SearchOutlined, CloseOutlined } from '@ant-design/icons-vue'
-import { Button, Tag, Spin, Progress, InputNumber, Input, Empty } from 'ant-design-vue'
+import { Button, Tag, Spin, InputNumber, Input, Empty } from 'ant-design-vue'
 import * as pdfjsLib from 'pdfjs-dist'
 // Vite标准worker导入方式，确保生产构建路径正确
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url'
@@ -1896,13 +1896,43 @@ const normalizedPdfSource = zoom.normalizedPdfSource
 const nativePdfViewerUrl = zoom.nativePdfViewerUrl
 const isPdfLoading = doc.isPdfLoading
 const pdfLoadingProgress = doc.pdfLoadingProgress
-/** 加载遮罩的字节文案：大文件只看百分比容易误判成卡死，直接给出已加载/总大小 */
+/** 加载遮罩的字节文案：range 按需加载下百分比会长期停低位，改用「已取/总大小」表达 */
 const pdfLoadingBytesLabel = computed(() => {
   const total = doc.pdfLoadingTotalBytes.value
   if (!total) return ''
   const loaded = Math.min(doc.pdfLoadingLoadedBytes.value, total)
   const toMb = (bytes: number) => (bytes / 1024 / 1024).toFixed(1)
   return `${toMb(loaded)} / ${toMb(total)} MB`
+})
+
+/**
+ * 慢加载解释（2026-10-30）：首开一本未缓存的大 PDF 时，后端会用 PyMuPDF 重写一遍
+ * 生成预览副本（本次仍回原件），重写期间抢 CPU/磁盘，表现为「打开很慢但网络没问题」。
+ * 超过阈值才提示，避免每本小文件都跳一句免责声明。
+ */
+const PDF_SLOW_HINT_MS = 4000
+const pdfSlowHintVisible = ref(false)
+let pdfSlowHintTimer: ReturnType<typeof setTimeout> | null = null
+watch(isPdfLoading, (loading) => {
+  if (pdfSlowHintTimer) {
+    clearTimeout(pdfSlowHintTimer)
+    pdfSlowHintTimer = null
+  }
+  if (!loading) {
+    pdfSlowHintVisible.value = false
+    return
+  }
+  pdfSlowHintVisible.value = false
+  pdfSlowHintTimer = setTimeout(() => {
+    pdfSlowHintVisible.value = true
+    pdfSlowHintTimer = null
+  }, PDF_SLOW_HINT_MS)
+}, { immediate: true })
+onBeforeUnmount(() => {
+  if (pdfSlowHintTimer) {
+    clearTimeout(pdfSlowHintTimer)
+    pdfSlowHintTimer = null
+  }
 })
 const maxPageWidth = zoom.maxPageWidth
 const hasAppliedInitialFit = zoom.hasAppliedInitialFit
@@ -2585,6 +2615,16 @@ onBeforeUnmount(() => {
 .pdf-loading-text {
   font-size: 14px;
   color: var(--dp-title-text, #595959);
+}
+
+/* 加载遮罩的说明行（按需加载语义 / 首开慢的原因），保持次级色，不抢主文案 */
+.pdf-loading-hint {
+  max-width: 420px;
+  padding: 0 24px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--dp-secondary-text, #8c8c8c);
+  text-align: center;
 }
 
 .pdf-loading-progress {

@@ -22,7 +22,15 @@ export const knowledgeApi = {
   getDocBlocksGraph: (libraryId: string, docId: string) =>
     // 大文档的整本文本块数据（doc_blocks_graph）可达十几 MB，默认 30s 闸门会误杀；
     // 只在用户点开树形/图谱页签或点引用角标时才拉这一份。按请求放宽到 3 分钟，失败可重试
-    docsApiClient.post('/knowledge/parse/doc-blocks-graph', { library_id: libraryId, doc_id: docId }, { timeout: 180000 })
+    docsApiClient.post('/knowledge/parse/doc-blocks-graph', { library_id: libraryId, doc_id: docId }, { timeout: 180000 }),
+
+  /** 页级切片：只取目标页 ±2 页的文本块（几十 KB），供引用定位的高亮框用（2026-10-30） */
+  getDocBlocksGraphPages: (libraryId: string, docId: string, pageFrom: number, pageTo: number) =>
+    docsApiClient.post(
+      '/knowledge/parse/doc-blocks-graph',
+      { library_id: libraryId, doc_id: docId, page_from: pageFrom, page_to: pageTo },
+      { timeout: 30000 }
+    )
 }
 
 export default docsApiClient
