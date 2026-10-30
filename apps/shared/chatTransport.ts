@@ -83,6 +83,8 @@ export const defaultAIChatTransport = {
     let msgSeqs: number[] = [] // 服务端落库 seq（chat_history），随 run_end 帧下发
     let toolMessages: Array<{ name?: string; content: string }> = []
     let traceMessages: Array<Record<string, any>> = []
+    // 服务端下发的引用集（null = 旧后端没这个字段，走本地按标记过滤的兼容分支）
+    let serverCitations: AIChatCitation[] | null = null
     let liveThinkingSteps: ThinkingTraceStep[] = []
     /** SOP 流程快照累积（按 sop_id 去重，live 事件逐帧替换 + run_end 用工具消息终态覆盖） */
     const liveSopFlows = new Map<string, SopFlowState>()
@@ -190,6 +192,11 @@ export const defaultAIChatTransport = {
           toolMessages = Array.isArray(event.payload?.messages)
             ? event.payload.messages.filter((m: any) => m.role === 'tool')
             : []
+          // 引用集由服务端 run_end 下发（2026-10-30 收敛）：来源不再取决于
+          // 模型有没有在正文写 [K1]，前端只按它挑条目、不做“该不该显示”的判断
+          serverCitations = Array.isArray(event.payload?.citations)
+            ? (event.payload.citations as AIChatCitation[])
+            : null
           const runNotes = Array.isArray(event.payload?.notes)
             ? event.payload.notes
             : []
@@ -252,10 +259,10 @@ export const defaultAIChatTransport = {
       }
     }
 
-    const citations = filterCitationsByMarkers(
-      collectCitationsFromToolMessages(toolMessages),
-      answer
-    )
+    const allCitations = collectCitationsFromToolMessages(toolMessages)
+    const citations = serverCitations && serverCitations.length
+      ? selectByServerCitations(allCitations, serverCitations)
+      : filterCitationsByMarkers(allCitations, answer)
     const scene = payload.scene || 'qa'
     return {
       query_id: runId || `agent-${Date.now().toString(36)}`,
@@ -372,8 +379,41 @@ function collectCitationsFromToolMessages(
 }
 
 /**
+ * 用服务端引用集挑出要展示的条目（2026-10-30 收敛）。
+ *
+ * 底册仍用 collectCitationsFromToolMessages 的结果：它做了多库 library_id 对账
+ * （服务端 relevant_citations 不带该键），直接拿服务端原样会丢归属库、点原文 404。
+ * 匹配以 marker 为主键（一轮内 K/T/E 各自唯一），target_id 兜底；
+ * 一条都对不上时退回底册，底册也空（工具消息被裁剪）时直接用服务端原样——
+ * 来源不能再因为格式差异消失。
+ */
+function selectByServerCitations(
+  all: AIChatCitation[],
+  server: AIChatCitation[]
+): AIChatCitation[] {
+  const markers = new Set<string>()
+  const targets = new Set<string>()
+  for (const citation of server || []) {
+    const marker = String((citation as any)?.marker || '').trim()
+    const target = String((citation as any)?.target_id || '').trim()
+    if (marker) markers.add(marker)
+    if (target) targets.add(target)
+  }
+  const picked = (all || []).filter(citation => (
+    (citation.marker && markers.has(String(citation.marker))) ||
+    (citation.target_id && targets.has(String(citation.target_id)))
+  ))
+  if (picked.length) return picked
+  return (all || []).length ? all : (server || [])
+}
+
+/**
  * 只保留最终回答里真实引用的标记（[K1]/[T1]/[E1]）。
- * 替代按文档名猜测的旧引用过滤。
+ *
+ * 职责收窄（2026-10-30）：**不再决定来源列表**，只用于「这一条引用有没有被正文点名」——
+ * 来源集由服务端 run_end 的 citations 下发（行内 tag 挂不挂仍看模型有没有写标记）。
+ * 历史教训：把「参考了哪些文献」绑在模型自由文本上，模型不写标记时来源整块消失；
+ * 补丁只能一层层加，故本函数退回单一职责。
  */
 export function filterCitationsByMarkers(
   citations: AIChatCitation[],

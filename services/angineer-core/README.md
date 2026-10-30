@@ -208,6 +208,68 @@ note（过程说明） / answer（守卫替换后的最终回答） / error
 
 按 `run_id` 归并以还原「思考过程（N 步 · 工具耗时 X）」；`meta` 字段永不进 LLM 上下文。
 
+### `run_end.payload.citations`（引用集契约）
+
+`run_end` 的 payload 带 `citations`：**本轮实际参考的证据集合**（跨轮、跨工具按
+`target_id + marker` 去重）。它是服务端判定的结果，**与模型有没有在正文写 `[K1]` 标记无关**——
+标记只决定「句级定位挂不挂」，参考集本身不受标记影响。
+
+为什么要分开：模型照抄 `cite` 标记是概率性遵从（同一模型同一题，一次写 4 个标记、一次 0 个）。
+宿主若把「来源列表」绑在标记上，模型不写标记时出处会整块消失——这是 2026-10-30 之前
+AnGIneer 自身的实际故障形态，现已由该字段解耦。
+
+| 字段 | 说明 |
+| :--- | :--- |
+| `target_id` | 证据目标 id（点击跳原文用） |
+| `doc_id` / `doc_title` | 文档 id / 文件名（表格条目可能是「表 4.4.3 …」） |
+| `marker` | 引用标记（`K1`/`T1`），正文写同名标记即可对上 |
+| `page_idx` / `page_label` / `section_path` | 定位信息 |
+| `snippet` | 证据片段（前 200 字） |
+| `score` / `fusion_sources` | 相关性与融合来源 |
+
+最小消费（宿主侧）：
+
+```js
+const res = await fetch('/api/chat/agent', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ query, scene: 'qa', session_id, library_id }),
+})
+const reader = res.body.getReader()
+const decoder = new TextDecoder()
+let buf = ''
+let citations = []
+let answer = ''
+for (;;) {
+  const { done, value } = await reader.read()
+  if (done) break
+  buf += decoder.decode(value, { stream: true })
+  const parts = buf.split('\n\n')
+  buf = parts.pop() || ''
+  for (const part of parts) {
+    if (!part.startsWith('data: ')) continue
+    const raw = part.slice(6)
+    if (raw === '[DONE]') break
+    const event = JSON.parse(raw)
+    if (event.type === 'message_delta') answer += event.payload?.delta || ''
+    if (event.type === 'run_end') {
+      citations = event.payload?.citations || []   // ← 参考集在这里
+      answer = [...(event.payload?.messages || [])].reverse()
+        .find(m => m.role === 'assistant' && !m.tool_calls)?.content || answer
+    }
+  }
+}
+// 行内定位：只挂正文真实出现过的标记；参考集本身照常展示
+const used = new Set([...answer.matchAll(/\[\s*([KTE]\s*\d+)\s*\]/g)].map(m => m[1].replace(/\s+/g, '')))
+const inline = citations.filter(c => c.marker && used.has(c.marker))
+```
+
+- **持久化**：把 `citations` 存进该轮 assistant 消息的 meta（AnGIneer 自身即如此），
+  历史回放读同一份，避免「实时有来源、回放没有」；
+- **多库场景**：`citations` 不带 `library_id`，宿主需用同轮工具消息 `items[].metadata.library_id`
+  按 `marker` 回填，否则非首库文档的跳转会 404；
+- **兼容**：旧版本没有该字段，按空数组处理；此时若要兜底，可退回「按正文标记过滤」的旧行为。
+
 ## 证据守卫
 
 `make_final_answer_guard(enforce_evidence)` 在回答出栈前做四道检查：

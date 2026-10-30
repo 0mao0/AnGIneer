@@ -159,6 +159,20 @@
               </SopFlowPanel>
 
               <div class="answer-text" v-html="renderAssistantContent(msg)" />
+              <!-- 正文没写行内标记时的块级出处：来源体系不依赖模型是否照抄 cite（2026-10-30） -->
+              <div v-if="getReferenceDocs(msg).length" class="answer-references">
+                <span class="answer-references-label">参考依据</span>
+                <button
+                  v-for="doc in getReferenceDocs(msg).slice(0, MAX_REFERENCE_DOCS)"
+                  :key="doc.citation.target_id || doc.label"
+                  type="button"
+                  class="answer-reference-chip"
+                  :title="doc.label"
+                  @click="handleCitationClick(doc.citation)"
+                >
+                  {{ doc.label }}<span v-if="doc.count > 1" class="answer-reference-count">×{{ doc.count }}</span>
+                </button>
+              </div>
               <details v-for="(interim, iIdx) in (msg.interim_answers || [])" :key="iIdx" class="interim-answer">
                 <summary>中间输出（已被最终回答顶替，点击展开）</summary>
                 <div class="interim-answer-body">{{ interim }}</div>
@@ -801,6 +815,39 @@ const getUniqueCitations = (message: BaseChatMessage) => {
  */
 const getVisibleCitations = (message: BaseChatMessage) => {
   return getUniqueCitations(message)
+}
+
+/** 「参考依据」最多展示的文档数（超出不再列，避免把 30 条证据铺满） */
+const MAX_REFERENCE_DOCS = 6
+
+/**
+ * 正文一个标记都没写时，把服务端下发的引用集按文档归并成「参考依据」条目。
+ *
+ * 为什么需要：行内角标只在模型写了 [K1]/[T1] 时才出现，而模型照抄标记是概率性遵从
+ * （2026-10-30 同题同模型两次：一次 4 个标记、一次 0 个）。正文没标记 ≠ 没有来源，
+ * 块级出处由服务端 run_end 的 citations 决定，这里只做归并与渲染。
+ * 正文有标记时不渲染（行内 tag 已经指出来源，不重复）。
+ */
+const getReferenceDocs = (message: BaseChatMessage) => {
+  if (/\[\s*[KTE]\s*\d+\s*\]/.test(message.content || '')) return []
+  const byDoc = new Map<string, { label: string; count: number; citation: BaseChatCitation }>()
+  for (const citation of getVisibleCitations(message)) {
+    const key = citation.doc_id || citation.doc_title || citation.target_id
+    if (!key) continue
+    const existing = byDoc.get(key)
+    if (existing) {
+      existing.count += 1
+      continue
+    }
+    const title = String(citation.doc_title || '').trim()
+    byDoc.set(key, {
+      // 表格条目的 doc_title 是「表 4.4.3 …」而不是文件名，原样展示即可
+      label: title.replace(/\.(docx?|pdf|xlsx?|pptx?|md|markdown|txt)$/i, '') || title || '未命名文档',
+      count: 1,
+      citation,
+    })
+  }
+  return Array.from(byDoc.values())
 }
 
 /**
@@ -1686,9 +1733,53 @@ defineExpose({
           }
         }
 
+        /* 块级出处：样式对齐 ThinkingSteps 的「命中引用」chip，视觉同源 */
+        .answer-references {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          gap: 4px;
+          margin-top: 8px;
+          min-width: 0;
+        }
+
+        .answer-references-label {
+          white-space: nowrap;
+          color: var(--text-secondary);
+          font-size: 12px;
+          margin-right: 2px;
+        }
+
+        .answer-reference-chip {
+          flex: 0 0 auto;
+          max-width: 200px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          padding: 1px 8px;
+          border: 1px solid var(--border-color);
+          border-radius: 999px;
+          background: rgba(128, 128, 128, 0.08);
+          color: var(--text-secondary);
+          font-size: 12px;
+          line-height: 18px;
+          cursor: pointer;
+          transition: color 0.16s ease, border-color 0.16s ease;
+
+          &:hover {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+          }
+        }
+
+        .answer-reference-count {
+          margin-left: 2px;
+          color: var(--text-tertiary, #999);
+          font-size: 11px;
+        }
+
         .answer-text {
           line-height: 1.6;
-
           :deep(p),
           :deep(ul),
           :deep(ol),

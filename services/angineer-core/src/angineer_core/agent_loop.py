@@ -25,6 +25,7 @@ from angineer_core.agent_messages import (
     REFUSAL_FOLLOWUP_QUESTION,
     ToolCall,
     agent_message_to_dict,
+    aggregate_tool_citations,
     is_reference_refusal,
     is_refusal_text,
     to_llm_messages,
@@ -1788,6 +1789,10 @@ def run_agent_loop(
                 "reason": reason,
                 "turns": turn,
                 "messages": [agent_message_to_dict(m) for m in messages[start_idx:]],
+                # 引用集（服务端唯一真相源，2026-10-30 收敛）：前端直接渲染来源，
+                # 不再按「正文有没有写标记」自行过滤——模型不写标记时来源也会消失。
+                # 行内 tag 是否挂载仍看模型标记，二者职责分开。
+                "citations": aggregate_tool_citations(messages[start_idx:]),
                 "usage": total_usage,
                 "notes": trace_notes,
                 # 观测标注：最终答案来源终态 + 经历的分支（拒答归因/口径审计用）

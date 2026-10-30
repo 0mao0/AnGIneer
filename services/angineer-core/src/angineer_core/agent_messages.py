@@ -252,6 +252,35 @@ def agent_message_to_dict(message: AgentMessage) -> Dict[str, Any]:
     return data
 
 
+def aggregate_tool_citations(messages: List[AgentMessage]) -> List[Dict[str, Any]]:
+    """从 tool 消息 meta 聚合本轮引用集（跨轮、跨工具去重）。
+
+    这是**引用集的唯一装配点**（2026-10-30 收敛）：聊天 run_end 与 policy_query
+    （评测/统一查询）都调它，不许各自再写一份。
+
+    为什么要收口：此前「参考了哪些文献」由前端按「正文有没有写 [K1] 标记」自行过滤，
+    而模型照抄标记是概率性遵从（同题同模型当天两次：一次 4 个标记、一次 0 个），
+    模型不写标记时来源整块消失。判定归服务端后，前端只负责渲染。
+    去重键 target_id+marker：同一证据可能被多次检索召回（多轮/多工具）。
+    """
+    citations: List[Dict[str, Any]] = []
+    seen = set()
+    for message in messages:
+        if message.role != "tool":
+            continue
+        raw = message.meta or {}
+        for citation in raw.get("citations") or []:
+            if not isinstance(citation, dict):
+                continue
+            key = str(citation.get("target_id") or "") + str(citation.get("marker") or "")
+            if key and key in seen:
+                continue
+            if key:
+                seen.add(key)
+            citations.append(citation)
+    return citations
+
+
 def to_llm_messages(
     messages: List[AgentMessage],
     tool_style: str = "text",

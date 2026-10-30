@@ -9,7 +9,7 @@ import uuid
 from typing import Any, Dict, List, Optional
 
 from angineer_core.agent_loop import AgentLoopConfig, run_agent_loop
-from angineer_core.agent_messages import AgentMessage
+from angineer_core.agent_messages import AgentMessage, aggregate_tool_citations
 
 logger = logging.getLogger(__name__)
 
@@ -213,8 +213,6 @@ def run_policy_query(
         seen_ids = set()
         evidences: List[Dict[str, Any]] = []
         seen_evidence_ids = set()
-        citations: List[Dict[str, Any]] = []
-        seen_cites = set()
         sop_trace: List[Dict[str, Any]] = []
         admission_blocks: List[Dict[str, Any]] = []
         for message in tool_messages:
@@ -240,17 +238,10 @@ def run_policy_query(
                 if evidence_id:
                     seen_evidence_ids.add(evidence_id)
                 evidences.append(evidence)
-            for citation in raw.get("citations") or []:
-                if not isinstance(citation, dict):
-                    continue
-                cite_key = str(citation.get("target_id") or "") + str(citation.get("marker") or "")
-                if cite_key and cite_key in seen_cites:
-                    continue
-                if cite_key:
-                    seen_cites.add(cite_key)
-                citations.append(citation)
             if message.name == "sop_execute" and isinstance(raw.get("sop_trace"), list):
                 sop_trace.extend(raw["sop_trace"])
+        # 引用集装配只此一处（与聊天 run_end 同源）：聚合逻辑在 agent_messages
+        citations: List[Dict[str, Any]] = aggregate_tool_citations(tool_messages)
 
         strategy = f"policy_{intent_result.intent_level}_{intent_result.service_mode} (turns={turns}, reason={reason})"
         fallback_used = any("回退" in n or "进入下一段" in n for n in notes)

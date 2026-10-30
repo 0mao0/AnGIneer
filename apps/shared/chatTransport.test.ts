@@ -124,6 +124,93 @@ test('filterCitationsByMarkers 容忍括号内空格（[ K32] 形态）', () => 
   assert.equal(filtered[0].marker, 'K32')
 })
 
+test('filterCitationsByMarkers 只认正文标记，零标记时返回空（来源集归服务端）', () => {
+  const citations = [
+    { marker: 'K1', doc_id: 'd1', doc_title: '甲规范.pdf', page_idx: 0, section_path: '1', snippet: 'x', score: 0.9, target_id: 't1' },
+    { marker: 'T1', doc_id: 'd2', doc_title: '乙规范.pdf', page_idx: 0, section_path: '3', snippet: 'x', score: 0.7, target_id: 't3' },
+  ]
+  // 2026-10-30：本函数只管「这条引用有没有被正文点名」，
+  // 「参考了哪些文献」由 run_end 的 citations 下发（见 chatTransport 的 run_end 分支）
+  assert.deepEqual(filterCitationsByMarkers(citations, '路基压实度按公路等级分档控制。'), [])
+})
+
+test('filterCitationsByMarkers 零标记且无引用时不报错', () => {
+  assert.deepEqual(filterCitationsByMarkers([], '纯文字回答。'), [])
+})
+
+test('run_end 下发 citations 时，正文零标记也保留来源（服务端真相源）', async () => {
+  const events = [
+    { type: 'run_start', run_id: 'r1', turn: 0, payload: {} },
+    {
+      type: 'run_end',
+      run_id: 'r1',
+      turn: 1,
+      payload: {
+        reason: 'completed',
+        messages: [
+          { role: 'user', content: '公路路基压实度有什么要求？' },
+          // 工具消息被裁剪（items 空）也要能显示：底册空 → 直接用服务端集
+          { role: 'tool', name: 'knowledge_search', content: JSON.stringify({ items: [] }) },
+          { role: 'assistant', content: '路基压实度按公路等级分档控制。' },
+        ],
+        citations: [
+          { target_id: 't1', doc_id: 'd1', doc_title: 'JTG 3610-2019 公路路基施工技术规范.pdf', marker: 'T1', page_idx: 22, section_path: '4.4.3', snippet: 'x', score: 0.9 },
+          { target_id: 't2', doc_id: 'd2', doc_title: 'JTG 2111-2019 小交通量农村公路工程技术标准.pdf', marker: 'K1', page_idx: 18, section_path: '5.0.4', snippet: 'y', score: 0.8 },
+        ],
+      },
+    },
+  ]
+  const originalFetch = globalThis.fetch
+  globalThis.fetch = (async () => sseResponse(events)) as typeof fetch
+  try {
+    const result = await defaultAIChatTransport.query(
+      { query: 'x', scene: 'qa', session_id: 's1', library_id: 'default', doc_ids: [] },
+      {}
+    )
+    assert.equal((result.citations ?? []).length, 2)
+    assert.deepEqual((result.citations ?? []).map(c => c.marker).sort(), ['K1', 'T1'])
+  } finally {
+    globalThis.fetch = originalFetch
+  }
+})
+
+test('run_end 不带 citations 时退回按标记过滤（旧后端兼容）', async () => {
+  const events = [
+    { type: 'run_start', run_id: 'r2', turn: 0, payload: {} },
+    {
+      type: 'run_end',
+      run_id: 'r2',
+      turn: 1,
+      payload: {
+        reason: 'completed',
+        messages: [
+          { role: 'user', content: 'x' },
+          {
+            role: 'tool',
+            name: 'knowledge_search',
+            content: JSON.stringify({
+              items: [{ item_id: 'a', doc_id: 'd1', doc_title: '甲.pdf', cite: 'K1', text: 't' }],
+              citations: [{ target_id: 'a', doc_id: 'd1', doc_title: '甲.pdf', marker: 'K1', page_idx: 0, section_path: '', snippet: 't', score: 1 }],
+            }),
+          },
+          { role: 'assistant', content: '无标记回答。' },
+        ],
+      },
+    },
+  ]
+  const originalFetch = globalThis.fetch
+  globalThis.fetch = (async () => sseResponse(events)) as typeof fetch
+  try {
+    const result = await defaultAIChatTransport.query(
+      { query: 'x', scene: 'qa', session_id: 's1', library_id: 'default', doc_ids: [] },
+      {}
+    )
+    assert.deepEqual(result.citations, [])
+  } finally {
+    globalThis.fetch = originalFetch
+  }
+})
+
 test('工具消息 items 带 cite 时进入思考轨迹 citations.marker', () => {
   const steps = buildThinkingTrace([
     { role: 'user', content: 'x' },

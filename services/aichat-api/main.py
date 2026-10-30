@@ -705,6 +705,16 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
                     # run_end 是 worker 线程最后一条 emit，此刻 history 已完整（engine 先
                     # 追加全部消息再发 run_end），切片无竞态
                     msgs = list(hist_list[hist_base:])
+                    # 引用集随消息落库（2026-10-30 收敛）：真相源在服务端 run_end，
+                    # 历史回放读同一份，不再由前端算完再用 patch 回写快照。
+                    _run_citations = event.payload.get("citations") or []
+                    if _run_citations:
+                        _last_answer = next(
+                            (m for m in reversed(msgs) if m.role == "assistant" and not m.tool_calls),
+                            None,
+                        )
+                        if _last_answer is not None:
+                            _last_answer.meta["citations"] = _run_citations
                     seqs = persist(msgs, str(event.payload.get("reason", "")), event.run_id, event.ts)
                 frame = json.loads(map_event_to_agent_frame(event))
                 frame["frame_version"] = 1
