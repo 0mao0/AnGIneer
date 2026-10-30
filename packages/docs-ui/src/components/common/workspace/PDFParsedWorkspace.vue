@@ -311,7 +311,19 @@ watch(() => props.graphData?.nodes?.length || 0, (count, previousCount) => {
 // 文本块数据（doc_blocks_graph，带 bbox，单篇可达十几 MB、大书要几十秒）不再随「面板展开」自动拉：
 // 展开只是打开容器，Markdown 不需要它；真正的按需加载由下方 activeTab watch 触发——
 // 用户点开树形/图谱页签才算需要文本块数据（术语定版 2026-10-27：叫文本块，不叫块图谱）。
+// 2026-10-30 补：拉取还要**侧面板展开**才发生——定位回放会把 activeTab 切成树形，
+// 面板收着时用户看不见页签，8MB 却在后台默默下载（用户报「没看到树形打开却在耗资源」）；
+// 面板展开的动作本身也会触发下方 watch(sidePanelOpen) 补拉，数据不会缺。
 watch(activeTab, (tab) => {
+  if ((tab === 'Preview_IndexTree' || tab === 'Preview_IndexGraph' || tab === 'Preview_KnowledgeGraph') && !props.graphDataFullLoaded && props.sidePanelOpen && props.onLoadFullGraphData) {
+    props.onLoadFullGraphData('tab')
+  }
+})
+
+// 面板从收起展开到树形/图谱类页签时补拉（上面 watch(activeTab) 只盯页签变化，盯不到开合）
+watch(sidePanelOpen, (open) => {
+  if (!open) return
+  const tab = activeTab.value
   if ((tab === 'Preview_IndexTree' || tab === 'Preview_IndexGraph' || tab === 'Preview_KnowledgeGraph') && !props.graphDataFullLoaded && props.onLoadFullGraphData) {
     props.onLoadFullGraphData('tab')
   }
