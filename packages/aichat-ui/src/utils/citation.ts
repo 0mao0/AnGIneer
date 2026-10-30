@@ -123,6 +123,48 @@ export const hasCitationMarker = (content: string, marker?: string | null): bool
   return new RegExp(`\\[\\s*${letter}\\s*${num}\\s*\\]`).test(content)
 }
 
+/** 提及匹配的归一化：全角括号折半角，去掉空白/下划线/斜杠，统一大写。 */
+const normalizeForMention = (value: string): string => String(value || '')
+  .replace(/（/g, '(')
+  .replace(/）/g, ')')
+  .replace(/[\s_/]/g, '')
+  .toUpperCase()
+
+/**
+ * 从文档名里取「标准编号串」：`JTS 202-2011` / `DB51_T 2244-2016` / `JTG F80_1-2017`。
+ * 取不到（施工组织设计这类文件名）返回空串，由词干兜底。
+ */
+const extractDocCode = (title: string): string => {
+  const match = stripCitationDocExtension(title).match(/[A-Z]{2,}[A-Z0-9/._\- ]*\d{2,}/i)
+  return match ? match[0].trim() : ''
+}
+
+/**
+ * 正文是否提到了该文档（标准编号优先，其次文件名词干）。
+ *
+ * 用途：模型没写 `[K1]` 标记时，判断「这条证据该不该算进参考依据」。
+ * 判据放在正文文本上——模型可以不写标记，但不会不写规范编号（否则答案没有意义）。
+ * 判不出来一律返回 false：来源宁可不显示，也不能给错的（2026-10-30 验收实拍：
+ * 「不要写标记」的指令被当成检索词，本轮命中的是无关文档，直接展示会误导）。
+ */
+export const citationMentionedInText = (
+  citation: BaseChatCitation,
+  text: string,
+): boolean => {
+  const haystack = normalizeForMention(text || '')
+  if (!haystack) return false
+  const title = String(citation?.doc_title || '').trim()
+  if (!title) return false
+  const code = extractDocCode(title)
+  if (code) {
+    const needle = normalizeForMention(code)
+    if (needle.length >= 5 && haystack.includes(needle)) return true
+  }
+  // 无编号的文档：只认「去扩展名的完整词干」且长度足够，避免短名（如「规范」）误命中
+  const stem = normalizeForMention(stripCitationDocExtension(title))
+  return stem.length >= 6 && haystack.includes(stem)
+}
+
 export const buildInlineCitationTagHtml = (
   citation: BaseChatCitation,
   index: number,

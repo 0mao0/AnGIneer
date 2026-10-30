@@ -3,6 +3,7 @@ import assert from 'node:assert/strict'
 
 import {
   buildInlineCitationTagHtml,
+  citationMentionedInText,
   formatCitationShortLabel,
   getCitationTagLabel,
   getCitationTagTooltip,
@@ -92,4 +93,32 @@ test('所有序号统一为 CSS 实心圆，不再叠加 Unicode 圆圈字形', 
   assert.ok(glyphHtml.includes('class="citation-circle"'))
   assert.ok(glyphHtml.includes('>10<'))
   assert.ok(!glyphHtml.includes('➓'))
+})
+
+test('citationMentionedInText 认标准编号（含空格/下划线/斜杠变体）', () => {
+  const c = (title: string): BaseChatCitation => ({ target_id: 't', doc_id: 'd', doc_title: title, page_idx: 0, section_path: '', snippet: '' })
+  // 正文写 JTS 202-2011，文档名带 .pdf
+  assert.equal(citationMentionedInText(c('JTS 202-2011 水运工程混凝土施工规范.pdf'), '根据《JTS 202-2011 水运工程混凝土施工规范》…'), true)
+  // 下划线 vs 无分隔：JTG_T 3610-2019 ↔ JTGT 3610-2019
+  assert.equal(citationMentionedInText(c('JTG_T 3610-2019 公路路基施工技术规范.pdf'), '按 JTGT 3610-2019 表 4.4.3'), true)
+  // 斜杠变体：DB51_T ↔ DB51/T
+  assert.equal(citationMentionedInText(c('DB51_T 2244-2016 农村公路路面典型结构设计指南.pdf'), '见 DB51/T 2244-2016 表 5.1.3'), true)
+})
+
+test('citationMentionedInText 正文没提到就返回 false（不给错出处）', () => {
+  const unrelated: BaseChatCitation = {
+    target_id: 't', doc_id: 'd',
+    doc_title: 'JTS 195-3-2019 内河电子航道图技术规范.pdf',
+    page_idx: 0, section_path: '', snippet: '',
+  }
+  // 2026-10-30 验收实拍：检索命中无关文档，答案里根本没有这本规范
+  assert.equal(citationMentionedInText(unrelated, '水运工程混凝土施工的技术要求主要包括混凝土性能要求…'), false)
+  assert.equal(citationMentionedInText(unrelated, ''), false)
+})
+
+test('citationMentionedInText 无编号文档按词干匹配，短名不误命中', () => {
+  const doc = (title: string): BaseChatCitation => ({ target_id: 't', doc_id: 'd', doc_title: title, page_idx: 0, section_path: '', snippet: '' })
+  assert.equal(citationMentionedInText(doc('盐城港大丰港区一期码头工程施工组织设计.pdf'), '参考盐城港大丰港区一期码头工程施工组织设计'), true)
+  // 「规范.pdf」这类短名不得命中任意正文
+  assert.equal(citationMentionedInText(doc('规范.pdf'), '这里提到了规范两个字'), false)
 })

@@ -550,6 +550,7 @@ import {
   buildInlineCitationTagHtml,
   buildCitationSegments,
   citationMarkerRe,
+  citationMentionedInText,
   getCitationLastSegment,
   hasCitationMarker,
   mapReferenceToBaseChatCitation,
@@ -821,17 +822,20 @@ const getVisibleCitations = (message: BaseChatMessage) => {
 const MAX_REFERENCE_DOCS = 6
 
 /**
- * 正文一个标记都没写时，把服务端下发的引用集按文档归并成「参考依据」条目。
+ * 正文一个标记都没写时，把引用集按文档归并成「参考依据」条目。
  *
- * 为什么需要：行内角标只在模型写了 [K1]/[T1] 时才出现，而模型照抄标记是概率性遵从
- * （2026-10-30 同题同模型两次：一次 4 个标记、一次 0 个）。正文没标记 ≠ 没有来源，
- * 块级出处由服务端 run_end 的 citations 决定，这里只做归并与渲染。
- * 正文有标记时不渲染（行内 tag 已经指出来源，不重复）。
+ * 只收**正文真的提到的文档**（规范编号/文件名匹配）：
+ * 行内角标依赖模型写 `[K1]`，那是概率性的；块级出处不能退化成「本轮检索到的候选」——
+ * 2026-10-30 验收实拍：一句「不要写引用标记」被模型当成检索词，本轮命中的是
+ * 内河电子航道图等无关文档，答案其实是复述上一轮内容，把候选列出来等于给错出处。
+ * 正文有标记时不渲染（行内 tag 已指出来源，不重复）。
  */
 const getReferenceDocs = (message: BaseChatMessage) => {
-  if (/\[\s*[KTE]\s*\d+\s*\]/.test(message.content || '')) return []
+  const content = message.content || ''
+  if (/\[\s*[KTE]\s*\d+\s*\]/.test(content)) return []
   const byDoc = new Map<string, { label: string; count: number; citation: BaseChatCitation }>()
   for (const citation of getVisibleCitations(message)) {
+    if (!citationMentionedInText(citation, content)) continue
     const key = citation.doc_id || citation.doc_title || citation.target_id
     if (!key) continue
     const existing = byDoc.get(key)

@@ -564,6 +564,32 @@ def local_stats(library_id: Optional[str] = None) -> Dict[str, Any]:
     }
 
 
+def _resolve_citation_doc_title(item: Any, cache: Dict[str, str]) -> str:
+    """引用条目的 doc_title 必须是**文档名**，绝不能是章节名。
+
+    2026-10-30 实拍：表格/章节类条目的 item.title 是「5、渗水量测定」这类章节名，
+    旧兜底 `metadata.doc_title or item.title` 会把章节名一路传到前端预览面板标题。
+    优先级：metadata.doc_title（装配层写入的文档名）→ 按 doc_id 反查节点标题 → 空串
+    （前端回退显示 doc_id，也不给错名）。反查结果按 doc_id 缓存，一轮最多几次。
+    """
+    doc_id = str(item.doc_id or "")
+    meta_title = str((item.metadata or {}).get("doc_title") or "").strip()
+    if meta_title:
+        return meta_title
+    if doc_id in cache:
+        return cache[doc_id]
+    resolved = ""
+    try:
+        from docs_core.docs_service import get_docs_service
+
+        node = get_docs_service().get_node(doc_id)
+        resolved = str(getattr(node, "title", "") or "").strip()
+    except Exception:  # noqa: BLE001 — 反查失败按空处理，前端回退 doc_id
+        resolved = ""
+    cache[doc_id] = resolved
+    return resolved
+
+
 def relevant_citations(query: str, items: list, limit: Optional[int] = None) -> List[Dict[str, Any]]:
     """从融合候选中挑选引用：短语精确命中优先。
 
@@ -595,8 +621,9 @@ def relevant_citations(query: str, items: list, limit: Optional[int] = None) -> 
         selected = items[:cap]
 
     citations: List[Dict[str, Any]] = []
+    _doc_title_cache: Dict[str, str] = {}
     for item in selected:
-        doc_title = str(item.metadata.get("doc_title") or item.title or "")
+        doc_title = _resolve_citation_doc_title(item, _doc_title_cache)
         citations.append({
             "target_id": str(getattr(item, "citation_target_id", None) or item.item_id or ""),
             "doc_id": str(item.doc_id or ""),

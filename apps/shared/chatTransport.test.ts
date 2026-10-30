@@ -138,7 +138,7 @@ test('filterCitationsByMarkers 零标记且无引用时不报错', () => {
   assert.deepEqual(filterCitationsByMarkers([], '纯文字回答。'), [])
 })
 
-test('run_end 下发 citations 时，正文零标记也保留来源（服务端真相源）', async () => {
+test('run_end 下发 citations 且正文零标记时，只保留正文提到的文档', async () => {
   const events = [
     { type: 'run_start', run_id: 'r1', turn: 0, payload: {} },
     {
@@ -149,13 +149,14 @@ test('run_end 下发 citations 时，正文零标记也保留来源（服务端�
         reason: 'completed',
         messages: [
           { role: 'user', content: '公路路基压实度有什么要求？' },
-          // 工具消息被裁剪（items 空）也要能显示：底册空 → 直接用服务端集
+          // 工具消息被裁剪（items 空）：底册空 → 直接用服务端集
           { role: 'tool', name: 'knowledge_search', content: JSON.stringify({ items: [] }) },
-          { role: 'assistant', content: '路基压实度按公路等级分档控制。' },
+          { role: 'assistant', content: '按 JTG 3610-2019 表 4.4.3，路基压实度按公路等级分档控制。' },
         ],
         citations: [
           { target_id: 't1', doc_id: 'd1', doc_title: 'JTG 3610-2019 公路路基施工技术规范.pdf', marker: 'T1', page_idx: 22, section_path: '4.4.3', snippet: 'x', score: 0.9 },
-          { target_id: 't2', doc_id: 'd2', doc_title: 'JTG 2111-2019 小交通量农村公路工程技术标准.pdf', marker: 'K1', page_idx: 18, section_path: '5.0.4', snippet: 'y', score: 0.8 },
+          // 本轮检索命中的无关文档：正文没提，就不该出现在参考依据里
+          { target_id: 't2', doc_id: 'd2', doc_title: 'JTS 195-3-2019 内河电子航道图技术规范.pdf', marker: 'K1', page_idx: 18, section_path: '5.0.4', snippet: 'y', score: 0.8 },
         ],
       },
     },
@@ -167,8 +168,42 @@ test('run_end 下发 citations 时，正文零标记也保留来源（服务端�
       { query: 'x', scene: 'qa', session_id: 's1', library_id: 'default', doc_ids: [] },
       {}
     )
-    assert.equal((result.citations ?? []).length, 2)
-    assert.deepEqual((result.citations ?? []).map(c => c.marker).sort(), ['K1', 'T1'])
+    assert.equal((result.citations ?? []).length, 1)
+    assert.equal((result.citations ?? [])[0].marker, 'T1')
+  } finally {
+    globalThis.fetch = originalFetch
+  }
+})
+
+test('正文零标记且没提到任何文档时不给来源（宁缺毋错）', async () => {
+  const events = [
+    { type: 'run_start', run_id: 'r3', turn: 0, payload: {} },
+    {
+      type: 'run_end',
+      run_id: 'r3',
+      turn: 1,
+      payload: {
+        reason: 'completed',
+        messages: [
+          { role: 'user', content: '回答时不要写引用标记' },
+          { role: 'tool', name: 'knowledge_search', content: JSON.stringify({ items: [] }) },
+          { role: 'assistant', content: '水运工程混凝土施工的技术要求主要包括混凝土性能要求、原材料、配合比设计等。' },
+        ],
+        citations: [
+          { target_id: 't1', doc_id: 'd1', doc_title: 'JTS 195-3-2019 内河电子航道图技术规范.pdf', marker: 'K1', page_idx: 0, section_path: '', snippet: 'x', score: 0.897 },
+        ],
+      },
+    },
+  ]
+  const originalFetch = globalThis.fetch
+  globalThis.fetch = (async () => sseResponse(events)) as typeof fetch
+  try {
+    const result = await defaultAIChatTransport.query(
+      { query: 'x', scene: 'qa', session_id: 's1', library_id: 'default', doc_ids: [] },
+      {}
+    )
+    // 2026-10-30 验收实拍：指令被当成检索词，命中的是无关文档；不给错出处
+    assert.deepEqual(result.citations ?? [], [])
   } finally {
     globalThis.fetch = originalFetch
   }

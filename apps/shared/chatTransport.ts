@@ -9,6 +9,7 @@ import type {
   ThinkingTraceStep,
 } from '@angineer/aichat-ui'
 import type { AIChatCitation } from '@angineer/aichat-ui'
+import { citationMentionedInText } from '@angineer/aichat-ui'
 
 /**
  * AIChat 的默认数据传输层实现（AnGIneer 后端契约）。
@@ -260,9 +261,10 @@ export const defaultAIChatTransport = {
     }
 
     const allCitations = collectCitationsFromToolMessages(toolMessages)
-    const citations = serverCitations && serverCitations.length
+    const baseCitations = serverCitations && serverCitations.length
       ? selectByServerCitations(allCitations, serverCitations)
-      : filterCitationsByMarkers(allCitations, answer)
+      : allCitations
+    const citations = selectDisplayCitations(baseCitations, answer)
     const scene = payload.scene || 'qa'
     return {
       query_id: runId || `agent-${Date.now().toString(36)}`,
@@ -376,6 +378,26 @@ function collectCitationsFromToolMessages(
     seen.add(key)
     return true
   })
+}
+
+/**
+ * 选出「本次回答的引用」，两个分支都不靠模型的概率行为兜底：
+ *
+ * 1. 正文写了 `[K1]` → 只认被点名的（精确到句，行内角标只用这批）；
+ * 2. 正文一个标记都没写 → 只认**正文真的提到的文档**（规范编号/文件名匹配）。
+ *
+ * 第 2 条为何不能直接给全量候选：2026-10-30 验收实拍——「回答时不要写引用标记」
+ * 这句指令被模型当成检索词，本轮命中的是内河电子航道图/船厂设计等无关文档，
+ * 答案其实是复述上一轮内容；把候选集当参考依据展示，等于给用户一个错的出处。
+ * 匹配不上就返回空：宁可不显示，不能给错的。
+ */
+export function selectDisplayCitations(
+  citations: AIChatCitation[],
+  answer: string
+): AIChatCitation[] {
+  const marked = filterCitationsByMarkers(citations, answer)
+  if (marked.length) return marked
+  return (citations || []).filter(citation => citationMentionedInText(citation, answer))
 }
 
 /**
