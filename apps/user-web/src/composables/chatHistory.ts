@@ -215,8 +215,10 @@ export async function fetchSessionMessages(sessionId: string): Promise<Array<Rec
     })
 }
 
-/** 展示字段快照补丁：只写带服务端 msgSeq 的消息、只补展示字段（D8/D10） */
-export async function saveSession(storage: StorageLike, libraryId: string, record: ChatSessionRecord): Promise<void> {
+/** 展示字段快照补丁：只写带服务端 msgSeq 的消息、只补展示字段（D8/D10）。
+ *  返回 false = 服务端明确拒绝（404 会话不属于当前身份 / 400 消息序号失效），
+ *  调用方应做会话自愈（补录或轮换）；其余失败视为网络抖动，返回 true 不自愈。 */
+export async function saveSession(storage: StorageLike, libraryId: string, record: ChatSessionRecord): Promise<boolean> {
   saveSessionLocal(storage, libraryId, record)
   const patches = (record.messages as Array<Record<string, any>>)
     .filter(m => m && typeof m.msgSeq === 'number')
@@ -229,12 +231,41 @@ export async function saveSession(storage: StorageLike, libraryId: string, recor
       return Object.keys(metaPatch).length ? { msg_seq: m.msgSeq, meta_patch: metaPatch } : null
     })
     .filter((p): p is { msg_seq: number; meta_patch: Record<string, unknown> } => p !== null)
-  if (!patches.length) return
+  if (!patches.length) return true
   try {
     await (await api()).put(`/chat/sessions/${encodeURIComponent(record.id)}/messages`, { patches })
+    return true
   } catch (error) {
+    const status = (error as { response?: { status?: number } })?.response?.status
+    if (status === 400 || status === 404) return false
     // 快照补丁失败不阻断会话（服务端 role/content 已权威落库，展示字段下次会话内变更再补）
     console.warn('[chatHistory] 展示字段快照补丁失败:', error)
+    return true
+  }
+}
+
+/** 会话自愈（2026-10-31）：把「服务端查无」的会话按当前身份幂等补录，保住上下文与历史。
+ *  场景：游客期创建的会话，登录后 owner 对不上（详情 GET 404 / 快照 PUT 400）。
+ *  消息全集取自本地缓存；本地也无缓存时调用方应轮换新会话 id。 */
+export async function importSessionSnapshot(
+  libraryId: string | undefined,
+  record: ChatSessionRecord
+): Promise<boolean> {
+  try {
+    const resp = await (await api()).post<{ imported?: number; already_exists?: boolean }>(
+      '/chat/sessions/import',
+      {
+        session_id: record.id,
+        scene: record.scene || 'qa',
+        library_id: record.libraryIds?.[0] || libraryId || 'default',
+        messages: (record.messages as Array<{ role?: string }>).filter(
+          m => m && (m.role === 'user' || m.role === 'assistant')
+        ),
+      }
+    )
+    return resp?.already_exists === true || (resp?.imported ?? 0) >= 0
+  } catch {
+    return false
   }
 }
 

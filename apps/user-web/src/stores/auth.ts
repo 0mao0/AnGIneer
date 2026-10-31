@@ -94,18 +94,18 @@ export const useAuthStore = defineStore('auth', {
       const scope = resp.user.accessible_libraries ?? resp.user.libraries ?? []
       this.activeLibraryIds = scope.length ? [...scope] : []
       this.activeLibraryId = this.activeLibraryIds[0] || resp.user.default_library || ''
-      // 登录即并入游客档（计划 §4「登录后并入」）：老账号 +1 条会话，失败不阻断登录
-      if (this.guestMode) {
-        this.guestMode = false
-        fetch('/api/chat/sessions/claim', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${getSessionToken()}`,
-          },
-          body: '{}',
-        }).catch(() => {})
-      }
+      // 登录即并入游客档（计划 §4「登录后并入」）：老账号 +1 条会话，失败不阻断登录。
+      // 每次登录都补一枪（2026-10-31）：claim 幂等，且 guestMode 标志可能已随刷新丢失
+      // ——只认标志会漏并游客会话，孤儿会话在登录态下永远 404/400。
+      this.guestMode = false
+      fetch('/api/chat/sessions/claim', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${getSessionToken()}`,
+        },
+        body: '{}',
+      }).catch(() => {})
     },
     async refreshMe() {
       if (!this.token) return

@@ -139,6 +139,7 @@ import { communityApi } from '@/api/community'
 import {
   deriveTitle,
   fetchSessionMessages,
+  importSessionSnapshot,
   listSessions,
   loadActiveSessionId,
   loadSessionRecordLocal,
@@ -345,6 +346,18 @@ const suggestedQuestionRows = [
 ]
 
 /** 刷新后回填活跃会话历史：①本地缓存先同步渲染（消除 hero 闪烁）②服务端真相覆盖（失败保留本地） */
+/** 会话自愈轮换：当前会话服务端彻底不可用（补录也失败/本地无缓存）时换新 id。
+ *  每个 id 只轮换一次，防止服务端异常时反复重建；本地缓存保留（切回原身份仍可看）。 */
+const healedSessionIds = new Set<string>()
+const rotateSessionId = (reason: string) => {
+  const old = sessionId.value
+  if (!old || healedSessionIds.has(old)) return
+  healedSessionIds.add(old)
+  console.warn(`[ChatHome] 会话 ${old} 服务端不可用（${reason}），轮换新会话`)
+  sessionId.value = genSessionId()
+  saveActiveSessionId(localStorage, libraryId.value, sessionId.value)
+}
+
 const restoreActiveSessionIntoView = async () => {
   const sid = sessionId.value
   if (!sid) {
@@ -363,8 +376,25 @@ const restoreActiveSessionIntoView = async () => {
       aiChatRef.value?.loadSession(messages)
       hasConversation.value = true
     }
-  } catch {
-    // 服务端拉取失败：保留本地缓存渲染；都失败则落回空态
+  } catch (error) {
+    const status = (error as { response?: { status?: number } })?.response?.status
+    if (status === 404) {
+      // 会话不属于当前身份（游客期创建、登录后 owner 对不上 / 游客 cookie 已换）：
+      // 本地有缓存先按当前身份补录（幂等）再重拉；本地也没有则轮换新会话。
+      // 本地缓存不删——切回原身份时消息还在。
+      if (cached?.messages?.length && await importSessionSnapshot(libraryId.value, cached)) {
+        try {
+          const messages = (await fetchSessionMessages(sid)) as AIChatMessage[]
+          if (messages?.length) {
+            aiChatRef.value?.loadSession(messages)
+            hasConversation.value = true
+          }
+        } catch { /* 补录后仍失败：保留本地缓存渲染 */ }
+      } else if (!cached?.messages?.length) {
+        rotateSessionId('服务端查无此会话')
+      }
+    }
+    // 其余失败：保留本地缓存渲染；都失败则落回空态
   } finally {
     restoringActive.value = false
   }
@@ -408,7 +438,7 @@ void refreshSessions()
 const onMessagesChange = (messages: AIChatMessage[]) => {
   if (!messages.length) return // 新会话/清空不落空记录
   hasConversation.value = true
-  void saveSession(localStorage, libraryId.value, {
+  const record: ChatSessionRecord = {
     id: sessionId.value,
     scene: 'docs',
     title: deriveTitle(messages),
@@ -416,6 +446,15 @@ const onMessagesChange = (messages: AIChatMessage[]) => {
     messages: messages.filter(m => m.role !== 'system'),
     // 多库会话不属于任何单一库（阶段三）：记录集合供存量导入回填主库
     libraryIds: authStore.activeLibraryIds.length ? [...authStore.activeLibraryIds] : undefined,
+  }
+  void saveSession(localStorage, libraryId.value, record).then(async (ok) => {
+    if (ok) return
+    // 会话不属于当前身份（游客期创建）：按当前身份幂等补录后再补一次快照，不换 id（保住上下文）
+    if (await importSessionSnapshot(libraryId.value, record)) {
+      await saveSession(localStorage, libraryId.value, record)
+    } else {
+      rotateSessionId('服务端拒绝快照写入且补录失败')
+    }
   })
   void refreshSessions()
 }
