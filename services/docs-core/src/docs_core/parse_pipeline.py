@@ -877,6 +877,21 @@ def _is_transient_popo_failure(exc: Exception) -> bool:
     return False
 
 
+def _prewarm_pdf_web_copy_async(ctx: StageContext) -> None:
+    """vectors 收尾后台预热 PDF 预览副本（docs_core.preview_pdf）：解析完成即建好，
+    用户首次打开直接命中副本、不用先吃一遍原件的散页字典。失败只 debug——预热绝不影响解析结果。
+    """
+    def _prewarm() -> None:
+        try:
+            from docs_core.preview_pdf import prewarm_for_document
+
+            prewarm_for_document(ctx.library_id, ctx.doc_id, ctx.file_path)
+        except Exception:
+            logger.debug("PDF 预览副本预热失败 doc=%s", ctx.doc_id, exc_info=True)
+
+    threading.Thread(target=_prewarm, name="pdf-web-prewarm", daemon=True).start()
+
+
 def _run_vectors(ctx: StageContext) -> str:
     from docs_core.docs_service import get_docs_service
     from docs_core.step06_vectors.embedding_provider import default_embedding_provider
@@ -899,6 +914,8 @@ def _run_vectors(ctx: StageContext) -> str:
     import docs_core.paths as paths
     ctx.input_summary = str(paths.get_graph_jsonl_path(ctx.library_id, ctx.doc_id))
     ctx.output_summary = "vector store (entity_id + embedding)"
+
+    _prewarm_pdf_web_copy_async(ctx)
 
     flags = getattr(default_embedding_provider, "runtime_flags", [])
     if "embedding_hash_fallback" in flags:

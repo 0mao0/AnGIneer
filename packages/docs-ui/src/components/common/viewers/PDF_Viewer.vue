@@ -2097,11 +2097,49 @@ const getPageHighlights = (page: number) => {
   return highlightsByPage.value.get(page) || []
 }
 
+// --- PDF 预览副本（web=1）URL 解析 ---
+// 「URL 定文件」契约的前端半边：每次加载前探测一次副本是否就绪，就绪才把本次加载的
+// URL 换成 &web=1（服务端届时恒给副本，未就绪回退原件）。同一次加载 URL 不变 → 字节
+// 必然同源，服务端不再需要时间窗锁定。探测命中会话级缓存；未命中不缓存——副本后台
+// 建好后，下一次打开自动升级走副本。
+const pdfWebCopyReadySources = new Set<string>()
+const pdfWebProbeInflight = new Map<string, Promise<void>>()
+
+function withFlagParam(url: string, param: string): string {
+  if (url.includes(`${param}=1`)) return url
+  return `${url}${url.includes('?') ? '&' : '?'}${param}=1`
+}
+
+async function resolvePdfWebSource(source: string): Promise<string> {
+  // 只对 /api/files 形态的预览 URL 生效；下载链接（raw=1）与外部 URL 原样返回
+  if (!source || !source.includes('/api/files?') || source.includes('raw=1')) return source
+  if (pdfWebCopyReadySources.has(source)) return withFlagParam(source, 'web')
+  try {
+    let inflight = pdfWebProbeInflight.get(source)
+    if (!inflight) {
+      inflight = (async () => {
+        const response = await fetch(withFlagParam(source, 'probe'))
+        if (response.ok) {
+          const data = await response.json().catch(() => null) as { copy_ready?: boolean } | null
+          if (data?.copy_ready) pdfWebCopyReadySources.add(source)
+        }
+      })()
+      pdfWebProbeInflight.set(source, inflight)
+    }
+    await inflight
+  } catch {
+    // 探测失败按「无副本」处理：走原件，行为与旧版一致
+  }
+  return pdfWebCopyReadySources.has(source) ? withFlagParam(source, 'web') : source
+}
+
 // --- Watchers ---
 // 记录最后一次由本组件滚动上报的页号，用于识别 currentPdfPage 的“回声”并跳过吸附
 let lastReportedPdfPage = 0
 
+let pdfSourceSeq = 0
 watch([normalizedPdfSource, () => props.isPdf], async ([source, isPdf]) => {
+  const seq = ++pdfSourceSeq
   if (!isPdf || !source) return
   measurement.clearAllPageData()
   zoom.intrinsicPdfPageWidth.value = null
@@ -2119,7 +2157,11 @@ watch([normalizedPdfSource, () => props.isPdf], async ([source, isPdf]) => {
   await nextTick()
   if (pdfScrollRef.value) pdfScrollRef.value.scrollTop = 0
   scroll.scheduleRenderedPageRangeUpdate()
-  await doc.loadPdfDocument(source)
+  // 加载前解析副本 URL：探测是异步的，期间 source 可能又变（快速切文档），
+  // seq 不一致就放弃本次结果，避免旧文档的慢探测覆盖新文档的加载
+  const resolvedSource = await resolvePdfWebSource(source)
+  if (seq !== pdfSourceSeq) return
+  await doc.loadPdfDocument(resolvedSource)
 }, { immediate: true })
 
 watch([() => scroll.renderedPageRange.start, () => scroll.renderedPageRange.end, zoom.pdfScale, () => props.isPdf], async () => {

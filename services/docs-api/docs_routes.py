@@ -35,6 +35,7 @@ from docs_core.step04_structure.solo2json_pipeline import (
 )
 from docs_core.step05_sqlite_fts.sqlite_index import build_sqlite_index_from_graph
 from docs_core.docs_file_io import file_storage
+from docs_core.preview_pdf import get_or_build_web_pdf, pdf_web_optimize_enabled
 from docs_core.knowledge_stats import compute_knowledge_stats
 from docs_core.paths import resolve_node_file_path, resolve_repo_root, to_data_relative
 from models.parse_record import DB_PATH as RECORDS_DB_PATH
@@ -1438,175 +1439,21 @@ async def get_doc_blocks_graph_summary(request: DocBlocksGraphSummaryRequest) ->
 
 # --- 文件预览路由 ---
 
-# PDF 预览加速：页字典散落的老排版 PDF，pdf.js 加载时取末页会逐页跨文件取字典，
-# 每个字典触发一个新分块，13MB 的文件要整份下完才出首屏（JTS 165-2013 实测）。
-# 重排成对象流后页字典聚拢，同一文件首屏只需 1.2MB。
-_PDF_WEB_MIN_BYTES = 1024 * 1024
-_pdf_web_locks_guard = threading.Lock()
-_pdf_web_building: set = set()  # 正在后台构建的 cache_path，防同一文件重复起线程
-
-# 「本次预览用原件还是副本」的进程内锁定（2026-10-30 实拍修复）。
-# 副本是 PyMuPDF 重写产物，字节布局与原件不同（实测 24,690,787 vs 24,483,749，
-# 首块/末块字节全不一致）。若在用户加载途中构建完成，后端下一次请求就会从原件切到
-# 副本，pdf.js 同一次加载里前半读原件、后半读副本 → 拼出的文件结构错乱，
-# 表现为「停在第 1 块 0.5MB 不动、不报错也不降级」。锁定后同一文档在窗口期内
-# 只会给出同一个文件；窗口过期后的新会话才可能切到副本（那时从头读，安全）。
-_pdf_served_guard = threading.Lock()
-_pdf_served_pins: Dict[str, tuple] = {}
-
-
-def _pdf_served_pin_seconds() -> float:
-    try:
-        return float(os.getenv("PDF_SERVED_PIN_SECONDS", "600"))
-    except ValueError:
-        return 600.0
-
-
-def _pin_served_path(source_path: str, allow_optimize: bool) -> str:
-    """返回本次预览要服务的文件，并在窗口期内固定住这个选择。
-
-    allow_optimize=False（非 PDF 或 raw=1 下载）直接回原件，不参与锁定。
-    """
-    if not allow_optimize:
-        return source_path
-    now = time.monotonic()
-    ttl = _pdf_served_pin_seconds()
-    with _pdf_served_guard:
-        pinned = _pdf_served_pins.get(source_path)
-        if pinned and now - pinned[1] < ttl:
-            return pinned[0]
-
-    served = source_path
-    optimized = _get_or_build_web_pdf(source_path)
-    if optimized:
-        served = optimized
-
-    with _pdf_served_guard:
-        _pdf_served_pins[source_path] = (served, now)
-        if len(_pdf_served_pins) > 512:
-            for key, (_path, ts) in list(_pdf_served_pins.items()):
-                if now - ts >= ttl:
-                    _pdf_served_pins.pop(key, None)
-    return served
-
-
-def _pdf_web_optimize_enabled() -> bool:
-    return os.getenv("PDF_WEB_OPTIMIZE", "1").strip().lower() not in {"0", "false", "no", "off"}
-
-
-def _pdf_web_cache_dir() -> Path:
-    from docs_core.paths import resolve_knowledge_base_dir
-
-    return resolve_knowledge_base_dir().parent / "cache" / "pdf_web"
-
-
-def _pdf_web_cache_path(source_path: str) -> Optional[str]:
-    """缓存键含 mtime+size：文档重新解析后自动失效，无需手工清理。"""
-    try:
-        stat = os.stat(source_path)
-    except OSError:
-        return None
-    key = hashlib.sha1(
-        f"{source_path}|{stat.st_mtime_ns}|{stat.st_size}".encode("utf-8")
-    ).hexdigest()
-    return str(_pdf_web_cache_dir() / f"{key}.pdf")
-
-
-def _prune_pdf_web_cache(cache_dir: Path) -> None:
-    """纯缓存：超上限按最久未访问删除，删掉只是下次重新生成。"""
-    try:
-        limit = int(os.getenv("PDF_WEB_CACHE_MAX_MB", "2048")) * 1024 * 1024
-    except ValueError:
-        limit = 2048 * 1024 * 1024
-    try:
-        entries = [(item.stat().st_mtime, item.stat().st_size, item) for item in cache_dir.glob("*.pdf")]
-    except OSError:
-        return
-    total = sum(size for _, size, _ in entries)
-    if total <= limit:
-        return
-    for _, size, item in sorted(entries):
-        try:
-            item.unlink()
-            total -= size
-        except OSError:
-            continue
-        if total <= limit:
-            break
-
-
-def _build_web_pdf(source_path: str, cache_path: str) -> bool:
-    """生成重排成对象流的预览副本；校验页数一致才落缓存（os.replace 原子替换）。"""
-    tmp_path: Optional[str] = None
-    try:
-        import fitz  # PyMuPDF
-
-        os.makedirs(os.path.dirname(cache_path), exist_ok=True)
-        tmp_path = f"{cache_path}.{os.getpid()}.{threading.get_ident()}.tmp.pdf"
-        with fitz.open(source_path) as source_doc:
-            page_count = source_doc.page_count
-            source_doc.save(tmp_path, garbage=4, deflate=True, use_objstms=1)
-        with fitz.open(tmp_path) as check_doc:
-            if check_doc.page_count != page_count:
-                raise ValueError(f"页数不一致: {check_doc.page_count} != {page_count}")
-        os.replace(tmp_path, cache_path)
-        tmp_path = None
-        _prune_pdf_web_cache(Path(os.path.dirname(cache_path)))
-        logger.info("[Preview] 已生成 PDF 预览副本: %s", os.path.basename(source_path))
-        return True
-    except Exception as error:  # 优化失败绝不影响预览本身
-        logger.warning("[Preview] PDF 预览副本生成失败，回退原文件: %s (%s)", source_path, error)
-        if tmp_path:
-            try:
-                os.unlink(tmp_path)
-            except OSError:
-                pass
-        return False
-
-
-def _get_or_build_web_pdf(source_path: str) -> Optional[str]:
-    """返回重排成对象流的预览副本路径；不满足条件或副本未就绪一律返回 None（回退原文件）。
-
-    只用于在线预览（下载走 raw=1 拿原件）。
-    缓存未命中时**不再同步等待转码**：大 PDF（几百页 / 几十 MB）重写对象流要几十秒到分钟级，
-    同步构建会让首开用户在收到第一字节前就等满这段时间（459 页实踩 >30s）。
-    现改为后台线程构建、本次直接回原件——原件同样支持 Range 按需加载，只是首屏稍慢；
-    同一文档下一次打开自动命中副本。
-    """
-    if not _pdf_web_optimize_enabled():
-        return None
-    try:
-        if os.path.getsize(source_path) < _PDF_WEB_MIN_BYTES:
-            return None
-    except OSError:
-        return None
-
-    cache_path = _pdf_web_cache_path(source_path)
-    if not cache_path:
-        return None
-    if os.path.isfile(cache_path):
-        return cache_path
-
-    with _pdf_web_locks_guard:
-        if cache_path in _pdf_web_building:
-            return None
-        _pdf_web_building.add(cache_path)
-
-    def _background_build() -> None:
-        try:
-            _build_web_pdf(source_path, cache_path)
-        finally:
-            with _pdf_web_locks_guard:
-                _pdf_web_building.discard(cache_path)
-
-    threading.Thread(target=_background_build, name="pdf-web-cache-build", daemon=True).start()
-    return None
+# PDF 预览加速：构建器在 docs_core.preview_pdf（与解析管线 vectors 收尾预热共用）。
+# 2026-10-31 起原件/副本选择改「URL 定文件」：web=1 → 副本（未就绪回退原件并后台构建），
+# 无 web → 恒原件。此前按时间窗锁定（PDF_SERVED_PIN_SECONDS=600s）的方案退役——
+# 它防住了加载中途换文件（pdf.js 不发 If-Range，两份文件字节被拼乱 → 卡死在第 1 块），
+# 但副作用是锁定期内第二次打开也拿不到副本（实踩：81.8MB 二开仍走原件照样慢）。
+# 现在前端每次加载前先 probe=1 探测，副本就绪才切 web=1 URL——同一次加载 URL 不变，
+# 服务端给的字节必然同源，拼乱类 bug 从机制上不可能再发生。
 
 
 @preview_router.get("/files")
-def get_file_for_preview(path: str, raw: int = 0):
-    """按路径预览文件。raw=1 返回原件（下载用），否则 PDF 走预览副本。
+def get_file_for_preview(path: str, raw: int = 0, probe: int = 0, web: int = 0):
+    """按路径预览文件。raw=1 下载原件；probe=1 探测副本状态；web=1 走预览副本。
 
+    「URL 定文件」契约：同一 URL 的字节口径恒定——web=1 未就绪时回退原件**并后台构建**，
+    就绪后的新加载由前端换 URL（probe → web=1）完成切换，绝不中途换文件。
     Stage A：nodes.file_path 现为相对 data 根路径，前端原样回传，须先按 data 根展开
     （相对值交给 os.path.abspath 会按进程 cwd 解析→容器里指向 /app 而非 data 卷）。
     """
@@ -1633,12 +1480,22 @@ def get_file_for_preview(path: str, raw: int = 0):
     if not mime_type:
         mime_type = "application/octet-stream"
 
-    # 选择原件/副本并在窗口期内锁定：构建在加载途中完成时不得中途切换文件
-    # （否则 pdf.js 拼出前后不一致的字节，卡死在第 1 块）
-    served_path = _pin_served_path(
-        normalized_path,
-        allow_optimize=(mime_type == "application/pdf" and not raw),
-    )
+    is_preview_pdf = mime_type == "application/pdf" and not raw and pdf_web_optimize_enabled()
+
+    if probe:
+        # 探测不回文件体：顺手触发后台构建（未就绪时），前端按 copy_ready 决定本次加载用哪个 URL
+        copy_ready = bool(is_preview_pdf and get_or_build_web_pdf(normalized_path))
+        return JSONResponse({"copy_ready": copy_ready})
+
+    if mime_type == "application/pdf" and not raw and not web:
+        # 无 web 的普通预览恒原件；顺手补一次构建触发（直链打开/旧前端也能攒出副本）
+        get_or_build_web_pdf(normalized_path)
+
+    served_path = normalized_path
+    if is_preview_pdf and web:
+        optimized = get_or_build_web_pdf(normalized_path)
+        if optimized:
+            served_path = optimized
 
     base_headers = {
         "Accept-Ranges": "bytes",
