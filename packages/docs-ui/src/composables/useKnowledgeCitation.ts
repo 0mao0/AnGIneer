@@ -135,7 +135,9 @@ export function useKnowledgeCitation() {
       ) {
         score += 5000
       }
-      const nodePage = Number(node?.page_idx ?? -1) + 1
+      // 页码口径：node.page_idx 与 citation 的 page_idx 同为 0-based，直接对齐比较
+      // （此前 node +1 后再比，永远错位一页，页码加分常落在目标前一页的块上）
+      const nodePage = Number(node?.page_idx ?? -1)
       const citationPage = getCitationPage(citation)
       if (citationPage > 0) {
         if (nodePage === citationPage) {
@@ -190,7 +192,8 @@ export function useKnowledgeCitation() {
     const resolvedTargetId = String(resolvedNode?.id || normalizeCitationTargetId(targetId)).trim()
     const resolvedPreferredPage = resolvedNode && Number(resolvedNode?.page_idx ?? -1) >= 0
       ? Number(resolvedNode.page_idx) + 1
-      : (getCitationPage(citation) > 0 ? getCitationPage(citation) : null)
+      // 兜底同样换算 1-based：page_idx 是 0-based，直接透传会跳到目标前一页
+      : (getCitationPage(citation) > 0 ? getCitationPage(citation) + 1 : null)
     await nextTick()
     workspaceRef?.setActiveLinkedItem?.(resolvedTargetId, {
       preferredPage: resolvedPreferredPage,

@@ -101,10 +101,15 @@ const onSidePanelOpenChange = (value: boolean) => {
 }
 
 const pendingFocusCitation = ref<{ docId: string; citation: KnowledgeChatCitation } | null>(null)
+/** 最近一次引用的目标页（page_idx，0-based）：locate 切片窗口的真相源。
+ *  聊天路径走 focusCitation(citation) 直接调用，props.pageIdx 从不传入——
+ *  此前窗口永远取 0±2 页，目标块不在场，兜底错高亮封面标题（2026-10-31 实踩）。 */
+const citationLocatePage = ref(0)
 
 /** 直接联动入口：App 层点参考依据后直接调用，复用知识库工作区的定位逻辑 */
 const focusCitation = (citation: KnowledgeChatCitation) => {
   const docId = String(citation.reference?.docId || citation.doc_id || currentDocId.value || '').trim()
+  citationLocatePage.value = Number(citation.reference?.pageIdx ?? citation.page_idx ?? 0) || 0
   pendingFocusCitation.value = { docId, citation }
   void flushPendingCitation()
 }
@@ -210,6 +215,7 @@ const loadDocument = async () => {
   graphDataFullLoaded.value = false
   graphSource.value = 'none'
   graphDataLoading.value = false
+  citationLocatePage.value = 0
   loadError.value = ''
   try {
     const light = await knowledgeApi.getDocument(libraryId, docId, { includeContent: false }) as DocumentPayload
@@ -254,8 +260,8 @@ const loadGraphData = async (reason: 'locate' | 'tab' = 'tab') => {
   try {
     const libraryId = props.libraryId || authStore.libraryId || 'default'
     if (reason === 'locate') {
-      // 目标页：citation 的 page_idx（0-based），文档还没给出时退回第 1 页
-      const page = Math.max(0, Number(props.pageIdx || 0))
+      // 目标页：最近引用的 page_idx（0-based）优先，props.pageIdx 仅深链兜底，文档还没给出时退回第 1 页
+      const page = Math.max(0, Number(citationLocatePage.value || props.pageIdx || 0))
       const result = await knowledgeApi.getDocBlocksGraphPages(libraryId, docId, Math.max(0, page - 2), page + 2) as any
       const payload = result?.data || result || null
       if (currentDocId.value !== docId) return
