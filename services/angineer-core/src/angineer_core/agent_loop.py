@@ -1725,6 +1725,10 @@ def run_agent_loop(
                 machine.final_outcome = "model_refusal_kept"
         elif guard_code == "markers_cleaned":
             machine.path_trace.append("markers_cleaned")
+        elif guard_code == "answer_aggregate":
+            # S2 聚合臂（plan-ls-routing §5 P0）：整答由「模型归类+代码计数」渲染器产出，
+            # 只记路径不改 final_outcome（与 answer_structured 同判：形态替换类）
+            machine.path_trace.append("answer_aggregate")
         elif guard_code == "answer_envelope_unwrapped":
             # 拆封是形态改写（内文照常走证据/拒答校验），只记路径不动 final_outcome
             machine.path_trace.append("answer_envelope_unwrapped")

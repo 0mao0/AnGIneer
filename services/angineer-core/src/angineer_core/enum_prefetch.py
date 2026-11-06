@@ -14,6 +14,8 @@
 """
 from __future__ import annotations
 
+import hashlib
+import json
 import logging
 import os
 import re
@@ -349,6 +351,48 @@ def _read_excerpts(library_id: str, cards: Dict[str, Dict[str, Any]], question: 
     return out
 
 
+def _context_dump_key(query: str) -> str:
+    """落盘文件键：题面空白归一后 sha1 前 12 位（dump 与 load 必须同一实现）。"""
+    return hashlib.sha1(" ".join(str(query or "").split()).encode("utf-8")).hexdigest()[:12]
+
+
+def _dump_enum_context(query: str, library_id: str, text: Optional[str]) -> None:
+    """S2 实验通道：把本次预读注入原样落盘，供复用臂逐字节重放（best-effort）。"""
+    dump_dir = os.getenv("ANGINEER_ENUM_CONTEXT_DUMP_DIR", "").strip()
+    if not dump_dir or not text:
+        return
+    try:
+        os.makedirs(dump_dir, exist_ok=True)
+        payload = {"query": str(query), "library_id": str(library_id), "context": str(text)}
+        path = os.path.join(dump_dir, f"enum_context_{_context_dump_key(query)}.json")
+        with open(path, "w", encoding="utf-8") as fh:
+            json.dump(payload, fh, ensure_ascii=False)
+        logger.info("enum_prefetch 上下文落盘: %s", path)
+    except Exception as exc:  # noqa: BLE001 —— 落盘失败不得阻断问答
+        logger.warning("enum_prefetch 上下文落盘失败: %s", exc)
+
+
+def _load_dumped_context(query: str) -> Optional[str]:
+    """S2 实验通道：命中落盘文件即逐字节复用（同候选同证据硬保证）；未命中走原链路。"""
+    dump_dir = os.getenv("ANGINEER_ENUM_CONTEXT_DIR", "").strip()
+    if not dump_dir:
+        return None
+    path = os.path.join(dump_dir, f"enum_context_{_context_dump_key(query)}.json")
+    try:
+        with open(path, "r", encoding="utf-8") as fh:
+            data = json.load(fh)
+    except FileNotFoundError:
+        return None
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("enum_prefetch 落盘上下文读取失败: %s", exc)
+        return None
+    text = str((data or {}).get("context") or "")
+    if text:
+        logger.info("enum_prefetch 复用落盘上下文: %s (chars=%d)", path, len(text))
+        return text
+    return None
+
+
 def format_preread_context(excerpts: Dict[str, Any]) -> str:
     lines = [
         "## Pre-read evidence (system, deterministic)",
@@ -406,12 +450,29 @@ def build_enum_context(
     """开关 + 库白名单 + 枚举判定都通过时返回注入文本，否则 None。"""
     if not enabled() or not library_allowed(library_id):
         return None
-    if not is_enumeration(query):
+    # S2 实验通道（plan-ls-routing §5.1 同候选同证据）：显式复用落盘上下文——
+    # 命中即逐字节返回同一份预读注入，跳过改写+检索的采样不确定性；
+    # 未命中按原链路走。文件来自 ANGINEER_ENUM_CONTEXT_DUMP_DIR 的落盘。
+    reused = _load_dumped_context(query)
+    if reused:
+        return reused
+    # 上下文门 = 枚举或聚合（plan-ls-routing §5.1 P0）：聚合题（how many/often、
+    # share、breakdown）也要建预读候选全集，否则 S1/S2 两臂候选暴露不对等、配对破功
+    # （016 题面无枚举词、只有聚合词，实证踩过）。聚合判定失败一律回退原门。
+    try:
+        from angineer_core.aggregate_answer import is_aggregation
+
+        aggregation_query = is_aggregation(query)
+    except Exception:  # noqa: BLE001
+        aggregation_query = False
+    if not is_enumeration(query) and not aggregation_query:
         return None
     if preread_enabled():
-        return build_preread_context(
+        text = build_preread_context(
             library_id=library_id, query=query, llm=llm, config_name=config_name, mode=mode
         )
+        _dump_enum_context(query, library_id, text)
+        return text
     prefetch_mode = os.getenv("ANGINEER_ENUM_PREFETCH_MODE", "cards").strip().lower()
     if prefetch_mode == "catalog":
         try:
