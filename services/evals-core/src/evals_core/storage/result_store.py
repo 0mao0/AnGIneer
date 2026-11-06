@@ -196,6 +196,12 @@ def init_db() -> None:
         conn.execute("ALTER TABLE eval_run_detail ADD COLUMN quality TEXT")
     except Exception:
         pass
+    # 候选集合对账结果（plan-ls-routing §5 主线①）：逐题 JSON，算法定义见
+    # evals_core.runner.recall_audit；历史行缺列由 ALTER 兜底补齐
+    try:
+        conn.execute("ALTER TABLE eval_run_detail ADD COLUMN recall_audit TEXT")
+    except Exception:
+        pass
     try:
         conn.execute("ALTER TABLE eval_run ADD COLUMN run_name TEXT NOT NULL DEFAULT ''")
     except Exception:
@@ -914,8 +920,8 @@ def insert_run_detail(data: Dict[str, Any]) -> Dict[str, Any]:
     """插入一条运行详情记录。"""
     conn = _get_conn()
     conn.execute(
-        """INSERT INTO eval_run_detail (run_id, question_id, status, quality, prediction, scores, all_scores, all_predictions, error, latency_ms)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+        """INSERT INTO eval_run_detail (run_id, question_id, status, quality, prediction, scores, all_scores, all_predictions, error, latency_ms, recall_audit)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
         (
             data["run_id"],
             data["question_id"],
@@ -927,6 +933,7 @@ def insert_run_detail(data: Dict[str, Any]) -> Dict[str, Any]:
             json.dumps(data["all_predictions"], ensure_ascii=False) if data.get("all_predictions") else None,
             data.get("error"),
             data.get("latency_ms"),
+            json.dumps(data["recall_audit"], ensure_ascii=False) if data.get("recall_audit") else None,
         ),
     )
     conn.commit()
@@ -937,10 +944,10 @@ def update_run_detail(run_id: str, question_id: str, updates: Dict[str, Any]) ->
     """更新运行详情记录。"""
     set_clauses = []
     values = []
-    for key in ("status", "quality", "prediction", "scores", "all_scores", "all_predictions", "error", "latency_ms"):
+    for key in ("status", "quality", "prediction", "scores", "all_scores", "all_predictions", "error", "latency_ms", "recall_audit"):
         if key in updates:
             set_clauses.append(f"{key} = ?")
-            if key in ("prediction", "scores", "all_scores", "all_predictions") and updates[key] is not None:
+            if key in ("prediction", "scores", "all_scores", "all_predictions", "recall_audit") and updates[key] is not None:
                 values.append(json.dumps(updates[key], ensure_ascii=False))
             else:
                 values.append(updates[key])

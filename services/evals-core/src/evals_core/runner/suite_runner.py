@@ -20,6 +20,8 @@ from evals_core.runner import intent_eval  # noqa: F401
 from evals_core.runner import rubric_eval  # noqa: F401
 # 注册副作用导入：numeric 评测器（题目带 numeric 金标块时接管，RAG 生成 + 官方确定性数值判分，无判官）
 from evals_core.runner import numeric_eval  # noqa: F401
+# 候选集合对账（plan-ls-routing §5 主线①）：逐题召回缺口如实报告
+from evals_core.runner.recall_audit import compute_audit, summarize_audits
 from angineer_core.base_utils import is_fatal_exception
 from evals_core.storage import result_store, retention
 
@@ -315,6 +317,9 @@ def _run_single_question(
         all_predictions[ev_name] = prediction
     status, quality = _decide_quality(primary_evaluator_name, all_scores)
     latency_ms = int((time.time() - start_time) * 1000)
+    # S 层施工主线①：候选集合对账（召回缺口如实报告）。纯离线、异常自兜底
+    # （audit_error 只标注不抛出），对账故障绝不影响评测 run 本身。
+    recall_audit = compute_audit(last_prediction, question)
     return {
         "status": status,
         "quality": quality,
@@ -323,6 +328,7 @@ def _run_single_question(
         "scores": all_scores.get(primary_evaluator_name, {}),
         "all_scores": all_scores,
         "latency_ms": latency_ms,
+        "recall_audit": recall_audit,
     }
 
 
@@ -369,6 +375,8 @@ def _compute_summary(details: List[Dict[str, Any]]) -> Dict[str, Any]:
         fo = _scores_of(d).get("final_outcome")
         if fo:
             final_outcome_counts[str(fo)] = final_outcome_counts.get(str(fo), 0) + 1
+    # S 层施工主线①：候选对账 run 级聚合（召回缺口如实可见；口径见 recall_audit.summarize_audits）
+    recall_audit_summary = summarize_audits([d.get("recall_audit") for d in details])
     overall_score = round(correct / total, 4) if total else 0.0
     retrieval_scores = []
     answer_scores = []
@@ -502,6 +510,8 @@ def _compute_summary(details: List[Dict[str, Any]]) -> Dict[str, Any]:
         "llm_error_questions": llm_error_questions,
         "refusal_via_error_questions": refusal_via_error_questions,
         "final_outcome_counts": final_outcome_counts,
+        # 候选集合对账聚合（召回缺口如实报告；旧 run 无该列时全 0/None）
+        "recall_audit": recall_audit_summary,
         "retrieval_score": retrieval_avg,
         "answer_score": answer_avg,
         "sql_score": sql_avg,
@@ -664,6 +674,7 @@ def _run_questions_concurrent(
                 "all_predictions": result.get("all_predictions"),
                 "error": result.get("error"),
                 "latency_ms": result.get("latency_ms"),
+                "recall_audit": result.get("recall_audit"),
             })
             executed += 1
             result_store.update_run_progress(run_id, pre_done_count + executed)
@@ -818,6 +829,7 @@ def _run_suite_thread(
                     "all_predictions": result.get("all_predictions"),
                     "error": result.get("error"),
                     "latency_ms": result.get("latency_ms"),
+                    "recall_audit": result.get("recall_audit"),
                 })
                 executed += 1
                 result_store.update_run_progress(run_id, pre_done_count + executed)
