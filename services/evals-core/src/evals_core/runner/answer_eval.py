@@ -516,6 +516,8 @@ class AnswerEvaluator(BaseEvaluator):
             "answer_pre_strip": data.get("answer_pre_strip"),
             # 注入实验逐题留痕（§7.7）：注入文本原样随 prediction 落库
             "answer_format": data.get("answer_format"),
+            # P0b ④机器可读答案槽：policy_query 解析的尾行 FINAL: 值上浮（无协议行为不变）
+            "final_answer": data.get("final_answer"),
         }
         result = enrich_prediction_trace(question, data, prediction)
 

@@ -92,7 +92,7 @@ def _l0_attempt(load_nodes: Callable[[], list], llm_factory: Callable, config_na
     )
 
 
-def _enum_context(query, library_id, llm, config_name, mode):
+def _enum_context(query, library_id, llm, config_name, mode, marker_allocator=None):
     """枚举题预取候选：开关/库白名单/判定任一不满足或抛错都返回 None（原链路零影响）。"""
     try:
         from angineer_core.enum_prefetch import build_enum_context
@@ -103,6 +103,8 @@ def _enum_context(query, library_id, llm, config_name, mode):
             llm=llm,
             config_name=config_name,
             mode=mode,
+            # P0b ③引用贯通：run 级 K 号分配器传入预读构建，cites 随索引行下发给 guard
+            marker_allocator=marker_allocator,
         )
     except Exception as exc:  # noqa: BLE001 —— 预取失败不得阻断问答
         import logging
@@ -130,9 +132,9 @@ def _date_context(query, library_id, llm, config_name, mode):
         return None
 
 
-def _prefetch_context(query, library_id, llm, config_name, mode):
+def _prefetch_context(query, library_id, llm, config_name, mode, marker_allocator=None):
     """两路预取只注入一路：枚举（穷举）优先，其次日期（最新/最近）。"""
-    ctx = _enum_context(query, library_id, llm, config_name, mode)
+    ctx = _enum_context(query, library_id, llm, config_name, mode, marker_allocator)
     if ctx:
         return ctx
     return _date_context(query, library_id, llm, config_name, mode)
@@ -143,7 +145,7 @@ def _l1_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode,
 
     def factory() -> AgentLoopConfig:
         llm = llm_factory()
-        enum_ctx = _prefetch_context(query, library_id, llm, config_name, mode)
+        enum_ctx = _prefetch_context(query, library_id, llm, config_name, mode, marker_allocator)
         cfg = build_qa_config(
             llm=llm,
             doc_nodes=load_nodes(),

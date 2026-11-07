@@ -22,16 +22,24 @@ import os
 import re
 from typing import Any, Callable, Dict, List, Optional, Tuple
 
-from angineer_core.structured_answer import closed_set_from_context, evidence_blocks
+from angineer_core.structured_answer import (
+    SAFE_TERMINAL_CODES,
+    _index_doc_id,
+    _row_citation,
+    closed_set_from_context,
+    evidence_blocks,
+    split_preread_index,
+)
 
 logger = logging.getLogger(__name__)
 
 _MATTER_RE = re.compile(r"\b\d{4}-\d{5}\b")
-_PREREAD_INDEX_RE = re.compile(r"PREREAD INDEX \(system\):\s*(\{.*\})\s*$")
 _SPEC_CACHE: Dict[str, Optional[Dict[str, Any]]] = {}
 
-# base guard 的安全终态码：聚合渲染不得覆盖（§4.5 安全类失败禁恢复）
-_SAFE_TERMINAL_CODES = ("no_evidence",)
+# 安全终态清单与判断、预读索引解析共享自 structured_answer（P0b ⑤/③）
+_SAFE_TERMINAL_CODES = SAFE_TERMINAL_CODES
+_split_preread_index = split_preread_index
+_index_doc_id = _index_doc_id
 
 # 二次加深（归类失败信号）：单次重归类调用的字符预算与 matter 批上限
 _DEEPEN_CHARS = 4000
@@ -288,24 +296,6 @@ def _chat(llm: Any, messages: List[Dict[str, str]], *, config_name: Optional[str
     return chat_result_guarded(llm, messages, mode=mode, config_name=config_name, temperature=0.0, max_tokens=8000)
 
 
-def _split_preread_index(context: str) -> Tuple[str, Optional[Dict[str, Any]]]:
-    """剥出预读尾部索引行（PREREAD INDEX），返回 (去索引文本, {library, doc_ids}|None)。
-
-    evidence_blocks 按 CLOSED SET 切分本就不受该行影响；剥出是为了不把它喂给模型。
-    """
-    match = _PREREAD_INDEX_RE.search(str(context or ""))
-    if not match:
-        return context, None
-    try:
-        data = json.loads(match.group(1))
-    except Exception:  # noqa: BLE001
-        return context, None
-    if not isinstance(data, dict):
-        return context, None
-    cleaned = (context[:match.start()].rstrip("\n") + "\n" + context[match.end():].lstrip("\n")).strip()
-    return cleaned, data
-
-
 def _read_docs_batch(library_id: str, doc_ids: List[str], query: str, max_chars: int) -> Dict[str, Any]:
     """读页缝隙（测试在此打桩）；懒加载 docs-core，保持包间解耦。"""
     from docs_core.step09_query.doc_search import read_documents
@@ -547,7 +537,10 @@ def compute_aggregate(spec: Dict[str, Any], result: Dict[str, Any]) -> Dict[str,
     }
 
 
-def render_answer(spec: Dict[str, Any], result: Dict[str, Any], aggregate: Dict[str, Any]) -> str:
+def render_answer(
+    spec: Dict[str, Any], result: Dict[str, Any], aggregate: Dict[str, Any],
+    cites: Optional[Dict[str, str]] = None,
+) -> str:
     dims = spec.get("dims") or []
     group_by = spec.get("group_by") or [str(d.get("name")) for d in dims]
     group_names = [str(g) for g in group_by]
@@ -583,7 +576,9 @@ def render_answer(spec: Dict[str, Any], result: Dict[str, Any], aggregate: Dict[
         row = classifications[mid]
         dim_txt = " | ".join(_display(d, v) for d, v in zip(dims, row.get("values") or []))
         tag = "（兜底归类）" if row.get("backstop") else ""
-        lines.append(f"- {row['matter_id']} | {dim_txt}{tag} — {row.get('finding') or ''}".rstrip(" —"))
+        marker = (cites or {}).get(mid) if not row.get("backstop") else None
+        marker_txt = f" [{marker}]" if marker else ""
+        lines.append(f"- {row['matter_id']} | {dim_txt}{marker_txt}{tag} — {row.get('finding') or ''}".rstrip(" —"))
         if row.get("quote"):
             lines.append(f"  > {row['quote']}")
         if row.get("reason"):
@@ -615,8 +610,28 @@ def aggregate_answer(
     config_name: Optional[str] = None,
     mode: str = "instruct",
 ) -> Optional[str]:
-    """S2 编排：一次归类 LLM 调用 → 校验/兜底 → 计数 → 渲染。失败返回 None（保留原答案）。"""
+    """兼容出口：只返回渲染文本（引用走 aggregate_answer_ex 的 citations）。"""
+    result = aggregate_answer_ex(
+        llm, question=question, context=context, spec=spec, config_name=config_name, mode=mode
+    )
+    return result[0] if result else None
+
+
+def aggregate_answer_ex(
+    llm: Any,
+    *,
+    question: str,
+    context: str,
+    spec: Dict[str, Any],
+    config_name: Optional[str] = None,
+    mode: str = "instruct",
+) -> Optional[Tuple[str, List[Dict[str, Any]]]]:
+    """S2 编排：归类 LLM 调用 → 校验/兜底/加深 → 计数 → 渲染，返回 (渲染文本, citations)。
+
+    citations 由预读索引 K 号构造（P0b ③）：渲染行内 [K] 与该列表同集（§1.3 契约）。
+    """
     context_clean, index = _split_preread_index(context)
+    cites = (index or {}).get("cites") if isinstance(index, dict) else None
     blocks = evidence_blocks(context)
     closed_set = closed_set_from_context(context)
     logger.info("aggregate_answer enter: context=%d blocks=%d closed=%d",
@@ -660,14 +675,25 @@ def aggregate_answer(
             config_name=config_name, mode=mode,
         )
     aggregate = compute_aggregate(spec, result)
-    rendered = render_answer(spec, result, aggregate)
+    rendered = render_answer(spec, result, aggregate, cites=cites)
     rec = aggregate["reconciliation"]
     logger.info(
         "aggregate_answer: candidates=%d classified=%d backstop=%d excluded=%d complete=%s upgraded=%d",
         rec["candidates_n"], rec["classified_n"], rec["backstop_n"], rec["excluded_n"],
         rec["complete"], upgraded,
     )
-    return rendered or None
+    if not rendered:
+        return None
+    citations: List[Dict[str, Any]] = []
+    for mid, row in result.get("classifications", {}).items():
+        marker = (cites or {}).get(mid)
+        if not marker or row.get("backstop"):
+            continue
+        citations.append(_row_citation(
+            mid, marker, _index_doc_id(index, mid),
+            row.get("document") or "", row.get("quote") or "",
+        ))
+    return (rendered, citations)
 
 
 def make_aggregate_guard(
@@ -695,7 +721,7 @@ def make_aggregate_guard(
         spec = load_spec(question)
         if not spec:
             return base
-        rendered = aggregate_answer(
+        outcome = aggregate_answer_ex(
             llm,
             question=question,
             context=evidence_context,
@@ -703,9 +729,13 @@ def make_aggregate_guard(
             config_name=config_name,
             mode=mode,
         )
-        if not rendered:
+        if not outcome:
             return base
+        rendered, citations = outcome
         note = "聚合表生成：模型归类、代码从候选全集确定性计数（含对账与召回缺口标注）"
+        extras = {"citations": citations} if citations else None
+        if extras:
+            return (rendered, note, "answer_aggregate", extras)
         return (rendered, note, "answer_aggregate")
 
     return guard

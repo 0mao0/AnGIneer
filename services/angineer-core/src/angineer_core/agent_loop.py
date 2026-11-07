@@ -26,8 +26,10 @@ from angineer_core.agent_messages import (
     ToolCall,
     agent_message_to_dict,
     aggregate_tool_citations,
+    collect_guard_citations,
     is_reference_refusal,
     is_refusal_text,
+    merge_citations,
     to_llm_messages,
 )
 from angineer_core.agent_tools import AgentTool, ToolResult
@@ -1367,13 +1369,20 @@ def _apply_final_guard(
     guard_result = _run_callback(config.final_answer_guard, None, added_messages)
     if not guard_result:
         return None
-    if len(guard_result) == 3:
+    guard_extras: Optional[Dict[str, Any]] = None
+    if len(guard_result) == 4:
+        # P0b ③引用贯通：guard 可携 4 元组 extras（citations 等），挂到最终 assistant
+        # 消息 meta 供 run_end/policy_query 并入引用集（枚举臂证据不走 tool 消息）
+        new_content, guard_note, guard_code, guard_extras = guard_result
+    elif len(guard_result) == 3:
         new_content, guard_note, guard_code = guard_result
     else:
         new_content, guard_note = guard_result
         guard_code = None
     if guard_note:
         add_note(guard_note)
+    if guard_extras and isinstance(guard_extras, dict) and guard_extras.get("citations"):
+        final_assistant.meta = {**(final_assistant.meta or {}), "guard_citations": guard_extras["citations"]}
     if new_content is not None and new_content != final_assistant.content:
         final_assistant.content = new_content
         _safe_emit(
@@ -1796,7 +1805,11 @@ def run_agent_loop(
                 # 引用集（服务端唯一真相源，2026-10-30 收敛）：前端直接渲染来源，
                 # 不再按「正文有没有写标记」自行过滤——模型不写标记时来源也会消失。
                 # 行内 tag 是否挂载仍看模型标记，二者职责分开。
-                "citations": aggregate_tool_citations(messages[start_idx:]),
+                # P0b ③：枚举/聚合臂的引用由 guard 携带（预读证据不走 tool 消息），在此并入。
+                "citations": merge_citations(
+                    aggregate_tool_citations(messages[start_idx:]),
+                    collect_guard_citations(messages[start_idx:]),
+                ),
                 "usage": total_usage,
                 "notes": trace_notes,
                 # 观测标注：最终答案来源终态 + 经历的分支（拒答归因/口径审计用）

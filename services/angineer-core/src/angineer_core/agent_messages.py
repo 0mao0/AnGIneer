@@ -281,6 +281,37 @@ def aggregate_tool_citations(messages: List[AgentMessage]) -> List[Dict[str, Any
     return citations
 
 
+def collect_guard_citations(messages: List[AgentMessage]) -> List[Dict[str, Any]]:
+    """收集最终 assistant 消息 meta 上由 guard 携带的引用（P0b ③引用贯通）。
+
+    枚举/聚合臂的证据来自预读构建（函数调用、非 tool 消息），聚合工具链收不到；
+    guard 渲染引用后以 4 元组 extras 随 _apply_final_guard 挂到最终 assistant 消息
+    meta["guard_citations"]，本函数与 merge_citations 负责并入引用集。
+    """
+    final_assistant = next(
+        (m for m in reversed(messages) if m.role == "assistant" and not m.tool_calls),
+        None,
+    )
+    raw = (final_assistant.meta or {}).get("guard_citations") if final_assistant else None
+    return [c for c in (raw or []) if isinstance(c, dict)]
+
+
+def merge_citations(primary: List[Dict[str, Any]], extra: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """两路引用合并去重（键 target_id+marker，同 aggregate_tool_citations 口径）。"""
+    merged: List[Dict[str, Any]] = []
+    seen = set()
+    for citation in list(primary or []) + list(extra or []):
+        if not isinstance(citation, dict):
+            continue
+        key = str(citation.get("target_id") or "") + str(citation.get("marker") or "")
+        if key and key in seen:
+            continue
+        if key:
+            seen.add(key)
+        merged.append(citation)
+    return merged
+
+
 def to_llm_messages(
     messages: List[AgentMessage],
     tool_style: str = "text",

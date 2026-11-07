@@ -14,7 +14,7 @@ import json
 import logging
 import os
 import re
-from typing import Any, Callable, Dict, List, Optional
+from typing import Any, Callable, Dict, List, Optional, Tuple
 
 logger = logging.getLogger(__name__)
 
@@ -54,6 +54,22 @@ def enabled() -> bool:
     return os.getenv("ANGINEER_ANSWER_STRUCT", "0").strip().lower() in ("1", "true", "yes", "on")
 
 
+# 安全终态 code 清单（§4.5）：base guard 已做出「整答替换为拒答」类安全动作时，
+# 任何后续 wrapper guard 不得覆盖恢复原稿。三个整答替换型：
+# no_evidence（零证据拒答）/ unsupported_reference（伪造引用替换）/ tool_error_json（工具错误替换）。
+# 正文保留型（external_citation_stripped/half_refusal_stripped 等）不算终态。
+SAFE_TERMINAL_CODES = ("no_evidence", "unsupported_reference", "tool_error_json")
+
+
+def is_safe_terminal(base: Any) -> bool:
+    """base 三元组是否为安全终态（供各 wrapper guard 统一判断）。"""
+    return (
+        isinstance(base, tuple)
+        and len(base) == 3
+        and base[2] in SAFE_TERMINAL_CODES
+    )
+
+
 def _norm(text: str) -> str:
     return " ".join(str(text or "").split())
 
@@ -89,6 +105,55 @@ def evidence_blocks(context: str) -> Dict[str, Dict[str, str]]:
 
 
 _RECORD_RE = re.compile(r"^\s*([QN])\s*\|")
+_PREREAD_INDEX_RE = re.compile(r"PREREAD INDEX \(system\):\s*(\{.*\})\s*$")
+
+
+def split_preread_index(context: str) -> Tuple[str, Optional[Dict[str, Any]]]:
+    """剥出预读尾部机器索引行（PREREAD INDEX），返回 (去索引文本, 索引 dict|None)。
+
+    索引由 enum_prefetch.format_preread_context 追加：{"library", "doc_ids": {mid: id|[id1,id2]},
+    "cites": {mid: "K12"}（run 级 MarkerAllocator 分配，仅传入 allocator 时才有）。
+    evidence_blocks 的 CLOSED SET 切分天然把该行排除在摘录外；剥出是为了不喂给模型。
+    """
+    match = _PREREAD_INDEX_RE.search(str(context or ""))
+    if not match:
+        return context, None
+    try:
+        data = json.loads(match.group(1))
+    except Exception:  # noqa: BLE001
+        return context, None
+    if not isinstance(data, dict):
+        return context, None
+    cleaned = (context[:match.start()].rstrip("\n") + "\n" + context[match.end():].lstrip("\n")).strip()
+    return cleaned, data
+
+
+def _index_doc_id(index: Optional[Dict[str, Any]], mid: str) -> str:
+    """索引里该 matter 的主代表文档 id（v2 值可能是 [doc1, doc2]，取第一个）。"""
+    if not index:
+        return ""
+    doc_ids = index.get("doc_ids") or {}
+    value = doc_ids.get(mid)
+    if isinstance(value, list):
+        return str(value[0]) if value else ""
+    return str(value or "")
+
+
+def _row_citation(
+    mid: str, cite: str, doc_id: str, doc_title: str, quote: str
+) -> Dict[str, Any]:
+    """构造与 relevant_citations 同 schema 的 citation dict（target=doc 级）。"""
+    return {
+        "target_id": doc_id or mid,
+        "doc_id": doc_id,
+        "doc_title": doc_title,
+        "marker": cite,
+        "page_idx": None,
+        "page_label": None,
+        "section_path": None,
+        "snippet": str(quote or "")[:200],
+        "score": None,
+    }
 
 
 def parse_lines(text: str) -> Optional[Dict[str, Any]]:
@@ -187,7 +252,9 @@ def validate_rows(
     return {"qualifying": list(merged.values()), "rejected": rejected, "not_qualified": not_qualified}
 
 
-def render_answer(result: Dict[str, List[Dict[str, str]]]) -> str:
+def render_answer(
+    result: Dict[str, List[Dict[str, str]]], cites: Optional[Dict[str, str]] = None
+) -> str:
     qualifying = result.get("qualifying") or []
     not_qualified = result.get("not_qualified") or []
     if not qualifying and not not_qualified:
@@ -199,6 +266,11 @@ def render_answer(result: Dict[str, List[Dict[str, str]]]) -> str:
             heading = f"### {row['matter_id']}"
             if docs:
                 heading += " — " + "; ".join(docs)
+            # P0b ③引用贯通：预读构建期已按 matter 分配 K 号（索引携带），行内补标记——
+            # 与 run_end.citations 同集（§1.3 契约），前端按 marker 渲染角标
+            marker = (cites or {}).get(row["matter_id"])
+            if marker:
+                heading += f" [{marker}]"
             lines.append(heading)
             if row.get("finding"):
                 lines.append(f"**Finding:** {row['finding']}")
@@ -216,6 +288,13 @@ def render_answer(result: Dict[str, List[Dict[str, str]]]) -> str:
     return "\n".join(lines)
 
 
+def _chat(llm: Any, messages: List[Dict[str, str]], *, config_name: Optional[str], mode: str):
+    """LLM 调用缝隙（测试打桩点）；懒加载 ai_inference（模块为代理，不可直接 patch）。"""
+    from ai_inference.llm_client import chat_result_guarded
+
+    return chat_result_guarded(llm, messages, mode=mode, config_name=config_name, temperature=0.0, max_tokens=8000)
+
+
 def structured_answer(
     llm: Any,
     *,
@@ -224,8 +303,30 @@ def structured_answer(
     config_name: Optional[str] = None,
     mode: str = "instruct",
 ) -> Optional[str]:
+    """兼容出口：只返回渲染文本（引用走 structured_answer_ex 的 citations）。"""
+    result = structured_answer_ex(
+        llm, question=question, context=context, config_name=config_name, mode=mode
+    )
+    return result[0] if result else None
+
+
+def structured_answer_ex(
+    llm: Any,
+    *,
+    question: str,
+    context: str,
+    config_name: Optional[str] = None,
+    mode: str = "instruct",
+) -> Optional[Tuple[str, List[Dict[str, Any]]]]:
+    """结构化生成＋校验渲染，返回 (渲染文本, citations)。
+
+    citations 由预读索引里的 K 号（run 级 MarkerAllocator 分配）构造，P0b ③引用贯通：
+    渲染行内的 [K] 标记与该列表同集（§1.3 契约），无 allocator 时列表为空、行内无标记。
+    """
     from ai_inference.llm_client import chat_result_guarded
 
+    context_clean, index = split_preread_index(context)
+    cites = (index or {}).get("cites") if isinstance(index, dict) else None
     blocks = evidence_blocks(context)
     closed_set = closed_set_from_context(context)
     logger.info("structured_answer enter: context=%d blocks=%d closed=%d",
@@ -233,7 +334,7 @@ def structured_answer(
     if not blocks or not closed_set:
         logger.warning("structured_answer 早退：blocks=%d closed=%d", len(blocks), len(closed_set))
         return None
-    evidence_text = context
+    evidence_text = context_clean
     max_chars = 100_000
     if len(evidence_text) > max_chars:
         evidence_text = evidence_text[:max_chars]
@@ -246,7 +347,7 @@ def structured_answer(
         ),
     }]
     try:
-        result = chat_result_guarded(llm, messages, mode=mode, config_name=config_name, temperature=0.0, max_tokens=8000)
+        result = _chat(llm, messages, config_name=config_name, mode=mode)
         raw_text = result.text or ""
         data = parse_structured(raw_text) or parse_lines(raw_text)
     except Exception as exc:  # noqa: BLE001 —— 结构化失败保留原答案
@@ -274,12 +375,23 @@ def structured_answer(
             logger.warning("raw dump: %s", dump)
         except Exception:  # noqa: BLE001
             pass
-    rendered = render_answer(validated)
+    rendered = render_answer(validated, cites=cites)
+    citations: List[Dict[str, Any]] = []
+    for row in validated["qualifying"]:
+        marker = (cites or {}).get(row.get("matter_id") or "")
+        if not marker:
+            continue
+        doc_id = _index_doc_id(index, row["matter_id"])
+        citations.append(_row_citation(
+            row["matter_id"], marker, doc_id,
+            (row.get("documents") or [""])[0], (row.get("quotes") or [""])[0],
+        ))
     logger.info(
-        "structured_answer: qualifying=%d rejected=%d not_qualified=%d chars=%d",
-        len(validated["qualifying"]), len(validated["rejected"]), len(validated["not_qualified"]), len(rendered),
+        "structured_answer: qualifying=%d rejected=%d not_qualified=%d chars=%d cites=%d",
+        len(validated["qualifying"]), len(validated["rejected"]), len(validated["not_qualified"]),
+        len(rendered), len(citations),
     )
-    return rendered or None
+    return (rendered, citations) if rendered else None
 
 
 def make_struct_guard(
@@ -298,16 +410,24 @@ def make_struct_guard(
         base = base_guard(added_messages) if base_guard else None
         if not enabled_for_query or not enabled():
             return base
-        rendered = structured_answer(
+        # §4.5 安全终态优先：base 已替换为拒答/伪引用终态时不得恢复原稿（P0b 修复，
+        # 旧实现无条件重生成并覆盖——与 make_aggregate_guard 的注释同源）
+        if is_safe_terminal(base):
+            return base
+        outcome = structured_answer_ex(
             llm,
             question=question,
             context=evidence_context,
             config_name=config_name,
             mode=mode,
         )
-        if not rendered:
+        if not outcome:
             return base
+        rendered, citations = outcome
         note = "结构化生成：断言经引文校验后由渲染器成文"
+        extras = {"citations": citations} if citations else None
+        if extras:
+            return (rendered, note, "answer_structured", extras)
         return (rendered, note, "answer_structured")
 
     return guard

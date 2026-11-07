@@ -73,11 +73,52 @@ def test_render_answer():
 
 def test_struct_guard_replaces_answer(monkeypatch):
     monkeypatch.setenv("ANGINEER_ANSWER_STRUCT", "1")
-    monkeypatch.setattr(sa, "structured_answer", lambda *a, **k: "RENDERED")
+    monkeypatch.setattr(sa, "structured_answer_ex", lambda *a, **k: ("RENDERED", []))
     guard = sa.make_struct_guard(None, llm=object(), question="q", enabled_for_query=True,
                                  evidence_context=CONTEXT)
     result = guard([AgentMessage(role="assistant", content="draft")])
     assert result[0] == "RENDERED" and result[2] == "answer_structured"
+
+
+def test_struct_guard_emits_citations(monkeypatch):
+    """P0b ③引用贯通：预读索引带 cites 时渲染行加 [K]，citations 随 4 元组出站。"""
+    monkeypatch.setenv("ANGINEER_ANSWER_STRUCT", "1")
+    idx = '{"library": "lab", "doc_ids": {"1003-00001": "doc-a"}, "cites": {"1003-00001": "K7"}}'
+    ctx = CONTEXT + "\nPREREAD INDEX (system): " + idx
+    monkeypatch.setattr(sa, "structured_answer_ex",
+                        lambda *a, **k: ("## Qualifying matters\n### 1003-00001 — memo.docx [K7]", [
+                            {"target_id": "doc-a", "doc_id": "doc-a", "doc_title": "memo.docx",
+                             "marker": "K7", "snippet": "q"}]))
+    guard = sa.make_struct_guard(None, llm=object(), question="q", enabled_for_query=True,
+                                 evidence_context=ctx)
+    result = guard([AgentMessage(role="assistant", content="draft")])
+    assert result[2] == "answer_structured"
+    assert result[3]["citations"][0]["marker"] == "K7"
+
+
+def test_struct_guard_safe_terminal_not_overridden(monkeypatch):
+    """P0b ⑤：base 已是 no_evidence 终态时不覆盖。"""
+    monkeypatch.setenv("ANGINEER_ANSWER_STRUCT", "1")
+    monkeypatch.setattr(sa, "structured_answer_ex", lambda *a, **k: ("RENDERED", []))
+    guard = sa.make_struct_guard(
+        lambda _m: ("拒答", "no evidence", "no_evidence"),
+        llm=object(), question="q", enabled_for_query=True, evidence_context=CONTEXT)
+    assert guard([AgentMessage(role="assistant", content="draft")])[2] == "no_evidence"
+
+
+def test_render_answer_appends_cite_marker():
+    text = sa.render_answer({
+        "qualifying": [{"matter_id": "1003-00001", "document": "memo.docx",
+                        "quotes": ["received a second request from the DOJ"], "finding": "x"}],
+        "not_qualified": [],
+    }, cites={"1003-00001": "K7"})
+    assert "### 1003-00001 — memo.docx [K7]" in text
+    # Not qualified 行不加标记
+    text2 = sa.render_answer({
+        "qualifying": [],
+        "not_qualified": [{"matter_id": "1038-00001", "reason": "r"}],
+    }, cites={"1038-00001": "K8"})
+    assert "[K8]" not in text2
 
 
 def test_struct_guard_disabled(monkeypatch):

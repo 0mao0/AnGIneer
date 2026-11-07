@@ -104,7 +104,14 @@ class NumericEvaluator(AnswerEvaluator):
             result.update(score=0.0, numeric_status="EMPTY", reason="Predicted answer is empty")
         else:
             try:
-                final = self._tail_line_candidate(answer, self._tail_line_enabled(question))
+                # P0b ④机器可读答案槽优先：生成侧按 answer_format 协议输出尾行 FINAL: <值>，
+                # policy_query 解析上浮到 prediction.final_answer；无槽回退现行尾行启发式。
+                # 两臂同一判分出口（本评测器唯一），天然满足「同一提取规则」。
+                slot = str(prediction.get("final_answer") or "").strip()
+                if slot:
+                    final = slot
+                else:
+                    final = self._tail_line_candidate(answer, self._tail_line_enabled(question))
                 shape_ok, shape_reason = officeqa_reward._is_direct_answer_only(expected, final)
                 if shape_ok:
                     ok, reason = officeqa_reward.fuzzy_match_answer(expected, final, tolerance)

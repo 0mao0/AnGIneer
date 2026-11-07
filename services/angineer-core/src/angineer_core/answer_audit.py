@@ -13,6 +13,8 @@
 from __future__ import annotations
 
 import logging
+
+from angineer_core.structured_answer import is_safe_terminal
 import os
 from typing import Any, Callable, Optional
 
@@ -95,6 +97,10 @@ def make_audit_guard(
     def guard(added_messages):
         base = base_guard(added_messages) if base_guard else None
         if not enabled_for_query:
+            return base
+        # §4.5 安全终态优先（P0b）：base 已是拒答/伪引用终态时不改写——
+        # 旧实现靠内容门/长度门偶然挡住，无 code 检查
+        if is_safe_terminal(base):
             return base
         final = next(
             (

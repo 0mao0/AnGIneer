@@ -149,3 +149,23 @@ ANGINEER_ENUM_CONTEXT_DIR=D:/AI/AnGIneer/data/scratch/harvey-lab/p0_enum_context
   5/12、match 模式检索词不指向 covenant 章节），全部归「枚举检索」根因线；S 层侧不再迭代。
 - 教训入账：**离线排名测量必须用与线上同源的排序口径（FTS 序），rowid/relpath 序只能当
   弱线索**；「假设→实验→否定→回退」全程两小时，成本可控。
+
+### P0b 确定性校验件三件套（2026-11-07 施工＋冒烟，随主线③④⑤）
+
+- **⑤安全终态**：SAFE_TERMINAL_CODES 共享（no_evidence/unsupported_reference/tool_error_json
+  三个整答替换型）；struct/closed_set/audit 三 guard 补 code 检查（消灭「偶然不覆盖」），
+  aggregate 保护清单同步扩容。
+- **③引用贯通**：预读构建期按闭集 matter 分配 run 级 K 号（随 PREREAD INDEX v3 携带
+  cites），S1/S2 渲染行内补 [K]，guard 以 4 元组 extras 携 citations、经最终 assistant
+  消息 meta 并入 run_end/policy_query 引用集（aggregate_tool_citations 口径去重）。
+  前端与评测零改动（K 前缀复用；Harvey 无 gold_target_ids → citation_hit 天然 N/A）。
+  **冒烟实证（016/041 S2 臂）**：citations 40/89 条、答案内 [K] 25/44 个且 ⊆ citations
+  （§1.3 契约达成）；recall_audit 对这两题的 citations_only 口径从「没记录」变为有料
+  （①盲区部分修复：回退条件补「retrieved_items 空且 citations 非空→citations_only」，
+  四形态语义测试覆盖）。
+- **④numeric 答案槽**：答案尾行 `FINAL: <值>` 协议（answer_format 注入约定，run 级配置）
+  → policy_query 解析上浮 `prediction.final_answer` → numeric_eval 优先读槽、无槽回退
+  尾行启发式（两臂同一判分出口）。**冒烟实证（OfficeQA 2 题）**：final_answer 上浮有值、
+  判分走槽（WRONG 而非 SHAPE_FAIL——答案内容错，机制正常）。
+- 单测：angineer-core 275 绿（+13）、evals-core recall_audit/numeric 41 绿；无预注册实验
+  （本批为契约件，验收=契约达成）。

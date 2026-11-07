@@ -407,7 +407,8 @@ def _load_dumped_context(query: str) -> Optional[str]:
 
 
 def format_preread_context(
-    excerpts: Dict[str, Any], doc_ids_map: Optional[Dict[str, str]] = None, library_id: str = ""
+    excerpts: Dict[str, Any], doc_ids_map: Optional[Dict[str, Any]] = None,
+    library_id: str = "", marker_allocator: Any = None,
 ) -> str:
     lines = [
         "## Pre-read evidence (system, deterministic)",
@@ -430,17 +431,19 @@ def format_preread_context(
         "For each matter, assert it as qualifying only if its excerpt states the qualifying condition. "
         "Matters without such evidence must be listed under a short section titled 'Not qualified'."
     )
-    # S2 二次加深索引（plan-ls-routing §5.1）：matter→代表文档映射，供「归类失败→重读」
-    # 信号使用；机器行尾追加，evidence_blocks 的 CLOSED SET 切分天然把它排除在摘录外
-    if doc_ids_map:
-        index = {mid: doc_ids_map[mid] for mid in shown if mid in doc_ids_map}
-        if index:
-            lines.append(
-                "PREREAD INDEX (system): " + json.dumps(
-                    {"library": str(library_id or ""), "doc_ids": index},
-                    ensure_ascii=False, separators=(",", ":"),
-                )
-            )
+    # 索引行（机器行尾追加，evidence_blocks 的 CLOSED SET 切分天然把它排除在摘录外）：
+    # doc_ids 供二次加深「归类失败→换篇重读」；cites 供 P0b ③引用贯通（渲染行 [K] 与
+    # run_end.citations 同集，§1.3 契约）——编号来自 run 级 MarkerAllocator，与
+    # knowledge_search 的 K 号同一命名空间、不重号。无 allocator 时不含 cites（向后兼容）。
+    if doc_ids_map or marker_allocator is not None:
+        index: Dict[str, Any] = {"library": str(library_id or "")}
+        doc_index = {mid: doc_ids_map[mid] for mid in shown if mid in doc_ids_map}
+        if doc_index:
+            index["doc_ids"] = doc_index
+        if marker_allocator is not None:
+            index["cites"] = {mid: marker_allocator.next("K") for mid in shown}
+        if len(index) > 1:
+            lines.append("PREREAD INDEX (system): " + json.dumps(index, ensure_ascii=False, separators=(",", ":")))
     return "\n".join(lines)
 
 
@@ -451,6 +454,7 @@ def build_preread_context(
     llm: Any,
     config_name: Optional[str] = None,
     mode: str = "instruct",
+    marker_allocator: Any = None,
 ) -> Optional[str]:
     queries = rewrite_queries(llm, query, config_name=config_name, mode=mode) or [str(query)[:120]]
     cards = _preread_candidates(library_id, queries)
@@ -468,7 +472,7 @@ def build_preread_context(
         if cards[mid].get("doc_id_2"):
             ids.append(cards[mid]["doc_id_2"])
         doc_ids_map[mid] = ids if len(ids) > 1 else ids[0]
-    text = format_preread_context(excerpts, doc_ids_map, library_id=library_id)
+    text = format_preread_context(excerpts, doc_ids_map, library_id=library_id, marker_allocator=marker_allocator)
     logger.info("enum_prefetch(preread) 注入：matters=%d chars=%d", len(excerpts), len(text))
     return text or None
 
@@ -480,6 +484,7 @@ def build_enum_context(
     llm: Any,
     config_name: Optional[str] = None,
     mode: str = "instruct",
+    marker_allocator: Any = None,
 ) -> Optional[str]:
     """开关 + 库白名单 + 枚举判定都通过时返回注入文本，否则 None。"""
     if not enabled() or not library_allowed(library_id):
@@ -503,7 +508,8 @@ def build_enum_context(
         return None
     if preread_enabled():
         text = build_preread_context(
-            library_id=library_id, query=query, llm=llm, config_name=config_name, mode=mode
+            library_id=library_id, query=query, llm=llm, config_name=config_name, mode=mode,
+            marker_allocator=marker_allocator,
         )
         _dump_enum_context(query, library_id, text)
         return text

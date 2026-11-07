@@ -187,12 +187,13 @@ def _compute_audit(
 
     raw_items = prediction.get("retrieved_items")
     raw_cites = prediction.get("citations")
-    if isinstance(raw_items, list):
-        # 现行 schema：候选全集（多轮并集，key 恒在——空列表=检索真为空，如实记 0）
+    if isinstance(raw_items, list) and raw_items:
+        # 现行 schema：候选全集（多轮并集）
         items = _dedup_items([it for it in raw_items if isinstance(it, dict)], "item_id")
         audit["candidate_record"] = "retrieved_items"
     elif isinstance(raw_cites, list) and raw_cites:
-        # 旧 run 只有 citation 分配子集：召回下界，如实降级标注
+        # 枚举/聚合臂（P0b ③ 后 citations 记账）或旧 run：citation 分配子集＝召回下界，
+        # 如实降级标注（retrieved_items 缺失或为空、citations 非空都走这里）
         items = []
         for c in raw_cites:
             if not isinstance(c, dict):
@@ -207,8 +208,12 @@ def _compute_audit(
             })
         items = _dedup_items(items, "item_id")
         audit["candidate_record"] = "citations_only"
+    elif isinstance(raw_items, list):
+        # 现行 schema 且检索真为空（citations 也空）：如实记 0，不与「没记录」混淆
+        items = []
+        audit["candidate_record"] = "retrieved_items"
     else:
-        # 候选从未落库：与「召回 0」严格区分，单独成桶
+        # 候选从未落库（键缺失且无引用）：与「召回 0」严格区分，单独成桶
         audit["status"] = "no_candidates_recorded"
         return audit
     evids = _dedup_items(

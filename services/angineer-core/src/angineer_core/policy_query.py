@@ -4,14 +4,32 @@
 不依赖 HTTP / FastAPI / asyncio，可在 daemon 线程中直接调用。
 """
 import logging
+import re
 import time
 import uuid
 from typing import Any, Dict, List, Optional
 
 from angineer_core.agent_loop import AgentLoopConfig, run_agent_loop
-from angineer_core.agent_messages import AgentMessage, aggregate_tool_citations
+from angineer_core.agent_messages import (
+    AgentMessage,
+    aggregate_tool_citations,
+    collect_guard_citations,
+    merge_citations,
+)
 
 logger = logging.getLogger(__name__)
+
+# P0b ④机器可读答案槽：尾行 FINAL: <值> 协议（answer_format 注入约定）
+_FINAL_LINE_RE = re.compile(r"^\s*(?:\*\*)?\s*FINAL\s*(?:ANSWER)?\s*[:：]\s*(.+?)\s*(?:\*\*)?\s*$", re.I)
+
+
+def _extract_final_answer(answer: Any) -> Optional[str]:
+    """取答案最后一个非空行的 FINAL: 值；无协议行返回 None（判分回退现行尾行启发式）。"""
+    lines = [ln.strip() for ln in str(answer or "").splitlines() if ln.strip()]
+    if not lines:
+        return None
+    match = _FINAL_LINE_RE.match(lines[-1])
+    return match.group(1).strip() or None if match else None
 
 
 def _load_doc_nodes(library_id: str, doc_ids: Optional[List[str]]) -> list:
@@ -240,8 +258,12 @@ def run_policy_query(
                 evidences.append(evidence)
             if message.name == "sop_execute" and isinstance(raw.get("sop_trace"), list):
                 sop_trace.extend(raw["sop_trace"])
-        # 引用集装配只此一处（与聊天 run_end 同源）：聚合逻辑在 agent_messages
-        citations: List[Dict[str, Any]] = aggregate_tool_citations(tool_messages)
+        # 引用集装配只此一处（与聊天 run_end 同源）：聚合逻辑在 agent_messages；
+        # P0b ③：枚举/聚合臂引用由 guard 携带（预读证据不走 tool 消息），在此并入
+        citations: List[Dict[str, Any]] = merge_citations(
+            aggregate_tool_citations(tool_messages),
+            collect_guard_citations(added),
+        )
 
         strategy = f"policy_{intent_result.intent_level}_{intent_result.service_mode} (turns={turns}, reason={reason})"
         fallback_used = any("回退" in n or "进入下一段" in n for n in notes)
@@ -298,6 +320,9 @@ def run_policy_query(
             "session_key": "",
             "intent": _intent_to_dict(intent_result),
             "answer": answer or "",
+            # P0b ④机器可读答案槽：生成侧按 answer_format 协议输出尾行 FINAL: <值>，
+            # 此处解析上浮（无协议行为不变），numeric 判分优先读槽
+            "final_answer": _extract_final_answer(answer),
             "citations": citations,
             "retrieved_items": retrieved_items,
             "evidences": evidences,
