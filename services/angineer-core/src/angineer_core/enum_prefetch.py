@@ -393,7 +393,9 @@ def _load_dumped_context(query: str) -> Optional[str]:
     return None
 
 
-def format_preread_context(excerpts: Dict[str, Any]) -> str:
+def format_preread_context(
+    excerpts: Dict[str, Any], doc_ids_map: Optional[Dict[str, str]] = None, library_id: str = ""
+) -> str:
     lines = [
         "## Pre-read evidence (system, deterministic)",
         "The system read the representative document of each candidate matter below.",
@@ -415,6 +417,17 @@ def format_preread_context(excerpts: Dict[str, Any]) -> str:
         "For each matter, assert it as qualifying only if its excerpt states the qualifying condition. "
         "Matters without such evidence must be listed under a short section titled 'Not qualified'."
     )
+    # S2 二次加深索引（plan-ls-routing §5.1）：matter→代表文档映射，供「归类失败→重读」
+    # 信号使用；机器行尾追加，evidence_blocks 的 CLOSED SET 切分天然把它排除在摘录外
+    if doc_ids_map:
+        index = {mid: doc_ids_map[mid] for mid in shown if mid in doc_ids_map}
+        if index:
+            lines.append(
+                "PREREAD INDEX (system): " + json.dumps(
+                    {"library": str(library_id or ""), "doc_ids": index},
+                    ensure_ascii=False, separators=(",", ":"),
+                )
+            )
     return "\n".join(lines)
 
 
@@ -434,7 +447,8 @@ def build_preread_context(
     excerpts = _read_excerpts(library_id, cards, queries[0] if queries else str(query)[:120])
     if not excerpts:
         return None
-    text = format_preread_context(excerpts)
+    doc_ids_map = {mid: cards[mid]["doc_id"] for mid in excerpts if mid in cards}
+    text = format_preread_context(excerpts, doc_ids_map, library_id=library_id)
     logger.info("enum_prefetch(preread) 注入：matters=%d chars=%d", len(excerpts), len(text))
     return text or None
 

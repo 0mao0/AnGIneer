@@ -289,3 +289,90 @@ def test_guard_render_failure_keeps_base(monkeypatch, tmp_path):
     guard = aa.make_aggregate_guard(None, llm=object(), question=Q016,
                                     enabled_for_query=True, evidence_context=CONTEXT)
     assert guard([AgentMessage(role="assistant", content="draft")]) is None
+
+
+# --- 二次加深（归类失败信号） ---
+
+
+def test_split_preread_index():
+    idx = json.dumps({"library": "lab-firm-full", "doc_ids": {"1006-00001": "doc-a"}},
+                     ensure_ascii=False, separators=(",", ":"))
+    ctx = CONTEXT + "\nPREREAD INDEX (system): " + idx
+    cleaned, index = aa._split_preread_index(ctx)
+    assert index and index["library"] == "lab-firm-full"
+    assert index["doc_ids"] == {"1006-00001": "doc-a"}
+    assert "PREREAD INDEX" not in cleaned
+    # 无索引行 / 坏 JSON：原样返回
+    c2, i2 = aa._split_preread_index(CONTEXT)
+    assert i2 is None and c2 == CONTEXT
+    c3, i3 = aa._split_preread_index(CONTEXT + "\nPREREAD INDEX (system): {bad json")
+    assert i3 is None
+
+
+def test_deepen_reclassify_upgrades_backstop(monkeypatch):
+    result = {"classifications": {
+        "1010-00001": {"matter_id": "1010-00001", "values": ["unknown", "unknown"], "quote": "",
+                       "finding": "", "backstop": True, "reason": "未归类兜底", "document": "arbor.docx"},
+        "1006-00001": {"matter_id": "1006-00001", "values": ["2021", "always_on"], "quote": "x",
+                       "finding": "", "backstop": False, "document": "d"},
+    }}
+    deep_text = ("Arbor Health Tech signed a 2024 credit agreement carrying always-on financial "
+                 "maintenance covenants tested quarterly.")
+    monkeypatch.setattr(aa, "_deep_read_blocks",
+                        lambda library_id, doc_map, mids, query: {
+                            "1010-00001": {"title": "arbor.docx", "text": deep_text}})
+    raw2 = ("C || 1010-00001 || 2024 || always_on || "
+            "signed a 2024 credit agreement carrying always-on financial || Arbor is always-on\n")
+    captured = {}
+
+    def fake_chat(llm, messages, **kwargs):
+        captured["content"] = messages[0]["content"]
+
+        class R:
+            text = raw2
+        return R()
+
+    monkeypatch.setattr(aa, "_chat", fake_chat)
+    index = {"library": "lab-firm-full", "doc_ids": {"1010-00001": "doc-arbor"}}
+    upgraded = aa._deepen_reclassify(object(), question="maintenance covenant share", spec=SPEC016,
+                                     result=result, index=index, config_name=None, mode="instruct")
+    assert upgraded == 1
+    row = result["classifications"]["1010-00001"]
+    assert row["values"] == ["2024", "always_on"] and not row["backstop"]
+    assert "Deep re-read evidence" in captured["content"]
+    # 仍失败的 matter 保持兜底并更新理由
+    result2 = {"classifications": {
+        "1010-00001": {"matter_id": "1010-00001", "values": ["unknown", "unknown"], "quote": "",
+                       "finding": "", "backstop": True, "reason": "未归类兜底", "document": "d"}}}
+    monkeypatch.setattr(aa, "_deep_read_blocks",
+                        lambda library_id, doc_map, mids, query: {
+                            "1010-00001": {"title": "t", "text": "no usable covenant fact here " * 30}})
+    monkeypatch.setattr(aa, "_chat",
+                        lambda llm, messages, **k: type("R", (), {"text": "N || 1010-00001 || still unclear"})())
+    upgraded2 = aa._deepen_reclassify(object(), question="q", spec=SPEC016, result=result2,
+                                      index=index, config_name=None, mode="instruct")
+    assert upgraded2 == 0
+    assert result2["classifications"]["1010-00001"]["reason"] == "加深重读后仍不可归类"
+
+
+def test_deepen_disabled_without_flag_or_index(monkeypatch):
+    called = {"n": 0}
+
+    def fake_chat(*a, **k):
+        called["n"] += 1
+        raise AssertionError("should not call LLM")
+
+    monkeypatch.setattr(aa, "_chat", fake_chat)
+    result = {"classifications": {
+        "1010-00001": {"matter_id": "1010-00001", "values": ["unknown", "unknown"], "quote": "",
+                       "finding": "", "backstop": True, "reason": "r", "document": "d"}}}
+    # SPEC041 无 deepen 标记
+    assert aa._deepen_reclassify(object(), question="q", spec=SPEC041, result=result,
+                                 index={"library": "l", "doc_ids": {}}, config_name=None, mode="m") == 0
+    # index 为 None
+    assert aa._deepen_reclassify(object(), question="q", spec=SPEC016, result=result,
+                                 index=None, config_name=None, mode="m") == 0
+    # 目标 matter 无 doc 映射
+    assert aa._deepen_reclassify(object(), question="q", spec=SPEC016, result=result,
+                                 index={"library": "l", "doc_ids": {}}, config_name=None, mode="m") == 0
+    assert called["n"] == 0

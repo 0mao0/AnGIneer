@@ -27,10 +27,16 @@ from angineer_core.structured_answer import closed_set_from_context, evidence_bl
 logger = logging.getLogger(__name__)
 
 _MATTER_RE = re.compile(r"\b\d{4}-\d{5}\b")
+_PREREAD_INDEX_RE = re.compile(r"PREREAD INDEX \(system\):\s*(\{.*\})\s*$")
 _SPEC_CACHE: Dict[str, Optional[Dict[str, Any]]] = {}
 
 # base guard 的安全终态码：聚合渲染不得覆盖（§4.5 安全类失败禁恢复）
 _SAFE_TERMINAL_CODES = ("no_evidence",)
+
+# 二次加深（归类失败信号）：单次重归类调用的字符预算与 matter 批上限
+_DEEPEN_CHARS = 4000
+_DEEPEN_CALL_BUDGET = 60_000
+_DEEPEN_BATCH_MAX = 12
 
 
 def enabled() -> bool:
@@ -275,6 +281,144 @@ def _display(dim: Dict[str, Any], value: Any) -> str:
     return out
 
 
+def _chat(llm: Any, messages: List[Dict[str, str]], *, config_name: Optional[str], mode: str):
+    """LLM 调用缝隙（测试在此打桩）；懒加载 ai_inference，避免模块导入期拉起客户端。"""
+    from ai_inference.llm_client import chat_result_guarded
+
+    return chat_result_guarded(llm, messages, mode=mode, config_name=config_name, temperature=0.0, max_tokens=8000)
+
+
+def _split_preread_index(context: str) -> Tuple[str, Optional[Dict[str, Any]]]:
+    """剥出预读尾部索引行（PREREAD INDEX），返回 (去索引文本, {library, doc_ids}|None)。
+
+    evidence_blocks 按 CLOSED SET 切分本就不受该行影响；剥出是为了不把它喂给模型。
+    """
+    match = _PREREAD_INDEX_RE.search(str(context or ""))
+    if not match:
+        return context, None
+    try:
+        data = json.loads(match.group(1))
+    except Exception:  # noqa: BLE001
+        return context, None
+    if not isinstance(data, dict):
+        return context, None
+    cleaned = (context[:match.start()].rstrip("\n") + "\n" + context[match.end():].lstrip("\n")).strip()
+    return cleaned, data
+
+
+def _deep_read_blocks(
+    library_id: str, doc_map: Dict[str, str], mids: List[str], query: str
+) -> Dict[str, Dict[str, str]]:
+    """对兜底 matter 的代表文档按 4000 字重读（match 模式），返回 {mid: {title, text}}。"""
+    from docs_core.step09_query.doc_search import read_documents
+
+    out: Dict[str, Dict[str, str]] = {}
+    ids = [(mid, doc_map[mid]) for mid in mids if doc_map.get(mid)]
+    for start in range(0, len(ids), 8):
+        batch = ids[start:start + 8]
+        try:
+            result = read_documents(
+                library_id=library_id,
+                doc_ids=[doc_id for _, doc_id in batch],
+                query=str(query or "")[:400],
+                max_chars_per_doc=_DEEPEN_CHARS,
+                mode="match",
+            )
+        except Exception as exc:  # noqa: BLE001 —— 加深失败降级为保持兜底
+            logger.warning("aggregate_answer 加深读失败(batch %d): %s", start, exc)
+            continue
+        docs = {str(d.get("doc_id") or ""): d for d in result.get("docs") or []}
+        for mid, doc_id in batch:
+            doc = docs.get(doc_id) or {}
+            text = " ".join(str(doc.get("text") or "").split())
+            if text:
+                out[mid] = {"title": str(doc.get("title") or ""), "text": text[:_DEEPEN_CHARS]}
+    return out
+
+
+def _deepen_reclassify(
+    llm: Any,
+    *,
+    question: str,
+    spec: Dict[str, Any],
+    result: Dict[str, Any],
+    index: Dict[str, Any],
+    config_name: Optional[str],
+    mode: str,
+) -> int:
+    """归类失败信号驱动的二次加深：只对兜底 matter 重读并重归类，成功则升级该行。
+
+    返回升级（兜底→有效归类）的 matter 数；仍失败的保持兜底（如实），不抛错。
+    """
+    if not index:
+        return 0
+    library_id = str(index.get("library") or "")
+    doc_map = index.get("doc_ids") or {}
+    backstop_mids = sorted(
+        mid for mid, row in result["classifications"].items() if row.get("backstop")
+    )
+    targets = [mid for mid in backstop_mids if doc_map.get(mid)]
+    if not library_id or not targets:
+        return 0
+    n_dims = len(spec.get("dims") or [])
+    deep_blocks_all = _deep_read_blocks(library_id, doc_map, targets, question)
+    logger.info("aggregate_answer deepen: backstop=%d 重读成功=%d", len(backstop_mids), len(deep_blocks_all))
+    upgraded = 0
+    # 按字符预算分批（每批 ≤60k 且 ≤12 个 matter）
+    batch: List[str] = []
+    budget = 0
+    batches: List[List[str]] = []
+    for mid in targets:
+        if mid not in deep_blocks_all:
+            continue
+        cost = len(deep_blocks_all[mid]["text"])
+        if batch and (budget + cost > _DEEPEN_CALL_BUDGET or len(batch) >= _DEEPEN_BATCH_MAX):
+            batches.append(batch)
+            batch, budget = [], 0
+        batch.append(mid)
+        budget += cost
+    if batch:
+        batches.append(batch)
+    for batch_mids in batches:
+        blocks2 = {mid: deep_blocks_all[mid] for mid in batch_mids}
+        lines = [
+            "## Deep re-read evidence (system, deterministic)",
+            "These are LONGER excerpts of matters that could not be classified from the first excerpt.",
+        ]
+        for mid in batch_mids:
+            lines.append(f"\n### {mid} | {blocks2[mid]['title']}\n{blocks2[mid]['text']}")
+        lines.append("\nCLOSED SET (only these matters may be asserted as qualifying): " + ", ".join(batch_mids))
+        lines.append(
+            "For each matter, classify it only if the longer excerpt states the facts needed; "
+            "otherwise it stays unclassified."
+        )
+        messages = [{
+            "role": "user",
+            "content": _PROMPT_TEMPLATE.format(
+                question=str(question)[:2000],
+                closed_set=", ".join(batch_mids),
+                evidence="\n".join(lines),
+                dim_instructions=_dim_instructions(spec),
+                n_dims=n_dims,
+            ),
+        }]
+        try:
+            call = _chat(llm, messages, config_name=config_name, mode=mode)
+            parsed2 = parse_cls_lines(call.text or "", n_dims)
+        except Exception as exc:  # noqa: BLE001 —— 重归类失败保持兜底
+            logger.warning("aggregate_answer 重归类调用失败: %s", exc)
+            continue
+        result2 = classify(spec, parsed2, blocks2, batch_mids)
+        for mid in batch_mids:
+            new_row = result2["classifications"].get(mid)
+            if new_row and not new_row.get("backstop"):
+                result["classifications"][mid] = new_row
+                upgraded += 1
+            elif mid in result["classifications"]:
+                result["classifications"][mid]["reason"] = "加深重读后仍不可归类"
+    return upgraded
+
+
 def compute_aggregate(spec: Dict[str, Any], result: Dict[str, Any]) -> Dict[str, Any]:
     """确定性计数：维度分组 + 份额 + 对账。纯函数，无 LLM。"""
     dims = spec.get("dims") or []
@@ -457,8 +601,7 @@ def aggregate_answer(
     mode: str = "instruct",
 ) -> Optional[str]:
     """S2 编排：一次归类 LLM 调用 → 校验/兜底 → 计数 → 渲染。失败返回 None（保留原答案）。"""
-    from ai_inference.llm_client import chat_result_guarded
-
+    context_clean, index = _split_preread_index(context)
     blocks = evidence_blocks(context)
     closed_set = closed_set_from_context(context)
     logger.info("aggregate_answer enter: context=%d blocks=%d closed=%d",
@@ -466,7 +609,7 @@ def aggregate_answer(
     if not blocks or not closed_set:
         logger.warning("aggregate_answer 早退：blocks=%d closed=%d", len(blocks), len(closed_set))
         return None
-    evidence_text = str(context)
+    evidence_text = context_clean
     if len(evidence_text) > 100_000:
         evidence_text = evidence_text[:100_000]
     n_dims = len(spec.get("dims") or [])
@@ -484,7 +627,7 @@ def aggregate_answer(
         ),
     }]
     try:
-        call = chat_result_guarded(llm, messages, mode=mode, config_name=config_name, temperature=0.0, max_tokens=8000)
+        call = _chat(llm, messages, config_name=config_name, mode=mode)
         raw_text = call.text or ""
     except Exception as exc:  # noqa: BLE001 —— 归类失败保留原答案
         logger.warning("aggregate_answer 调用失败: %s", exc)
@@ -494,12 +637,20 @@ def aggregate_answer(
         logger.warning("aggregate_answer 解析失败：raw=%d 字 tail=%r", len(raw_text), raw_text[-200:])
         return None
     result = classify(spec, parsed, blocks, closed_set)
+    # S2 二次加深（归类失败信号）：兜底 matter 重读 4000 字后单独重归类，成功则升级
+    upgraded = 0
+    if spec.get("deepen") and index:
+        upgraded = _deepen_reclassify(
+            llm, question=question, spec=spec, result=result, index=index,
+            config_name=config_name, mode=mode,
+        )
     aggregate = compute_aggregate(spec, result)
     rendered = render_answer(spec, result, aggregate)
     rec = aggregate["reconciliation"]
     logger.info(
-        "aggregate_answer: candidates=%d classified=%d backstop=%d excluded=%d complete=%s",
-        rec["candidates_n"], rec["classified_n"], rec["backstop_n"], rec["excluded_n"], rec["complete"],
+        "aggregate_answer: candidates=%d classified=%d backstop=%d excluded=%d complete=%s upgraded=%d",
+        rec["candidates_n"], rec["classified_n"], rec["backstop_n"], rec["excluded_n"],
+        rec["complete"], upgraded,
     )
     return rendered or None
 
