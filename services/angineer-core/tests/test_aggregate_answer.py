@@ -239,7 +239,7 @@ def test_guard_replaces_with_aggregate(monkeypatch, tmp_path):
     spec_file.write_text(json.dumps({"specs": [SPEC016]}), encoding="utf-8")
     monkeypatch.setenv("ANGINEER_ANSWER_AGGREGATE", "1")
     monkeypatch.setenv("ANGINEER_ANSWER_AGGREGATE_SPECS", str(spec_file))
-    monkeypatch.setattr(aa, "aggregate_answer", lambda *a, **k: "AGG_TABLE")
+    monkeypatch.setattr(aa, "aggregate_answer_ex", lambda *a, **k: ("AGG_TABLE", []))
     aa._SPEC_CACHE.clear()
     guard = aa.make_aggregate_guard(None, llm=object(), question=Q016,
                                     enabled_for_query=True, evidence_context=CONTEXT)
@@ -252,7 +252,7 @@ def test_guard_safe_terminal_not_overridden(monkeypatch, tmp_path):
     spec_file.write_text(json.dumps({"specs": [SPEC016]}), encoding="utf-8")
     monkeypatch.setenv("ANGINEER_ANSWER_AGGREGATE", "1")
     monkeypatch.setenv("ANGINEER_ANSWER_AGGREGATE_SPECS", str(spec_file))
-    monkeypatch.setattr(aa, "aggregate_answer", lambda *a, **k: "AGG_TABLE")
+    monkeypatch.setattr(aa, "aggregate_answer_ex", lambda *a, **k: ("AGG_TABLE", []))
     aa._SPEC_CACHE.clear()
 
     def base_guard(_messages):
@@ -284,7 +284,7 @@ def test_guard_render_failure_keeps_base(monkeypatch, tmp_path):
     spec_file.write_text(json.dumps({"specs": [SPEC016]}), encoding="utf-8")
     monkeypatch.setenv("ANGINEER_ANSWER_AGGREGATE", "1")
     monkeypatch.setenv("ANGINEER_ANSWER_AGGREGATE_SPECS", str(spec_file))
-    monkeypatch.setattr(aa, "aggregate_answer", lambda *a, **k: None)
+    monkeypatch.setattr(aa, "aggregate_answer_ex", lambda *a, **k: None)
     aa._SPEC_CACHE.clear()
     guard = aa.make_aggregate_guard(None, llm=object(), question=Q016,
                                     enabled_for_query=True, evidence_context=CONTEXT)
@@ -318,9 +318,10 @@ def test_deepen_reclassify_upgrades_backstop(monkeypatch):
     }}
     deep_text = ("Arbor Health Tech signed a 2024 credit agreement carrying always-on financial "
                  "maintenance covenants tested quarterly.")
-    monkeypatch.setattr(aa, "_deep_read_blocks",
-                        lambda library_id, doc_map, mids, query: {
-                            "1010-00001": {"title": "arbor.docx", "text": deep_text}})
+    monkeypatch.setattr(aa, "_layer_read",
+                        lambda library_id, jobs, query, mode, chars: {
+                            mid: {"title": "arbor.docx", "text": deep_text} for mid, _, _ in jobs})
+    monkeypatch.setattr(aa, "_matter_docs", lambda library_id, mid, limit: [])
     raw2 = ("C || 1010-00001 || 2024 || always_on || "
             "signed a 2024 credit agreement carrying always-on financial || Arbor is always-on\n")
     captured = {}
@@ -344,15 +345,17 @@ def test_deepen_reclassify_upgrades_backstop(monkeypatch):
     result2 = {"classifications": {
         "1010-00001": {"matter_id": "1010-00001", "values": ["unknown", "unknown"], "quote": "",
                        "finding": "", "backstop": True, "reason": "未归类兜底", "document": "d"}}}
-    monkeypatch.setattr(aa, "_deep_read_blocks",
-                        lambda library_id, doc_map, mids, query: {
-                            "1010-00001": {"title": "t", "text": "no usable covenant fact here " * 30}})
+    monkeypatch.setattr(aa, "_layer_read",
+                        lambda library_id, jobs, query, mode, chars: {
+                            mid: {"title": "t", "text": "no usable covenant fact here " * 30}
+                            for mid, _, _ in jobs})
+    monkeypatch.setattr(aa, "_matter_docs", lambda library_id, mid, limit: [])
     monkeypatch.setattr(aa, "_chat",
                         lambda llm, messages, **k: type("R", (), {"text": "N || 1010-00001 || still unclear"})())
     upgraded2 = aa._deepen_reclassify(object(), question="q", spec=SPEC016, result=result2,
                                       index=index, config_name=None, mode="instruct")
     assert upgraded2 == 0
-    assert result2["classifications"]["1010-00001"]["reason"] == "加深重读后仍不可归类"
+    assert result2["classifications"]["1010-00001"]["reason"] == "三层加深后仍不可归类"
 
 
 def test_deepen_disabled_without_flag_or_index(monkeypatch):
@@ -382,7 +385,7 @@ def test_deep_read_blocks_depth_only_reads_primary(monkeypatch):
     """迭代 3 实测回退：加深只读主文档 4000 字（宽度假设被否定，深度是已验证杠杆）。"""
     calls = {}
 
-    def fake_read(library_id, doc_ids, query, max_chars):
+    def fake_read(library_id, doc_ids, query, max_chars, mode="match"):
         calls["doc_ids"] = doc_ids
         calls["max_chars"] = max_chars
         return {"docs": [

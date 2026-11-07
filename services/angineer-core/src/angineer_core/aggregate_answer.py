@@ -45,6 +45,9 @@ _index_doc_id = _index_doc_id
 _DEEPEN_CHARS = 4000
 _DEEPEN_CALL_BUDGET = 60_000
 _DEEPEN_BATCH_MAX = 12
+_DEEPEN_TOTAL_BUDGET = 400_000  # 每题加深总字符帽（≈7 个 60k 批）
+_DEEPEN_MATTER_DOCS = 4       # 第二层：matter 前 K 篇文档（含主文档）
+_DEEPEN_TAIL_DOCS = 4         # 第三层：matter 第 5..8 篇 head 读
 
 
 def enabled() -> bool:
@@ -296,7 +299,9 @@ def _chat(llm: Any, messages: List[Dict[str, str]], *, config_name: Optional[str
     return chat_result_guarded(llm, messages, mode=mode, config_name=config_name, temperature=0.0, max_tokens=8000)
 
 
-def _read_docs_batch(library_id: str, doc_ids: List[str], query: str, max_chars: int) -> Dict[str, Any]:
+def _read_docs_batch(
+    library_id: str, doc_ids: List[str], query: str, max_chars: int, mode: str = "match"
+) -> Dict[str, Any]:
     """读页缝隙（测试在此打桩）；懒加载 docs-core，保持包间解耦。"""
     from docs_core.step09_query.doc_search import read_documents
 
@@ -305,40 +310,92 @@ def _read_docs_batch(library_id: str, doc_ids: List[str], query: str, max_chars:
         doc_ids=doc_ids,
         query=str(query or "")[:400],
         max_chars_per_doc=max_chars,
-        mode="match",
+        mode=mode,
     )
 
 
 def _deep_read_blocks(
     library_id: str, doc_map: Dict[str, Any], mids: List[str], query: str
 ) -> Dict[str, Dict[str, str]]:
-    """对兜底 matter 的主代表文档按 4000 字重读（match 模式），返回 {mid: {title, text}}。
+    """第一层：主代表文档 match@4000（词源=题面全词∪bucket 词，见 _deepen_word_source）。"""
+    return _layer_read(
+        library_id,
+        [(mid, _primary_doc(doc_map, mid), "primary") for mid in mids if _primary_doc(doc_map, mid)],
+        query, "match", _DEEPEN_CHARS,
+    )
 
-    doc_map 值兼容 {mid: doc_id}（旧索引）与 {mid: [doc1, doc2]}（v2，只取主文档）。
-    深度优先是实测结论（见预注册 §6 迭代 2/3）：同一篇文档读到 4000 字有效（升级 6/9），
-    换第二篇各读 2000 字反而回归（升级 1/9）——细节内容在主文档更深处，不在第二篇。
-    """
-    out: Dict[str, Dict[str, str]] = {}
-    ids: List[Tuple[str, str]] = []
-    for mid in mids:
-        spec_ids = doc_map.get(mid)
-        primary = spec_ids[0] if isinstance(spec_ids, list) and spec_ids else spec_ids
-        if primary:
-            ids.append((mid, str(primary)))
-    for start in range(0, len(ids), 8):
-        batch = ids[start:start + 8]
+
+def _primary_doc(doc_map: Dict[str, Any], mid: str) -> str:
+    spec_ids = doc_map.get(mid)
+    if isinstance(spec_ids, list):
+        return str(spec_ids[0]) if spec_ids else ""
+    return str(spec_ids or "")
+
+
+def _matter_docs(library_id: str, mid: str, limit: int) -> List[Dict[str, str]]:
+    """matter 内文档清单缝隙（docs-core matter_documents；测试在此打桩）。"""
+    from docs_core.step09_query.doc_search import matter_documents
+
+    return matter_documents(library_id, mid, limit=limit)
+
+
+def _layer_read(
+    library_id: str,
+    jobs: List[Tuple[str, str]],
+    query: str,
+    mode: str,
+    chars: int,
+) -> Dict[str, Dict[str, str]]:
+    """按 (matter, doc) 批量读页并合并为 {mid: {title, text}}——三层加深共用读页原语。"""
+    out: Dict[str, Dict[str, Any]] = {}
+    for start in range(0, len(jobs), 8):
+        batch = jobs[start:start + 8]
         try:
-            result = _read_docs_batch(library_id, [doc_id for _, doc_id in batch], query, _DEEPEN_CHARS)
-        except Exception as exc:  # noqa: BLE001 —— 加深失败降级为保持兜底
+            result = _read_docs_batch(library_id, [doc_id for _, doc_id, _ in batch], query, chars, mode)
+        except Exception as exc:  # noqa: BLE001 —— 该层读失败降级到下一层
             logger.warning("aggregate_answer 加深读失败(batch %d): %s", start, exc)
             continue
         docs = {str(d.get("doc_id") or ""): d for d in result.get("docs") or []}
-        for mid, doc_id in batch:
+        for mid, doc_id, role in batch:
             doc = docs.get(doc_id) or {}
             text = " ".join(str(doc.get("text") or "").split())
-            if text:
-                out[mid] = {"title": str(doc.get("title") or ""), "text": text[:_DEEPEN_CHARS]}
+            if not text:
+                continue
+            entry = out.setdefault(mid, {"title": "", "parts": []})
+            entry["parts"].append({"role": role, "title": str(doc.get("title") or ""), "text": text[:chars]})
+    for mid, entry in out.items():
+        parts = entry.pop("parts")
+        entry["title"] = parts[0]["title"] if parts else ""
+        if len(parts) == 1:
+            entry["text"] = parts[0]["text"]
+        else:
+            # 多文档拼接：标注来源（primary/alternate/extra），供二次归类区分文书
+            entry["text"] = "\n\n".join(
+                f"[{p['role']} document: {p['title']}]\n{p['text']}" for p in parts
+            )
     return out
+
+
+def _deepen_word_source(question: str, spec: Dict[str, Any]) -> str:
+    """加深读页定位词源：题面全部长词 ∪ bucket 名拆词。
+
+    词形稳定可检索（tested quarterly 11/12、springing 8/12，四词组并集 12/12，
+    测量见预注册 §7）；"always-on" 字面语料零命中属已知词汇鸿沟，交给分层兜底。
+    边界（零金标）：只允许题面词与 spec bucket 名——语料侧词组（如 tested
+    quarterly）不入词源，注入即测量泄漏。
+    """
+    words = re.findall(r"[A-Za-z]{4,}", str(question or ""))
+    for dim in spec.get("dims") or []:
+        for bucket in dim.get("buckets") or []:
+            words.extend(re.findall(r"[A-Za-z]{4,}", str(bucket)))
+    seen: set = set()
+    out: List[str] = []
+    for w in words:
+        key = w.lower()
+        if len(key) >= 4 and key not in seen:
+            seen.add(key)
+            out.append(w)
+    return " ".join(out[:24])
 
 
 def _deepen_reclassify(
@@ -351,9 +408,15 @@ def _deepen_reclassify(
     config_name: Optional[str],
     mode: str,
 ) -> int:
-    """归类失败信号驱动的二次加深：只对兜底 matter 重读并重归类，成功则升级该行。
+    """归类失败信号驱动的三层加深（2026-11-07 第二刀，预注册 §7）：
 
-    返回升级（兜底→有效归类）的 matter 数；仍失败的保持兜底（如实），不抛错。
+    L1 主文档 match（词源=题面全词∪bucket 词，修「springing 排不进题面前 10 词」）
+    L2 matter 前 K 篇文档 match（修「5/12 matter 的陈述不在 best 文档」）
+    L3 matter 第 5..8 篇 head 读（email/deal-summary 类陈述在文档头部；read_documents
+       无翻页偏移，「primary 分页扫描」不可表达，落地为扫 matter 更多文档头部）
+
+    每层后重归类、升级者退出（短-circuit）；总预算帽 _DEEPEN_TOTAL_BUDGET 守恒，
+    超限的 matter 保持兜底并如实标注。返回升级 matter 数，不抛错。
     """
     if not index:
         return 0
@@ -366,17 +429,101 @@ def _deepen_reclassify(
     if not library_id or not targets:
         return 0
     n_dims = len(spec.get("dims") or [])
-    deep_blocks_all = _deep_read_blocks(library_id, doc_map, targets, question)
-    logger.info("aggregate_answer deepen: backstop=%d 重读成功=%d", len(backstop_mids), len(deep_blocks_all))
+    word_source = _deepen_word_source(question, spec)
+    remaining = set(targets)
     upgraded = 0
-    # 按字符预算分批（每批 ≤60k 且 ≤12 个 matter）
+    spent = 0
+
+    def _budget_left() -> int:
+        return _DEEPEN_TOTAL_BUDGET - spent
+
+    def _run_layer(layer: str, jobs: List[Tuple[str, str]], query: str, r_mode: str, chars: int) -> int:
+        """单层：读页→分批重归类→升级。返回本层升级数；剩余兜底集就地收缩。"""
+        nonlocal upgraded, spent
+        jobs = [(mid, doc_id, role) for mid, doc_id, role in jobs if mid in remaining and doc_id]
+        if not jobs or _budget_left() <= 0:
+            return 0
+        blocks_by_mid = _layer_read(library_id, jobs, query, r_mode, chars)
+        spent += sum(len(b["text"]) for b in blocks_by_mid.values())
+        hit_mids = [mid for mid in remaining if mid in blocks_by_mid]
+        if not hit_mids:
+            return 0
+        up = _reclassify_batches(llm, question=question, spec=spec, result=result,
+                                 blocks_by_mid=blocks_by_mid, targets=hit_mids,
+                                 n_dims=n_dims, config_name=config_name, mode=mode)
+        upgraded += up
+        remaining.difference_update(
+            mid for mid in hit_mids
+            if not result["classifications"].get(mid, {}).get("backstop")
+        )
+        return up
+
+    # L1 主文档 match（词源扩展）
+    _run_layer("L1", [(mid, _primary_doc(doc_map, mid), "primary") for mid in targets],
+               word_source, "match", _DEEPEN_CHARS)
+    if remaining and _budget_left() > 0:
+        # L2 matter 前 K 篇文档 match（陈述在别的文书：email/deal-summary）
+        layer2_jobs: List[Tuple[str, str]] = []
+        for mid in sorted(remaining):
+            docs = _matter_docs(library_id, mid, limit=_DEEPEN_MATTER_DOCS + 2)
+            picked = 0
+            for d in docs:
+                if picked >= _DEEPEN_MATTER_DOCS - 1:
+                    break
+                doc_id = str(d.get("doc_id") or "")
+                if doc_id and doc_id != _primary_doc(doc_map, mid):
+                    layer2_jobs.append((mid, doc_id, "extra"))
+                    picked += 1
+        _run_layer("L2", layer2_jobs, word_source, "match", 2000)
+    if remaining and _budget_left() > 0:
+        # L3 matter 第 5..8 篇 head 读（read_documents 无翻页偏移，分页不可表达；
+        # email/deal-summary 类陈述在头部，扫更多文档头部是 API 内最近形式）
+        layer3_jobs: List[Tuple[str, str]] = []
+        for mid in sorted(remaining):
+            docs = _matter_docs(library_id, mid, limit=_DEEPEN_MATTER_DOCS + _DEEPEN_TAIL_DOCS + 2)
+            known = {_primary_doc(doc_map, mid)}
+            picked = 0
+            for d in docs:
+                if picked >= _DEEPEN_TAIL_DOCS:
+                    break
+                doc_id = str(d.get("doc_id") or "")
+                if doc_id and doc_id not in known:
+                    layer3_jobs.append((mid, doc_id, "extra"))
+                    known.add(doc_id)
+                    picked += 1
+        _run_layer("L3", layer3_jobs, word_source, "head", _DEEPEN_CHARS)
+    if remaining:
+        for mid in sorted(remaining):
+            if mid in result["classifications"]:
+                result["classifications"][mid]["reason"] = (
+                    "加深预算耗尽仍不可归类" if _budget_left() <= 0 else "三层加深后仍不可归类"
+                )
+    logger.info(
+        "aggregate_answer deepen: backstop=%d upgraded=%d spent_chars=%d budget_left=%d",
+        len(backstop_mids), upgraded, spent, _budget_left(),
+    )
+    return upgraded
+
+
+def _reclassify_batches(
+    llm: Any,
+    *,
+    question: str,
+    spec: Dict[str, Any],
+    result: Dict[str, Any],
+    blocks_by_mid: Dict[str, Dict[str, str]],
+    targets: List[str],
+    n_dims: int,
+    config_name: Optional[str],
+    mode: str,
+) -> int:
+    """把一批加深摘录分批（≤60k、≤12 matter）交重归类，升级兜底行。返回升级数。"""
+    upgraded = 0
     batch: List[str] = []
     budget = 0
     batches: List[List[str]] = []
     for mid in targets:
-        if mid not in deep_blocks_all:
-            continue
-        cost = len(deep_blocks_all[mid]["text"])
+        cost = len(blocks_by_mid[mid]["text"])
         if batch and (budget + cost > _DEEPEN_CALL_BUDGET or len(batch) >= _DEEPEN_BATCH_MAX):
             batches.append(batch)
             batch, budget = [], 0
@@ -385,7 +532,7 @@ def _deepen_reclassify(
     if batch:
         batches.append(batch)
     for batch_mids in batches:
-        blocks2 = {mid: deep_blocks_all[mid] for mid in batch_mids}
+        blocks2 = {mid: blocks_by_mid[mid] for mid in batch_mids}
         lines = [
             "## Deep re-read evidence (system, deterministic)",
             "These are LONGER excerpts of matters that could not be classified from the first excerpt.",

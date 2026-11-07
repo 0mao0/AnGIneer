@@ -1562,3 +1562,25 @@ def read_documents(
     if section:
         note += " section 模式从该章节标题所在块开始读；section_found=false 表示没找到该章节，已回退到普通读页。"
     return {"docs": out, "mode": "section" if section else mode, "note": note}
+
+
+def matter_documents(library_id: str, matter_id: str, limit: int = 8) -> List[Dict[str, Any]]:
+    """matter 内文档清单（按目录导入序，即归组序的稳定代理）——枚举检索线第二刀
+    「加深读页扩到 matter 多文档」用；只读 catalog，不碰 FTS。"""
+    conn = _connect(library_id)
+    try:
+        rows = conn.execute(
+            "select doc_id, filename, rel_path, title_semantic from doc_catalog "
+            "where library_id=? and matter_id=? order by rowid limit ?",
+            (library_id, str(matter_id or ""), max(1, min(int(limit or 8), 40))),
+        ).fetchall()
+        return [
+            {
+                "doc_id": r["doc_id"],
+                "title": (r["title_semantic"] or r["filename"] or r["doc_id"]),
+                "filename": r["filename"] or "",
+            }
+            for r in rows
+        ]
+    finally:
+        conn.close()
