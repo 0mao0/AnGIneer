@@ -278,11 +278,16 @@ def preread_enabled() -> bool:
 
 
 def _preread_candidates(library_id: str, queries: List[str]) -> Dict[str, Dict[str, Any]]:
-    """改写式 → doc_search 取每个候选 matter 的代表文档（best.doc_id）。"""
+    """改写式 → doc_search 取每个候选 matter 的代表文档（best.doc_id）＋第二代表文档。
+
+    第二代表文档（docs[1]）不进第一遍摘录，只随 PREREAD INDEX 索引供二次加深
+    「归类失败→换一篇文书重读」使用（2026-11-07 实测：016 细节文档常排组内第 2-3 篇，
+    只重读同一篇更长文本救不动）。
+    """
     cards: Dict[str, Dict[str, Any]] = {}
     for query in queries:
         try:
-            result = _search_documents(library_id, query, limit=120, per_matter=1)
+            result = _search_documents(library_id, query, limit=120, per_matter=2)
         except Exception as exc:  # noqa: BLE001
             logger.warning("enum_prefetch 预读检索失败(%r): %s", query, exc)
             continue
@@ -290,8 +295,16 @@ def _preread_candidates(library_id: str, queries: List[str]) -> Dict[str, Dict[s
             mid = str(matter.get("matter_id") or "").strip()
             best = matter.get("best") or {}
             doc_id = str(best.get("doc_id") or "").strip()
-            if mid and doc_id and mid not in cards:
-                cards[mid] = {"doc_id": doc_id, "title": str(best.get("title") or "")}
+            if not (mid and doc_id) or mid in cards:
+                continue
+            card: Dict[str, Any] = {"doc_id": doc_id, "title": str(best.get("title") or "")}
+            for entry in matter.get("docs") or []:
+                alt = str((entry or {}).get("doc_id") or "").strip()
+                if alt and alt != doc_id:
+                    card["doc_id_2"] = alt
+                    card["title_2"] = str((entry or {}).get("title") or "")
+                    break
+            cards[mid] = card
     return cards
 
 
@@ -447,7 +460,14 @@ def build_preread_context(
     excerpts = _read_excerpts(library_id, cards, queries[0] if queries else str(query)[:120])
     if not excerpts:
         return None
-    doc_ids_map = {mid: cards[mid]["doc_id"] for mid in excerpts if mid in cards}
+    doc_ids_map: Dict[str, Any] = {}
+    for mid in excerpts:
+        if mid not in cards:
+            continue
+        ids = [cards[mid]["doc_id"]]
+        if cards[mid].get("doc_id_2"):
+            ids.append(cards[mid]["doc_id_2"])
+        doc_ids_map[mid] = ids if len(ids) > 1 else ids[0]
     text = format_preread_context(excerpts, doc_ids_map, library_id=library_id)
     logger.info("enum_prefetch(preread) 注入：matters=%d chars=%d", len(excerpts), len(text))
     return text or None

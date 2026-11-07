@@ -376,3 +376,32 @@ def test_deepen_disabled_without_flag_or_index(monkeypatch):
     assert aa._deepen_reclassify(object(), question="q", spec=SPEC016, result=result,
                                  index={"library": "l", "doc_ids": {}}, config_name=None, mode="m") == 0
     assert called["n"] == 0
+
+
+def test_deep_read_blocks_depth_only_reads_primary(monkeypatch):
+    """迭代 3 实测回退：加深只读主文档 4000 字（宽度假设被否定，深度是已验证杠杆）。"""
+    calls = {}
+
+    def fake_read(library_id, doc_ids, query, max_chars):
+        calls["doc_ids"] = doc_ids
+        calls["max_chars"] = max_chars
+        return {"docs": [
+            {"doc_id": "d1", "title": "credit-agreement.docx", "text": "primary excerpt " * 300},
+            {"doc_id": "d3", "title": "single-doc.docx", "text": "single matter excerpt " * 100},
+        ]}
+
+    monkeypatch.setattr(aa, "_read_docs_batch", fake_read)
+    out = aa._deep_read_blocks("lab", {"1006-00001": ["d1", "d2"], "1010-00001": "d3"},
+                               ["1006-00001", "1010-00001"], "covenant query")
+    # 只读主文档（d2 不读），深度给满 4000
+    assert calls["doc_ids"] == ["d1", "d3"]
+    assert calls["max_chars"] == 4000
+    assert "[alternate document" not in out["1006-00001"]["text"]
+    assert out["1006-00001"]["text"].startswith("primary excerpt")
+
+
+def test_split_preread_index_v2_list_values():
+    idx = json.dumps({"library": "lab", "doc_ids": {"1006-00001": ["d1", "d2"]}},
+                     ensure_ascii=False, separators=(",", ":"))
+    _, index = aa._split_preread_index(CONTEXT + "\nPREREAD INDEX (system): " + idx)
+    assert index["doc_ids"]["1006-00001"] == ["d1", "d2"]

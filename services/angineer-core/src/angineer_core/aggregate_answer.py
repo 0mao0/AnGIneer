@@ -306,24 +306,39 @@ def _split_preread_index(context: str) -> Tuple[str, Optional[Dict[str, Any]]]:
     return cleaned, data
 
 
-def _deep_read_blocks(
-    library_id: str, doc_map: Dict[str, str], mids: List[str], query: str
-) -> Dict[str, Dict[str, str]]:
-    """对兜底 matter 的代表文档按 4000 字重读（match 模式），返回 {mid: {title, text}}。"""
+def _read_docs_batch(library_id: str, doc_ids: List[str], query: str, max_chars: int) -> Dict[str, Any]:
+    """读页缝隙（测试在此打桩）；懒加载 docs-core，保持包间解耦。"""
     from docs_core.step09_query.doc_search import read_documents
 
+    return read_documents(
+        library_id=library_id,
+        doc_ids=doc_ids,
+        query=str(query or "")[:400],
+        max_chars_per_doc=max_chars,
+        mode="match",
+    )
+
+
+def _deep_read_blocks(
+    library_id: str, doc_map: Dict[str, Any], mids: List[str], query: str
+) -> Dict[str, Dict[str, str]]:
+    """对兜底 matter 的主代表文档按 4000 字重读（match 模式），返回 {mid: {title, text}}。
+
+    doc_map 值兼容 {mid: doc_id}（旧索引）与 {mid: [doc1, doc2]}（v2，只取主文档）。
+    深度优先是实测结论（见预注册 §6 迭代 2/3）：同一篇文档读到 4000 字有效（升级 6/9），
+    换第二篇各读 2000 字反而回归（升级 1/9）——细节内容在主文档更深处，不在第二篇。
+    """
     out: Dict[str, Dict[str, str]] = {}
-    ids = [(mid, doc_map[mid]) for mid in mids if doc_map.get(mid)]
+    ids: List[Tuple[str, str]] = []
+    for mid in mids:
+        spec_ids = doc_map.get(mid)
+        primary = spec_ids[0] if isinstance(spec_ids, list) and spec_ids else spec_ids
+        if primary:
+            ids.append((mid, str(primary)))
     for start in range(0, len(ids), 8):
         batch = ids[start:start + 8]
         try:
-            result = read_documents(
-                library_id=library_id,
-                doc_ids=[doc_id for _, doc_id in batch],
-                query=str(query or "")[:400],
-                max_chars_per_doc=_DEEPEN_CHARS,
-                mode="match",
-            )
+            result = _read_docs_batch(library_id, [doc_id for _, doc_id in batch], query, _DEEPEN_CHARS)
         except Exception as exc:  # noqa: BLE001 —— 加深失败降级为保持兜底
             logger.warning("aggregate_answer 加深读失败(batch %d): %s", start, exc)
             continue
