@@ -912,12 +912,16 @@ def _text_hits(
     limit: int,
     *,
     include_loose: bool = True,
+    window_rows: int = 0,
 ) -> List[Dict[str, Any]]:
     """FTS 命中按文档聚合（多查询计划加权）。
 
     FTS5 的 bm25() 不能在 GROUP BY 聚合上下文用（2026-10-18 实踩），所以先取命中段落
     明细、在 Python 侧按 doc 聚合；单次取 limit*20 条段落足够覆盖 limit 篇文档。
+    window_rows>0 时按需放宽每计划取行上限（枚举检索线：罕见短语在 2400 行窗口内
+    只剩 1 行、文档跌出归组——2026-11-07 实测），默认 0=现行为。
     """
+    window = int(window_rows) if window_rows and int(window_rows) > 0 else max(limit * 20, 200)
     merged: Dict[str, Dict[str, Any]] = {}
     for match, weight in _match_plans(tokens, include_loose=include_loose):
         try:
@@ -926,7 +930,7 @@ def _text_hits(
                 "from canonical_chunk_fts where canonical_chunk_fts match ? "
                 "and doc_id in (select doc_id from canonical_documents where library_id=?) "
                 "order by score limit ?",
-                (match, library_id, max(limit * 20, 200)),
+                (match, library_id, window),
             ).fetchall()
         except sqlite3.OperationalError as exc:  # 非法 FTS 语法一律退化为无命中
             logger.warning("doc_search FTS 语法失败(%r): %s", match, exc)
@@ -1014,6 +1018,9 @@ def search_documents(
     date_after: Optional[str] = None,
     date_before: Optional[str] = None,
     entity_contains: Optional[str] = None,
+    max_matters: int = 0,
+    group_candidates_cap: int = 0,
+    window_rows: int = 0,
 ) -> Dict[str, Any]:
     """文档级检索：返回按 matter 归并的候选清单（枚举视图）。
 
@@ -1025,6 +1032,12 @@ def search_documents(
 
     entity_contains：实体/客户/案件名——先找出提到它的文档，再把这些文档所属的
     matter/group 作为检索范围（「Lumos 最近一份信贷协议」= entity + filename + date_desc 一次调用）。
+
+    枚举检索线参数化（2026-11-07 实测：罕见短语在窗口内只剩 1-2 行、低分文档跌出归组、
+    matter 卡 40 上限截断覆盖——默认 0 全部保持现行为，仅枚举臂传高值）：
+    - max_matters：matter 视图卡片上限（默认 _MATTER_CARDS=40）；
+    - group_candidates_cap：归组前候选字典截断（默认 max(limit*8, 400)）；
+    - window_rows：每查询计划 FTS 取行上限（默认 max(limit*20, 200)）。
     """
     limit = max(1, min(int(limit or 40), MAX_DOCS))
     per_matter = max(1, min(int(per_matter or 2), 10))
@@ -1103,10 +1116,10 @@ def search_documents(
                     "library_id": library_id,
                 }
 
-        text_rows = _text_hits(conn, library_id, tokens, limit, include_loose=False) if tokens else []
+        text_rows = _text_hits(conn, library_id, tokens, limit, include_loose=False, window_rows=window_rows) if tokens else []
         if tokens and len(text_rows) < 5:
             # 短语通道过窄（术语写法不一/复数/换行断裂）时才放开松散 AND，避免漏召回
-            text_rows = _text_hits(conn, library_id, tokens, limit, include_loose=True)
+            text_rows = _text_hits(conn, library_id, tokens, limit, include_loose=True, window_rows=window_rows)
         title_scores = _title_hits(conn, library_id, tokens, limit) if tokens else {}
         candidates = {r["doc_id"]: r for r in text_rows}
         for doc_id, (matched_tokens, phrase_hit) in title_scores.items():
@@ -1133,7 +1146,18 @@ def search_documents(
         if entity_name:
             catalog_ids = list(candidates)
         else:
-            catalog_ids = list(candidates) if date_mode else list(candidates)[: max(limit * 8, 400)]
+            group_cap = int(group_candidates_cap) if group_candidates_cap and int(group_candidates_cap) > 0 else max(limit * 8, 400)
+            if len(candidates) <= group_cap:
+                catalog_ids = list(candidates)
+            else:
+                # 截断按分数排序（枚举检索线 2026-11-07）：旧实现按插入序截断，多计划
+                # 窗口放大后，后位计划的低分文档（往往恰是目标 matter 的罕见短语命中）
+                # 被整批挤出、丢失 matter 归组——实测 016-1042/1013、041-1027。典型查询
+                # 候选数 ≤ 上限时无差异。
+                catalog_ids = [
+                    doc_id for doc_id, _ in
+                    sorted(candidates.items(), key=lambda kv: (-kv[1].get("score", 0.0), -kv[1].get("hits", 0)))
+                ][:group_cap]
         catalog = _catalog_map(conn, library_id, catalog_ids, with_dates=date_mode)
         if date_mode and candidates and not catalog:
             date_warning = "候选文档没有目录行，日期均为空：排序无效、区间过滤会排除全部候选"
@@ -1188,7 +1212,10 @@ def search_documents(
 
         # matter 优先分配：同一 matter 最多 per_matter 篇进 docs，避免大 matter 挤掉其它候选。
         # 先按分数取前 400 个候选再分组——候选可能上千（泛词命中），全量分组会让 matter 数失真。
-        ranked = _order(list(candidates.values()))[:400]
+        # 归组候选上限（枚举检索线 2026-11-07 参数化）：硬编码 400 会让窗口内幸存的
+        # 罕见短语文档（正是目标 matter 的命中）排不进归组、matter 在 matter 视图蒸发
+        # （实测 016-1042/1013、041-1013-00002/1027）。默认 400 不变，仅枚举臂传高值。
+        ranked = _order(list(candidates.values()))[: max(group_candidates_cap, 400)]
         for entry in ranked:
             cat = catalog.get(entry["doc_id"]) or {}
             ident = _group_identity(cat.get("matter_id", ""), cat.get("folder", ""), entry["doc_id"])
@@ -1224,7 +1251,8 @@ def search_documents(
                 break
 
         card_ids: List[str] = []
-        for key in ordered_groups[:_MATTER_CARDS]:
+        matter_cap = int(max_matters) if max_matters and int(max_matters) > 0 else _MATTER_CARDS
+        for key in ordered_groups[:matter_cap]:
             for entry in _order(groups[key]["entries"])[:per_matter]:
                 card_ids.append(entry["doc_id"])
         title_map = _title_map(conn, card_ids) if card_ids else {}
@@ -1250,7 +1278,7 @@ def search_documents(
                 doc_row["date_confidence"] = cat.get("date_confidence") or "none"
             docs.append(doc_row)
 
-        for key in ordered_groups[:_MATTER_CARDS]:
+        for key in ordered_groups[:matter_cap]:
             entries = _order(groups[key]["entries"])
             if catalog_docs:
                 # 目录谓词命中优先：问「某客户最新一份信贷协议」时，组内 best 必须是命中的那份，
@@ -1269,6 +1297,9 @@ def search_documents(
                 "group_kind": kind,
                 "n_docs": len(entries),
                 "folder": best_cat.get("folder") or "",
+                # 枚举检索线（2026-11-07）：组内最高分随卡透出，供预读并集按跨查询
+                # 最高分排序（首见序会让先发查询的低分 matter 挤掉后发查询的金标）
+                "score": round(float(groups[key]["score"]), 4),
                 "best": {
                     "doc_id": best["doc_id"],
                     "title": best_cat.get("display_title") or title_map.get(best["doc_id"]) or best["doc_id"],

@@ -124,10 +124,13 @@ def rewrite_queries(
     return [str(q).strip() for q in queries if str(q).strip()][:4]
 
 
-def _search_documents(library_id: str, query: str, *, limit: int, per_matter: int) -> Dict[str, Any]:
+def _search_documents(library_id: str, query: str, *, limit: int, per_matter: int,
+                      **kwargs: Any) -> Dict[str, Any]:
+    """doc_search 包装（枚举检索线高参数经 kwargs 透传：max_matters/归组截断/窗口）。"""
     from docs_core.step09_query.doc_search import search_documents
 
-    return search_documents(library_id=library_id, query=query, limit=limit, per_matter=per_matter)
+    return search_documents(library_id=library_id, query=query, limit=limit,
+                            per_matter=per_matter, **kwargs)
 
 
 def _collect(library_id: str, queries: List[str]) -> "tuple[Dict[str, Dict[str, Any]], int]":
@@ -266,7 +269,7 @@ def format_catalog_context(cards: Dict[str, Dict[str, Any]], total: int, phrases
 
 # --- P4 代码预读（2026-10-22）：确定性读候选文档，注入真实片段 ---
 
-PREREAD_MAX_MATTERS = 50
+PREREAD_MAX_MATTERS = 85  # 2026-11-07 提帽：041-1027 并集第 81 名（实测见预注册 §7）；016-1010@109 属排序质量，下一刀
 PREREAD_CHARS = 1500
 PREREAD_DEEP_CHARS = 4000
 PREREAD_DEEP_MAX = 15
@@ -277,27 +280,59 @@ def preread_enabled() -> bool:
     return os.getenv("ANGINEER_ENUM_PREREAD", "0").strip().lower() in ("1", "true", "yes", "on")
 
 
-def _preread_candidates(library_id: str, queries: List[str]) -> Dict[str, Dict[str, Any]]:
+def _fallback_query(question: str) -> str:
+    """死查询兜底：题面前 10 个英文长词拼一条检索式（确定性、无领域知识、无 LLM）。"""
+    return " ".join(re.findall(r"[A-Za-z]{4,}", str(question or ""))[:10])
+
+
+def _preread_candidates(
+    library_id: str, queries: List[str], question: str = ""
+) -> Dict[str, Dict[str, Any]]:
     """改写式 → doc_search 取每个候选 matter 的代表文档（best.doc_id）＋第二代表文档。
 
     第二代表文档（docs[1]）不进第一遍摘录，只随 PREREAD INDEX 索引供二次加深
     「归类失败→换一篇文书重读」使用（2026-11-07 实测：016 细节文档常排组内第 2-3 篇，
     只重读同一篇更长文本救不动）。
+
+    枚举检索线（2026-11-07，预注册 §7）：传高参数放开 doc_search 三层截断
+    （matter 卡 80 / 归组 6000 / 窗口 4800——默认行为不变，仅本臂生效）；
+    死查询（matters 为空）用题面长词兜底重试一次（041 的 q2/q3 语料级 0 命中实测）。
     """
     cards: Dict[str, Dict[str, Any]] = {}
     for query in queries:
+        result: Dict[str, Any] = {}
         try:
-            result = _search_documents(library_id, query, limit=120, per_matter=2)
+            result = _search_documents(
+                library_id, query, limit=120, per_matter=2,
+                max_matters=80, group_candidates_cap=6000, window_rows=4800,
+            )
         except Exception as exc:  # noqa: BLE001
             logger.warning("enum_prefetch 预读检索失败(%r): %s", query, exc)
-            continue
+        if not result.get("matters") and question:
+            # 死查询回退：改写式语料级 0 命中时，用题面词重试一次
+            fb = _fallback_query(question)
+            if fb and fb.strip().lower() != query.strip().lower():
+                try:
+                    result = _search_documents(
+                        library_id, fb, limit=120, per_matter=2,
+                        max_matters=80, group_candidates_cap=6000, window_rows=4800,
+                    )
+                    logger.info("enum_prefetch 死查询回退: %r -> %r (%d matters)",
+                                query, fb[:60], len(result.get("matters") or []))
+                except Exception as exc:  # noqa: BLE001
+                    logger.warning("enum_prefetch 死查询回退失败(%r): %s", fb, exc)
         for matter in result.get("matters") or []:
             mid = str(matter.get("matter_id") or "").strip()
             best = matter.get("best") or {}
             doc_id = str(best.get("doc_id") or "").strip()
             if not (mid and doc_id) or mid in cards:
                 continue
-            card: Dict[str, Any] = {"doc_id": doc_id, "title": str(best.get("title") or "")}
+            card: Dict[str, Any] = {
+                "doc_id": doc_id,
+                "title": str(best.get("title") or ""),
+                # 跨查询最高分（响应无 score 的旧版本按 0 兜底，退化为首见序）
+                "score": float(matter.get("score") or 0.0),
+            }
             for entry in matter.get("docs") or []:
                 alt = str((entry or {}).get("doc_id") or "").strip()
                 if alt and alt != doc_id:
@@ -305,13 +340,26 @@ def _preread_candidates(library_id: str, queries: List[str]) -> Dict[str, Dict[s
                     card["title_2"] = str((entry or {}).get("title") or "")
                     break
             cards[mid] = card
+    if cards:
+        # 并集按跨查询最高分降序（稳定）：首见序会让先发查询的低分 matter
+        # 挤掉后发查询的金标（2026-11-07 实测：016 1008 在 q3 排 31 却被 union 序挤出）
+        ordered = sorted(cards.items(), key=lambda kv: -kv[1].get("score", 0.0))
+        cards = dict(ordered)
     return cards
 
 
-def _read_excerpts(library_id: str, cards: Dict[str, Dict[str, Any]], question: str) -> Dict[str, Any]:
-    """批量 doc_read（match 模式）取每个候选的代表性段落；一个 matter 一条摘录。"""
+def _read_excerpts(
+    library_id: str, cards: Dict[str, Dict[str, Any]], question: str,
+    excerpt_chars: int = 0,
+) -> Dict[str, Any]:
+    """批量 doc_read（match 模式）取每个候选的代表性段落；一个 matter 一条摘录。
+
+    excerpt_chars>0 时自适应摘录长度（枚举检索线：matter 帽 50→70 后按
+    85k 预算摊薄，深度损失由二次加深兜底——2026-11-07，预注册 §7）。
+    """
     from docs_core.step09_query.doc_search import read_documents
 
+    first_chars = int(excerpt_chars) if excerpt_chars and int(excerpt_chars) > 0 else PREREAD_CHARS
     items = list(cards.items())[:PREREAD_MAX_MATTERS]
     out: Dict[str, Any] = {}
     for start in range(0, len(items), 8):
@@ -321,7 +369,7 @@ def _read_excerpts(library_id: str, cards: Dict[str, Dict[str, Any]], question: 
                 library_id=library_id,
                 doc_ids=[card["doc_id"] for _, card in batch],
                 query=str(question or ""),
-                max_chars_per_doc=PREREAD_CHARS,
+                max_chars_per_doc=first_chars,
                 mode="match",
             )
         except Exception as exc:  # noqa: BLE001
@@ -332,7 +380,7 @@ def _read_excerpts(library_id: str, cards: Dict[str, Dict[str, Any]], question: 
             doc = docs.get(card["doc_id"]) or {}
             text = " ".join(str(doc.get("text") or "").split())
             if text:
-                out[mid] = (card["title"], text[:PREREAD_CHARS])
+                out[mid] = (card["title"], text[:first_chars])
     # 第二遍：摘录里一个查询词都没命中的 matter，按需加深到 4000 字符（封顶 15 个）
     terms = [t.lower() for t in re.findall(r"[A-Za-z]{4,}", str(question or ""))][:10]
     if terms:
@@ -457,11 +505,16 @@ def build_preread_context(
     marker_allocator: Any = None,
 ) -> Optional[str]:
     queries = rewrite_queries(llm, query, config_name=config_name, mode=mode) or [str(query)[:120]]
-    cards = _preread_candidates(library_id, queries)
+    cards = _preread_candidates(library_id, queries, question=str(query or ""))
     if not cards:
         return None
+    # 自适应摘录长度：matter 帽 70 后按 85k 预算摊薄（70×1200≈84k < 90k 帽），
+    # 深度损失由二次加深（兜底 matter 4000 字）补偿——枚举检索线，预注册 §7
+    matter_n = max(1, min(len(cards), PREREAD_MAX_MATTERS))
+    excerpt_chars = max(900, min(PREREAD_CHARS, 85_000 // matter_n))
     # 用第一条短检索式做读页定位（整句题面做 match 会稀释关键词）
-    excerpts = _read_excerpts(library_id, cards, queries[0] if queries else str(query)[:120])
+    excerpts = _read_excerpts(library_id, cards, queries[0] if queries else str(query)[:120],
+                              excerpt_chars=excerpt_chars)
     if not excerpts:
         return None
     doc_ids_map: Dict[str, Any] = {}

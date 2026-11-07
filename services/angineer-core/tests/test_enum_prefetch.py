@@ -125,3 +125,43 @@ def test_preread_degrades_without_candidates(monkeypatch):
     monkeypatch.setattr(ep, "rewrite_queries", lambda *a, **k: ["q1"])
     monkeypatch.setattr(ep, "_preread_candidates", lambda *a, **k: {})
     assert ep.build_preread_context(library_id="lib", query="list all matters", llm=object()) is None
+
+
+def test_preread_candidates_dead_query_fallback(monkeypatch):
+    """枚举检索线：死查询（matters 为空）用题面长词兜底重试一次。"""
+    calls = []
+
+    fallback = "Question about credit agreement covenant terms here"
+
+    def fake_search(library_id, query, **kwargs):
+        calls.append(query)
+        if query == fallback:
+            return {"matters": [{"matter_id": "1003-00001",
+                                 "best": {"doc_id": "d1", "title": "a.doc"},
+                                 "docs": [{"doc_id": "d1", "title": "a.doc"}]}]}
+        return {"matters": []}
+
+    monkeypatch.setattr(ep, "_search_documents", fake_search)
+    cards = ep._preread_candidates("lab", ["dead query one", "dead query two"],
+                                   question="Question about credit agreement covenant terms here")
+    # 两条死查询各触发一次题面词兜底；兜底查询命中 → 卡片产出
+    assert cards and cards["1003-00001"]["doc_id"] == "d1"
+    assert calls == ["dead query one", fallback, "dead query two", fallback]
+
+
+def test_preread_adaptive_excerpt_chars(monkeypatch):
+    """matter 帽 85 + 自适应摘录：85k 预算摊薄（85×1000=85k ≤ 90k 帽）。"""
+    assert ep.PREREAD_MAX_MATTERS == 85
+    cards = {f"100{i}-0000{i}": {"doc_id": f"d{i}", "title": f"t{i}"} for i in range(80)}
+    captured = {}
+
+    def fake_read(library_id, doc_ids, query, max_chars_per_doc, mode="match"):
+        captured.setdefault("max_chars", []).append(max_chars_per_doc)
+        return {"docs": [{"doc_id": d, "title": "t", "text": "excerpt " * 300} for d in doc_ids]}
+
+    monkeypatch.setattr("docs_core.step09_query.doc_search.read_documents", fake_read)
+    excerpts = ep._read_excerpts("lab", cards, "credit agreement covenant", excerpt_chars=1214)
+    # 首遍自适应 1214；加深第二遍仍 4000（深度由二次加深负责）
+    assert captured["max_chars"][0] == 1214
+    assert 4000 in captured["max_chars"]
+    assert len(excerpts) == min(len(cards), ep.PREREAD_MAX_MATTERS)  # 夹具 80 卡 < 帽 85

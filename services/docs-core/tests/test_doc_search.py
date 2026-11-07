@@ -603,3 +603,12 @@ def test_entity_type_date_unique_hit_is_authoritative(library_db):
     )
     assert "authoritative" not in plain
 
+
+
+def test_search_documents_max_matters_param(library_db):
+    """枚举检索线：matter 卡上限参数化（默认 _MATTER_CARDS 不变）。"""
+    full = doc_search.search_documents(library_id="lib", query="second request", limit=10)
+    capped = doc_search.search_documents(library_id="lib", query="second request", limit=10,
+                                         max_matters=1)
+    assert len(full["matters"]) == 2
+    assert len(capped["matters"]) == 1
