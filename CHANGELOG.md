@@ -2,6 +2,13 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.3.11
+
+- 评测·候选集合对账汇总失明修复：`eval_run_detail` 存了逐题 `recall_audit` 但读取侧没反序列化——`get_run_detail` 不补该列、`list_run_details` 键清单漏项，汇总段恒为全零；补读取路径，`summarize_audits` 加防御式解析（JSON 字符串入参不再静默跳过）
+- 评测·夜测卡片双对照：`gate.compare_with_previous` 轻量对比上一轮完整 run（不重算 CI），卡片在固定基线外增「较上一轮（MM-DD）：提升/持平/下降 X.X 个百分点（净增/退 N 题）」，固定基线注明日期与距今天数
+- 评测·上一轮对照加 `is_full_run` 过滤：单题试验 run 不再被当作「上一轮」，防读数污染
+- 评测·判官边界双判（默认关）：判官审计 53 例实测同判官同输入复跑翻转 13%（自一致 86.8%），6 例「核心结论一致仅缺细节」被判 0.4–0.6；复用既有 `ANGINEER_JUDGE_REJUDGE` 一致制，新增边界带 `ANGINEER_JUDGE_REJUDGE_BAND`（默认 `0.4,0.7`）——首票在带外直接收口、带内加判第二票，成本由全量 2× 压到约 1.1×；空值＝无带全量双判（向后兼容），非法配置按无带保守处理，留痕 `semantic_rejudge{scores,votes,mode}`。反事实双采样取中位一致率 95.7%（45/47）
+
 ## v0.3.10
 
 - 评测·候选集合对账（召回缺口如实报告）：每道评测题把「检索实际给到的候选」与金标逐项对账（candidate_record 三态：候选全集/仅引用下界/未记录），逐题入 `eval_run_detail.recall_audit`、run 汇总多 `recall_audit` 聚合段；`scripts/recall_audit_report.py` 可回填存量 run。Harvey 250 存量首测：citations 口径 mean matter recall 0.2935、211/244 题带缺口、7 题金标无 matter 号（下界口径，历史 run 只有引用子集）
