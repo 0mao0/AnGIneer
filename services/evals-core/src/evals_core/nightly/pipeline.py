@@ -293,6 +293,8 @@ def _load_previous_run(dataset_id: str, exclude_run_id: str) -> Optional[dict]:
     for r in runs:
         if r.get("run_id") == exclude_run_id or r.get("status") != "completed":
             continue
+        if not r.get("is_full_run", 1):
+            continue  # 单题试验 run 不是可比对照（2026-11-08 A/B 实跑后加固）
         details = result_store.list_run_details(r["run_id"])
         return {"run_id": r.get("run_id"), "started_at": r.get("started_at"), "details": details}
     return None
