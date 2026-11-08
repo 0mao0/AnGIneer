@@ -264,6 +264,12 @@ def summarize_audits(audits: List[Any]) -> Dict[str, Any]:
     recalls: List[float] = []
     full = gap = no_gold = errors = no_record = other = 0
     for a in audits:
+        if isinstance(a, str):
+            # 存储层未反序列化时的兜底（list_run_details 补列前的历史路径）
+            try:
+                a = json.loads(a)
+            except Exception:  # noqa: BLE001
+                continue
         if not isinstance(a, dict):
             continue
         st = a.get("status")

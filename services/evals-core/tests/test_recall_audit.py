@@ -205,6 +205,19 @@ class SummarizeAuditsTest(unittest.TestCase):
         self.assertEqual(s["audit_error"], 1)
         self.assertEqual(s["other"], 1)
 
+    def test_json_string_entries_parsed(self):
+        """存储层未反序列化时（历史路径），字符串条目也要能出桶。"""
+        import json as _json
+        audits = [
+            _json.dumps({"status": "ok", "gold_total": 2, "hit": 1, "recall": 0.5}),
+            _json.dumps({"status": "no_machine_gold"}),
+            "not-a-json",
+        ]
+        s = summarize_audits(audits)
+        self.assertEqual(s["audited"], 1)
+        self.assertEqual(s["with_gap"], 1)
+        self.assertEqual(s["no_machine_gold"], 1)
+
     def test_empty(self):
         s = summarize_audits([])
         self.assertEqual(s["audited"], 0)

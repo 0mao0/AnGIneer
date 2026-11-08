@@ -1072,7 +1072,7 @@ def list_run_details(
         item = dict(row)
         # 只反序列化实际查出来的列：投影下 scores/prediction 等键整体缺席，
         # 不能补成 None（否则前端分不清"没分"和"没取分"）
-        for key in ("scores", "prediction", "all_scores", "all_predictions"):
+        for key in ("scores", "prediction", "all_scores", "all_predictions", "recall_audit"):
             if key in item:
                 item[key] = json.loads(item[key]) if item.get(key) else None
         result.append(item)
@@ -1098,6 +1098,7 @@ def get_run_detail(run_id: str, question_id: str, light: bool = False) -> Option
     item["scores"] = json.loads(item["scores"]) if item.get("scores") else None
     item["all_scores"] = json.loads(item["all_scores"]) if item.get("all_scores") else None
     item["all_predictions"] = json.loads(item["all_predictions"]) if item.get("all_predictions") else None
+    item["recall_audit"] = json.loads(item["recall_audit"]) if item.get("recall_audit") else None
     if light:
         _strip_heavy_prediction_fields(item)
     return item
