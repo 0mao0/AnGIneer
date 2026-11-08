@@ -319,7 +319,7 @@ def test_deepen_reclassify_upgrades_backstop(monkeypatch):
     deep_text = ("Arbor Health Tech signed a 2024 credit agreement carrying always-on financial "
                  "maintenance covenants tested quarterly.")
     monkeypatch.setattr(aa, "_layer_read",
-                        lambda library_id, jobs, query, mode, chars: {
+                        lambda library_id, jobs, query, mode, chars, start_char=0: {
                             mid: {"title": "arbor.docx", "text": deep_text} for mid, _, _ in jobs})
     monkeypatch.setattr(aa, "_matter_docs", lambda library_id, mid, limit: [])
     raw2 = ("C || 1010-00001 || 2024 || always_on || "
@@ -346,7 +346,7 @@ def test_deepen_reclassify_upgrades_backstop(monkeypatch):
         "1010-00001": {"matter_id": "1010-00001", "values": ["unknown", "unknown"], "quote": "",
                        "finding": "", "backstop": True, "reason": "未归类兜底", "document": "d"}}}
     monkeypatch.setattr(aa, "_layer_read",
-                        lambda library_id, jobs, query, mode, chars: {
+                        lambda library_id, jobs, query, mode, chars, start_char=0: {
                             mid: {"title": "t", "text": "no usable covenant fact here " * 30}
                             for mid, _, _ in jobs})
     monkeypatch.setattr(aa, "_matter_docs", lambda library_id, mid, limit: [])
@@ -385,7 +385,7 @@ def test_deep_read_blocks_depth_only_reads_primary(monkeypatch):
     """迭代 3 实测回退：加深只读主文档 4000 字（宽度假设被否定，深度是已验证杠杆）。"""
     calls = {}
 
-    def fake_read(library_id, doc_ids, query, max_chars, mode="match"):
+    def fake_read(library_id, doc_ids, query, max_chars, mode="match", start_char=0):
         calls["doc_ids"] = doc_ids
         calls["max_chars"] = max_chars
         return {"docs": [

@@ -300,7 +300,8 @@ def _chat(llm: Any, messages: List[Dict[str, str]], *, config_name: Optional[str
 
 
 def _read_docs_batch(
-    library_id: str, doc_ids: List[str], query: str, max_chars: int, mode: str = "match"
+    library_id: str, doc_ids: List[str], query: str, max_chars: int, mode: str = "match",
+    start_char: int = 0,
 ) -> Dict[str, Any]:
     """读页缝隙（测试在此打桩）；懒加载 docs-core，保持包间解耦。"""
     from docs_core.step09_query.doc_search import read_documents
@@ -311,6 +312,7 @@ def _read_docs_batch(
         query=str(query or "")[:400],
         max_chars_per_doc=max_chars,
         mode=mode,
+        start_char=start_char,
     )
 
 
@@ -345,13 +347,14 @@ def _layer_read(
     query: str,
     mode: str,
     chars: int,
+    start_char: int = 0,
 ) -> Dict[str, Dict[str, str]]:
-    """按 (matter, doc) 批量读页并合并为 {mid: {title, text}}——三层加深共用读页原语。"""
+    """按 (matter, doc) 批量读页并合并为 {mid: {title, text}}——加深各层共用读页原语。"""
     out: Dict[str, Dict[str, Any]] = {}
     for start in range(0, len(jobs), 8):
         batch = jobs[start:start + 8]
         try:
-            result = _read_docs_batch(library_id, [doc_id for _, doc_id, _ in batch], query, chars, mode)
+            result = _read_docs_batch(library_id, [doc_id for _, doc_id, _ in batch], query, chars, mode, start_char)
         except Exception as exc:  # noqa: BLE001 —— 该层读失败降级到下一层
             logger.warning("aggregate_answer 加深读失败(batch %d): %s", start, exc)
             continue
@@ -384,18 +387,26 @@ def _deepen_word_source(question: str, spec: Dict[str, Any]) -> str:
     边界（零金标）：只允许题面词与 spec bucket 名——语料侧词组（如 tested
     quarterly）不入词源，注入即测量泄漏。
     """
-    words = re.findall(r"[A-Za-z]{4,}", str(question or ""))
-    for dim in spec.get("dims") or []:
-        for bucket in dim.get("buckets") or []:
-            words.extend(re.findall(r"[A-Za-z]{4,}", str(bucket)))
+    # bucket 词优先（springing 等判别词），题面词按长度降序补足（长词=特异性代理，
+    # 修第三刀实测：24 词平铺会让 OR 排序被样板段压过，聚焦 12 词命中率显著更高）
     seen: set = set()
     out: List[str] = []
-    for w in words:
-        key = w.lower()
+
+    def _push(word: str) -> None:
+        key = str(word or "").lower()
         if len(key) >= 4 and key not in seen:
             seen.add(key)
-            out.append(w)
-    return " ".join(out[:24])
+            out.append(word)
+
+    for dim in spec.get("dims") or []:
+        for bucket in dim.get("buckets") or []:
+            for w in re.findall(r"[A-Za-z]{4,}", str(bucket)):
+                _push(w)
+    q_words = list(dict.fromkeys(re.findall(r"[A-Za-z]{4,}", str(question or ""))))
+    q_words.sort(key=len, reverse=True)
+    for w in q_words:
+        _push(w)
+    return " ".join(out[:12])
 
 
 def _deepen_reclassify(
@@ -437,13 +448,22 @@ def _deepen_reclassify(
     def _budget_left() -> int:
         return _DEEPEN_TOTAL_BUDGET - spent
 
-    def _run_layer(layer: str, jobs: List[Tuple[str, str]], query: str, r_mode: str, chars: int) -> int:
-        """单层：读页→分批重归类→升级。返回本层升级数；剩余兜底集就地收缩。"""
+    def _run_layer(layer: str, jobs: List[Tuple[str, str]], query: str, r_mode: str, chars: int,
+                   start_char: int = 0) -> int:
+        """单层：读页→分批重归类→升级。返回本层升级数；剩余兜底集就地收缩。
+
+        层内按预算帽截断任务数（估算 = 每任务 chars；实测 spent 曾有超帽 700k 事故）：
+        max_jobs = 剩余预算 // chars，超出部分留到下一层/下一轮。
+        """
         nonlocal upgraded, spent
         jobs = [(mid, doc_id, role) for mid, doc_id, role in jobs if mid in remaining and doc_id]
         if not jobs or _budget_left() <= 0:
             return 0
-        blocks_by_mid = _layer_read(library_id, jobs, query, r_mode, chars)
+        max_jobs = max(0, _budget_left() // max(1, int(chars)))
+        jobs = jobs[:max_jobs]
+        if not jobs:
+            return 0
+        blocks_by_mid = _layer_read(library_id, jobs, query, r_mode, chars, start_char)
         spent += sum(len(b["text"]) for b in blocks_by_mid.values())
         hit_mids = [mid for mid in remaining if mid in blocks_by_mid]
         if not hit_mids:
@@ -462,7 +482,8 @@ def _deepen_reclassify(
     _run_layer("L1", [(mid, _primary_doc(doc_map, mid), "primary") for mid in targets],
                word_source, "match", _DEEPEN_CHARS)
     if remaining and _budget_left() > 0:
-        # L2 matter 前 K 篇文档 match（陈述在别的文书：email/deal-summary）
+        # L2 matter 前 K 篇文档整篇 head 读（email/deal-summary 短文档，陈述在头部；
+        # match 在短文档上按词过滤反而把陈述段滤掉——第二刀实测 L2 match 0 命中，改整篇读）
         layer2_jobs: List[Tuple[str, str]] = []
         for mid in sorted(remaining):
             docs = _matter_docs(library_id, mid, limit=_DEEPEN_MATTER_DOCS + 2)
@@ -474,24 +495,15 @@ def _deepen_reclassify(
                 if doc_id and doc_id != _primary_doc(doc_map, mid):
                     layer2_jobs.append((mid, doc_id, "extra"))
                     picked += 1
-        _run_layer("L2", layer2_jobs, word_source, "match", 2000)
+        _run_layer("L2", layer2_jobs, word_source, "head", _DEEPEN_CHARS)
     if remaining and _budget_left() > 0:
-        # L3 matter 第 5..8 篇 head 读（read_documents 无翻页偏移，分页不可表达；
-        # email/deal-summary 类陈述在头部，扫更多文档头部是 API 内最近形式）
-        layer3_jobs: List[Tuple[str, str]] = []
-        for mid in sorted(remaining):
-            docs = _matter_docs(library_id, mid, limit=_DEEPEN_MATTER_DOCS + _DEEPEN_TAIL_DOCS + 2)
-            known = {_primary_doc(doc_map, mid)}
-            picked = 0
-            for d in docs:
-                if picked >= _DEEPEN_TAIL_DOCS:
-                    break
-                doc_id = str(d.get("doc_id") or "")
-                if doc_id and doc_id not in known:
-                    layer3_jobs.append((mid, doc_id, "extra"))
-                    known.add(doc_id)
-                    picked += 1
-        _run_layer("L3", layer3_jobs, word_source, "head", _DEEPEN_CHARS)
+        # L3 主文档顺序扫描（第三刀）：read_documents 已有 start_char 偏移读，
+        # 从中位 24% 深度（≈12k 字）起逐页扫，陈述埋深处不再够不到
+        for offset in (4000, 8000, 12000, 16000):
+            if not remaining or _budget_left() <= 0:
+                break
+            layer3_jobs = [(mid, _primary_doc(doc_map, mid), "scan") for mid in sorted(remaining)]
+            _run_layer("L3", layer3_jobs, word_source, "head", _DEEPEN_CHARS, start_char=offset)
     if remaining:
         for mid in sorted(remaining):
             if mid in result["classifications"]:

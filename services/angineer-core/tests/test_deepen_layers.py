@@ -41,9 +41,10 @@ def test_deepen_word_source_from_question_and_buckets():
     ws = aa._deepen_word_source(
         "track how the share of our maintenance covenant springing covenants has moved",
         SPEC)
-    # 题面全词（不只前 10）与 bucket 拆词都在
-    for w in ("track", "maintenance", "covenant", "springing", "always", "population"):
+    # bucket 词优先 + 题面长词补足（第三刀实测：24 词平铺被样板段压过，聚焦 12 词）
+    for w in ("springing", "always", "maintenance", "covenant", "moved"):
         assert w in ws
+    assert len(ws.split()) <= 12
     # 语料侧词组不入词源（零金标边界）
     assert "tested" not in ws and "quarterly" not in ws
 
@@ -53,18 +54,14 @@ def test_deepen_layers_shortcircuit(monkeypatch):
     result = _backstop_result(mids)
     calls = []
 
-    def fake_layer_read(library_id, jobs, query, mode, chars):
-        calls.append((mode, chars, [mid for mid, _, _ in jobs]))
-        query_l = query.lower()
-        # L1（match,4000）只命中 m1；L2（match,2000）命中 m2；L3（head,4000）命中 m3
-        hit = {"match": {"1006-00001": 4000}, "head": {"1010-00001": 4000}}
-        if mode == "match" and chars == 2000:
-            return {"1008-00001": {"title": "t", "text": "springing covenant tested by board " * 20}}
-        target = hit.get(mode, {}).get(chars and "" or "", "")
-        # 简化：按 chars 区分 L1/L3
-        if mode == "match" and chars == 4000:
+    def fake_layer_read(library_id, jobs, query, mode, chars, start_char=0):
+        calls.append((mode, chars, start_char, [mid for mid, _, _ in jobs]))
+        # L1 = match@4000 主文档 → 只命中 m1；L2 = head@4000 整篇 → m2；L3 = head@4000 偏移 → m3
+        if mode == "match" and start_char == 0:
             return {"1006-00001": {"title": "t", "text": "primary excerpt content here " * 50}}
-        if mode == "head" and chars == 4000:
+        if mode == "head" and start_char == 0:
+            return {"1008-00001": {"title": "t", "text": "springing covenant tested by board " * 20}}
+        if mode == "head" and start_char > 0:
             return {"1010-00001": {"title": "t", "text": "tail doc excerpt " * 50}}
         return {}
 
@@ -91,10 +88,10 @@ def test_deepen_layers_shortcircuit(monkeypatch):
         config_name=None, mode="instruct")
     assert upgraded == 3
     # 三层依序触发；L1 只升级 m1 → L2 目标不含 m1
-    assert calls[0][:2] == ("match", 4000)
-    assert calls[1][:2] == ("match", 2000)
-    assert calls[2][:2] == ("head", 4000)
-    assert "1006-00001" not in calls[1][2]
+    assert calls[0][:3] == ("match", 4000, 0)
+    assert calls[1][:3] == ("head", 4000, 0)      # L2 整篇 head（第二刀实测 match 0 命中）
+    assert calls[2][0] == "head" and calls[2][2] == 4000  # L3 偏移扫描
+    assert "1006-00001" not in calls[1][3]
     for mid in mids:
         assert not result["classifications"][mid]["backstop"]
 
@@ -104,7 +101,7 @@ def test_deepen_budget_cap_stops_layers(monkeypatch):
     result = _backstop_result(mids)
     calls = []
 
-    def fake_layer_read(library_id, jobs, query, mode, chars):
+    def fake_layer_read(library_id, jobs, query, mode, chars, start_char=0):
         calls.append(mode)
         return {mid: {"title": "t", "text": "x" * 5000} for mid, _, _ in jobs}
 
@@ -113,7 +110,7 @@ def test_deepen_budget_cap_stops_layers(monkeypatch):
                         lambda library_id, mid, limit: [
                             {"doc_id": f"d{mid}-{i}", "title": "t"} for i in range(limit)])
     monkeypatch.setattr(aa, "_reclassify_batches", lambda llm, **k: 0)  # 永不升级
-    monkeypatch.setattr(aa, "_DEEPEN_TOTAL_BUDGET", 100)
+    monkeypatch.setattr(aa, "_DEEPEN_TOTAL_BUDGET", 4500)  # 只够一笔 L1（4000 字 × 1）
 
     upgraded = aa._deepen_reclassify(
         object(), question="q", spec=SPEC, result=result,

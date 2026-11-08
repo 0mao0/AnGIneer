@@ -1470,9 +1470,14 @@ def read_documents(
     max_chars_per_doc: int = 1200,
     mode: str = "head",
     section: str = "",
+    start_char: int = 0,
 ) -> Dict[str, Any]:
     """批量读页：head=从头按页读；match=读与 query 相关的段落（无命中回落 head）；
-    section=按章节号（如 "2.15"）定位并从该章节往后读。"""
+    section=按章节号（如 "2.15"）定位并从该章节往后读。
+
+    start_char>0：从文档起始的第 N 个字符开始取 max_chars 字符（顺序扫描/翻页读）。
+    默认 0 行为不变；>0 时取行上限放大到 400 块以保证字符窗可达
+    （枚举检索线第三刀：陈述埋在中位 24% 深度，head 无翻页能力）。"""
     ids = [str(d).strip() for d in (doc_ids or []) if str(d).strip()][:MAX_READ_DOCS]
     if not ids:
         return {"error": "缺少 doc_ids"}
@@ -1521,20 +1526,28 @@ def read_documents(
                         scored.sort(key=lambda item: item[:3])
                         rows = [item[3] for item in scored[:6]]
             if not rows:
+                head_limit = 12 if int(start_char or 0) <= 0 else 400
                 rows = conn.execute(
                     "select text_clean, page_start, chunk_id from canonical_chunks "
-                    "where doc_id=? order by page_start, chunk_id limit 12",
-                    (doc_id,),
+                    "where doc_id=? order by page_start, chunk_id limit ?",
+                    (doc_id, head_limit),
                 ).fetchall()
 
             parts: List[str] = []
             total = 0
             used = 0
+            skip = max(0, int(start_char or 0))
             for row in rows:
                 text = (row["text_clean"] or "").strip()
                 if not text:
                     continue
                 total += len(text)
+                if skip:
+                    if skip >= len(text):
+                        skip -= len(text)
+                        continue
+                    text = text[skip:]
+                    skip = 0
                 if used >= max_chars:
                     continue
                 budget = max_chars - used
