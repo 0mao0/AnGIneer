@@ -2,6 +2,14 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.3.10
+
+- 评测·候选集合对账（召回缺口如实报告）：每道评测题把「检索实际给到的候选」与金标逐项对账（candidate_record 三态：候选全集/仅引用下界/未记录），逐题入 `eval_run_detail.recall_audit`、run 汇总多 `recall_audit` 聚合段；`scripts/recall_audit_report.py` 可回填存量 run。Harvey 250 存量首测：citations 口径 mean matter recall 0.2935、211/244 题带缺口、7 题金标无 matter 号（下界口径，历史 run 只有引用子集）
+- 检索·doc_search 参数化与能力扩展（默认行为不变）：新增 `max_matters`/`group_candidates_cap`/`window_rows` 三参数（默认 0＝原行为，仅枚举预读传高值）；归组截断从插入序改按分数序（多计划窗口放大后低分文档不再整批挤出）；matters 卡透出 `score` 字段；`read_documents` 支持 `start_char` 偏移读（>0 时取行上限放大到 400 块）；新增 `matter_documents()` 文档清单 API——枚举检索线实测金标入候选集 27/35→34/35、041 判分 4→10/23
+- 检索·枚举预读增强（默认关）：上下文门放宽为「枚举或聚合」（016 类聚合题也能建候选全集）；matter 帽 50→85；摘录长度自适应（85k 预算摊薄）；死查询用题面长词回退；多查询并集按跨查询最高分排序；预读上下文尾部追加机器索引行（matter→文档+cites）
+- 回答·S2 聚合臂（默认关）：模型只对候选 matter 归类（C/N 行协议，不出数字），代码做闭集+引文校验、兜底归类、确定性计数与份额、聚合表渲染（含对账段与召回缺口标注）；归类失败信号驱动三层加深（词源扩展/matter 多文档/主文档偏移扫描），总字符预算 400k 分帽
+- 回答·引用贯通与交付确定性件（默认关/无感）：预读构建期按闭集分配 run 级 K 号，S1/S2 渲染行补 `[K]`，守卫经 4 元组携 citations 并入 run_end/policy_query 引用集（按 target_id+marker 去重）——实测验券 `[K]`⊆citations（40/25、89/44），前端零改动；答案尾行 `FINAL: <值>` 协议由 policy_query 解析上浮 `prediction.final_answer`、numeric 判分优先读槽（无槽回退尾行）；安全终态清单（no_evidence/unsupported_reference/tool_error_json）四个守卫统一「拒答终态不被结构化渲染覆盖」
+
 ## v0.3.9
 
 - PDF 预览副本改「URL 定文件」：`/api/files` 新增 `probe=1` 探测（返回副本是否就绪）与 `web=1` 副本语义（未就绪回退原件并后台构建），600 秒时间窗锁退役——修「锁定期内第二次打开仍走原件照样慢」（81.8MB 文件实踩），同一次加载 URL 不变、字节必然同源，加载中途换文件的拼乱类 bug 从机制上杜绝
