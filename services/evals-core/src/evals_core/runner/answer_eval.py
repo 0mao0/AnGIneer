@@ -249,8 +249,12 @@ def _llm_semantic_evaluate(
         }
     # 双判一致制（ANGINEER_JUDGE_REJUDGE=1；默认关=逐字保持单判行为）：
     # 两票一致收口；不一致加第三票取多数；票数失败时按已有票稳妥收口并留痕。
+    # 边界带（ANGINEER_JUDGE_REJUDGE_BAND，默认 0.4,0.7）：首票不在模糊带内直接收口，
+    # 把双判成本从 2× 压到 ~1.1×（判官审计：翻转集中在 0.4-0.7 带）。
     from evals_core.runner import judge_audit
     if not judge_audit.rejudge_enabled():
+        return first
+    if not judge_audit.in_rejudge_band(first.get("semantic_score")):
         return first
     scores: List[float] = [first["semantic_score"]]
     votes: List[bool] = [first["semantic_passed"]]

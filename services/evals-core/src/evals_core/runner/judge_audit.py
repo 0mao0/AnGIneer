@@ -19,11 +19,37 @@ from typing import Any, Dict, List, Optional
 
 
 ENV_SWITCH = "ANGINEER_JUDGE_REJUDGE"
+# 边界带（2026-11-08）：只对首票落在模糊带的题加判第二票，成本从 2× 降到 ~1.1×。
+# 动因：判官审计实测单判自一致 86.8%、双采样中位 95.7%（50 例），且翻转集中在
+# 0.4-0.7 带（冤案 6/6 均落此带）。空字符串=无带=全量双判（向后兼容旧行为）。
+ENV_BAND = "ANGINEER_JUDGE_REJUDGE_BAND"
+DEFAULT_BAND = "0.4,0.7"
 
 
 def rejudge_enabled() -> bool:
     """双判一致制开关（默认关；=1/true/on 启用）。"""
     return (os.getenv(ENV_SWITCH, "0") or "0").strip().lower() in ("1", "true", "on")
+
+
+def rejudge_band() -> Optional[tuple]:
+    """边界带 (low, high)；未配置返回 None（=全量双判）。"""
+    raw = (os.getenv(ENV_BAND, DEFAULT_BAND) or "").strip()
+    if not raw:
+        return None
+    try:
+        low_s, high_s = raw.split(",")
+        low, high = float(low_s), float(high_s)
+        return (low, high) if low < high else None
+    except Exception:  # noqa: BLE001 —— 配置错误按无带处理（宁多判不漏判）
+        return None
+
+
+def in_rejudge_band(score: Optional[float]) -> bool:
+    """首票是否落在需要复核的模糊带；无带/分数缺失一律 True（保守复核）。"""
+    band = rejudge_band()
+    if band is None or score is None:
+        return True
+    return band[0] <= float(score) < band[1]
 
 
 def median_score(scores: List[float]) -> float:
