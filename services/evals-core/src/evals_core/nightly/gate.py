@@ -253,6 +253,28 @@ def evaluate_gate(matrix, anomalies, overall_ci, overall_delta, bucket_cis, tole
     return reasons
 
 
+def compare_with_previous(prev_run: dict, new_run: dict) -> dict:
+    """与「上一轮同数据集 run」的轻对照（不跑 CI——那是指标不是门禁）。
+
+    与固定基线对照并列展示：固定基线=累计漂移（防夜与夜噪声），上一轮=今晚变化
+    （2026-11-08 停跑三周后首晚实踩：+12.1pp 全是从 10-09 基线累积的漂移，
+    与上一轮逐题翻转 0）。返回 {run_id, started_at, matrix, comparable, delta}。
+    """
+    base_map, new_map = question_map(prev_run), question_map(new_run)
+    matrix, _anomalies = transition_matrix(base_map, new_map)
+    keys = ("pp", "pf", "fp", "ff")
+    matrix = {k: matrix.get(k) or [] for k in keys}
+    comparable = sum(len(matrix[k]) for k in keys)
+    delta = (len(matrix["pf"]) - len(matrix["fp"])) / comparable if comparable else None
+    return {
+        "run_id": prev_run.get("run_id"),
+        "started_at": prev_run.get("started_at"),
+        "matrix": {k: len(matrix[k]) for k in keys},
+        "comparable": comparable,
+        "delta": round(delta, 4) if delta is not None else None,
+    }
+
+
 def compare_runs(base_run: dict, new_run: dict, manifest: dict, resamples: int = 1000, seed: int = 42,
                  tolerated=None) -> dict:
     """两次 run（details 字段须为 dict，见 normalize_run）→ 门禁结论 dict（键与旧 gate.json 一致）。

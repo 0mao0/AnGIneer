@@ -6,6 +6,7 @@ gate.json"渲染成绿色"评测通过"——从此绿色必须有 gate 结论�
 卡片必须带真实结果与基线差异（Δpp+CI、过渡矩阵）——用户视角是"测试集重新跑一遍
 的结果和与基线的区别"，不是一句"通过"。
 """
+import re
 from datetime import datetime, timedelta, timezone
 from typing import List, Optional, Tuple
 
@@ -45,6 +46,41 @@ def fmt_span(started_at, completed_at) -> Tuple[str, str]:
         return span, duration
     except (TypeError, ValueError):
         return "—", "—"
+
+
+_DATE_RE = re.compile(r"(\d{4})-(\d{2})-(\d{2})")
+
+
+def _baseline_line(gate: dict) -> str:
+    """固定基线备注：注明基线日期与距今天数（2026-11-08 停跑三周复跑实踩：
+    「较基线 +12.1pp」被读成今晚提升，实际是 10-09 起的累计漂移）。"""
+    label = str(gate.get("base_label") or "")
+    m = _DATE_RE.search(label)
+    if not m:
+        return ""
+    date_s = "-".join(m.groups())
+    try:
+        days = (datetime.now(timezone.utc).astimezone().date()
+                - datetime.strptime(date_s, "%Y-%m-%d").date()).days
+        suffix = f"（{days} 天前）" if days >= 0 else ""
+    except ValueError:
+        suffix = ""
+    return f"基线：{date_s}{suffix}"
+
+
+def _prev_line(gate: dict) -> str:
+    """上一轮对照：与「同数据集最近一次已完成 run」的净变化（今晚变化参照物）。"""
+    prev = gate.get("prev") or {}
+    if not isinstance(prev.get("delta"), (int, float)):
+        return ""
+    m = _DATE_RE.search(str(prev.get("started_at") or ""))
+    day = f"{m.group(2)}-{m.group(3)}" if m else str(prev.get("run_id") or "")[-8:]
+    pp = abs(float(prev["delta"])) * 100
+    mtx = prev.get("matrix") or {}
+    net = int(mtx.get("pf") or 0) - int(mtx.get("fp") or 0)
+    delta = float(prev["delta"])
+    move = "提升" if delta > 0.002 else ("下降" if delta < -0.002 else "基本持平")
+    return f"较上一轮（{day}）：{move} {pp:.1f} 个百分点（净{'增' if net >= 0 else '退'} {abs(net)} 题）。"
 
 
 def build_message(raw: Optional[dict], gate: Optional[dict], state: str, error_note: str = "",
@@ -100,6 +136,12 @@ def build_message(raw: Optional[dict], gate: Optional[dict], state: str, error_n
             lines.append(f"分析：较基线{move} {pp:.1f} 个百分点（净{'增' if net >= 0 else '退'} {abs(net)} 题）{tail}。")
         else:
             lines.append("分析：门禁产物不完整，见服务器日志。")
+        baseline_line = _baseline_line(gate)
+        if baseline_line:
+            lines.append(baseline_line)
+        prev_line = _prev_line(gate)
+        if prev_line:
+            lines.append(prev_line)
     elif state == STATE_ERROR:
         lines.append(f"分析：评测环节未完成（{error_note or '见服务器日志'}），无结论。")
     else:

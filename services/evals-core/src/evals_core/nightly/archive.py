@@ -149,6 +149,8 @@ def build_entry(gate: dict, summary_scores: dict, question_texts: dict,
         "delta": gate.get("delta"),
         "delta_ci95": gate.get("delta_ci95"),
         "base_label": gate.get("base_label"),
+        # 上一轮轻对照（2026-11-08）：固定基线之外的「今晚变化」参照，加法键
+        "prev": gate.get("prev"),
         "matrix": matrix,
         "gate_reasons": gate.get("gate_reasons") or [],
         "regressions": regressions,

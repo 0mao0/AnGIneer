@@ -287,6 +287,17 @@ def _material_line(material: Optional[dict]) -> str:
     return line + "）"
 
 
+def _load_previous_run(dataset_id: str, exclude_run_id: str) -> Optional[dict]:
+    """上一轮同数据集已完成的 run（含逐题详情），无则 None。"""
+    runs = result_store.list_runs(dataset_id)
+    for r in runs:
+        if r.get("run_id") == exclude_run_id or r.get("status") != "completed":
+            continue
+        details = result_store.list_run_details(r["run_id"])
+        return {"run_id": r.get("run_id"), "started_at": r.get("started_at"), "details": details}
+    return None
+
+
 async def _compute_and_publish(run_id: str, dataset_id: str, resamples: int, site_url: str, webhook: str,
                                material_line: str = "", premise_line: str = "",
                                smoke_line: str = "",
@@ -311,6 +322,17 @@ async def _compute_and_publish(run_id: str, dataset_id: str, resamples: int, sit
     gate_res = await asyncio.to_thread(lambda: gate.compare_runs(
         base_run, gate.normalize_run(new_run), manifest or {"questions": []}, resamples,
         tolerated=judge_ids or None))
+    # 上一轮对照（2026-11-08）：固定基线=累计漂移，上一轮=今晚变化，双线并列防误读
+    try:
+        prev_run = await asyncio.to_thread(_load_previous_run, dataset_id, run_id)
+        if prev_run:
+            gate_res["prev"] = await asyncio.to_thread(
+                lambda: gate.compare_with_previous(
+                    gate.normalize_run(prev_run),
+                    gate.normalize_run({"run_id": run_id, "details": details}),
+                ))
+    except Exception as exc:  # noqa: BLE001 —— 对照失败不影响门禁与通知
+        logging.getLogger(__name__).warning("上一轮对照失败（忽略）: %s", exc)
     summary = await asyncio.to_thread(
         report.group_and_summarize, details, manifest or {"questions": []})
     report_md = report.render_markdown(summary)
