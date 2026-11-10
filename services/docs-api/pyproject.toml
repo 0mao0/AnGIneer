@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "angineer-docs-api"
 version = "0.2.7"
-description = "AnGIneer 知识库/解析 HTTP 网关（仅依赖声明；代码以目录方式由 uvicorn 运行）"
+description = "[DEPRECATED] 空壳（py-modules=[]，未上 PyPI，勿安装）：解析面已进包 angineer-docs-core[api]（docs_core.docs_api:app，0.1.7 起）；本目录仍是主仓库宿主（网页端全功能，靠 sys.path 运行，不 pip 安装）"
 requires-python = ">=3.10"
 dependencies = [
     "fastapi>=0.100.0",

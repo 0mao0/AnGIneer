@@ -1,0 +1,524 @@
+"""文档解析 API v1 — 上传、断点续跑、状态轮询、产物下载。
+
+自宿主 services/docs-api/routes/v1/documents.py 收入，改造点（DredgeAI docs-api 进包需求
+3.1 / R2 / R3）：
+- 全部相对导入包内模块（orchestrator / records / resume_stages / parse_task_cleanup）；
+- 去会话/管理端引用：``sync_api_folder_titles``（api_keys 库 join）不进包；
+- resume 归属校验：静态键 principal（``id is None``）跳过 api_key_id 绑定比对
+  （静态键无键库身份，鉴权已由中间件完成）；DB 键行为与宿主一致。
+
+线契约（消费方 HttpAnGineerClient 依赖，入包后不得变更）见包 README 的端点表。
+"""
+import json
+import logging
+import os
+import uuid
+from pathlib import Path
+from typing import Optional
+
+from fastapi import APIRouter, HTTPException, Query, Request, UploadFile, File
+from fastapi.responses import FileResponse
+from starlette.background import BackgroundTask
+
+import docs_core.paths as paths
+from docs_core.docs_api.orchestrator import parse_orchestrator
+from docs_core.docs_api.parse_task_cleanup import cancel_parse_task_for_node
+from docs_core.docs_api.records import ParseRecord, insert_record, list_by_doc_id
+from docs_core.docs_api.v1_responses import (
+    ArtifactsResponse,
+    ArtifactListItem,
+    Block,
+    BlocksResponse,
+    ContentResponse,
+    OutlineItem,
+    ParseResponse,
+    ParseStatusResponse,
+)
+from docs_core.docs_file_io import file_storage
+from docs_core.docs_service import get_docs_service
+from docs_core.step10_export.export_artifacts import (
+    export_graph_db,
+    export_images_zip,
+    export_index_db,
+    export_markdown,
+    list_doc_artifacts,
+    remove_export_dir,
+)
+
+router = APIRouter()
+
+logger = logging.getLogger(__name__)
+
+# 允许下载的产物名白名单
+_ARTIFACT_NAMES = {
+    "content.md": "markdown",
+    "images.zip": "images",
+    "doc_blocks_graph.jsonl": "structure",
+    "doc_blocks_graph_meta.json": "structure",
+    "index.sqlite": "index",
+    "graph.sqlite": "graph",
+}
+
+
+def _api_folder_title(api_key_info) -> str:
+    """外部 API 上传的文档按 API 名称建根文件夹，名称后追加 Key 后四位保证唯一。"""
+    name = str(getattr(api_key_info, "user_name", "") or "").strip() or "未知API"
+    key_prefix = str(getattr(api_key_info, "key_prefix", "") or "")
+    tail = key_prefix[-4:] if len(key_prefix) >= 4 else ""
+    return f"{name}（{tail}）" if tail else name
+
+
+def _folder_extra(ks, node_id: str) -> dict:
+    """读取文件夹 extra（api_key_id 绑定信息）；无真实连接时返回 {}（测试 mock 环境）。"""
+    try:
+        with ks.meta_store.connect() as conn:
+            row = conn.execute(
+                "SELECT extra_json FROM tree_node WHERE node_id = ?", (node_id,)
+            ).fetchone()
+            if row and row[0]:
+                return json.loads(row[0])
+    except Exception:
+        pass
+    return {}
+
+
+def _write_folder_extra(ks, node_id: str, extra: dict) -> None:
+    """写入文件夹 extra；失败静默（测试 mock 环境无真实连接）。"""
+    try:
+        with ks.meta_store.connect() as conn:
+            conn.execute(
+                "UPDATE tree_node SET extra_json = ? WHERE node_id = ?",
+                (json.dumps(extra, ensure_ascii=False), node_id),
+            )
+            conn.commit()
+    except Exception:
+        pass
+
+
+def _ensure_api_folder(library_id: str, api_key_info) -> str:
+    """找到或创建该 API key 的专属文件夹（extra.api_key_id 为绑定依据），返回 node_id。
+
+    静态键（api_key_id=None）按标题匹配复用，无匹配则新建（不写绑定，兼容后续绑定键接管）。
+    """
+    from docs_core.docs_service import KnowledgeNode
+
+    ks = get_docs_service()
+    title = _api_folder_title(api_key_info)
+    api_key_id = getattr(api_key_info, "id", None)
+
+    folders = [
+        n for n in ks.nodes
+        if n.type == "folder" and n.library_id == library_id and not n.deleted
+    ]
+    # 1) 绑定匹配：extra.api_key_id（改名后仍能命中，不会另建文件夹）
+    if api_key_id is not None:
+        for n in folders:
+            if _folder_extra(ks, n.id).get("api_key_id") == api_key_id:
+                return n.id
+    # 2) 标题回退匹配（旧数据）：仅复用无绑定或绑定同一 key 的文件夹，避免不同 key 抢同一文件夹
+    for n in folders:
+        if n.title == title:
+            extra = _folder_extra(ks, n.id)
+            if extra.get("api_key_id") not in (None, api_key_id):
+                continue
+            if api_key_id is not None:
+                if not extra.get("api_key_id"):
+                    extra["api_key_id"] = api_key_id
+                    _write_folder_extra(ks, n.id, extra)
+            return n.id
+
+    node = KnowledgeNode(
+        id=f"node-{uuid.uuid4().hex[:8]}",
+        title=title,
+        type="folder",
+        library_id=library_id,
+        parent_id=None,
+        visible=True,
+        sort_order=0,
+    )
+    created = ks.create_node(node)
+    if api_key_id is not None:
+        _write_folder_extra(ks, created.id, {"api_key_id": api_key_id})
+    return created.id
+
+
+def _records_by_doc_id(doc_id: str) -> list:
+    return list_by_doc_id(doc_id)
+
+
+def _library_id_for_doc(doc_id: str) -> str:
+    """只读端点门牌号：从 parse record 反查；无记录回退 default（兼容历史数据）。"""
+    records = _records_by_doc_id(doc_id)
+    if records and records[0].get("library_id"):
+        return records[0]["library_id"]
+    return "default"
+
+
+@router.post("/parse")
+async def parse_document_v1(
+    request: Request,
+    file: UploadFile = File(...),
+    stages: str = Query(
+        "structure",
+        description="解析阶段，逗号分隔。默认 structure（jsonl+meta）；"
+                    "需要索引/向量/图谱请传 structure,fts,vectors,graph 或 all",
+    ),
+    library_id: str = Query(
+        "default",
+        description="目标知识库 ID。默认 default；显式传入后记录到 parse task/record。",
+    ),
+):
+    if not file.filename:
+        raise HTTPException(400, "文件名不能为空")
+
+    ext = Path(file.filename).suffix.lower()
+    is_pdf = ext == ".pdf"
+    library_id = library_id.strip() or "default"
+    doc_id = f"v1-{uuid.uuid4().hex[:12]}"
+
+    # 提取 API key 信息用于统计；静态键未绑定库（library_id=''），不覆盖请求参数；
+    # DB 键绑定了库则目标库优先取绑定库（P2 防串库），未绑定回退请求参数
+    api_key_info = getattr(request.state, "api_key_info", None)
+    uploaded_by = api_key_info.user_name if api_key_info else "未知"
+    api_key_id = api_key_info.id if api_key_info else None
+    bound_library = str(getattr(api_key_info, "library_id", "") or "").strip()
+    if bound_library:
+        library_id = bound_library
+
+    content = await file.read()
+    source_path = file_storage.save_source_file(library_id, doc_id, content, file.filename)
+
+    # 注册知识库节点：挂在知识树根部的 API 专属文件夹下（parse_pipeline 依赖节点存在）
+    folder_id = _ensure_api_folder(library_id, api_key_info)
+    get_docs_service().register_document(
+        library_id,
+        source_path,
+        doc_id,
+        title=file.filename,
+        parent_id=folder_id,
+    )
+
+    # 插入统计记录（pending 占位，create_parse_task 会回填真实 task_id）
+    insert_record(ParseRecord(
+        doc_id=doc_id,
+        task_id=f"pending-{doc_id}",
+        uploaded_by=uploaded_by,
+        api_key_id=api_key_id,
+        file_name=file.filename,
+        file_format=ext,
+        file_size=len(content),
+        status="pending",
+        library_id=library_id,
+        stages=stages,
+    ))
+
+    # 解析阶段校验
+    if stages.strip().lower() == "all":
+        stage_list = "all"
+    else:
+        stage_list = [s.strip() for s in stages.split(",") if s.strip()] or ["structure"]
+    try:
+        from docs_core.parse_pipeline import resolve_stage_order
+        resolve_stage_order(stage_list)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+
+    task = parse_orchestrator.create_parse_task(
+        library_id=library_id,
+        doc_id=doc_id,
+        file_path=source_path,
+        parse_options={"stages": stage_list, "use_llm": False},
+    )
+
+    return ParseResponse(
+        doc_id=doc_id,
+        task_id=task["task_id"],
+        status=task.get("status", "queued"),
+        is_pdf_input=is_pdf,
+    )
+
+
+@router.post("/{doc_id}/resume")
+async def resume_document_v1(doc_id: str, request: Request):
+    """从断点恢复解析：同一 doc_id，已完成阶段保留，未完成阶段续跑。"""
+    from docs_core.docs_api.resume_stages import compute_resume_stages
+
+    ks = get_docs_service()
+    node = ks.get_node(doc_id)
+    if not node or getattr(node, "deleted", False):
+        raise HTTPException(status_code=404, detail=f"未找到文档 {doc_id}")
+
+    records = _records_by_doc_id(doc_id)
+    if not records:
+        raise HTTPException(status_code=404, detail=f"未找到文档 {doc_id}")
+    record = records[0]
+
+    api_key_info = getattr(request.state, "api_key_info", None)
+    # 静态键（id=None）无键库身份可比对，鉴权已由中间件完成——不在此判归属；
+    # DB 键维持宿主语义：只能恢复自己（或同绑定库）的文档。
+    if api_key_info is not None and getattr(api_key_info, "id", None) is not None:
+        if record.get("api_key_id") != getattr(api_key_info, "id", None):
+            raise HTTPException(status_code=403, detail="该 API key 无权恢复此文档")
+        bound_library = str(getattr(api_key_info, "library_id", "") or "").strip()
+        if bound_library and record.get("library_id") != bound_library:
+            raise HTTPException(status_code=403, detail="该 API key 无权恢复此文档")
+
+    old_task_id = str(record.get("task_id") or "").strip()
+    if old_task_id and not old_task_id.startswith("pending-"):
+        thread = parse_orchestrator._threads.get(old_task_id)
+        if thread is not None and thread.is_alive():
+            raise HTTPException(status_code=409, detail="任务正在解析中")
+        try:
+            parse_orchestrator.cancel_parse_task(old_task_id)
+        except Exception:
+            logger.warning("resume: 取消旧任务失败 task=%s", old_task_id, exc_info=True)
+
+    stage_rows = ks.meta_store.list_parse_stages(doc_id)
+    remaining = compute_resume_stages(str(record.get("stages") or ""), stage_rows)
+    is_pdf = bool(record.get("file_format") == ".pdf")
+    if not remaining:
+        return ParseResponse(
+            doc_id=doc_id,
+            task_id=old_task_id if old_task_id and not old_task_id.startswith("pending-") else "",
+            status="completed",
+            is_pdf_input=is_pdf,
+        )
+
+    source_path = node.file_path
+    if not source_path:
+        raise HTTPException(status_code=400, detail="文档缺少源文件路径，无法恢复")
+    result = parse_orchestrator.create_parse_task(
+        library_id=record.get("library_id") or "default",
+        doc_id=doc_id,
+        file_path=source_path,
+        parse_options={"stages": remaining, "use_llm": False},
+    )
+    return ParseResponse(
+        doc_id=doc_id,
+        task_id=result["task_id"],
+        status=result.get("status", "queued"),
+        is_pdf_input=is_pdf,
+    )
+
+
+@router.get("/{doc_id}/status", response_model=ParseStatusResponse)
+async def get_parse_status(doc_id: str):
+    library_id = _library_id_for_doc(doc_id)
+    records = _records_by_doc_id(doc_id)
+    record = records[0] if records else None
+    task_id = record.get("task_id") if record else None
+
+    task = None
+    if task_id and not str(task_id).startswith("pending-"):
+        task = parse_orchestrator.get_parse_task(task_id)
+
+    is_pdf_input = bool(record and record.get("file_format") == ".pdf")
+    pdf_ready = False
+    if not is_pdf_input:
+        try:
+            manifest = file_storage.get_doc_manifest(library_id, doc_id)
+            render_pdf = manifest.get("render_pdf")
+            pdf_ready = bool(render_pdf and os.path.isfile(str(render_pdf)))
+        except Exception:
+            pdf_ready = False
+
+    if task:
+        return ParseStatusResponse(
+            doc_id=doc_id,
+            status=task.get("status", "queued"),
+            progress=int(task.get("progress") or 0),
+            stage=task.get("stage", "") or "",
+            stage_message=task.get("stage_message") or "",
+            pdf_ready=pdf_ready,
+        )
+    if record:
+        status = record.get("status", "queued")
+        return ParseStatusResponse(
+            doc_id=doc_id,
+            status=status,
+            progress=100 if status in ("completed", "failed", "cancelled") else 0,
+            stage=status,
+            stage_message=record.get("error") or "",
+            pdf_ready=pdf_ready,
+        )
+    raise HTTPException(404, f"未找到文档 {doc_id}")
+
+
+@router.get("/{doc_id}/artifacts", response_model=ArtifactsResponse)
+async def get_doc_artifacts(doc_id: str):
+    """列出该文档可下载的产物（content.md/images.zip/jsonl/meta/index/graph）。"""
+    library_id = _library_id_for_doc(doc_id)
+    items = [
+        ArtifactListItem(
+            name=item["name"],
+            kind=item["kind"],
+            size=item.get("size"),
+            url=f"/api/v1/documents/{doc_id}/artifacts/{item['name']}",
+        )
+        for item in list_doc_artifacts(library_id, doc_id)
+    ]
+    if not items:
+        raise HTTPException(404, f"文档 {doc_id} 暂无可下载产物，请先完成解析")
+    return ArtifactsResponse(doc_id=doc_id, items=items)
+
+
+@router.get("/{doc_id}/artifacts/{name}")
+async def download_doc_artifact(doc_id: str, name: str):
+    """按文件下载产物；index/graph 按本文档导出独立 sqlite，不泄漏其他文档数据。"""
+    library_id = _library_id_for_doc(doc_id)
+    if name not in _ARTIFACT_NAMES:
+        raise HTTPException(400, f"不支持的产物: {name}")
+
+    if name == "content.md":
+        try:
+            path = export_markdown(library_id, doc_id)
+        except FileNotFoundError as exc:
+            raise HTTPException(404, str(exc))
+        return FileResponse(path, media_type="text/markdown; charset=utf-8", filename=name)
+
+    if name == "images.zip":
+        try:
+            path = export_images_zip(library_id, doc_id)
+        except FileNotFoundError as exc:
+            raise HTTPException(404, str(exc))
+        return FileResponse(
+            path,
+            media_type="application/zip",
+            filename=name,
+            background=BackgroundTask(remove_export_dir, path.parent),
+        )
+
+    if name == "doc_blocks_graph.jsonl":
+        path = paths.get_graph_jsonl_path(library_id, doc_id)
+        if not path.exists():
+            raise HTTPException(404, f"文档 {doc_id} 的解析结果尚未生成")
+        return FileResponse(path, media_type="application/jsonl", filename=name)
+
+    if name == "doc_blocks_graph_meta.json":
+        path = paths.get_graph_meta_path(library_id, doc_id)
+        if not path.exists():
+            raise HTTPException(404, f"文档 {doc_id} 的解析结果尚未生成")
+        return FileResponse(path, media_type="application/json", filename=name)
+
+    try:
+        if name == "index.sqlite":
+            path = export_index_db(library_id, doc_id)
+        else:
+            path = export_graph_db(library_id, doc_id)
+    except FileNotFoundError as exc:
+        raise HTTPException(404, str(exc))
+    return FileResponse(
+        path,
+        media_type="application/octet-stream",
+        filename=name,
+        background=BackgroundTask(remove_export_dir, path.parent),
+    )
+
+
+@router.get("/{doc_id}/blocks", response_model=BlocksResponse)
+async def get_blocks(
+    doc_id: str,
+    page: Optional[int] = Query(None),
+    block_type: Optional[str] = Query(None),
+):
+    library_id = _library_id_for_doc(doc_id)
+    manifest = file_storage.get_doc_manifest(library_id, doc_id)
+    if not manifest.get("doc_root"):
+        raise HTTPException(404, f"文档 {doc_id} 不存在")
+
+    jsonl_path = paths.get_graph_jsonl_path(library_id, doc_id)
+    if not jsonl_path.exists():
+        raise HTTPException(404, f"文档 {doc_id} 的解析结果尚未生成")
+
+    nodes = []
+    with open(jsonl_path, "r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if line:
+                nodes.append(json.loads(line))
+
+    blocks = []
+    for n in nodes:
+        if page is not None and n.get("page_idx", 0) != page:
+            continue
+        if block_type and n.get("block_type") != block_type:
+            continue
+        blocks.append(Block(
+            block_id=n.get("id", ""),
+            block_type=n.get("block_type", ""),
+            page_idx=n.get("page_idx", 0),
+            block_seq=n.get("block_seq", 0),
+            text=n.get("plain_text", ""),
+            bbox=n.get("bbox"),
+            heading_level=n.get("derived_level"),
+            section_path=n.get("title_path"),
+            parent_block_id=n.get("parent_uid"),
+            image_url=n.get("image_path"),
+            table_html=n.get("table_html"),
+            math_latex=n.get("math_content"),
+            table_cells=n.get("table_cells"),
+            table_cells_source=n.get("table_cells_source"),
+        ))
+
+    outline_raw = []
+    for n in nodes:
+        lv = n.get("derived_level")
+        tp = n.get("title_path", "")
+        nid = n.get("id")
+        if lv and tp:
+            title = tp.split(">")[-1].strip()
+            outline_raw.append((lv, title, n.get("page_idx", 0), nid))
+
+    return BlocksResponse(
+        doc_id=doc_id,
+        filename=os.path.basename(manifest.get("source_file", "")),
+        page_count=len({n.get("page_idx") for n in nodes}),
+        blocks=blocks,
+        outline=[OutlineItem(level=lv, title=t, page_idx=p, block_ids=[bid])
+                 for lv, t, p, bid in outline_raw],
+    )
+
+
+@router.get("/{doc_id}/pdf")
+async def get_pdf(doc_id: str):
+    # 检查上传来源：原始文件为 PDF 时用户已有源文件，无需下载
+    records = _records_by_doc_id(doc_id)
+    if records and records[0].get("file_format") == ".pdf":
+        raise HTTPException(404, "原始文件为 PDF，用户已有源文件，无需下载")
+
+    library_id = _library_id_for_doc(doc_id)
+    manifest = file_storage.get_doc_manifest(library_id, doc_id)
+    pdf_path = manifest.get("render_pdf")
+    if not pdf_path or not os.path.isfile(str(pdf_path)):
+        raise HTTPException(404, "PDF 不可用")
+    return FileResponse(str(pdf_path), media_type="application/pdf", filename=f"{doc_id}.pdf")
+
+
+@router.delete("/{doc_id}")
+async def delete_document_v1(request: Request, doc_id: str):
+    """外部用户标记删除自己的文档（幂等：不存在返回 404，消费方按成功处理）。"""
+    from docs_core.docs_api.records import soft_delete_record
+    api_key_info = getattr(request.state, "api_key_info", None)
+    if not api_key_info:
+        raise HTTPException(status_code=401, detail="需要认证")
+    node = get_docs_service().get_node(doc_id)
+    if node is not None:
+        cancel_parse_task_for_node(node, parse_orchestrator)
+    success = soft_delete_record(doc_id)
+    if not success:
+        raise HTTPException(status_code=404, detail="文档不存在或已删除")
+    return {"status": "success", "message": "已标记为删除"}
+
+
+@router.get("/{doc_id}/content", response_model=ContentResponse)
+async def get_content(doc_id: str):
+    library_id = _library_id_for_doc(doc_id)
+    manifest = file_storage.get_doc_manifest(library_id, doc_id)
+    if not manifest.get("doc_root"):
+        raise HTTPException(404, f"文档 {doc_id} 不存在")
+    md_path = manifest.get("parsed_markdown")
+    if not md_path or not os.path.isfile(str(md_path)):
+        raise HTTPException(404, f"文档 {doc_id} 的 Markdown 内容尚未生成")
+    with open(str(md_path), "r", encoding="utf-8") as f:
+        md = f.read()
+    return ContentResponse(doc_id=doc_id, markdown=md)

@@ -93,16 +93,18 @@ def init_schema(conn: sqlite3.Connection) -> None:
 def insert_record(*, doc_id: str, task_id: str, uploaded_by: str = "", file_name: str = "",
                   file_format: str = "", file_size: int = 0, status: str = "queued",
                   error: Optional[str] = None, library_id: str = "default", stages: str = "",
-                  created_at: Optional[str] = None) -> int:
+                  created_at: Optional[str] = None,
+                  api_key_id: Optional[int] = None) -> int:
     conn = connect()
     try:
         init_schema(conn)
         conn.execute(
             """INSERT INTO parse_records (doc_id, task_id, uploaded_by, api_key_id,
                file_name, file_format, file_size, status, error, created_at, library_id, stages)
-               VALUES (?, ?, ?, NULL, ?, ?, ?, ?, ?, ?, ?, ?)""",
-            (doc_id, task_id, uploaded_by, file_name, file_format, file_size, status, error,
-             created_at or datetime.now(timezone.utc).isoformat(), library_id, stages),
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            (doc_id, task_id, uploaded_by, api_key_id, file_name, file_format, file_size,
+             status, error, created_at or datetime.now(timezone.utc).isoformat(),
+             library_id, stages),
         )
         conn.commit()
         return int(conn.execute("SELECT last_insert_rowid()").fetchone()[0])
@@ -269,3 +271,67 @@ def update_library_for_docs(doc_ids: List[str], new_library_id: str) -> int:
     finally:
         conn.close()
     return changed
+
+
+def list_by_doc_id(doc_id: str, *, include_deleted: bool = False) -> List[dict]:
+    """按 doc_id 取台账行（v1 路由只读端点的门牌号反查；新→旧行序）。"""
+    conn = connect()
+    try:
+        init_schema(conn)
+        sql = "SELECT * FROM parse_records WHERE doc_id = ?"
+        if not include_deleted:
+            sql += " AND status <> 'deleted'"
+        sql += " ORDER BY created_at DESC, id DESC"
+        rows = conn.execute(sql, (doc_id,)).fetchall()
+        return [dict(r) for r in rows]
+    finally:
+        conn.close()
+
+
+def list_records(
+    status_filter: Optional[str] = None,
+    library_id: Optional[str] = None,
+    deleted_filter: bool = False,
+    limit: int = 500,
+    offset: int = 0,
+) -> List[dict]:
+    """台账清单（docs_api 包内用；宿主版带 api_keys join 与日期过滤，见 services/docs-api）。"""
+    conn = connect()
+    try:
+        init_schema(conn)
+        query = "SELECT * FROM parse_records WHERE 1=1"
+        params: List[object] = []
+        if status_filter:
+            query += " AND status = ?"
+            params.append(status_filter)
+        if deleted_filter:
+            query += " AND status = 'deleted'"
+        else:
+            # False 语义是"不含已删"，不是"忽略该维度"（与宿主实现同口径）
+            query += " AND status <> 'deleted'"
+        if library_id:
+            query += " AND library_id = ?"
+            params.append(library_id)
+        query += " ORDER BY created_at DESC LIMIT ? OFFSET ?"
+        params.extend([limit, offset])
+        rows = conn.execute(query, params).fetchall()
+        return [dict(r) for r in rows]
+    finally:
+        conn.close()
+
+
+def soft_delete_record(doc_id: str) -> bool:
+    """标记该文档全部非删除行为用户已删除（v1 DELETE 幂等语义：无行返回 False）。"""
+    conn = connect()
+    try:
+        init_schema(conn)
+        now = datetime.now(timezone.utc).isoformat()
+        conn.execute(
+            "UPDATE parse_records SET status = 'deleted', error = ? "
+            "WHERE doc_id = ? AND status != 'deleted'",
+            (f"user_deleted_at_{now}", doc_id),
+        )
+        conn.commit()
+        return conn.total_changes > 0
+    finally:
+        conn.close()

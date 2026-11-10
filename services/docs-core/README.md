@@ -14,8 +14,9 @@ AnGIneer 的文档解析入库引擎（纯 Python 库）：把工程规范 / PDF
 | 🧮 可算 | 公式语义、表格插值、条款计算（供上层工具消费） | 结构化的 canonical 产物 |
 | 📎 可引用 | 条文 / 表格 / 图片的块级溯源 | `citation_targets` + 块 id |
 
-> 定位：只做**数据面**（解析 / 建索引 / 图谱 / 检索），**不含 HTTP 服务与前端**；
-> 独立部署需要只读检索面时，可选装 `[server]` extra——内置薄壳 retrieval-api（见下），默认安装不含。
+> 定位：只做**数据面**（解析 / 建索引 / 图谱 / 检索），**不含网页端与管理台**；
+> 独立部署需要 HTTP 服务面时，可选装薄壳：`[server]`（只读检索面 retrieval-api，见下）、
+> `[api]`（解析面上传/续跑/产物下载，0.1.7 起，见下）。默认安装不含任何壳。
 > 大算力全部在外部服务：版面解析、视觉结构强化、图描述、embedding、rerank 都走 HTTP 端点（配置见下）。
 
 ## 管线（9 个阶段 + 导出）
@@ -46,7 +47,7 @@ pip install "angineer-docs-core @ git+https://github.com/0mao0/angineer-docs-cor
 
 Python 要求 `>=3.10`。运行依赖：`angineer-tree-core`（树表底座）、`angineer-ai-inference`（LLM 客户端）、
 `pydantic>=2`、`PyMuPDF`、`numpy`、`python-dateutil`、`qdrant-client`、`requests`、`python-dotenv`。
-可选 extras：`[chroma]`（旧向量后端）、`[text2sql]`（领域关键词 YAML）、`[server]`（独立宿主薄壳 retrieval-api，见下）。
+可选 extras：`[chroma]`（旧向量后端）、`[text2sql]`（领域关键词 YAML）、`[server]`（独立宿主薄壳 retrieval-api，见下）、`[api]`（独立宿主薄壳解析面 docs-api，见下）。
 
 ## 另有外部依赖（不随包提供）
 
@@ -116,7 +117,46 @@ uvicorn docs_core.server:app --host 127.0.0.1 --port 8310
 | `GET /api/knowledge/documents/{doc_id}/download` | 原文回源（`?kind=source\|pdf`、`?disposition=inline` 内联呈示） |
 | `GET /health` | 探活：数据根 / 注册表挂载状态 + 向量库配置形态 |
 
-上传 / 解析 / 迁移 / 导出仍是库调用（`ParseOrchestrator` 等），不在薄壳内。
+上传 / 解析 / 迁移 / 导出仍是库调用（`ParseOrchestrator` 等），不在检索壳内；解析走下面的解析面壳。
+
+## 解析面壳（docs-api · `[api]` extra，0.1.7 起）
+
+解析服务的最小形态——上传、断点续跑、状态轮询、产物下载。落盘与派生索引按 `KB_STACK`
+档位（legacy=SQLite / pg=PostgreSQL+pgvector，与检索壳同一套 env）；解析面写完派生层，
+同 env 启动的检索面/编排面**立即可检索引用，无需同步**。
+
+```bash
+pip install "angineer-docs-core[api]"
+export ANGINEER_DATA_ROOT=/srv/angineer-data       # 数据根（文件层 + 派生索引都挂它下面）
+export MINERU_CONFIGS='[{"name":"dgx","url":"https://your-gateway/api/mineru","api_key":"..."}]'
+export KB_STACK=pg                                  # 可选：PostgreSQL 档（配 KNOWLEDGE_PG_DSN）
+export DOCS_API_STATIC_KEYS='key1,key2'             # 静态 API Key（逗号分隔）
+uvicorn docs_core.docs_api:app --host 127.0.0.1 --port 8312
+```
+
+- **鉴权**：`/api/v1/*` 强制 `X-API-Key` 头；静态键命中即放行、视作未绑定库的键
+  （不注入也不限制 `library_id`，调用方显式传库，不传落 `default`）。
+  未配置 `DOCS_API_STATIC_KEYS` 时所有请求 401/403（与宿主无效键行为一致）。
+- **就绪判定**：`GET /health` 返回 200 + `{service, started_at, pid, status}`；
+  配置漂移或向量守卫异常时 `status=degraded` 并带 `config_errors`——**消费方按 body 判就绪，不是只看状态码**。
+- **env 注入**：与检索壳同口径——壳不读进程 cwd 的 `.env`，启动器必须显式注入子进程 env。
+- **单实例守卫（可选）**：`python -m docs_core.docs_api` 入口 + `DOCS_API_SINGLE_INSTANCE_GUARD=1`
+  启动前探 `/health` 拒绝重复启动；`uvicorn` 直起不跑守卫（进程唯一性由调用方启动器保证）。
+
+| 端点 | 说明 |
+| :--- | :--- |
+| `POST /api/v1/documents/parse?stages=all` | multipart `file` 上传解析；响应 `{doc_id, task_id, status}`；`stages=all` 全链，也可传截断阶段（只产文件层，不写派生索引，属正常用法） |
+| `POST /api/v1/documents/{doc_id}/resume` | 断点续跑：已完成阶段保留；进行中 409 |
+| `GET /api/v1/documents/{doc_id}/status` | `{status, progress, stage, stage_message, error}`；status ∈ `queued/processing/completed/failed/cancelled/partial` |
+| `GET /api/v1/documents/{doc_id}/artifacts` | `{items:[{name,url}]}`；含 `doc_blocks_graph.jsonl(+meta)`、`content.md`、`images.zip`（有图时）等 |
+| `GET /api/v1/documents/{doc_id}/artifacts/{name}` | 产物字节流 |
+| `GET /api/v1/documents/{doc_id}/pdf` | 原始/转换后 PDF（输入即 PDF 时 404=用户已有源文件） |
+| `GET /api/v1/documents/{doc_id}/blocks` / `/content` | 块清单（页面/类型过滤）与 markdown 全文 |
+| `DELETE /api/v1/documents/{doc_id}` | 幂等软删：不存在返回 404，调用方按成功处理 |
+| `GET /health` | 探活（见上） |
+
+解析面不提供：知识库管理面、用户/会话/键管理（宿主网页端诉求）；R4 两点 PG 档结论见
+CHANGELOG 0.1.7（FTS 落地方式 + 首连建表 DDL 覆盖范围）。
 
 ## 配置（常用）
 
@@ -161,6 +201,7 @@ services/docs-core/
 │   │   ├── step08_maintain/         # 巡检与维护
 │   │   ├── step09_query/            # 检索（五路召回）、text2sql、对外协议
 │   │   ├── step10_export/           # 产物导出
+│   │   ├── docs_api/                # [api] 解析面薄壳（上传/续跑/产物/health，0.1.7 起）
 │   │   └── library_registry.py / parse_records_store.py / kb_migrator.py …
 │   └── popo/                        # PoPo fork（本地定制，随包发布；上游同步见 UPSTREAM_SYNC.md）
 ├── tests/                           # 88 个测试文件 / 500+ 用例
@@ -169,7 +210,7 @@ services/docs-core/
 
 ## 不在本库范围
 
-- HTTP / API 服务（由主仓库的 docs-api 实现）、前端与管理台（`[server]` extra 仅提供只读检索薄壳）；
+- 网页端与管理台（主仓库 docs-api 宿主实现；`[server]`/`[api]` extra 仅提供检索/解析两个薄壳）；
 - MinerU / PoPo / VLM / embedding / rerank 的推理服务本身；
 - 知识库数据的业务展示与权限。
 

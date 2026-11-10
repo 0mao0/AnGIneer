@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "angineer-docs-core"
-version = "0.1.6"
+version = "0.1.7"
 description = "AnGIneer docs engine: parse pipeline (source_prep -> MinerU -> PoPo -> structure -> FTS -> vectors -> graph), retrieval and export"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -67,6 +67,14 @@ text2sql = ["PyYAML>=6.0"]
 server = [
     "fastapi>=0.115",
     "uvicorn>=0.30",
+]
+# [api] 独立宿主壳（解析面，0.1.7 起）：入口 docs_core.docs_api:app。
+# 依赖只允许 PyPI 已发布包并写下限（DredgeAI docs-api 进包需求 R7-3）；
+# angineer-shared 未上 PyPI，config_validator 等价逻辑已内联进 docs_api._config，不得引入。
+api = [
+    "fastapi>=0.100",
+    "uvicorn>=0.30",
+    "python-multipart>=0.0.6",
 ]
 dev = [
     "pytest>=7.0.0",
