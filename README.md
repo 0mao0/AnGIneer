@@ -137,7 +137,7 @@ flowchart LR
 | [angineer-ai-inference](https://github.com/0mao0/angineer-ai-inference) | `v0.2.3` | Python AI 推理客户端库 |
 | [angineer-core](https://github.com/0mao0/angineer-core) | `v0.1.6` | Python 问答编排内核（Agent Harness：意图分级 / 工具调用 / 证据守卫；可选 `[server]` 壳） |
 | [angineer-tree-core](https://github.com/0mao0/angineer-tree-core) | `v0.1.0` | Python 树节点存储层（sqlite：CRUD / 移动重排 / 作用域隔离） |
-| [angineer-docs-core](https://github.com/0mao0/angineer-docs-core) | `v0.1.6` | Python 文档解析入库引擎（九阶段管线 + 五路检索 + 导出；PoPo 随包；可选 `[server]` 壳） |
+| [angineer-docs-core](https://github.com/0mao0/angineer-docs-core) | `v0.1.7` | Python 文档解析入库引擎（九阶段管线 + 五路检索 + 导出；可选 `[server]` 检索壳 / `[api]` 解析壳） |
 | [angineer-sop-core](https://github.com/0mao0/angineer-sop-core) | `v0.1.0` | Python SOP 编写库（加载 / 解析 / 校验 / 生成；执行器在 angineer-core） |
 
 ***

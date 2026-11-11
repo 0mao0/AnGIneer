@@ -174,11 +174,11 @@ CHANGELOG 0.1.7（FTS 落地方式 + 首连建表 DDL 覆盖范围）。
 
 ## 包里包含什么
 
-- **`docs_core`**：管线与数据面本体（9 阶段、canonical 存储、五路检索、图谱、导出）；
-- **`popo`**：PoPo fork（上游 MinerU-Popo 的定制版）随包发布，两个要点：
-  - 它是**顶层导入名 `popo`**（上游没有 `__init__.py`，按命名空间包收集），装完 site-packages 里会多出这个目录；
-  - 缺失也不报错——第 4 步按「软阶段」跳过，结构由 Solo 单独构建（质量降级、链路不断）。
-    自定义位置可用 `POPO_REPO_PATH` 指定。
+- **`docs_core`**：管线与数据面本体（9 阶段、canonical 存储、五路检索、图谱、导出；
+  `docs_api` / `server` 薄壳随 extras）；
+- **PoPo 不随包**（0.1.5 起 wheel 不再内嵌 popo fork）：PoPo 视觉强化走独立客户端
+  `popo-client`（dgx-spark-popo 公开仓）或服务端文档级 API（`POPO_CONFIGS`）；
+  缺失也不报错——第 4 步按「软阶段」跳过，结构由 Solo 单独构建（质量降级、链路不断）。
 - 依赖 **`angineer-tree-core`** 与 **`angineer-ai-inference`**，pip 会自动带上。
 
 ## 目录结构
@@ -203,7 +203,6 @@ services/docs-core/
 │   │   ├── step10_export/           # 产物导出
 │   │   ├── docs_api/                # [api] 解析面薄壳（上传/续跑/产物/health，0.1.7 起）
 │   │   └── library_registry.py / parse_records_store.py / kb_migrator.py …
-│   └── popo/                        # PoPo fork（本地定制，随包发布；上游同步见 UPSTREAM_SYNC.md）
 ├── tests/                           # 88 个测试文件 / 500+ 用例
 └── pyproject.toml
 ```
