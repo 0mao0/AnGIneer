@@ -79,8 +79,9 @@ api = [
 dev = [
     "pytest>=7.0.0",
     "pytest-cov>=4.0.0",
-    "fastapi>=0.115",  # server 壳测试（TestClient）
+    "fastapi>=0.115",  # server/docs_api 壳测试（TestClient）
     "httpx>=0.27",     # fastapi TestClient 传输层
+    "python-multipart>=0.0.6",  # docs_api 壳测试导入路由带 UploadFile，缺它 fastapi 直接 RuntimeError（0.1.7 CI 实踩）
 ]
 
 [tool.setuptools]
