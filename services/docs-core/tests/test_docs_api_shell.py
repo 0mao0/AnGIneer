@@ -276,6 +276,11 @@ def test_parse_filename_encoded_word_decoded(client, stub_orchestrator):
     from docs_core.docs_api.records import list_by_doc_id
 
     assert list_by_doc_id(doc_id)[0]["file_name"] == name
+    # 0.1.8 复验残留：nodes.title 也要归一值（读标/知识树显示名不再乱码）
+    from docs_core.docs_service import get_docs_service
+
+    node = get_docs_service().get_node(doc_id)
+    assert node is not None and node.title == name
 
 
 # ---- MINERU_VERIFY_SSL（0.1.8 问题四）/ PoPo 文档级 API 门控（问题五）----

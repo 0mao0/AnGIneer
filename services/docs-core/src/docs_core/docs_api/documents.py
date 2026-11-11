@@ -199,7 +199,7 @@ async def parse_document_v1(
         library_id,
         source_path,
         doc_id,
-        title=file.filename,
+        title=filename,  # 归一后值（0.1.8 复验残留：encoded-word 原样进 nodes.title 读标乱码）
         parent_id=folder_id,
     )
 
