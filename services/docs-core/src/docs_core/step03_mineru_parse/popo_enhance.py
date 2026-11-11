@@ -169,7 +169,15 @@ class PoPoPipelineRunner:
                 )
 
     def is_available(self) -> bool:
-        """PoPo 子模块是否可用（子进程脚本齐全）。缺失时上层应优雅跳过而非报错。"""
+        """PoPo 通道是否可用。
+
+        两条通道任一可用即 True（0.1.8 起，DredgeAI 接入验收反馈·问题五）：
+        - 文档级 HTTP API：``POPO_DOC_API_URL`` 已设置（推理整体在服务端，无需本地
+          源码树/子进程脚本）——此前本函数只认子进程脚本，纯 HTTP 部署永远 skipped；
+        - 子进程链：popo 源码树脚本齐全（wheel 回退模式）。
+        """
+        if (os.environ.get("POPO_DOC_API_URL", "") or "").strip():
+            return True
         return bool(
             self.popo_repo_path
             and (self.popo_repo_path / "post_processing" / "label_normalization.py").is_file()

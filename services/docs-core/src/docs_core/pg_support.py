@@ -544,7 +544,7 @@ class PgConnection:
         if notes.get("pragma_info"):
             cur = self._conn.execute(translated, (notes["pragma_info"],))
             return PgCursor(cur)
-        run_sql = translated
+        run_sql = self._maybe_add_returning(translated)
         if notes.get("autoincrement") and run_sql.strip().upper().startswith("CREATE TABLE"):
             run_sql = run_sql.rstrip().rstrip(";")
         try:

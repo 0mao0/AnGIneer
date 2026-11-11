@@ -98,6 +98,74 @@ def ready(pg_env):
 # ---------------------------------------------------------------------------
 
 
+def test_autoincrement_tables_last_insert_rowid(ready):
+    """0.1.8 回归（DredgeAI 接入验收·问题一）：PgConnection.execute 此前漏调
+    _maybe_add_returning —— serial 表 INSERT 不补 RETURNING，_last_returning_id 恒
+    None，last_insert_rowid() 返回 (None,)，docs_api 台账插入 int(None) 必崩。
+    四张 _AUTOINCREMENT_TABLES 全覆盖。"""
+    from docs_core.pg_support import _AUTOINCREMENT_TABLES, pg_connect
+
+    conn = pg_connect()
+    try:
+        # parse_records：最小插入（消费方报告的原始崩点）
+        conn.execute(
+            "INSERT INTO parse_records (doc_id, task_id, uploaded_by, status, created_at) "
+            "VALUES (?, ?, ?, ?, ?)",
+            ("v1-pgtest", "pending-v1-pgtest", "StaticAPI", "pending", "2026-11-12T00:00:00"),
+        )
+        row_id = int(conn.execute("SELECT last_insert_rowid()").fetchone()[0])
+        assert isinstance(row_id, int) and row_id > 0
+
+        # parse_task_steps / parse_stage_steps / doc_blocks：同机制覆盖
+        conn.execute(
+            "INSERT INTO parse_task_steps (task_id, doc_id, stage, progress, stage_message, created_at) "
+            "VALUES (?, ?, ?, ?, ?, ?)",
+            ("task-pgtest", "v1-pgtest", "structure", 10, "step", "2026-11-12T00:00:00"),
+        )
+        assert int(conn.execute("SELECT last_insert_rowid()").fetchone()[0]) > 0
+        conn.execute(
+            "INSERT INTO parse_stage_steps (doc_id, stage, step, status, detail, created_at) "
+            "VALUES (?, ?, ?, ?, ?, ?)",
+            ("v1-pgtest", "structure", "solo", "done", "", "2026-11-12T00:00:00"),
+        )
+        assert int(conn.execute("SELECT last_insert_rowid()").fetchone()[0]) > 0
+        conn.execute(
+            "INSERT INTO doc_blocks (doc_id, page_idx, page_width, page_height, block_seq, "
+            "block_uid, block_type, content_json, plain_text, bbox_abs_x1, bbox_abs_y1, "
+            "bbox_abs_x2, bbox_abs_y2, created_at, updated_at, is_active) "
+            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+            ("v1-pgtest", 0, 595.0, 842.0, 0, "blk-1", "paragraph", "{}", "测试块",
+             0.0, 0.0, 100.0, 20.0, "2026-11-12T00:00:00", "2026-11-12T00:00:00", 1),
+        )
+        assert int(conn.execute("SELECT last_insert_rowid()").fetchone()[0]) > 0
+        conn.commit()
+    finally:
+        conn.close()
+    # 占位覆盖读：_AUTOINCREMENT_TABLES 四表齐（新增 serial 表必须登记，否则 last_insert_rowid 静默 None）
+    assert set(_AUTOINCREMENT_TABLES) == {
+        "parse_records", "parse_task_steps", "parse_stage_steps", "doc_blocks"
+    }
+
+
+def test_docs_api_records_insert_via_pg_stack(ready):
+    """docs_api 台账门面在 pg 档位走 store 适配层（0.1.7 反馈的原始 500 路径）。"""
+    from docs_core.docs_api.records import (
+        ParseRecord,
+        insert_record,
+        list_by_doc_id,
+        update_record_status,
+    )
+
+    row_id = insert_record(ParseRecord(
+        doc_id="v1-pgtest2", task_id="pending-v1-pgtest2", uploaded_by="StaticAPI",
+        file_name="混凝土强度检测报告.pdf", status="pending", library_id="bid-docs", stages="all",
+    ))
+    assert row_id > 0
+    rows = list_by_doc_id("v1-pgtest2")
+    assert rows and rows[0]["file_name"] == "混凝土强度检测报告.pdf"
+    assert update_record_status("pending-v1-pgtest2", "processing")
+
+
 def test_registry_roundtrip(ready):
     from docs_core import library_registry
     from docs_core.pg_support import kb_stack

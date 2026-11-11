@@ -20,6 +20,22 @@ load_dotenv()
 
 logger = logging.getLogger(__name__)
 
+VERIFY_SSL_ENV = "MINERU_VERIFY_SSL"
+
+
+def _verify_ssl() -> bool:
+    """MinerU HTTP 调用是否校验上游证书（0.1.8 起 env 可配，默认 true）。
+
+    历史：三处 requests 调用写死 verify=False（完全不校验上游证书，自签内网端点靠它跑通）。
+    现默认收紧为 true——自签网关经 ``REQUESTS_CA_BUNDLE`` / ``CURL_CA_BUNDLE`` 信任
+    （requests 惯例键；消费方 env 清单已含），遗留明文 IP 自签部署设
+    ``MINERU_VERIFY_SSL=0`` 回退旧行为。
+    """
+    raw = (os.getenv(VERIFY_SSL_ENV) or "").strip().lower()
+    if not raw:
+        return True
+    return raw not in ("0", "false", "no", "off")
+
 
 def _emit_on_step(
     on_step: Optional[Callable[[str, str, str], None]],
@@ -238,7 +254,7 @@ class MinerUParser:
     def _download_bytes(self, url: str, timeout: int, headers: Optional[Dict[str, str]] = None) -> Optional[bytes]:
         """流式下载并限制大小；取消/超限时抛异常，HTTP 失败时返回 None。"""
         resp = self._request_with_proxy_fallback(
-            'GET', url, headers=headers, timeout=timeout, verify=False, stream=True,
+            'GET', url, headers=headers, timeout=timeout, verify=_verify_ssl(), stream=True,
         )
         if resp.status_code != 200:
             return None
@@ -721,7 +737,7 @@ class MinerUParser:
                         'is_async': 'false',
                     },
                     timeout=(self.connect_timeout, self.company_api_timeout),
-                    verify=False,
+                    verify=_verify_ssl(),
                 )
 
             # 请求返回后立即检查取消（请求期间 requests 阻塞无法中断，返回后立即中止处理）
@@ -842,7 +858,7 @@ class MinerUParser:
                 _time.sleep(3 if attempt < 10 else 5)
             try:
                 resp = self._request_with_proxy_fallback(
-                    'GET', poll_url, headers=headers, timeout=30, verify=False,
+                    'GET', poll_url, headers=headers, timeout=30, verify=_verify_ssl(),
                 )
             except Exception as e:
                 logger.warning("Poll attempt %d failed: %s", attempt + 1, e)

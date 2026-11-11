@@ -216,6 +216,94 @@ def test_delete_unknown_404(client):
     assert client.delete(f"/api/v1/documents/v1-{uuid.uuid4().hex[:12]}").status_code == 404
 
 
+def test_delete_cascades_to_node_cleanup(client, stub_orchestrator, monkeypatch):
+    """0.1.8（DredgeAI 接入验收·问题三）：DELETE 必须走 ks.delete_node 级联清理，
+    不再只软删台账行——否则派生层留存、检索仍命中已删文档。"""
+    import sys
+
+    doc_id = _upload(client).json()["doc_id"]
+
+    class _StubNode:
+        id = doc_id
+        parse_task_id = None
+
+    class _StubKS:
+        def __init__(self):
+            self.deleted = []
+
+        def get_node(self, node_id):
+            return _StubNode() if node_id == doc_id else None
+
+        def delete_node(self, node_id):
+            self.deleted.append(node_id)
+            return True
+
+    stub_ks = _StubKS()
+    # documents 模块在 import 时已绑定 get_docs_service——patch 它的命名空间而非源模块
+    from docs_core.docs_api import documents as documents_module
+
+    monkeypatch.setattr(documents_module, "get_docs_service", lambda: stub_ks)
+
+    resp = client.delete(f"/api/v1/documents/{doc_id}")
+    assert resp.status_code == 200
+    assert stub_ks.deleted == [doc_id]  # 级联清理被触发
+    from docs_core.docs_api.records import list_by_doc_id
+
+    assert list_by_doc_id(doc_id, include_deleted=True)  # 台账留痕（软删）
+
+
+def test_parse_filename_encoded_word_decoded(client, stub_orchestrator):
+    """0.1.8（DredgeAI 接入验收·问题二）：.NET encoded-word 文件名服务端解码落盘，
+    不再以 =?utf-8?B?...?= 原名撞 Windows 非法字符（OSError Errno 22）。"""
+    import base64
+
+    name = "混凝土强度检测报告.pdf"
+    encoded = "=?utf-8?B?" + base64.b64encode(name.encode()).decode() + "?="
+    body = (
+        f'--BOUNDARY\r\nContent-Disposition: form-data; name="file"; filename="{encoded}"\r\n'
+        "Content-Type: application/pdf\r\n\r\n%PDF-1.4 t\r\n--BOUNDARY--\r\n"
+    ).encode()
+    resp = client.post(
+        "/api/v1/documents/parse",
+        params={"stages": "structure"},
+        content=body,
+        headers={"Content-Type": "multipart/form-data; boundary=BOUNDARY"},
+    )
+    assert resp.status_code == 200, resp.text
+    doc_id = resp.json()["doc_id"]
+    file_path = Path(stub_orchestrator.calls[0]["file_path"])
+    assert "?" not in file_path.name  # encoded-word 未再进入文件系统
+    from docs_core.docs_api.records import list_by_doc_id
+
+    assert list_by_doc_id(doc_id)[0]["file_name"] == name
+
+
+# ---- MINERU_VERIFY_SSL（0.1.8 问题四）/ PoPo 文档级 API 门控（问题五）----
+
+def test_mineru_verify_ssl_default_true(monkeypatch):
+    from docs_core.step03_mineru_parse.mineru_parser import _verify_ssl
+
+    monkeypatch.delenv("MINERU_VERIFY_SSL", raising=False)
+    assert _verify_ssl() is True  # 默认收紧：校验上游证书
+    for off in ("0", "false", "no", "off"):
+        monkeypatch.setenv("MINERU_VERIFY_SSL", off)
+        assert _verify_ssl() is False
+    monkeypatch.setenv("MINERU_VERIFY_SSL", "1")
+    assert _verify_ssl() is True
+
+
+def test_popo_available_via_doc_api_url(monkeypatch):
+    """0.1.8（问题五）：设 POPO_DOC_API_URL 即视为可用（纯 HTTP 部署无源码树）。"""
+    from docs_core.step03_mineru_parse.popo_enhance import get_popo_pipeline
+
+    monkeypatch.delenv("POPO_DOC_API_URL", raising=False)
+    pipeline = get_popo_pipeline()
+    if pipeline.is_available():
+        pytest.skip("本机有 popo 源码树，无法构造不可用形态")
+    monkeypatch.setenv("POPO_DOC_API_URL", "http://127.0.0.1:9999")
+    assert pipeline.is_available() is True
+
+
 # ---- resume（R3：进行中 409 / 断点续跑）----
 
 def test_resume_unknown_doc_404(client, stub_orchestrator):

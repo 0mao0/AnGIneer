@@ -21,6 +21,7 @@ from fastapi.responses import FileResponse
 from starlette.background import BackgroundTask
 
 import docs_core.paths as paths
+from docs_core.docs_api._filename import normalize_upload_filename
 from docs_core.docs_api.orchestrator import parse_orchestrator
 from docs_core.docs_api.parse_task_cleanup import cancel_parse_task_for_node
 from docs_core.docs_api.records import ParseRecord, insert_record, list_by_doc_id
@@ -171,7 +172,11 @@ async def parse_document_v1(
     if not file.filename:
         raise HTTPException(400, "文件名不能为空")
 
-    ext = Path(file.filename).suffix.lower()
+    # .NET 等客户端对非 ASCII 文件名按 RFC 2047 编码为 encoded-word（=?utf-8?B?...?=），
+    # python-multipart 不解码原样作文件名；Windows 文件名禁止 '?' → open() 直接
+    # OSError [Errno 22]。服务端统一解码+清洗（0.1.8，DredgeAI 接入验收反馈·问题二）。
+    filename = normalize_upload_filename(file.filename)
+    ext = Path(filename).suffix.lower()
     is_pdf = ext == ".pdf"
     library_id = library_id.strip() or "default"
     doc_id = f"v1-{uuid.uuid4().hex[:12]}"
@@ -186,7 +191,7 @@ async def parse_document_v1(
         library_id = bound_library
 
     content = await file.read()
-    source_path = file_storage.save_source_file(library_id, doc_id, content, file.filename)
+    source_path = file_storage.save_source_file(library_id, doc_id, content, filename)
 
     # 注册知识库节点：挂在知识树根部的 API 专属文件夹下（parse_pipeline 依赖节点存在）
     folder_id = _ensure_api_folder(library_id, api_key_info)
@@ -204,7 +209,7 @@ async def parse_document_v1(
         task_id=f"pending-{doc_id}",
         uploaded_by=uploaded_by,
         api_key_id=api_key_id,
-        file_name=file.filename,
+        file_name=filename,
         file_format=ext,
         file_size=len(content),
         status="pending",
@@ -496,18 +501,26 @@ async def get_pdf(doc_id: str):
 
 @router.delete("/{doc_id}")
 async def delete_document_v1(request: Request, doc_id: str):
-    """外部用户标记删除自己的文档（幂等：不存在返回 404，消费方按成功处理）。"""
+    """外部用户删除自己的文档（幂等：不存在返回 404，消费方按成功处理）。
+
+    0.1.8 起对齐宿主网页端删除语义（DredgeAI 接入验收反馈·问题三）：此前只软删台账行，
+    知识树节点与派生层（canonical/chunks/FTS/向量/图谱/文件）原样留存——DELETE 后检索
+    仍命中已删文档。现在走 ``ks.delete_node()`` 级联清理（含取消在跑任务），台账行
+    软删留痕；节点已不存在（历史悬空）时退化为仅台账软删。
+    """
     from docs_core.docs_api.records import soft_delete_record
     api_key_info = getattr(request.state, "api_key_info", None)
     if not api_key_info:
         raise HTTPException(status_code=401, detail="需要认证")
-    node = get_docs_service().get_node(doc_id)
+    ks = get_docs_service()
+    node = ks.get_node(doc_id)
     if node is not None:
         cancel_parse_task_for_node(node, parse_orchestrator)
+        ks.delete_node(doc_id)  # 级联清 parse_tasks/segments/doc_blocks/canonical+FTS/向量/文件/图谱
     success = soft_delete_record(doc_id)
-    if not success:
+    if not success and node is None:
         raise HTTPException(status_code=404, detail="文档不存在或已删除")
-    return {"status": "success", "message": "已标记为删除"}
+    return {"status": "success", "message": "已删除（含解析产物与派生索引）"}
 
 
 @router.get("/{doc_id}/content", response_model=ContentResponse)
