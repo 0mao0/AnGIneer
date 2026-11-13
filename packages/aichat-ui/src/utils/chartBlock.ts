@@ -2,7 +2,11 @@
  *  为什么不是 Vue 组件：markdown 输出走 v-html（不经 Vue 编译），
  *  在容器上后处理 querySelector 挂载是最贴合现有管线的方式。
  *  流式期间块未闭合时 markdown 层只出 pending 占位；闭合后 v-html 重建 DOM，
- *  本模块每次调用只挂「未挂载」的块，并 dispose 已脱离文档的旧实例（防泄漏）。 */
+ *  本模块每次调用只挂「未挂载」的块，并 dispose 已脱离文档的旧实例（防泄漏）。
+ *  ⚠️ 加载契约（0.2.7）：本模块（连同下方 echarts 静态 import 与 use() 注册）
+ *  只允许经 BaseChat 的 `await import('../utils/chartBlock')` 在解析出图表容器后加载，
+ *  禁止在任何宿主可达的静态链路（index.ts / markdown.ts / 组件顶层）直接 import——
+ *  否则 echarts 整包回落宿主主 graph（零图表宿主实测承担 219KB gzip 死代码）。 */
 import * as echarts from 'echarts/core'
 import { BarChart, LineChart, PieChart } from 'echarts/charts'
 import { GridComponent, TooltipComponent, LegendComponent, TitleComponent } from 'echarts/components'

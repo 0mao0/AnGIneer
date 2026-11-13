@@ -564,7 +564,6 @@ import {
   thinkingWallMs,
 } from '../utils/thinking'
 import { formatTokenCount } from '../utils/token'
-import { mountChartBlocks, startChartThemeObserver } from '../utils/chartBlock'
 import { message } from 'ant-design-vue'
 import { QUEUE_LIMIT } from '../composables/useAIChat'
 
@@ -1405,15 +1404,46 @@ watch(() => props.messages.length, () => scrollToBottom())
 watch(() => props.currentStreamContent, () => scrollToBottom())
 
 // angineer 图表块（协议 v1，docs/plan-aichat-chart-blocks.md）：v-html 重建 DOM 后
-// 后处理挂载 echarts。流式 delta 高频重建，debounce 150ms 只挂一次；
+// 后处理挂载 echarts。echarts 整包体积大，而多数宿主（实测 user-web / user-h5）
+// 后端从不产出 ```angineer-chart 块，静态引入会让这类宿主主 chunk 含 echarts、
+// dev 冷启动多拉约 800 个模块请求（0.2.7 外部宿主反馈）。
+// 因此 chartBlock 只在 DOM 里真的解析出图表容器时才 await import，echarts 不进主 graph；
+// 主题监听随首次加载注册。流式 delta 高频重建，debounce 150ms 只挂一次；
 // 已脱离文档的旧实例由 mountChartBlocks 内部 dispose 回收。
+type ChartBlockModule = typeof import('../utils/chartBlock')
+let chartBlockApi: ChartBlockModule | null = null
+let chartBlockLoading: Promise<ChartBlockModule | null> | null = null
+const loadChartBlock = (): Promise<ChartBlockModule | null> => {
+  if (!chartBlockLoading) {
+    chartBlockLoading = import('../utils/chartBlock')
+      .then(mod => {
+        chartBlockApi = mod
+        mod.startChartThemeObserver()
+        return mod
+      })
+      .catch(() => {
+        // 动态加载失败（如网络抖动）不缓存 rejected，下一次调度重试
+        chartBlockLoading = null
+        return null
+      })
+  }
+  return chartBlockLoading
+}
 let chartRemountTimer: ReturnType<typeof setTimeout> | undefined
 const scheduleChartMount = () => {
   if (chartRemountTimer) clearTimeout(chartRemountTimer)
   chartRemountTimer = setTimeout(() => {
     nextTick(() => {
       const root = messagesRef.value
-      if (root) mountChartBlocks(root)
+      if (!root) return
+      // 已加载过：直接挂新块，顺带 dispose 回收 v-html 重建后的旧实例
+      if (chartBlockApi) {
+        chartBlockApi.mountChartBlocks(root)
+        return
+      }
+      // 未加载：只在本轮 DOM 真的出现图表容器时才拉 echarts（零图表宿主不触发请求）
+      if (!root.querySelector('.angineer-chart-block[data-chart]:not([data-mounted])')) return
+      void loadChartBlock().then(mod => mod?.mountChartBlocks(root))
     })
   }, 150)
 }
@@ -1431,7 +1461,6 @@ watch(() => props.modelGroups, syncSelectedModel, { deep: true, immediate: true 
 
 onMounted(() => {
   syncSelectedModel()
-  startChartThemeObserver()
   scheduleChartMount()
   emit('ready')
 })
